@@ -43,29 +43,10 @@
  */ 
 #define GENERATE_RECORD(record_name, ...) \
   struct record_name { \
-     EQ_OPERATORS(record_name, __VA_ARGS__) \
-  };
-
-
-// #define GENERATE_RECORD(record_name, ...) \
-//   struct record_name { \
-//     __VA_OPT__(CONST_FIELDS(__VA_ARGS__)) \
-//     EQ_OPERATORS(record_name, __VA_ARGS__) \
-//     __VA_OPT__(WITH_FUNCTIONS(record_name, __VA_ARGS__)) \
-//   }; \
-//   EQ_TYPECLASS(record_name, __VA_ARGS__) \
-//   TO_STRING_TYPECLASS(record_name, __VA_ARGS__)
-   
-  
-
-// GENERATE_RECORD(Test)
-
-// Comma is in
-// GENERATE_RECORD(Testing,
-//   int, age,
-//   int, cost,
-//   std::string, name,
-//   Test, test,
-//   Test, test2
-// )
+    __VA_OPT__(CONST_FIELDS(__VA_ARGS__)) \
+    EQ_OPERATORS(record_name, __VA_ARGS__) \
+    __VA_OPT__(WITH_FUNCTIONS(record_name, __VA_ARGS__)) \
+  }; \
+  EQ_TYPECLASS(record_name, __VA_ARGS__) \
+  TO_STRING_TYPECLASS(record_name, __VA_ARGS__)
 

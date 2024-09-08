@@ -5,18 +5,8 @@
 #include <core/typeclasses/ToString.h>
 #include <chaos/preprocessor.h>
 
-#define EQ_OPERATOR_SINGLE_FIELD(s, i, type, name, size) \
-  CHAOS_PP_IF(CHAOS_PP_EQUAL(CHAOS_PP_DEC(size), i)) ( \
-    Equal(name, other.name), \
-    Equal(name, other.name) \
-  )
-
-// #define EQ_OPERATOR_FIELDS(...) FOR_EACH2_CON(EQ_OPERATOR_SINGLE_FIELD, &&, __VA_ARGS__)
-#define EQ_OPERATOR_FIELDS(...) \
-  CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
-    EQ_OPERATOR_SINGLE_FIELD, GROUP_VARIADIC(__VA_ARGS__), CHAOS_PP_DIV(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 2) \
-  ))
-
+#define EQ_OPERATOR_SINGLE_FIELD(type, name) Equal(name, other.name)
+#define EQ_OPERATOR_FIELDS(...) FOR_EACH2_CON(EQ_OPERATOR_SINGLE_FIELD, &&, __VA_ARGS__)
 #define EQ_OPERATORS(type, ...) \
   bool operator==(const type& other) const { \
     return \

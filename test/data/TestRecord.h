@@ -2,14 +2,12 @@
 #include <core/data/Record.h>
 #include <chaos/preprocessor.h>
 
+// TODO PS singleton for no params.
 GENERATE_RECORD(TestNoParams)
 
-// TODO PS singleton for no params.
-// GENERATE_RECORD(TestNoParams)
-
-// GENERATE_RECORD(TestWithParams,
-//   int, age,
-//   float, cost,
-//   std::string, name,
-//   TestNoParams, testNoParams
-// )
+GENERATE_RECORD(TestWithParams,
+  int, age,
+  float, cost,
+  std::string, name,
+  TestNoParams, testNoParams
+)

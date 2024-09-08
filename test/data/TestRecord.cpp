@@ -3,8 +3,7 @@
 
 namespace data {
   TEST(Record, Equality) {
-    // TestNoParams x1;
-    std::string gen = "a";
-    EXPECT_EQ(gen, "") << "Expected to be equal, but it was not.";
+    TestNoParams x1, x2;
+    EXPECT_TRUE(x1 == x2) << "Expected to be equal, but it was not.";
   }
 }

@@ -1,6 +1,7 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
 // ReSharper disable CppClangTidyModernizeMacroToEnum
 #pragma once
+#include <core/macros/ForEach.h>
 
 #define CONST_SINGLE_FIELD(type, name) const type name;
 #define CONST_FIELDS(...) FOR_EACH2(CONST_SINGLE_FIELD, __VA_ARGS__)
