@@ -15,14 +15,14 @@ concept SmartPointer = requires {
 );
 
 template<typename FA, typename = void>
-struct MonadValueTypeHelper {
+struct InnerTypeHelper {
   using Type = typename FA::ValueType;
 };
 
 template<typename FA>
-struct MonadValueTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
+struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
   using Type = typename FA::element_type::ValueType;
 };
 
 template<typename FA>
-using MonadValueType = typename MonadValueTypeHelper<FA>::Type;
+using InnerType = typename InnerTypeHelper<FA>::Type;

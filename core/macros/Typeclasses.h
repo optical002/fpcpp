@@ -3,6 +3,7 @@
 
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Ord.h>
 #include <chaos/preprocessor.h>
 
 #define EQ_OPERATOR_SINGLE_FIELD(type, name) Equal(name, other.name)
@@ -49,5 +50,27 @@
           STRINGIFY(type##()), \
           std::format(TO_STRING_STR_FIELDS(type, __VA_ARGS__), TO_STRING_VALUES(__VA_ARGS__)) \
         ); \
+    } \
+  };
+
+#define ORD_OPERATORS(record_type, field_type, field_name) \
+  bool operator<(const record_type& other) const { \
+    return Compare(field_name, other.field_name) < 0; \
+  } \
+  bool operator<=(const record_type& other) const { \
+    return Compare(field_name, other.field_name) <= 0; \
+  } \
+  bool operator>(const record_type& other) const { \
+    return Compare(field_name, other.field_name) > 0; \
+  } \
+  bool operator>=(const record_type& other) const { \
+    return Compare(field_name, other.field_name) >= 0; \
+  }
+
+#define ORD_TYPECLASS(record_type, field_type, field_name) \
+  template<> \
+  struct Ord<record_type> { \
+    static int compare(const record_type& a, const record_type& b) { \
+      return Compare(a.field_name, b.field_name); \
     } \
   };

@@ -4,7 +4,7 @@
 #include "core/data/Concepts.h"
 
 template<typename FA, typename Map>
-requires std::invocable<Map, MonadValueType<FA>>
+requires std::invocable<Map, InnerType<FA>>
 auto ForComprehension(FA fa, Map&& f) {
   if constexpr (SmartPointer<FA> || PointerType<FA>) {
     return fa->map(std::forward<Map>(f));
@@ -16,7 +16,7 @@ auto ForComprehension(FA fa, Map&& f) {
 // For comprehension for chaining (e.g. fa.flatMap(flatMap).flatMap(flatMap2).map(map))
 template<
   typename FA,  typename FlatMap, typename... Tail
-> requires std::invocable<FlatMap, MonadValueType<FA>>
+> requires std::invocable<FlatMap, InnerType<FA>>
 auto ForComprehension(
   FA fa, FlatMap&& flatMap, Tail&&... tail
 ) {
@@ -34,8 +34,8 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap, typename FlatMapResult = MonadValueType<std::invoke_result_t<FlatMap, A>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap, typename FlatMapResult = InnerType<std::invoke_result_t<FlatMap, A>>,
   typename Map
 > requires
   std::invocable<FlatMap, A>
@@ -59,9 +59,9 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -91,10 +91,10 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -128,11 +128,11 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -170,12 +170,12 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -217,13 +217,13 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -269,14 +269,14 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
-  typename FlatMap7, typename FlatMap7Result = MonadValueType<std::invoke_result_t<FlatMap7, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
+  typename FlatMap7, typename FlatMap7Result = InnerType<std::invoke_result_t<FlatMap7, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -326,15 +326,15 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
-  typename FlatMap7, typename FlatMap7Result = MonadValueType<std::invoke_result_t<FlatMap7, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result>>,
-  typename FlatMap8, typename FlatMap8Result = MonadValueType<std::invoke_result_t<FlatMap8, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result, FlatMap7Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
+  typename FlatMap7, typename FlatMap7Result = InnerType<std::invoke_result_t<FlatMap7, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result>>,
+  typename FlatMap8, typename FlatMap8Result = InnerType<std::invoke_result_t<FlatMap8, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result, FlatMap7Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -388,16 +388,16 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1, A>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
-  typename FlatMap7, typename FlatMap7Result = MonadValueType<std::invoke_result_t<FlatMap7, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result>>,
-  typename FlatMap8, typename FlatMap8Result = MonadValueType<std::invoke_result_t<FlatMap8, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result, FlatMap7Result>>,
-  typename FlatMap9, typename FlatMap9Result = MonadValueType<std::invoke_result_t<FlatMap9, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result, FlatMap7Result, FlatMap8Result>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1, A>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2, A, FlatMap1Result>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3, A, FlatMap1Result, FlatMap2Result>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4, A, FlatMap1Result, FlatMap2Result, FlatMap3Result>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result>>,
+  typename FlatMap7, typename FlatMap7Result = InnerType<std::invoke_result_t<FlatMap7, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result>>,
+  typename FlatMap8, typename FlatMap8Result = InnerType<std::invoke_result_t<FlatMap8, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result, FlatMap7Result>>,
+  typename FlatMap9, typename FlatMap9Result = InnerType<std::invoke_result_t<FlatMap9, A, FlatMap1Result, FlatMap2Result, FlatMap3Result, FlatMap4Result, FlatMap5Result, FlatMap6Result, FlatMap7Result, FlatMap8Result>>,
   typename Map
 > requires
   std::invocable<FlatMap1, A>
@@ -455,8 +455,8 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap, typename FlatMapResult = MonadValueType<std::invoke_result_t<FlatMap>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap, typename FlatMapResult = InnerType<std::invoke_result_t<FlatMap>>,
   typename Map
 > requires
   std::invocable<FlatMap>
@@ -480,9 +480,9 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -512,10 +512,10 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -550,11 +550,11 @@ auto ForComprehension(
 
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -592,12 +592,12 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -639,13 +639,13 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -691,14 +691,14 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6>>,
-  typename FlatMap7, typename FlatMap7Result = MonadValueType<std::invoke_result_t<FlatMap7>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6>>,
+  typename FlatMap7, typename FlatMap7Result = InnerType<std::invoke_result_t<FlatMap7>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -748,15 +748,15 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6>>,
-  typename FlatMap7, typename FlatMap7Result = MonadValueType<std::invoke_result_t<FlatMap7>>,
-  typename FlatMap8, typename FlatMap8Result = MonadValueType<std::invoke_result_t<FlatMap8>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6>>,
+  typename FlatMap7, typename FlatMap7Result = InnerType<std::invoke_result_t<FlatMap7>>,
+  typename FlatMap8, typename FlatMap8Result = InnerType<std::invoke_result_t<FlatMap8>>,
   typename Map
 > requires
   std::invocable<FlatMap1>
@@ -810,16 +810,16 @@ auto ForComprehension(
 }
 
 template<
-  typename FA, typename A = MonadValueType<FA>,
-  typename FlatMap1, typename FlatMap1Result = MonadValueType<std::invoke_result_t<FlatMap1>>,
-  typename FlatMap2, typename FlatMap2Result = MonadValueType<std::invoke_result_t<FlatMap2>>,
-  typename FlatMap3, typename FlatMap3Result = MonadValueType<std::invoke_result_t<FlatMap3>>,
-  typename FlatMap4, typename FlatMap4Result = MonadValueType<std::invoke_result_t<FlatMap4>>,
-  typename FlatMap5, typename FlatMap5Result = MonadValueType<std::invoke_result_t<FlatMap5>>,
-  typename FlatMap6, typename FlatMap6Result = MonadValueType<std::invoke_result_t<FlatMap6>>,
-  typename FlatMap7, typename FlatMap7Result = MonadValueType<std::invoke_result_t<FlatMap7>>,
-  typename FlatMap8, typename FlatMap8Result = MonadValueType<std::invoke_result_t<FlatMap8>>,
-  typename FlatMap9, typename FlatMap9Result = MonadValueType<std::invoke_result_t<FlatMap9>>,
+  typename FA, typename A = InnerType<FA>,
+  typename FlatMap1, typename FlatMap1Result = InnerType<std::invoke_result_t<FlatMap1>>,
+  typename FlatMap2, typename FlatMap2Result = InnerType<std::invoke_result_t<FlatMap2>>,
+  typename FlatMap3, typename FlatMap3Result = InnerType<std::invoke_result_t<FlatMap3>>,
+  typename FlatMap4, typename FlatMap4Result = InnerType<std::invoke_result_t<FlatMap4>>,
+  typename FlatMap5, typename FlatMap5Result = InnerType<std::invoke_result_t<FlatMap5>>,
+  typename FlatMap6, typename FlatMap6Result = InnerType<std::invoke_result_t<FlatMap6>>,
+  typename FlatMap7, typename FlatMap7Result = InnerType<std::invoke_result_t<FlatMap7>>,
+  typename FlatMap8, typename FlatMap8Result = InnerType<std::invoke_result_t<FlatMap8>>,
+  typename FlatMap9, typename FlatMap9Result = InnerType<std::invoke_result_t<FlatMap9>>,
   typename Map
 > requires
   std::invocable<FlatMap1>

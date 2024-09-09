@@ -97,12 +97,15 @@
   <ItemGroup>
     <ClInclude Include="data\Changes.h" />
     <ClInclude Include="data\Concepts.h" />
+    <ClInclude Include="data\NewType.h" />
     <ClInclude Include="data\Record.h" />
     <ClInclude Include="data\Ref.h" />
     <ClInclude Include="data\Unit.h" />
+    <ClInclude Include="macros\Bitmask.h" />
     <ClInclude Include="macros\ForEach.h" />
     <ClInclude Include="macros\General.h" />
     <ClInclude Include="macros\Group.h" />
+    <ClInclude Include="macros\ToSeq.h" />
     <ClInclude Include="macros\Typeclasses.h" />
     <ClInclude Include="macros\Withers.h" />
     <ClInclude Include="monads\Either.h" />
@@ -116,6 +119,7 @@
     <ClInclude Include="syntax\Try.h" />
     <ClInclude Include="typeclasses\Eq.h" />
     <ClInclude Include="typeclasses\Ord.h" />
+    <ClInclude Include="typeclasses\Semigroup.h" />
     <ClInclude Include="typeclasses\ToString.h" />
   </ItemGroup>
   <ItemGroup>

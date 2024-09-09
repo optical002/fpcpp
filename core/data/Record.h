@@ -15,33 +15,34 @@
  * as a Record in other programming languages.
  *
  *
- * if we want to generate a structure like this:
+ * Given the following record definition:
  * @code
- * struct Testing {
- *   const int age;
- *   const float cost;
- *   const std::string name;
- * }
- * @endcode
- * we would write like this:
- * @code
- * GENERATE_RECORD(Testing,
- *   int, age,
- *   float, cost,
- *   std::string, name
+ * GEN_RECORD(Testing,
+ *   int, intFieldName,
+ *   float, floatFieldName,
+ *   std::string, stringFieldName
  * )
  * @endcode
- * Implemented typeclasses:
- * - Eq
- * - ToString
- * 
- * Implemented function:
- * - Equal operators: ==, !=
- * - With functions.
+ * It will generate the following struct.
+ * @code
+ * struct Testing {
+ *   const int intFieldName;
+ *   const float floatFieldName;
+ *   const std::string stringFieldName;
+ * }
+ * @endcode
+ *
+ * Additionally it will implement:
+ * - Functions:
+ *   - Equal operators: ==, !=
+ *   - With Constructors
+ * - Typeclasses:
+ *   - Eq
+ *   - ToString
  * @param RECORD_NAME The name of the record.
- * @param ... The fields of the record. They come in pairs of type and name (e.g. int, age).
+ * @param ... The fields of the record. They come in pairs of type and name (e.g. 'int, age').
  */ 
-#define GENERATE_RECORD(record_name, ...) \
+#define GEN_RECORD(record_name, ...) \
   struct record_name { \
     __VA_OPT__(CONST_FIELDS(__VA_ARGS__)) \
     EQ_OPERATORS(record_name, __VA_ARGS__) \
@@ -49,4 +50,3 @@
   }; \
   EQ_TYPECLASS(record_name, __VA_ARGS__) \
   TO_STRING_TYPECLASS(record_name, __VA_ARGS__)
-

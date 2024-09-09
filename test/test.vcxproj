@@ -30,6 +30,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="data\TestNewType.cpp" />
     <ClCompile Include="data\TestRecord.cpp" />
     <ClCompile Include="monads\TestEither.cpp" />
     <ClCompile Include="monads\TestFuture.cpp" />
@@ -53,6 +54,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data\TestNewType.h" />
     <ClInclude Include="data\TestRecord.h" />
     <ClInclude Include="typeclasses\TestEq.h" />
     <ClInclude Include="typeclasses\TestOrd.h" />
