@@ -2,8 +2,9 @@
 
 #include <format>
 #include <string>
+#include <core/data/Concepts.h>
 
-template<typename A, typename = void>
+template<typename A>
 struct ToString;
 
 template<typename A>
@@ -11,13 +12,13 @@ concept HasToString = requires(const A& a) {
   { ToString<A>::toStr(a) } -> std::same_as<std::string>;
 };
 
-template<typename A> requires HasToString<A>
+template<HasToString A>
 std::string ToStr(const A& a) {
   return ToString<A>::toStr(a);
 }
 
-template<typename A>
-struct ToString<A, std::enable_if_t<std::is_arithmetic_v<A>>> {
+template<IsArithmetic A>
+struct ToString<A> {
   static std::string toStr(const A& value) {
     std::string typeName;
     if constexpr (std::is_same_v<A, int>) typeName = "Int";

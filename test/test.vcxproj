@@ -41,7 +41,9 @@
     <ClCompile Include="syntax\TestForComprehension.cpp" />
     <ClCompile Include="syntax\TestTry.cpp" />
     <ClCompile Include="typeclasses\TestEq.cpp" />
+    <ClCompile Include="typeclasses\TestNum.cpp" />
     <ClCompile Include="typeclasses\TestOrd.cpp" />
+    <ClCompile Include="typeclasses\TestSemigroup.cpp" />
     <ClCompile Include="typeclasses\TestToString.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +59,9 @@
     <ClInclude Include="data\TestNewType.h" />
     <ClInclude Include="data\TestRecord.h" />
     <ClInclude Include="typeclasses\TestEq.h" />
+    <ClInclude Include="typeclasses\TestNum.h" />
     <ClInclude Include="typeclasses\TestOrd.h" />
+    <ClInclude Include="typeclasses\TestSemigroup.h" />
     <ClInclude Include="typeclasses\TestToString.h" />
   </ItemGroup>
   <ItemDefinitionGroup />

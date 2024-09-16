@@ -118,15 +118,13 @@
     <ClInclude Include="syntax\ForComprehension.h" />
     <ClInclude Include="syntax\Try.h" />
     <ClInclude Include="typeclasses\Eq.h" />
+    <ClInclude Include="typeclasses\Num.h" />
     <ClInclude Include="typeclasses\Ord.h" />
     <ClInclude Include="typeclasses\Semigroup.h" />
     <ClInclude Include="typeclasses\ToString.h" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\SafePtr.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="reactive\Tracker.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

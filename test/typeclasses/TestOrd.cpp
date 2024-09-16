@@ -9,10 +9,10 @@ namespace typeclasses {
 
   TEST(Ord, Functionality) {
     int a = 1, b = 2;
-    EXPECT_EQ(Compare(a, b), -1) << "Expected a to be less than b, but it was not.";
+    EXPECT_EQ(Compare(a, b), -1);
     b = 1;
-    EXPECT_EQ(Compare(a, b), 0) << "Expected a to be equal to b, but it was not.";
+    EXPECT_EQ(Compare(a, b), 0);
     b = 0;
-    EXPECT_EQ(Compare(a, b), 1) << "Expected a to be greater than b, but it was not.";
+    EXPECT_EQ(Compare(a, b), 1);
   }
 }

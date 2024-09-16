@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include <core/data/Record.h>
-#include <chaos/preprocessor.h>
 
 GEN_RECORD(TestNoParams)
 

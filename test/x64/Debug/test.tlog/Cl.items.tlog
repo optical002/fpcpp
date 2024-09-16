@@ -9,5 +9,7 @@ C:\work\fpcpp\test\reactive\TestTracker.cpp;C:\work\fpcpp\test\x64\Debug\TestTra
 C:\work\fpcpp\test\syntax\TestForComprehension.cpp;C:\work\fpcpp\test\x64\Debug\TestForComprehension.obj
 C:\work\fpcpp\test\syntax\TestTry.cpp;C:\work\fpcpp\test\x64\Debug\TestTry.obj
 C:\work\fpcpp\test\typeclasses\TestEq.cpp;C:\work\fpcpp\test\x64\Debug\TestEq.obj
+C:\work\fpcpp\test\typeclasses\TestNum.cpp;C:\work\fpcpp\test\x64\Debug\TestNum.obj
 C:\work\fpcpp\test\typeclasses\TestOrd.cpp;C:\work\fpcpp\test\x64\Debug\TestOrd.obj
+C:\work\fpcpp\test\typeclasses\TestSemigroup.cpp;C:\work\fpcpp\test\x64\Debug\TestSemigroup.obj
 C:\work\fpcpp\test\typeclasses\TestToString.cpp;C:\work\fpcpp\test\x64\Debug\TestToString.obj

@@ -1,8 +1,9 @@
 ﻿#pragma once
 
 #include <concepts>
+#include <core/data/Concepts.h>
 
-template<typename A, typename = void>
+template<typename A>
 struct Ord;
 
 template<typename A>
@@ -10,13 +11,13 @@ concept HasOrd = requires(const A& a, const A& b) {
   { Ord<A>::compare(a, b) } -> std::same_as<int>;
 };
 
-template<typename A> requires HasOrd<A>
+template<HasOrd A>
 int Compare(const A& a, const A& b) {
   return Ord<A>::compare(a, b);
 }
 
-template<typename A>
-struct Ord<A, std::enable_if_t<std::is_arithmetic_v<A>>> {
+template<IsArithmetic A>
+struct Ord<A> {
   static int compare(const A& a, const A& b) {
     return
       a < b ? -1 :

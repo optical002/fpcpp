@@ -23,24 +23,7 @@ protected:
 };
 
 class NoOpTracker final : public Tracker {
-public:
-  NoOpTracker(const NoOpTracker&) = delete;
-  NoOpTracker& operator=(const NoOpTracker&) = delete;
-
-  static NoOpTracker* instance() {
-    std::call_once(_initFlag, [] {
-      _instance.reset(new NoOpTracker);
-    });
-    return _instance.get();
-  }
-
-private:
   void trackBase(const std::shared_ptr<Subscription>& subscription) override { }
-
-  NoOpTracker() = default;
-
-  static std::unique_ptr<NoOpTracker> _instance;
-  static std::once_flag _initFlag;
 };
 
 class DisposableTracker final : public Tracker {

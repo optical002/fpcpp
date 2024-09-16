@@ -14,6 +14,9 @@ concept SmartPointer = requires {
   || std::is_same_v<T, std::weak_ptr<typename T::element_type>>
 );
 
+template<typename A>
+concept IsArithmetic = std::is_arithmetic_v<A>;
+
 template<typename FA, typename = void>
 struct InnerTypeHelper {
   using Type = typename FA::ValueType;

@@ -1,10 +1,11 @@
 ﻿#pragma once
 
 #include <concepts>
-#include <type_traits>
 #include <string>
+#include <core/typeclasses/Ord.h>
+#include <core/data/Concepts.h>
 
-template<typename A, typename = void>
+template<typename A>
 struct Eq;
 
 template<typename A>
@@ -12,15 +13,22 @@ concept HasEq = requires(const A& a, const A& b) {
   { Eq<A>::equal(a, b) } -> std::same_as<bool>;
 };
 
-template<typename A> requires HasEq<A>
+template<HasEq A>
 bool Equal(const A& a, const A& b) {
   return Eq<A>::equal(a, b);
 }
 
-template<typename A>
-struct Eq<A, std::enable_if_t<std::is_arithmetic_v<A>>> {
+template<IsArithmetic A>
+struct Eq<A> {
   static bool equal(const A& a, const A& b) {
     return a == b;
+  }
+};
+
+template<HasOrd A> requires (!IsArithmetic<A>)
+struct Eq<A> {
+  static bool equal(const A& a, const A& b) {
+    return Ord<A>::compare(a, b) == 0;
   }
 };
 
