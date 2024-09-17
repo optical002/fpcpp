@@ -19,7 +19,7 @@ namespace data {
     EXPECT_EQ(ToStr(x1), "TestNoParams()");
 
     TestWithParams x2 = {.age = 1, .cost = 1.f, .name = "hello", .testNoParams = {} };
-    EXPECT_EQ(ToStr(x2), "TestWithParams(age=Int(1),cost=Float(1),name=String(hello),testNoParams=TestNoParams())");
+    EXPECT_EQ(ToStr(x2), "TestWithParams(age=Int(1), cost=Float(1), name=String(hello), testNoParams=TestNoParams())");
   }
 
   TEST(Record, WithConstructors) {

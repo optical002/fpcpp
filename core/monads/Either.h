@@ -1,13 +1,15 @@
 ﻿#pragma once
 
 #include <concepts>
+#include <utility>
 
 template<typename A>
 class Option;
 
 /**
  * It may be either 'Left' or 'Right' value.
- In most cases it is used to pass error information on left side.
+ *
+ * @note In most cases it is used to pass error information on left side.
  */
 template<typename L, typename R>
 class Either {

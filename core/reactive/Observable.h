@@ -35,7 +35,8 @@ public:
   > requires std::invocable<Func, A>
   std::shared_ptr<Observable<B>> map(Func&& f) {
     auto subject = std::make_shared<Subject<B>>();
-    subscribe(NoOpTracker::instance(),
+    auto tracker = NoOpTracker{};
+    subscribe(&tracker,
       [subject, f = std::forward<Func>(f)](const A& value) {
         subject->push(f(value));
       }
@@ -50,7 +51,8 @@ public:
   > requires std::invocable<Predicate, A> && std::is_same_v<FuncResult, bool>
   std::shared_ptr<Observable> filter(Predicate&& f) {
     auto subject = std::make_shared<Subject<A>>();
-    subscribe(NoOpTracker::instance(),
+    auto tracker = NoOpTracker{};
+    subscribe(&tracker,
       [subject, f = std::forward<Predicate>(f)](const A& value) {
         if (f(value)) {
           subject->push(value);
@@ -66,7 +68,8 @@ public:
     std::vector<Observable*> observables = {this, params...};
     auto subject = std::make_shared<Subject<A>>();
     for (auto observable : observables) {
-      observable->subscribe(NoOpTracker::instance(), [subject](const A& value) {
+      auto tracker = NoOpTracker{};
+      observable->subscribe(&tracker, [subject](const A& value) {
         subject->push(value);
       });
     }
@@ -75,7 +78,8 @@ public:
 
   std::shared_ptr<Future<A>> toFuture() {
     auto promise = std::make_shared<Promise<A>>();
-    auto subscription = subscribe(NoOpTracker::instance(),
+    auto tracker = NoOpTracker{};
+    auto subscription = subscribe(&tracker,
       [promise](const A& value) {
         promise->tryComplete(value);
       }
@@ -92,7 +96,8 @@ public:
   std::shared_ptr<Observable<Changes<A>>> changes() {
     auto subject = std::make_shared<Subject<Changes<A>>>();
     auto maybePrevious = Ref<Option<A>>::create(None);
-    subscribe(NoOpTracker::instance(),
+    auto tracker = NoOpTracker{};
+    subscribe(&tracker,
       [subject, maybePrevious](const A& next) {
         maybePrevious->value.ifSome([subject, next](const A& previous) {
           subject->push(Changes<A>{previous, next});

@@ -1,0 +1,11 @@
+{
+"rules": [
+{
+"primary-output": "test/CMakeFiles/test.dir/reactive/TestTracker.cpp.o",
+"requires": [
+]
+}
+],
+"version": 0,
+"revision": 0
+}

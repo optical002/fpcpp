@@ -1,5 +1,8 @@
 #pragma once
 
+#include <core/data/Concepts.h>
+#include <core/monads/Either.h>
+
 template<PointerType Ptr>
 struct SafePtr {
   static Either<std::exception, SafePtr> create(Ptr ptr) {

@@ -1,5 +1,5 @@
 ﻿#include "TestNewType.h"
-#include <gtest/gtest.h>
+#include <gtest\gtest.h>
 
 namespace data {
   TEST(NewType, Equality) {
@@ -21,4 +21,5 @@ namespace data {
     EXPECT_EQ(x.a, 1) << "Expected x.a to still be 1, but it was not.";
     EXPECT_EQ(xA.a, 2) << "Expected xA.a to be 2, but it was not.";
   }
+
 }

@@ -24,6 +24,6 @@ namespace reactive {
 
   TEST(Tracker, NoOpTracker) {
     int value = 0;
-    NoOpTracker::instance()->track([&value] { value = 1; });
+    NoOpTracker{}.track([&value] { value = 1; });
     EXPECT_EQ(value, 0) << "After tracking an action, it should not be invoked.";}
 }

@@ -1,0 +1,11 @@
+{
+"rules": [
+{
+"primary-output": "test\\CMakeFiles\\test.dir\\monads\\TestEither.cpp.obj",
+"requires": [
+]
+}
+],
+"version": 0,
+"revision": 0
+}

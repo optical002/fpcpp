@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CHANGES_H
+#define CHANGES_H
 
 template<typename A>
 struct Changes {
@@ -9,3 +10,5 @@ struct Changes {
 private:
   A _previous, _next;
 };
+
+#endif // CHANGES_H

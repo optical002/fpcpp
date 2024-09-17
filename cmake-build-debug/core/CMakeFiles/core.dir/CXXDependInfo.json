@@ -1,0 +1,21 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "C:/work/fpcpp/cmake-build-debug/core",
+	"dir-cur-src" : "C:/work/fpcpp/core",
+	"dir-top-bld" : "C:/work/fpcpp/cmake-build-debug",
+	"dir-top-src" : "C:/work/fpcpp",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"C:\\work\\fpcpp"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/work/fpcpp/cmake-build-debug/core/CMakeFiles/core.dir"
+}

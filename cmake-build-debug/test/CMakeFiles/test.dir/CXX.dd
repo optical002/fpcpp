@@ -1,0 +1,31 @@
+ninja_dyndep_version = 1.0
+build test/CMakeFiles/test.dir/data/TestNewType.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/data/TestRecord.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/monads/TestEither.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/monads/TestOption.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj: dyndep
+
+build test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj: dyndep
+
