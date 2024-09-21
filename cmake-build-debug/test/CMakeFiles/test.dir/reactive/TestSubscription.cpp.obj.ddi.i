@@ -4,7 +4,8 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
 # 1 "C:/work/fpcpp/core/reactive/Subscription.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/functional" 1 3
 # 46 "C:/msys64/mingw64/include/c++/14.2.0/functional" 3
@@ -38575,7 +38576,7 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/reactive/Subscription.h" 2
+# 5 "C:/work/fpcpp/core/reactive/Subscription.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
        
@@ -88863,10 +88864,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 5 "C:/work/fpcpp/core/reactive/Subscription.h" 2
+# 6 "C:/work/fpcpp/core/reactive/Subscription.h" 2
 
 
-# 6 "C:/work/fpcpp/core/reactive/Subscription.h"
+# 7 "C:/work/fpcpp/core/reactive/Subscription.h"
 class Subscription {
 public:
   static std::shared_ptr<Subscription> create(
@@ -108104,345 +108105,240 @@ inline int RUN_ALL_TESTS() {
 # 3 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 2
 
 
-
+static_assert(sizeof(
 # 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-namespace reactive {
+"Reactive_Subscription"
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+"Functionality"
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+: public ::testing::Test { public: 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+() = default; ~
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+() override = default; 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+(
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+const&) = delete; 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+& operator=(
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+const&) = delete; 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+(
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+&&) noexcept = delete; 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+& operator=(
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+"Reactive_Subscription"
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+, 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+"Functionality"
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 5), new ::testing::internal::TestFactoryImpl<
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+>); void 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+Reactive_Subscription_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+::TestBody() 
+# 5 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                                          {
+  int value = 0;
+  auto subscription = Subscription([&value] {
+    value = 1;
+  });
   
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- static_assert(sizeof(
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "Subscription"
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "Functionality"
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- : public ::testing::Test { public: 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- () = default; ~
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- () override = default; 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- (
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- const&) = delete; 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- & operator=(
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- const&) = delete; 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- (
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- &&) noexcept = delete; 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- & operator=(
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "Subscription"
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "value"
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
  , 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "Functionality"
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 6), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 6), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 6), new ::testing::internal::TestFactoryImpl<
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- >); void 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Subscription_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ::TestBody() 
-# 6 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                                   {
-    int value = 0;
-    auto subscription = Subscription([&value] {
-      value = 1;
-    });
-    
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "value"
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "0"
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   value
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   0
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 11, gtest_ar.failure_message()) = ::testing::Message() 
-# 11 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                       << "After creating a subscription, it should not unsubscribe.";
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "0"
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ value
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ 0
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 10, gtest_ar.failure_message()) = ::testing::Message() 
+# 10 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                     << "After creating a subscription, it should not unsubscribe.";
 
-    const auto hasUnsubscribed = subscription.unsubscribe();
-    
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "value"
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "1"
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   value
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   1
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 14, gtest_ar.failure_message()) = ::testing::Message() 
-# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                       << "Unsubscribing should invoke lambda.";
-    
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   hasUnsubscribed
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 15, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "hasUnsubscribed"
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "false"
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "true"
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 15 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                                << "Unsubscribing for the first time should return true.";
-
-    value = 0;
-    const auto hasUnsubscribed2 = subscription.unsubscribe();
-    
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "value"
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "0"
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   value
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   0
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 19, gtest_ar.failure_message()) = ::testing::Message() 
-# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                       << "Unsubscribing for the second time should not invoke lambda.";
-    
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(!(
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   hasUnsubscribed2
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 20, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "hasUnsubscribed2"
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "true"
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "false"
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 20 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                                  << "Unsubscribing for the second time should return false.";
-
-    const auto subscription2 = Subscription::create([&value] {
-      value = 1;
-    });
-    
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "value"
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "0"
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   value
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   0
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 25, gtest_ar.failure_message()) = ::testing::Message() 
-# 25 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                       << "After creating a subscription2 ptr, it should not unsubscribe.";
-    subscription2->unsubscribe();
-    
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "value"
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "1"
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   value
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   1
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 27, gtest_ar.failure_message()) = ::testing::Message() 
-# 27 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                       << "Unsubscribing from subscription ptr should invoke lambda.";
-  }
+  const auto hasUnsubscribed = subscription.unsubscribe();
   
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- static_assert(sizeof(
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "Tracker"
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "test"
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- : public ::testing::Test { public: 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- () = default; ~
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- () override = default; 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- (
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- const&) = delete; 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- & operator=(
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- const&) = delete; 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- (
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- &&) noexcept = delete; 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- & operator=(
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "Tracker"
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "value"
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
  , 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- "test"
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 29), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 29), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestSubscription.cpp", 29), new ::testing::internal::TestFactoryImpl<
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- >); void 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
- Tracker_test_Test
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
- ::TestBody() 
-# 29 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                     {
-    
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "1"
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   "1"
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   1
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   , 
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-   1
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 30, gtest_ar.failure_message()) = ::testing::Message()
-# 30 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
-                  ;
-  }
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "1"
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ value
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ 1
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 13, gtest_ar.failure_message()) = ::testing::Message() 
+# 13 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                     << "Unsubscribing should invoke lambda.";
+  
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ hasUnsubscribed
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 14, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "hasUnsubscribed"
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "false"
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "true"
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 14 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                              << "Unsubscribing for the first time should return true.";
+
+  value = 0;
+  const auto hasUnsubscribed2 = subscription.unsubscribe();
+  
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "value"
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "0"
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ value
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ 0
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 18, gtest_ar.failure_message()) = ::testing::Message() 
+# 18 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                     << "Unsubscribing for the second time should not invoke lambda.";
+  
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(!(
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ hasUnsubscribed2
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 19, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "hasUnsubscribed2"
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "true"
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "false"
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 19 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                                << "Unsubscribing for the second time should return false.";
+
+  const auto subscription2 = Subscription::create([&value] {
+    value = 1;
+  });
+  
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "value"
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "0"
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ value
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ 0
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 24, gtest_ar.failure_message()) = ::testing::Message() 
+# 24 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                     << "After creating a subscription2 ptr, it should not unsubscribe.";
+  subscription2->unsubscribe();
+  
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "value"
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ "1"
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ value
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+ 1
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestSubscription.cpp", 26, gtest_ar.failure_message()) = ::testing::Message() 
+# 26 "C:/work/fpcpp/test/reactive/TestSubscription.cpp"
+                     << "Unsubscribing from subscription ptr should invoke lambda.";
 }

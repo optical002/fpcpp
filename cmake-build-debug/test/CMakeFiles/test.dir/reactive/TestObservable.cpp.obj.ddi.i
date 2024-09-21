@@ -4,7 +4,8 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
 # 1 "C:/work/fpcpp/core/reactive/Observable.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/functional" 1 3
 # 46 "C:/msys64/mingw64/include/c++/14.2.0/functional" 3
@@ -38575,7 +38576,7 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 5 "C:/work/fpcpp/core/reactive/Observable.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
        
@@ -88863,16 +88864,17 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 5 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 6 "C:/work/fpcpp/core/reactive/Observable.h" 2
 
 # 1 "C:/work/fpcpp/core/reactive/Subscription.h" 1
-       
 
 
 
 
 
-# 6 "C:/work/fpcpp/core/reactive/Subscription.h"
+
+
+# 7 "C:/work/fpcpp/core/reactive/Subscription.h"
 class Subscription {
 public:
   static std::shared_ptr<Subscription> create(
@@ -88899,9 +88901,10 @@ private:
   std::function<void()> _unsubscribe;
   bool _isSubscribed;
 };
-# 7 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 8 "C:/work/fpcpp/core/reactive/Observable.h" 2
 # 1 "C:/work/fpcpp/core/reactive/Tracker.h" 1
-       
+
+
 
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/mutex" 1 3
@@ -91393,12 +91396,13 @@ namespace std
 # 1021 "C:/msys64/mingw64/include/c++/14.2.0/mutex" 3
 
 }
-# 5 "C:/work/fpcpp/core/reactive/Tracker.h" 2
+# 6 "C:/work/fpcpp/core/reactive/Tracker.h" 2
+
+# 1 "C:/work/fpcpp/core/reactive/Subscription.h" 1
+# 8 "C:/work/fpcpp/core/reactive/Tracker.h" 2
 
 
-
-
-# 8 "C:/work/fpcpp/core/reactive/Tracker.h"
+# 9 "C:/work/fpcpp/core/reactive/Tracker.h"
 class Tracker {
 public:
   void track(const std::shared_ptr<Subscription>& subscription) {
@@ -91441,11 +91445,13 @@ private:
 
   std::vector<std::shared_ptr<Subscription>> _subscriptions;
 };
-# 8 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 9 "C:/work/fpcpp/core/reactive/Observable.h" 2
 # 1 "C:/work/fpcpp/core/reactive/Subject.h" 1
-       
 
 
+
+# 1 "C:/work/fpcpp/core/reactive/Observable.h" 1
+# 5 "C:/work/fpcpp/core/reactive/Subject.h" 2
 
 template<typename A>
 class Observable;
@@ -91461,7 +91467,7 @@ public:
 
   Subject() = default;
 };
-# 9 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 10 "C:/work/fpcpp/core/reactive/Observable.h" 2
 # 1 "C:/work/fpcpp/core/data/Changes.h" 1
 
 
@@ -91475,9 +91481,10 @@ struct Changes {
 private:
   A _previous, _next;
 };
-# 10 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 11 "C:/work/fpcpp/core/reactive/Observable.h" 2
 # 1 "C:/work/fpcpp/core/data/Ref.h" 1
-       
+
+
 
 
 
@@ -91488,14 +91495,16 @@ struct Ref {
 
   A value;
 };
-# 11 "C:/work/fpcpp/core/reactive/Observable.h" 2
-# 1 "C:/work/fpcpp/core/monads/Future.h" 1
-       
+# 12 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 1 "C:/work/fpcpp/core/data/Future.h" 1
 
 
 
-# 1 "C:/work/fpcpp/core/monads/Option.h" 1
-       
+
+
+# 1 "C:/work/fpcpp/core/data/Option.h" 1
+
+
 
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/utility" 1 3
@@ -91665,10 +91674,10 @@ namespace std
 
 
 }
-# 5 "C:/work/fpcpp/core/monads/Option.h" 2
+# 6 "C:/work/fpcpp/core/data/Option.h" 2
 
 
-# 6 "C:/work/fpcpp/core/monads/Option.h"
+# 7 "C:/work/fpcpp/core/data/Option.h"
 template<typename L, typename R>
 class Either;
 
@@ -91769,8 +91778,9 @@ struct NoneType {
 
 inline constexpr NoneType None{};
 
-# 1 "C:/work/fpcpp/core/monads/Either.h" 1
-       
+# 1 "C:/work/fpcpp/core/data/Either.h" 1
+
+
 
 
 
@@ -91947,14 +91957,15 @@ template<typename L, typename R>
 Either<L, R> RightE(const R& right) { return Right(right); }
 
 
-
+# 1 "C:/work/fpcpp/core/data/Option.h" 1
+# 180 "C:/work/fpcpp/core/data/Either.h" 2
 
 template <typename L, typename R>
 Option<L> Either<L, R>::left() const { return _isLeft ? Some(_left) : None; }
 
 template <typename L, typename R>
 Option<R> Either<L, R>::right() const { return isRight() ? Some(_right) : None; }
-# 107 "C:/work/fpcpp/core/monads/Option.h" 2
+# 108 "C:/work/fpcpp/core/data/Option.h" 2
 
 template <typename A>
 template <typename R>
@@ -91967,7 +91978,7 @@ template <typename L>
 Either<L, A> Option<A>::toRight(const L& leftValue) {
   return _hasValue ? RightE<L>(_unsafeValue) : Left(leftValue);
 }
-# 6 "C:/work/fpcpp/core/monads/Future.h" 2
+# 7 "C:/work/fpcpp/core/data/Future.h" 2
 
 template <typename A>
 class Promise;
@@ -92082,7 +92093,7 @@ public:
 
   static constexpr UnsuccessfulType unsuccessful{};
 };
-# 12 "C:/work/fpcpp/core/reactive/Observable.h" 2
+# 13 "C:/work/fpcpp/core/reactive/Observable.h" 2
 
 template<typename A>
 class Observable {
@@ -111231,1237 +111242,1231 @@ inline int RUN_ALL_TESTS() {
 
 # 4 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 2
 
-
+static_assert(sizeof(
 # 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-namespace reactive {
+"Reactive_Observable"
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Functionality"
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+: public ::testing::Test { public: 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() = default; ~
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() override = default; 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Functionality"
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 5), new ::testing::internal::TestFactoryImpl<
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+>); void 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Functionality_Test
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::TestBody() 
+# 5 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                                        {
+  auto subject = Subject<int>();
+  auto disposableTracker = DisposableTracker();
+  Tracker* tracker = &disposableTracker;
+
+  int value = 0;
+  subject.subscribe(tracker, [&value](const int& newValue) {
+    value = newValue;
+  });
   
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- static_assert(sizeof(
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Functionality"
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- : public ::testing::Test { public: 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () = default; ~
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () override = default; 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
  , 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Functionality"
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 6), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 6), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 6), new ::testing::internal::TestFactoryImpl<
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- >); void 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Functionality_Test
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::TestBody() 
-# 6 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 14, gtest_ar.failure_message()) = ::testing::Message() 
+# 14 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After subscribing to a subject, the value should not be changed.";
+
+  subject.push(1);
+  
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "1"
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 1
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 17, gtest_ar.failure_message()) = ::testing::Message() 
+# 17 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 1 to the subject, the value should be changed.";
+
+  subject.push(2);
+  
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 20, gtest_ar.failure_message()) = ::testing::Message() 
+# 20 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 2 to the subject second time, the value should be changed.";
+
+  disposableTracker.dispose();
+  subject.push(3);
+  
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 24, gtest_ar.failure_message()) = ::testing::Message() 
+# 24 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After disposing the disposable tracker, the subscription should be unsubscribed.";
+
+  auto disposableTracker2 = DisposableTracker();
+  Tracker* tracker2 = &disposableTracker2;
+
+  int value2 = 0;
+  subject.subscribe(tracker, [&value2](const int& newValue) {
+    value2 = newValue;
+  });
+
+  int value3 = 0;
+  subject.subscribe(tracker2, [&value3](const int& newValue) {
+    value3 = newValue;
+  });
+
+  int value4 = 0;
+  subject.subscribe(tracker, [&value4](const int& newValue) {
+    value4 = newValue;
+  });
+
+  subject.push(4);
+  
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value2"
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "4"
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value2
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 4
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 45, gtest_ar.failure_message()) = ::testing::Message() 
+# 45 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                      << "After pushing a value 4 to the subject, the value2 should be changed.";
+  
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value3"
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "4"
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value3
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 4
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 46, gtest_ar.failure_message()) = ::testing::Message() 
+# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                      << "After pushing a value 4 to the subject, the value3 should be changed.";
+  
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value4"
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "4"
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value4
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 4
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 47, gtest_ar.failure_message()) = ::testing::Message() 
+# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                      << "After pushing a value 4 to the subject, the value4 should be changed.";
+
+  disposableTracker2.dispose();
+  subject.push(5);
+
+  
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value2"
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "5"
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value2
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 5
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 52, gtest_ar.failure_message()) = ::testing::Message() 
+# 52 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                      << "After pushing a value 5 to the subject, the value2 should be changed.";
+  
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value3"
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "4"
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value3
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 4
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 53, gtest_ar.failure_message()) = ::testing::Message() 
+# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                      << "After pushing a value 5 to the subject, the value3 should not be changed.";
+  
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value4"
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "5"
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value4
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 5
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 54, gtest_ar.failure_message()) = ::testing::Message() 
+# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                      << "After pushing a value 5 to the subject, the value4 should be changed.";
+}
+
+
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+static_assert(sizeof(
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Map"
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+: public ::testing::Test { public: 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() = default; ~
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() override = default; 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Map"
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 57), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 57), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 57), new ::testing::internal::TestFactoryImpl<
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+>); void 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Map_Test
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::TestBody() 
+# 57 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                              {
+  auto subject = Subject<int>();
+  auto disposableTracker = DisposableTracker();
+  Tracker* tracker = &disposableTracker;
+
+  const auto mappedObservable = subject.map([](const int& value) {
+    return std::to_string(value);
+  });
+
+  std::string value;
+  mappedObservable->subscribe(tracker, [&value](const std::string& newValue) {
+    value = newValue;
+  });
+
+  subject.push(1);
+  
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "\"1\""
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "1"
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 72, gtest_ar.failure_message()) = ::testing::Message() 
+# 72 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                       << "After pushing a value 1 to the subject, the value should be changed to '1'.";
+}
+
+
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+static_assert(sizeof(
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Filter"
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+: public ::testing::Test { public: 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() = default; ~
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() override = default; 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Filter"
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 75), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 75), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 75), new ::testing::internal::TestFactoryImpl<
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+>); void 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Filter_Test
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::TestBody() 
+# 75 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
                                  {
-    auto subject = Subject<int>();
-    auto disposableTracker = DisposableTracker();
-    Tracker* tracker = &disposableTracker;
+  auto subject = Subject<int>();
+  auto disposableTracker = DisposableTracker();
+  Tracker* tracker = &disposableTracker;
 
-    int value = 0;
-    subject.subscribe(tracker, [&value](const int& newValue) {
-      value = newValue;
-    });
-    
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 15, gtest_ar.failure_message()) = ::testing::Message() 
-# 15 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After subscribing to a subject, the value should not be changed.";
+  int value = 0;
+  const auto filteredObservable = subject.filter([](const int& value) {
+    return value % 2 == 0;
+  });
+  filteredObservable->subscribe(tracker, [&value](const int& newValue) {
+    value = newValue;
+  });
+  
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 87, gtest_ar.failure_message()) = ::testing::Message() 
+# 87 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After subscribing to a filtered subject, the value should not be changed.";
 
-    subject.push(1);
-    
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "1"
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   1
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 18, gtest_ar.failure_message()) = ::testing::Message() 
-# 18 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 1 to the subject, the value should be changed.";
+  subject.push(1);
+  
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 90, gtest_ar.failure_message()) = ::testing::Message() 
+# 90 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 1 to the subject, the value should not be changed.";
 
-    subject.push(2);
-    
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 21, gtest_ar.failure_message()) = ::testing::Message() 
-# 21 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 2 to the subject second time, the value should be changed.";
+  subject.push(2);
+  
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 93, gtest_ar.failure_message()) = ::testing::Message() 
+# 93 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 2 to the subject, the value should be changed to 2.";
 
-    disposableTracker.dispose();
-    subject.push(3);
-    
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 25, gtest_ar.failure_message()) = ::testing::Message() 
-# 25 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After disposing the disposable tracker, the subscription should be unsubscribed.";
+  subject.push(3);
+  
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 96, gtest_ar.failure_message()) = ::testing::Message() 
+# 96 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 3 to the subject, the value should not be changed.";
 
-    auto disposableTracker2 = DisposableTracker();
-    Tracker* tracker2 = &disposableTracker2;
+  subject.push(4);
+  
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "4"
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 4
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 99, gtest_ar.failure_message()) = ::testing::Message() 
+# 99 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 4 to the subject, the value should be changed to 4.";
+}
 
-    int value2 = 0;
-    subject.subscribe(tracker, [&value2](const int& newValue) {
-      value2 = newValue;
-    });
 
-    int value3 = 0;
-    subject.subscribe(tracker2, [&value3](const int& newValue) {
-      value3 = newValue;
-    });
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+static_assert(sizeof(
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Join"
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+: public ::testing::Test { public: 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() = default; ~
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() override = default; 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Join"
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 102), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 102), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 102), new ::testing::internal::TestFactoryImpl<
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+>); void 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Join_Test
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::TestBody() 
+# 102 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                               {
+  auto subject1 = Subject<int>();
+  auto subject2 = Subject<int>();
+  auto subject3 = Subject<int>();
+  auto disposableTracker = DisposableTracker();
+  Tracker* tracker = &disposableTracker;
 
-    int value4 = 0;
-    subject.subscribe(tracker, [&value4](const int& newValue) {
-      value4 = newValue;
-    });
+  const auto joinedObservable = subject1.join(&subject2, &subject3);
+  int value = 0;
+  joinedObservable->subscribe(tracker, [&value](const int& newValue) {
+    value = newValue;
+  });
 
-    subject.push(4);
-    
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value2"
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "4"
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value2
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   4
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 46, gtest_ar.failure_message()) = ::testing::Message() 
-# 46 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        << "After pushing a value 4 to the subject, the value2 should be changed.";
-    
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value3"
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "4"
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value3
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   4
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 47, gtest_ar.failure_message()) = ::testing::Message() 
-# 47 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        << "After pushing a value 4 to the subject, the value3 should be changed.";
-    
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value4"
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "4"
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value4
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   4
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 48, gtest_ar.failure_message()) = ::testing::Message() 
-# 48 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        << "After pushing a value 4 to the subject, the value4 should be changed.";
+  subject1.push(1);
+  
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "1"
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 1
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 116, gtest_ar.failure_message()) = ::testing::Message() 
+# 116 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 1 to the subject1, the value should be changed to 1.";
 
-    disposableTracker2.dispose();
-    subject.push(5);
+  subject2.push(2);
+  
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 119, gtest_ar.failure_message()) = ::testing::Message() 
+# 119 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 2 to the subject2, the value should be changed to 2.";
 
-    
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value2"
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "5"
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value2
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   5
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 53, gtest_ar.failure_message()) = ::testing::Message() 
-# 53 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        << "After pushing a value 5 to the subject, the value2 should be changed.";
-    
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value3"
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "4"
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value3
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   4
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 54, gtest_ar.failure_message()) = ::testing::Message() 
-# 54 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        << "After pushing a value 5 to the subject, the value3 should not be changed.";
-    
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value4"
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "5"
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value4
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   5
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 55, gtest_ar.failure_message()) = ::testing::Message() 
-# 55 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        << "After pushing a value 5 to the subject, the value4 should be changed.";
-  }
+  subject3.push(3);
+  
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "3"
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 3
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 122, gtest_ar.failure_message()) = ::testing::Message() 
+# 122 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 3 to the subject3, the value should be changed to 3.";
+}
+
+
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+static_assert(sizeof(
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"ToFuture"
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+: public ::testing::Test { public: 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() = default; ~
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() override = default; 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"ToFuture"
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 125), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 125), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 125), new ::testing::internal::TestFactoryImpl<
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+>); void 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_ToFuture_Test
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::TestBody() 
+# 125 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                                   {
+  auto subject = Subject<int>();
+  auto future = subject.toFuture();
+
+  int value = 0;
+  future->onComplete([&value](const int& newValue) {
+    value = newValue;
+  });
+  
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 133, gtest_ar.failure_message()) = ::testing::Message() 
+# 133 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After creating a future from a subject, the value should not be changed.";
+
+  subject.push(1);
+  
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "1"
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 1
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 136, gtest_ar.failure_message()) = ::testing::Message() 
+# 136 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 1 to the subject, the value should be changed to 1.";
+
+  subject.push(2);
+  
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "value"
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "1"
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ value
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 1
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 139, gtest_ar.failure_message()) = ::testing::Message() 
+# 139 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                     << "After pushing a value 2 to the subject, the value should not change to 2.";
+}
+
+struct A {
+  int a;
+};
+
+
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+static_assert(sizeof(
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Changes"
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+: public ::testing::Test { public: 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() = default; ~
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+() override = default; 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+const&) = delete; 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+(
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+& operator=(
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Reactive_Observable"
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+"Changes"
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 146), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 146), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 146), new ::testing::internal::TestFactoryImpl<
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+>); void 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+Reactive_Observable_Changes_Test
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+::TestBody() 
+# 146 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                                  {
+  auto subject = Subject<int>();
+  auto disposableTracker = DisposableTracker();
+  Tracker* tracker = &disposableTracker;
+
+  int valuePrevious = 0;
+  int valueNext = 0;
+  const auto changesObservable = subject.changes();
+  changesObservable->subscribe(tracker,
+    [&valuePrevious, &valueNext](const Changes<int>& changes) {
+      valuePrevious = changes.previous();
+      valueNext = changes.next();
+    }
+  );
 
   
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- static_assert(sizeof(
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Map"
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- : public ::testing::Test { public: 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () = default; ~
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () override = default; 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valuePrevious"
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
  , 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Map"
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 58), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 58), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 58), new ::testing::internal::TestFactoryImpl<
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- >); void 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Map_Test
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::TestBody() 
-# 58 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       {
-    auto subject = Subject<int>();
-    auto disposableTracker = DisposableTracker();
-    Tracker* tracker = &disposableTracker;
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valuePrevious
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 161, gtest_ar.failure_message()) = ::testing::Message() 
+# 161 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                             << "After subscribing to a changes subject, the previous value should be 0.";
+  
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valueNext"
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valueNext
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 162, gtest_ar.failure_message()) = ::testing::Message() 
+# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                         << "After subscribing to a changes subject, the next value should be 0.";
 
-    const auto mappedObservable = subject.map([](const int& value) {
-      return std::to_string(value);
-    });
-
-    std::string value;
-    mappedObservable->subscribe(tracker, [&value](const std::string& newValue) {
-      value = newValue;
-    });
-
-    subject.push(1);
-    
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "\"1\""
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "1"
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 73, gtest_ar.failure_message()) = ::testing::Message() 
-# 73 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                         << "After pushing a value 1 to the subject, the value should be changed to '1'.";
-  }
+  subject.push(1);
 
   
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- static_assert(sizeof(
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Filter"
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- : public ::testing::Test { public: 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () = default; ~
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () override = default; 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valuePrevious"
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
  , 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Filter"
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 76), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 76), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 76), new ::testing::internal::TestFactoryImpl<
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- >); void 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Filter_Test
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::TestBody() 
-# 76 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                          {
-    auto subject = Subject<int>();
-    auto disposableTracker = DisposableTracker();
-    Tracker* tracker = &disposableTracker;
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valuePrevious
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 166, gtest_ar.failure_message()) = ::testing::Message() 
+# 166 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                             << "After pushing first time to a changes subject, the previous value should be 0.";
+  
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valueNext"
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "0"
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valueNext
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 0
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 167, gtest_ar.failure_message()) = ::testing::Message() 
+# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                         << "After pushing first time to a changes subject, the next value should be 0.";
 
-    int value = 0;
-    const auto filteredObservable = subject.filter([](const int& value) {
-      return value % 2 == 0;
-    });
-    filteredObservable->subscribe(tracker, [&value](const int& newValue) {
-      value = newValue;
-    });
-    
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 88, gtest_ar.failure_message()) = ::testing::Message() 
-# 88 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After subscribing to a filtered subject, the value should not be changed.";
-
-    subject.push(1);
-    
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 91, gtest_ar.failure_message()) = ::testing::Message() 
-# 91 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 1 to the subject, the value should not be changed.";
-
-    subject.push(2);
-    
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 94, gtest_ar.failure_message()) = ::testing::Message() 
-# 94 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 2 to the subject, the value should be changed to 2.";
-
-    subject.push(3);
-    
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 97, gtest_ar.failure_message()) = ::testing::Message() 
-# 97 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 3 to the subject, the value should not be changed.";
-
-    subject.push(4);
-    
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "4"
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   4
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 100, gtest_ar.failure_message()) = ::testing::Message() 
-# 100 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 4 to the subject, the value should be changed to 4.";
-  }
+  subject.push(2);
 
   
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- static_assert(sizeof(
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Join"
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- : public ::testing::Test { public: 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () = default; ~
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () override = default; 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valuePrevious"
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
  , 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Join"
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 103), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 103), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 103), new ::testing::internal::TestFactoryImpl<
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- >); void 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Join_Test
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::TestBody() 
-# 103 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                        {
-    auto subject1 = Subject<int>();
-    auto subject2 = Subject<int>();
-    auto subject3 = Subject<int>();
-    auto disposableTracker = DisposableTracker();
-    Tracker* tracker = &disposableTracker;
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "1"
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valuePrevious
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 1
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 171, gtest_ar.failure_message()) = ::testing::Message() 
+# 171 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                             << "After pushing second time to a changes subject, the previous value should be 1.";
+  
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valueNext"
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valueNext
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 172, gtest_ar.failure_message()) = ::testing::Message() 
+# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                         << "After pushing second time to a changes subject, the next value should be 2.";
 
-    const auto joinedObservable = subject1.join(&subject2, &subject3);
-    int value = 0;
-    joinedObservable->subscribe(tracker, [&value](const int& newValue) {
-      value = newValue;
-    });
-
-    subject1.push(1);
-    
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "1"
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   1
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 117, gtest_ar.failure_message()) = ::testing::Message() 
-# 117 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 1 to the subject1, the value should be changed to 1.";
-
-    subject2.push(2);
-    
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 120, gtest_ar.failure_message()) = ::testing::Message() 
-# 120 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 2 to the subject2, the value should be changed to 2.";
-
-    subject3.push(3);
-    
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "3"
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   3
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 123, gtest_ar.failure_message()) = ::testing::Message() 
-# 123 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 3 to the subject3, the value should be changed to 3.";
-  }
+  subject.push(3);
 
   
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- static_assert(sizeof(
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "ToFuture"
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- : public ::testing::Test { public: 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () = default; ~
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () override = default; 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valuePrevious"
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
  , 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "ToFuture"
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 126), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 126), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 126), new ::testing::internal::TestFactoryImpl<
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- >); void 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_ToFuture_Test
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::TestBody() 
-# 126 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                            {
-    auto subject = Subject<int>();
-    auto future = subject.toFuture();
-
-    int value = 0;
-    future->onComplete([&value](const int& newValue) {
-      value = newValue;
-    });
-    
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 134, gtest_ar.failure_message()) = ::testing::Message() 
-# 134 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After creating a future from a subject, the value should not be changed.";
-
-    subject.push(1);
-    
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "1"
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   1
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 137, gtest_ar.failure_message()) = ::testing::Message() 
-# 137 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 1 to the subject, the value should be changed to 1.";
-
-    subject.push(2);
-    
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "value"
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "1"
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   value
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   1
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 140, gtest_ar.failure_message()) = ::testing::Message() 
-# 140 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                       << "After pushing a value 2 to the subject, the value should not change to 2.";
-  }
-
-  struct A {
-    int a;
-  };
-
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "2"
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ valuePrevious
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ , 
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ 2
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 176, gtest_ar.failure_message()) = ::testing::Message() 
+# 176 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+                             << "After pushing third time to a changes subject, the previous value should be 2.";
   
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- static_assert(sizeof(
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Changes"
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- : public ::testing::Test { public: 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () = default; ~
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- () override = default; 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- const&) = delete; 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- (
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- & operator=(
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Observable"
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+# 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
+ "valueNext"
+# 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
  , 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- "Changes"
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestObservable.cpp", 147), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 147), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestObservable.cpp", 147), new ::testing::internal::TestFactoryImpl<
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- >); void 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
- Observable_Changes_Test
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
- ::TestBody() 
-# 147 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                           {
-    auto subject = Subject<int>();
-    auto disposableTracker = DisposableTracker();
-    Tracker* tracker = &disposableTracker;
-
-    int valuePrevious = 0;
-    int valueNext = 0;
-    const auto changesObservable = subject.changes();
-    changesObservable->subscribe(tracker,
-      [&valuePrevious, &valueNext](const Changes<int>& changes) {
-        valuePrevious = changes.previous();
-        valueNext = changes.next();
-      }
-    );
-
-    
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valuePrevious"
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valuePrevious
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 162, gtest_ar.failure_message()) = ::testing::Message() 
-# 162 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                               << "After subscribing to a changes subject, the previous value should be 0.";
-    
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valueNext"
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valueNext
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 163, gtest_ar.failure_message()) = ::testing::Message() 
-# 163 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                           << "After subscribing to a changes subject, the next value should be 0.";
-
-    subject.push(1);
-
-    
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valuePrevious"
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valuePrevious
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 167, gtest_ar.failure_message()) = ::testing::Message() 
-# 167 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                               << "After pushing first time to a changes subject, the previous value should be 0.";
-    
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valueNext"
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "0"
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valueNext
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   0
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 168, gtest_ar.failure_message()) = ::testing::Message() 
-# 168 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                           << "After pushing first time to a changes subject, the next value should be 0.";
-
-    subject.push(2);
-
-    
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valuePrevious"
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "1"
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valuePrevious
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   1
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 172, gtest_ar.failure_message()) = ::testing::Message() 
-# 172 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                               << "After pushing second time to a changes subject, the previous value should be 1.";
-    
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valueNext"
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valueNext
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 173, gtest_ar.failure_message()) = ::testing::Message() 
-# 173 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                           << "After pushing second time to a changes subject, the next value should be 2.";
-
-    subject.push(3);
-
-    
-# 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valuePrevious"
+ "3"
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
+ , 
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "2"
+ valueNext
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
+ , 
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valuePrevious
+ 3
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 177, gtest_ar.failure_message()) = ::testing::Message() 
 # 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   2
-# 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 177, gtest_ar.failure_message()) = ::testing::Message() 
-# 177 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                               << "After pushing third time to a changes subject, the previous value should be 2.";
-    
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "valueNext"
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   "3"
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   valueNext
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   , 
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-   3
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestObservable.cpp", 178, gtest_ar.failure_message()) = ::testing::Message() 
-# 178 "C:/work/fpcpp/test/reactive/TestObservable.cpp"
-                           << "After pushing third time to a changes subject, the next value should be 3.";
-  }
+                         << "After pushing third time to a changes subject, the next value should be 3.";
 }

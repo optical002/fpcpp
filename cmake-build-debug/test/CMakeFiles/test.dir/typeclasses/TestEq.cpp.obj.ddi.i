@@ -4,9 +4,12 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
 # 1 "C:/work/fpcpp/test/typeclasses/TestEq.h" 1
-       
+
+
+
 # 1 "C:/work/fpcpp/core/typeclasses/Eq.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 1 3
 # 33 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 3
@@ -3792,7 +3795,7 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
+# 5 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/string" 1 3
 # 36 "C:/msys64/mingw64/include/c++/14.2.0/string" 3
        
@@ -32759,13 +32762,16 @@ namespace std
     }
 
 }
-# 5 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
+# 6 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
 # 1 "C:/work/fpcpp/core/typeclasses/Ord.h" 1
-       
+
+
 
 
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75476,10 +75482,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75507,7 +75513,7 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 5 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
+# 6 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
 
 template<typename A>
 struct Ord;
@@ -75531,7 +75537,7 @@ struct Ord<A> {
       0;
   }
 };
-# 6 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
+# 7 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
 
 
 template<typename A>
@@ -75567,7 +75573,7 @@ struct Eq<std::string> {
     return a == b;
   }
 };
-# 3 "C:/work/fpcpp/test/typeclasses/TestEq.h" 2
+# 5 "C:/work/fpcpp/test/typeclasses/TestEq.h" 2
 
 struct TestWithEq {};
 
@@ -108188,255 +108194,249 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-namespace typeclasses {
-  
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "Eq"
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "Eq"
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- , 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-                                 {
-    TestWithEq a, b;
-    Equal(a, b);
-  }
+"Typeclasses_Eq"
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"Typeclasses_Eq"
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+                                           {
+  TestWithEq a, b;
+  Equal(a, b);
+}
 
-  
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "Eq"
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- : public ::testing::Test { public: 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- () = default; ~
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- () override = default; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- &&) noexcept = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "Eq"
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- , 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 10), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 10), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 10), new ::testing::internal::TestFactoryImpl<
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- >); void 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
- Eq_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
- ::TestBody() 
-# 10 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-                         {
-    int a = 1, b = 2;
-    
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(!(
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   Equal(a, b)
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 12, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "Equal(a, b)"
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "true"
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "false"
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 12 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-                             << "Expected a to be different from b, but it was not.";
-    b = 1;
-    
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   Equal(a, b)
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 14, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "Equal(a, b)"
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "false"
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "true"
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 14 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-                            << "Expected a to be equal to b, but it was not.";
 
-    std::string c = "Hello", d = "World";
-    
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(!(
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   Equal(c, d)
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 17, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "Equal(c, d)"
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "true"
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "false"
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 17 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-                             << "Expected c to be different from d, but it was not.";
-    d = "Hello";
-    
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   Equal(c, d)
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 19, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "Equal(c, d)"
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "false"
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-   "true"
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 19 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
-                            << "Expected c to be equal to d, but it was not.";
-  }
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"Typeclasses_Eq"
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+: public ::testing::Test { public: 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+() = default; ~
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+() override = default; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+&&) noexcept = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"Typeclasses_Eq"
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+, 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 9), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 9), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestEq.cpp", 9), new ::testing::internal::TestFactoryImpl<
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+>); void 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+Typeclasses_Eq_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+::TestBody() 
+# 9 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+                                   {
+  int a = 1, b = 2;
+  
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(!(
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ Equal(a, b)
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 11, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "Equal(a, b)"
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "true"
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "false"
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 11 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+                           << "Expected a to be different from b, but it was not.";
+  b = 1;
+  
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ Equal(a, b)
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 13, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "Equal(a, b)"
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "false"
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "true"
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 13 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+                          << "Expected a to be equal to b, but it was not.";
+
+  std::string c = "Hello", d = "World";
+  
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(!(
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ Equal(c, d)
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 16, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "Equal(c, d)"
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "true"
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "false"
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 16 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+                           << "Expected c to be different from d, but it was not.";
+  d = "Hello";
+  
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ Equal(c, d)
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestEq.cpp", 18, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "Equal(c, d)"
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "false"
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+ "true"
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 18 "C:/work/fpcpp/test/typeclasses/TestEq.cpp"
+                          << "Expected c to be equal to d, but it was not.";
 }

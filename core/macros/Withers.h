@@ -1,7 +1,16 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#pragma once
+#ifndef FPCPP_CORE_MACROS_WITHERS_H
+#define FPCPP_CORE_MACROS_WITHERS_H
+
 #include <core/macros/Group.h>
-#include <chaos/preprocessor.h>
+#include <chaos/preprocessor/control/if.h>
+#include <chaos/preprocessor/comparison/equal.h>
+#include <chaos/preprocessor/arithmetic/dec.h>
+#include <chaos/preprocessor/arithmetic/div.h>
+#include <chaos/preprocessor/recursion/expr.h>
+#include <chaos/preprocessor/seq/for_each_i.h>
+#include <chaos/preprocessor/tuple/size.h>
+#include <chaos/preprocessor/cat.h>
 
 #define NAME(s, i, type, name, data) \
   CHAOS_PP_IF(CHAOS_PP_EQUAL(i, data)) ( \
@@ -34,3 +43,5 @@
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
     WITH_SINGLE_FUNCTION, GROUP_VARIADIC(__VA_ARGS__), record, __VA_ARGS__ \
   ))
+
+#endif // FPCPP_CORE_MACROS_WITHERS_H

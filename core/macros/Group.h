@@ -1,7 +1,9 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#pragma once
-#include <chaos/preprocessor.h>
+#ifndef FPCPP_CORE_MACROS_GROUP_H
+#define FPCPP_CORE_MACROS_GROUP_H
+
 #include <core/macros/General.h>
+#include <chaos/preprocessor/tuple/size.h>
 
 #define GROUP2(x1, x2) (x1, x2)
 #define GROUP4(x1, x2, x3, x4) GROUP2(x1, x2) GROUP2(x3, x4)
@@ -41,3 +43,4 @@
  */
 #define GROUP_VARIADIC(...) EXPAND(DEFER(GROUP_X) (CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__)))(__VA_ARGS__)
 
+#endif // FPCPP_CORE_MACROS_GROUP_H

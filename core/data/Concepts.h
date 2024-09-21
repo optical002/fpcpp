@@ -1,4 +1,6 @@
-#pragma once
+#ifndef FPCPP_CORE_DATA_CONCEPTS_H
+#define FPCPP_CORE_DATA_CONCEPTS_H
+
 #include <type_traits>
 #include <memory>
 
@@ -29,3 +31,5 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
+
+#endif // FPCPP_CORE_DATA_CONCEPTS_H

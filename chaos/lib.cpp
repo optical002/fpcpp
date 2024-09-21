@@ -1,1 +1,0 @@
-﻿// This file allows to access C/C++ tab from project settings, therefore leaving it like this.

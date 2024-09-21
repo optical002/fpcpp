@@ -4,7 +4,6 @@ C:/work/fpcpp/cmake-build-debug/CMakeFiles/list_install_components.dir
 C:/work/fpcpp/cmake-build-debug/CMakeFiles/install.dir
 C:/work/fpcpp/cmake-build-debug/CMakeFiles/install/local.dir
 C:/work/fpcpp/cmake-build-debug/CMakeFiles/install/strip.dir
-C:/work/fpcpp/cmake-build-debug/core/CMakeFiles/core.dir
 C:/work/fpcpp/cmake-build-debug/core/CMakeFiles/edit_cache.dir
 C:/work/fpcpp/cmake-build-debug/core/CMakeFiles/rebuild_cache.dir
 C:/work/fpcpp/cmake-build-debug/core/CMakeFiles/list_install_components.dir

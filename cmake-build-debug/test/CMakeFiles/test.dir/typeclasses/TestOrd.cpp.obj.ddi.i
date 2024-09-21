@@ -4,9 +4,12 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
 # 1 "C:/work/fpcpp/test/typeclasses/TestOrd.h" 1
-       
+
+
+
 # 1 "C:/work/fpcpp/core/typeclasses/Ord.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 1 3
 # 33 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 3
@@ -3792,9 +3795,11 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
+# 5 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75457,10 +75462,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75488,7 +75493,7 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 5 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
+# 6 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
 
 template<typename A>
 struct Ord;
@@ -75512,7 +75517,7 @@ struct Ord<A> {
       0;
   }
 };
-# 3 "C:/work/fpcpp/test/typeclasses/TestOrd.h" 2
+# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.h" 2
 
 struct TestWithOrd {};
 
@@ -108133,232 +108138,226 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-namespace typeclasses {
-  
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "Ord"
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "Ord"
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- , 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-                                  {
-    TestWithOrd a, b;
-    Compare(a, b);
-  }
+"Typeclasses_Ord"
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"Typeclasses_Ord"
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+                                            {
+  TestWithOrd a, b;
+  Compare(a, b);
+}
 
+
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"Typeclasses_Ord"
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+: public ::testing::Test { public: 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+() = default; ~
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+() override = default; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+&&) noexcept = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"Typeclasses_Ord"
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+, 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 9), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 9), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 9), new ::testing::internal::TestFactoryImpl<
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+>); void 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+Typeclasses_Ord_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+::TestBody() 
+# 9 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+                                    {
+  int a = 1, b = 2;
   
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "Ord"
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- : public ::testing::Test { public: 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- () = default; ~
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- () override = default; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- &&) noexcept = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "Ord"
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ "Compare(a, b)"
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
  , 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 10), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 10), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 10), new ::testing::internal::TestFactoryImpl<
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- >); void 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
- Ord_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
- ::TestBody() 
-# 10 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-                          {
-    int a = 1, b = 2;
-    
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   "Compare(a, b)"
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   "-1"
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   Compare(a, b)
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   -1
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 12, gtest_ar.failure_message()) = ::testing::Message()
-# 12 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-                               ;
-    b = 1;
-    
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   "Compare(a, b)"
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   "0"
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   Compare(a, b)
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   0
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 14, gtest_ar.failure_message()) = ::testing::Message()
-# 14 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-                              ;
-    b = 0;
-    
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   "Compare(a, b)"
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   "1"
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   Compare(a, b)
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   , 
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-   1
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 16, gtest_ar.failure_message()) = ::testing::Message()
-# 16 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
-                              ;
-  }
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ "-1"
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ Compare(a, b)
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ -1
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 11, gtest_ar.failure_message()) = ::testing::Message()
+# 11 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+                             ;
+  b = 1;
+  
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ "Compare(a, b)"
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ "0"
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ Compare(a, b)
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ 0
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 13, gtest_ar.failure_message()) = ::testing::Message()
+# 13 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+                            ;
+  b = 0;
+  
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ "Compare(a, b)"
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ "1"
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ Compare(a, b)
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ , 
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+ 1
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestOrd.cpp", 15, gtest_ar.failure_message()) = ::testing::Message()
+# 15 "C:/work/fpcpp/test/typeclasses/TestOrd.cpp"
+                            ;
 }

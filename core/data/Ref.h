@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FPCPP_CORE_DATA_REF_H
+#define FPCPP_CORE_DATA_REF_H
 
 #include <memory>
 
@@ -9,3 +10,5 @@ struct Ref {
   
   A value;
 };
+
+#endif // FPCPP_CORE_DATA_REF_H

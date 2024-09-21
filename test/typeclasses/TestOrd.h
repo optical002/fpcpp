@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿#ifndef FPCPP_TEST_TYPECLASSES_TEST_ORD_H
+#define FPCPP_TEST_TYPECLASSES_TEST_ORD_H
+
 #include <core/typeclasses/Ord.h>
 
 struct TestWithOrd {};
@@ -9,3 +11,5 @@ struct Ord<TestWithOrd> {
     return 0;
   }
 };
+
+#endif // FPCPP_TEST_TYPECLASSES_TEST_ORD_H

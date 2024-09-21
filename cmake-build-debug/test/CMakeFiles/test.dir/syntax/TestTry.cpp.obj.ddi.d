@@ -167,11 +167,11 @@ test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/14.2.0/bits/uniform_int_dist.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_tempbuf.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/unicode-data.h \
- C:/work/fpcpp/core/monads/Either.h \
+ C:/work/fpcpp/core/data/Either.h \
  C:/msys64/mingw64/include/c++/14.2.0/utility \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_relops.h \
- C:/work/fpcpp/core/monads/Option.h C:/work/fpcpp/core/data/Unit.h \
- C:/work/fpcpp/core/data/Concepts.h \
+ C:/work/fpcpp/core/data/Option.h C:/work/fpcpp/core/data/Either.h \
+ C:/work/fpcpp/core/data/Unit.h C:/work/fpcpp/core/data/Concepts.h \
  C:/msys64/mingw64/include/c++/14.2.0/memory \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_uninitialized.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \

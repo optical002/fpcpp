@@ -4,9 +4,12 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
 # 1 "C:/work/fpcpp/test/typeclasses/TestNum.h" 1
-       
+
+
+
 # 1 "C:/work/fpcpp/core/typeclasses/Num.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 1 3
 # 33 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 3
@@ -3792,9 +3795,11 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/typeclasses/Num.h" 2
+# 5 "C:/work/fpcpp/core/typeclasses/Num.h" 2
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75457,10 +75462,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75488,7 +75493,7 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 5 "C:/work/fpcpp/core/typeclasses/Num.h" 2
+# 6 "C:/work/fpcpp/core/typeclasses/Num.h" 2
 
 template<typename A>
 struct Num;
@@ -75510,7 +75515,7 @@ struct Num<A> {
   static A divide(const A& a, const A& b) { return a / b; }
   static A mod(const A& a, const A& b) { return a % b; }
 };
-# 3 "C:/work/fpcpp/test/typeclasses/TestNum.h" 2
+# 5 "C:/work/fpcpp/test/typeclasses/TestNum.h" 2
 
 class TestWithNum {};
 
@@ -108133,276 +108138,270 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-namespace typeclasses {
-  
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "Num"
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "Num"
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- , 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-                                  {
-    TestWithNum a, b;
-    Num<TestWithNum>::add(a, b);
-    Num<TestWithNum>::subtract(a, b);
-    Num<TestWithNum>::multiply(a, b);
-    Num<TestWithNum>::divide(a, b);
-    Num<TestWithNum>::mod(a, b);
-  }
+"Typeclasses_Num"
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"Typeclasses_Num"
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+                                            {
+  TestWithNum a, b;
+  Num<TestWithNum>::add(a, b);
+  Num<TestWithNum>::subtract(a, b);
+  Num<TestWithNum>::multiply(a, b);
+  Num<TestWithNum>::divide(a, b);
+  Num<TestWithNum>::mod(a, b);
+}
 
+
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+static_assert(sizeof(
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"Typeclasses_Num"
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"Functionality"
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+: public ::testing::Test { public: 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+() = default; ~
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+() override = default; 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+(
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+const&) = delete; 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+& operator=(
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+const&) = delete; 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+(
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+&&) noexcept = delete; 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+& operator=(
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"Typeclasses_Num"
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+, 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+"Functionality"
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 13), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 13), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 13), new ::testing::internal::TestFactoryImpl<
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+>); void 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+Typeclasses_Num_Functionality_Test
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+::TestBody() 
+# 13 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+                                    {
+  int a = 2, b = 1;
   
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- static_assert(sizeof(
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "Num"
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "Functionality"
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- : public ::testing::Test { public: 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- () = default; ~
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- () override = default; 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- (
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- const&) = delete; 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- & operator=(
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- const&) = delete; 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- (
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- &&) noexcept = delete; 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- & operator=(
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "Num"
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "Num<int>::add(a, b)"
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
  , 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- "Functionality"
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 14), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 14), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestNum.cpp", 14), new ::testing::internal::TestFactoryImpl<
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- >); void 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
- Num_Functionality_Test
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
- ::TestBody() 
-# 14 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-                          {
-    int a = 2, b = 1;
-    
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "3"
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ Num<int>::add(a, b)
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ 3
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 15, gtest_ar.failure_message()) = ::testing::Message()
+# 15 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+                                  ;
+  
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "Num<int>::add(a, b)"
+ "Num<int>::subtract(a, b)"
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
+ , 
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "3"
+ "1"
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
+ , 
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   Num<int>::add(a, b)
+ Num<int>::subtract(a, b)
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
+ , 
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   3
+ 1
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 16, gtest_ar.failure_message()) = ::testing::Message()
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 16, gtest_ar.failure_message()) = ::testing::Message()
 # 16 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-                                    ;
-    
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "Num<int>::subtract(a, b)"
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "1"
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   Num<int>::subtract(a, b)
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   1
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 17, gtest_ar.failure_message()) = ::testing::Message()
-# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-                                         ;
-    
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "Num<int>::multiply(a, b)"
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "2"
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   Num<int>::multiply(a, b)
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   2
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 18, gtest_ar.failure_message()) = ::testing::Message()
-# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-                                         ;
-    
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "Num<int>::divide(a, b)"
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "2"
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   Num<int>::divide(a, b)
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   2
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 19, gtest_ar.failure_message()) = ::testing::Message()
-# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
                                        ;
-    
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "Num<int>::mod(a, b)"
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   "0"
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   Num<int>::mod(a, b)
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   , 
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-   0
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 20, gtest_ar.failure_message()) = ::testing::Message()
-# 20 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
-                                    ;
-  }
+  
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "Num<int>::multiply(a, b)"
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "2"
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ Num<int>::multiply(a, b)
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ 2
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 17, gtest_ar.failure_message()) = ::testing::Message()
+# 17 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+                                       ;
+  
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "Num<int>::divide(a, b)"
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "2"
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ Num<int>::divide(a, b)
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ 2
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 18, gtest_ar.failure_message()) = ::testing::Message()
+# 18 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+                                     ;
+  
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "Num<int>::mod(a, b)"
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ "0"
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ Num<int>::mod(a, b)
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ , 
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+ 0
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestNum.cpp", 19, gtest_ar.failure_message()) = ::testing::Message()
+# 19 "C:/work/fpcpp/test/typeclasses/TestNum.cpp"
+                                  ;
 }

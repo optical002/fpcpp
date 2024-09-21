@@ -1,14 +1,15 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_REACTIVE_OBSERVABLE_H
+#define FPCPP_CORE_REACTIVE_OBSERVABLE_H
 
 #include <functional>
 #include <memory>
 
-#include "Subscription.h"
-#include "Tracker.h"
-#include "Subject.h"
-#include "core/data/Changes.h"
-#include "core/data/Ref.h"
-#include "core/monads/Future.h"
+#include <core/reactive/Subscription.h>
+#include <core/reactive/Tracker.h>
+#include <core/reactive/Subject.h>
+#include <core/data/Changes.h>
+#include <core/data/Ref.h>
+#include <core/data/Future.h>
 
 template<typename A>
 class Observable {
@@ -117,3 +118,5 @@ protected:
   // 'Subject' or other type of observable instance.
   Observable() = default;
 };
+
+#endif // FPCPP_CORE_REACTIVE_OBSERVABLE_H

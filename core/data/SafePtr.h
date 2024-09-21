@@ -1,7 +1,8 @@
-#pragma once
+#ifndef FPCPP_CORE_DATA_SAFE_PTR_H
+#define FPCPP_CORE_DATA_SAFE_PTR_H
 
 #include <core/data/Concepts.h>
-#include <core/monads/Either.h>
+#include <core/data/Either.h>
 
 template<PointerType Ptr>
 struct SafePtr {
@@ -21,3 +22,4 @@ private:
   Ptr _ptr;
 };
 
+#endif // FPCPP_CORE_DATA_SAFE_PTR_H

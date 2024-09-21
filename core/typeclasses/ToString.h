@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FPCPP_CORE_TYPECLASSES_TO_STRING_H
+#define FPCPP_CORE_TYPECLASSES_TO_STRING_H
 
 #include <format>
 #include <string>
@@ -48,3 +49,5 @@ struct ToString<std::string> {
     return std::format("String({})", value);
   }
 };
+
+#endif // FPCPP_CORE_TYPECLASSES_TO_STRING_H

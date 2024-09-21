@@ -1,6 +1,6 @@
 test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.ddi: \
  C:/work/fpcpp/test/syntax/TestForComprehension.cpp \
- C:/work/fpcpp/core/monads/Future.h \
+ C:/work/fpcpp/core/data/Future.h \
  C:/msys64/mingw64/include/c++/14.2.0/memory \
  C:/msys64/mingw64/include/c++/14.2.0/bits/memoryfwd.h \
  C:/msys64/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -205,10 +205,11 @@ test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/14.2.0/bits/vector.tcc \
  C:/msys64/mingw64/include/c++/14.2.0/bits/move_only_function.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/mofunc_impl.h \
- C:/work/fpcpp/core/monads/Option.h \
+ C:/work/fpcpp/core/data/Option.h \
  C:/msys64/mingw64/include/c++/14.2.0/utility \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_relops.h \
- C:/work/fpcpp/core/monads/Either.h C:/work/fpcpp/core/syntax/Try.h \
+ C:/work/fpcpp/core/data/Either.h C:/work/fpcpp/core/data/Option.h \
+ C:/work/fpcpp/core/syntax/Try.h C:/work/fpcpp/core/data/Either.h \
  C:/work/fpcpp/core/data/Unit.h C:/work/fpcpp/core/data/Concepts.h \
  C:/work/fpcpp/core/data/SafePtr.h \
  C:/work/fpcpp/core/syntax/ForComprehension.h \

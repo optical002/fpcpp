@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_REACTIVE_SUBSCRIPTION_H
+#define FPCPP_CORE_REACTIVE_SUBSCRIPTION_H
 
 #include <functional>
 #include <memory>
@@ -29,3 +30,5 @@ private:
   std::function<void()> _unsubscribe;
   bool _isSubscribed;
 };
+
+#endif // FPCPP_CORE_REACTIVE_SUBSCRIPTION_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FPCPP_CORE_REACTIVE_TRACKER_H
+#define FPCPP_CORE_REACTIVE_TRACKER_H
 
 #include <memory>
 #include <mutex>
@@ -47,3 +48,5 @@ private:
 
   std::vector<std::shared_ptr<Subscription>> _subscriptions;
 };
+
+#endif // FPCPP_CORE_REACTIVE_SUBSCRIPTION_H

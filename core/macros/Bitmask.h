@@ -1,8 +1,20 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#pragma once
+#ifndef FPCPP_CORE_MACROS_BITMASK_H
+#define FPCPP_CORE_MACROS_BITMASK_H
 
-#include <chaos/preprocessor.h>
 #include <core/macros/ToSeq.h>
+#include <chaos/preprocessor/logical/bitand.h>
+#include <chaos/preprocessor/logical/bitor.h>
+#include <chaos/preprocessor/seq/elem.h>
+#include <chaos/preprocessor/seq/size.h>
+#include <chaos/preprocessor/seq/for_each_i.h>
+#include <chaos/preprocessor/seq/fold_left.h>
+#include <chaos/preprocessor/control/if.h>
+#include <chaos/preprocessor/comparison/equal.h>
+#include <chaos/preprocessor/comparison/greater_equal.h>
+#include <chaos/preprocessor/recursion/expr.h>
+#include <chaos/preprocessor/tuple/size.h>
+#include <chaos/preprocessor/tuple/elem.h>
 
 #define BITWISE_AND_OP(s, i, elem, right_bits) (CHAOS_PP_BITAND(elem)(CHAOS_PP_SEQ_ELEM(i, right_bits)))
 #define BITWISE_AND(left_bits, right_bits) \
@@ -44,3 +56,5 @@
   ))
 
 #define BITMASK_CHECK_FLAG(mask, flag) BIT_SEQ_OR(BITWISE_AND(mask, flag))
+
+#endif // FPCPP_CORE_MACROS_BITMASK_H

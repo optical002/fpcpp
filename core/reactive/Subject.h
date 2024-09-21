@@ -1,6 +1,7 @@
-#pragma once
+#ifndef FPCPP_CORE_REACTIVE_SUBJECT_H
+#define FPCPP_CORE_REACTIVE_SUBJECT_H
 
-#include "Observable.h"
+#include <core/reactive/Observable.h>
 
 template<typename A>
 class Observable;
@@ -16,3 +17,5 @@ public:
 
   Subject() = default;
 };
+
+#endif // FPCPP_CORE_REACTIVE_SUBJECT_H

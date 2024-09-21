@@ -16,9 +16,9 @@ add_executable(test
         data/TestNewType.h
         data/TestRecord.cpp
         data/TestRecord.h
-        monads/TestEither.cpp
-        monads/TestFuture.cpp
-        monads/TestOption.cpp
+        data/TestEither.cpp
+        data/TestFuture.cpp
+        data/TestOption.cpp
         reactive/TestObservable.cpp
         reactive/TestSubscription.cpp
         reactive/TestTracker.cpp

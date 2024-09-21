@@ -13,7 +13,7 @@
 	"forward-modules-from-target-dirs" : [],
 	"include-dirs" : 
 	[
-		"C:\\work\\fpcpp"
+		"_deps\\chaos-pp-src"
 	],
 	"language" : "CXX",
 	"linked-target-dirs" : [],

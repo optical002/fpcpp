@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿#ifndef FPCPP_TEST_TYPECLASSES_TEST_TO_STRING_H
+#define FPCPP_TEST_TYPECLASSES_TEST_TO_STRING_H
+
 #include <core/typeclasses/ToString.h>
 
 struct TestWithToString {};
@@ -9,3 +11,5 @@ struct ToString<TestWithToString> {
     return "TestWithToString()";
   }
 };
+
+#endif // FPCPP_TEST_TYPECLASSES_TEST_TO_STRING_H

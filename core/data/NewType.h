@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_DATA_NEW_TYPE_H
+#define FPCPP_CORE_DATA_NEW_TYPE_H
 
 #include <core/data/Record.h>
 #include <core/macros/Bitmask.h>
@@ -37,3 +38,5 @@
 
 #define GEN_NEW_TYPE_ARITHMETIC(new_type_name, inline_type) \
   GEN_NEW_TYPE_CONSTRUCTOR_FLAGS(new_type_name, inline_type, NEW_TYPE_MASK_ARITHMETIC)
+
+#endif // FPCPP_CORE_DATA_NEW_TYPE_H

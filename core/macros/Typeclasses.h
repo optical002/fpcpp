@@ -1,12 +1,16 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#pragma once
+#ifndef FPCPP_CORE_MACROS_TYPECLASSES_H
+#define FPCPP_CORE_MACROS_TYPECLASSES_H
 
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/ToString.h>
 #include <core/typeclasses/Ord.h>
 #include <core/typeclasses/Semigroup.h>
 #include <core/typeclasses/Num.h>
-#include <chaos/preprocessor.h>
+#include <chaos/preprocessor/control/if.h>
+#include <chaos/preprocessor/comparison/equal.h>
+#include <chaos/preprocessor/tuple/size.h>
+#include <chaos/preprocessor/stringize.h>
 
 #define EQ_OPERATOR_SINGLE_FIELD(type, name) Equal(name, other.name)
 #define EQ_OPERATOR_FIELDS(...) FOR_EACH2_CON(EQ_OPERATOR_SINGLE_FIELD, &&, __VA_ARGS__)
@@ -121,3 +125,5 @@
       return {.field_name = Num<field_type>::mod(a.field_name, b.field_name) }; \
     } \
   };
+
+#endif // FPCPP_CORE_MACROS_TYPECLASSES_H

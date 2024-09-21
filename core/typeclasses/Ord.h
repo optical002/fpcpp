@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_TYPECLASSES_ORD_H
+#define FPCPP_CORE_TYPECLASSES_ORD_H
 
 #include <concepts>
 #include <core/data/Concepts.h>
@@ -26,4 +27,4 @@ struct Ord<A> {
   }
 };
 
-
+#endif // FPCPP_CORE_TYPECLASSES_ORD_H

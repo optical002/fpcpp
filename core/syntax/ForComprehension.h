@@ -1,7 +1,9 @@
-#pragma once
+#ifndef FPCPP_CORE_SYNTAX_FOR_COMPREHENSION_H
+#define FPCPP_CORE_SYNTAX_FOR_COMPREHENSION_H
+
 #include <concepts>
 
-#include "core/data/Concepts.h"
+#include <core/data/Concepts.h>
 
 template<typename FA, typename Map>
 requires std::invocable<Map, InnerType<FA>>
@@ -875,3 +877,5 @@ auto ForComprehension(
       }); }); }); }); }); }); }); }); }); });  
   }
 }
+
+#endif // FPCPP_CORE_SYNTAX_FOR_COMPREHENSION_H

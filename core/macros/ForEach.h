@@ -1,5 +1,6 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#pragma once
+#ifndef FPCPP_CORE_MACROS_FOREACH_H
+#define FPCPP_CORE_MACROS_FOREACH_H
 
 // For each with 1 argument
 #define FOR_EACH(macro, ...) __VA_OPT__(EXPAND(FOR_EACH_HELPER(macro, __VA_ARGS__)))
@@ -52,3 +53,5 @@
 #define FOR_EACH4_COMMA(macro, ...) __VA_OPT__(EXPAND(FOR_EACH4_COMMA_HELPER(macro, __VA_ARGS__)))
 #define FOR_EACH4_COMMA_HELPER(macro, a1, a2, a3, a4, ...) macro(a1, a2, a3, a4)__VA_OPT__(,) __VA_OPT__(FOR_EACH4_COMMA_AGAIN PARENS (macro, __VA_ARGS__))
 #define FOR_EACH4_COMMA_AGAIN() FOR_EACH4_COMMA_HELPER
+
+#endif // FPCPP_CORE_MACROS_FOREACH_H

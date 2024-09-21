@@ -4,13 +4,16 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/data/TestNewType.cpp"
 # 1 "C:/work/fpcpp/test/data/TestNewType.h" 1
-       
+
+
 
 # 1 "C:/work/fpcpp/core/data/NewType.h" 1
-       
+
+
 
 # 1 "C:/work/fpcpp/core/data/Record.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/string" 1 3
 # 36 "C:/msys64/mingw64/include/c++/14.2.0/string" 3
@@ -32768,7 +32771,7 @@ namespace std
     }
 
 }
-# 4 "C:/work/fpcpp/core/data/Record.h" 2
+# 5 "C:/work/fpcpp/core/data/Record.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/format" 1 3
 # 32 "C:/msys64/mingw64/include/c++/14.2.0/format" 3
        
@@ -64048,31 +64051,35 @@ namespace __format
 # 4580 "C:/msys64/mingw64/include/c++/14.2.0/format" 3
 
 }
-# 5 "C:/work/fpcpp/core/data/Record.h" 2
+# 6 "C:/work/fpcpp/core/data/Record.h" 2
 # 1 "C:/work/fpcpp/core/macros/General.h" 1
 
 
-       
-# 1 "C:/work/fpcpp/core/macros/ForEach.h" 1
 
-       
-# 5 "C:/work/fpcpp/core/macros/General.h" 2
-# 6 "C:/work/fpcpp/core/data/Record.h" 2
+
+# 1 "C:/work/fpcpp/core/macros/ForEach.h" 1
+# 6 "C:/work/fpcpp/core/macros/General.h" 2
+# 7 "C:/work/fpcpp/core/data/Record.h" 2
 # 1 "C:/work/fpcpp/core/macros/Typeclasses.h" 1
 
-       
+
+
 
 # 1 "C:/work/fpcpp/core/typeclasses/Eq.h" 1
-       
+
+
 
 
 
 # 1 "C:/work/fpcpp/core/typeclasses/Ord.h" 1
-       
+
+
 
 
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75498,10 +75505,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75529,7 +75536,7 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 5 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
+# 6 "C:/work/fpcpp/core/typeclasses/Ord.h" 2
 
 template<typename A>
 struct Ord;
@@ -75553,7 +75560,7 @@ struct Ord<A> {
       0;
   }
 };
-# 6 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
+# 7 "C:/work/fpcpp/core/typeclasses/Eq.h" 2
 
 
 template<typename A>
@@ -75589,9 +75596,10 @@ struct Eq<std::string> {
     return a == b;
   }
 };
-# 5 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 6 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
 # 1 "C:/work/fpcpp/core/typeclasses/ToString.h" 1
-       
+
+
 
 
 
@@ -75641,10 +75649,11 @@ struct ToString<std::string> {
     return std::format("String({})", value);
   }
 };
-# 6 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 7 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
 
 # 1 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 1
-       
+
+
 
 
 
@@ -75676,9 +75685,10 @@ struct Semigroup<A> {
     return a + b;
   }
 };
-# 8 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 9 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
 # 1 "C:/work/fpcpp/core/typeclasses/Num.h" 1
-       
+
+
 
 
 
@@ -75703,1232 +75713,294 @@ struct Num<A> {
   static A divide(const A& a, const A& b) { return a / b; }
   static A mod(const A& a, const A& b) { return a % b; }
 };
-# 9 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/append.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/append.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/config.h" 1
-# 31 "C:/work/fpcpp/chaos/preprocessor/config.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/cat.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/cat.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/config.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/cat.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/cat.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/null.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/expand.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/basic.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/recursion/basic.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/empty.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/recursion/basic.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/rem.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/lambda/ops.h" 2
-# 32 "C:/work/fpcpp/chaos/preprocessor/config.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/iif.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/generics/core.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/generics/core.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/generics/strip.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/generics/strip.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/eat.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/generics/strip.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/generics/core.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/generics/typeof.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/generics/typeof.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/split.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/generics/typeof.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/generics/core.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/generics/is_type.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/generics/is_type.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_nullary.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/generics/is_type.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/compl.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/generics/is_type.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/limits.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/expr.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/recursion/expr.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/dec.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/recursion/expr.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/inc.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/recursion/expr.h" 2
-
-
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/auto_rec.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/recursion/expr.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/algorithm/cast.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/append.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/bubblesort.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/bubblesort.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/bubblesort.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/bubblesort.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/size.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/bubblesort.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/if.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/control/if.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bool.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/logical/bool.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/not.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/logical/bool.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/control/if.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/algorithm/bubblesort.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/optional.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/facilities/optional.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/inline_when.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/facilities/optional.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/core.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/tuple/core.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_empty.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/detection/is_empty.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_variadic.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/detection/is_empty.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/tuple/core.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/facilities/optional.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/bubblesort.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/call.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/lambda/call.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/invoke.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/lambda/invoke.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/execute.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/lambda/invoke.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/parse.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/lambda/parse.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/punctuation/comma.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/lambda/parse.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/punctuation/paren.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/lambda/parse.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/core.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/core.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_unary.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/core.h" 2
-# 29 "C:/work/fpcpp/chaos/preprocessor/lambda/parse.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/elem.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/tuple/elem.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/greater.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/comparison/greater.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/less.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/comparison/greater.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/tuple/elem.h" 2
-
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/punctuation/comma_if.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/punctuation/comma_if.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/when.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/punctuation/comma_if.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/tuple/elem.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/batch.h" 1
-# 27 "C:/work/fpcpp/chaos/preprocessor/tuple/elem.h" 2
-# 31 "C:/work/fpcpp/chaos/preprocessor/lambda/parse.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/lambda/invoke.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/lambda/call.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/algorithm/bubblesort.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/bubblesort.h" 2
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/higher_order.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/bubblesort.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/combinatorial_repeat.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/combinatorial_repeat.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/combinatorial_repeat.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/combinatorial_repeat.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/for_each_product.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/algorithm/for_each_product.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/trampoline.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/for_each_product.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/combinatorial_repeat.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/combinatorial_repeat.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/filter.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/filter.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/algorithm/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/binary.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/algorithm/filter.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/filter.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_left.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_left.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/fold_left.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/fold_left.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/planar.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/lambda/planar.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/block.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/lambda/planar.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/algorithm/fold_left.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_left.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_left_aux.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_left_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/fold_left_aux.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_left_aux.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_right.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_right.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/fold_right.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_right.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_right_aux.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_right_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/fold_right_aux.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/fold_right_aux.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/for_each.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each_i.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each_i.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/for_each_i.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each_i.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/for_each_product.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/insertion_sort.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/insertion_sort.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/insertion_sort.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/insertion_sort.h" 2
-# 26 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/merge_sort.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/merge_sort.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/merge_sort.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/algorithm/merge_sort.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bitand.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/algorithm/merge_sort.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/merge_sort.h" 2
-# 27 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/transform.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/transform.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/transform.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto/transform.h" 2
-# 28 "C:/work/fpcpp/chaos/preprocessor/algorithm/auto.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/concat.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/algorithm/concat.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/extended/variadic_cat.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/algorithm/concat.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/drop.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/elem.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/enumerate.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 32 "C:/work/fpcpp/chaos/preprocessor/algorithm.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/insert.h" 1
-# 33 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/not_equal.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each.h" 2
-# 25 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/phase.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each_i.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric/for_each_product.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/algorithm/parametric.h" 2
-# 36 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/pop_back.h" 1
-# 37 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/prepend.h" 1
-# 38 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/push_back.h" 1
-# 39 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/range.h" 1
-# 40 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/remove.h" 1
-# 41 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/replace.h" 1
-# 42 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/reverse.h" 1
-# 43 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/take.h" 1
-# 45 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/filter.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/buffer.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/filter.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/fold_left.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/fold_left_aux.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/fold_right.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/fold_right_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/for_each.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/for_each_i.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/for_each_product.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/algorithm/x/transform.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/algorithm/x.h" 2
-# 47 "C:/work/fpcpp/chaos/preprocessor/algorithm.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/fix.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/fix.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/bool.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/bool.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/fix.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/bool.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sign.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/arbitrary/bool.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/fix.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/inline_unless.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/fix.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/merge.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/merge.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/is_shorter.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/is_shorter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/scan.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/is_shorter.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/special.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/is_shorter.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/merge.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/swap.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/merge.h" 2
-# 27 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/merge.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/reverse.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/reverse.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/placemarker_if.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/reverse.h" 2
-
-
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/binary_transform.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/seq/reverse.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/detail/close.h" 1
-# 27 "C:/work/fpcpp/chaos/preprocessor/seq/reverse.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/duplex.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/duplex.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/extended/reverse_cat.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/duplex.h" 2
-# 28 "C:/work/fpcpp/chaos/preprocessor/seq/reverse.h" 2
-# 28 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/merge.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/plus.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/plus.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/lookup.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/plus.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/indirect.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/plus.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/less_equal.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/arbitrary/less_equal.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/rel.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/arbitrary/less_equal.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sub.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sub.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sub.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/minus.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sub.h" 2
-# 31 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sub.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bitor.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/arbitrary/sub.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/arbitrary/add.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/dec.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/arbitrary/dec.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/inc.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arbitrary/inc.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/dec.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/inc.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/arbitrary/dec.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/demote.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/divide.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h" 2
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/equal.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/less.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/mul.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/arbitrary/mul.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/detail/times.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/arbitrary/mul.h" 2
-# 30 "C:/work/fpcpp/chaos/preprocessor/arbitrary/mul.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bitxor.h" 1
-# 31 "C:/work/fpcpp/chaos/preprocessor/arbitrary/mul.h" 2
-# 25 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h" 2
-
-
-
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/debug/failure.h" 1
-# 33 "C:/work/fpcpp/chaos/preprocessor/arbitrary/div.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/greater.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/greater_equal.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/literal.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/arbitrary/literal.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/core.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/arbitrary/literal.h" 2
-# 27 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/mod.h" 1
-# 28 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/neg.h" 1
-# 30 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/not_equal.h" 1
-# 31 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arbitrary/promote.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/arbitrary.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/add.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/div.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/in_range.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/add.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/add.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/machine.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/add.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/div.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/div.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/sub.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/div.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/unless.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/div.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/mod.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine/mul.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/arithmetic/machine.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/mod.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/mul.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/arithmetic/sub.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/arithmetic/sub.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/and.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/arithmetic/sub.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/arithmetic.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/array.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/array.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/core.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/array/core.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/elem.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/array/elem.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/size.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/array/elem.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/to_tuple.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/array/elem.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/array/core.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/array.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/reverse.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/array/reverse.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/reverse.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/array/reverse.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/array.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/to_list.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/array/to_list.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/to_list.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/array/to_list.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/array.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/to_seq.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/array/to_seq.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/to_seq.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/array/to_seq.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/array.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/array/to_string.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/array/to_string.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/to_string.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/array/to_string.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/array.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/comparison.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/equal.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/comparison.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/greater_equal.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/comparison.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/less_equal.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/comparison.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/max.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/comparison.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/comparison/min.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/comparison.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/control.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/auto.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/control/auto.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/auto/while.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/control/auto/while.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/while.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/control/auto/while.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/control/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/auto/while_aux.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/control/auto/while_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/while_aux.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/control/auto/while_aux.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/control/auto.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/control.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/branch.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/control.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/include_if.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/control.h" 2
-
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/variadic_if.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/control/variadic_if.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/variadic_iif.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/control/variadic_if.h" 2
-# 26 "C:/work/fpcpp/chaos/preprocessor/control.h" 2
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/x.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/control/x.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/x/while.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/control/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/control/x/while_aux.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/control/x.h" 2
-# 31 "C:/work/fpcpp/chaos/preprocessor/control.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/debug.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/debug.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/debug/assert.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/debug.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/debug/line.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/debug/line.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/iteration/file.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/iteration/file.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/elem.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/elem.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/drop.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/drop.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/take.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/drop.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/elem.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/iteration/file.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/slot/slot.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/slot/slot.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/stringize.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/slot/slot.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/iteration/file.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/debug/line.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/debug.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/detection.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/compare.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/detection.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_binary.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/detection.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_flag.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/detection/is_flag.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_one.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/detection/is_flag.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/detection.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_numeric.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/detection/is_numeric.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/intercept.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/detection/is_numeric.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/detection.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/detection/is_ternary.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/detection.h" 2
-# 25 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/extended.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/extended.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/extended/auto_cat.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/extended.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/extended/partial_cat.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/extended.h" 2
-# 26 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/facilities.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/abbr.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/as_args.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/bind.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/default.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/encode.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/expander.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/facilities/expander.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/enumerate.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/facilities/expander.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/identity.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/overload.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/facilities/overload.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/size.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/facilities/overload.h" 2
-# 29 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/push.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/facilities/push.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/whitespace.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/facilities/push.h" 2
-# 30 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/type.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/facilities/type.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/rail.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/facilities/type.h" 2
-# 32 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/facilities/unbox.h" 1
-# 33 "C:/work/fpcpp/chaos/preprocessor/facilities.h" 2
-# 27 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/generics.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/generics.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/generics/is_elemental.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/generics.h" 2
-# 28 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/iteration.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/iteration.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/iteration/local.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/iteration.h" 2
-# 29 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/lambda.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/closure.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/lambda.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/lambda/curry.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/lambda.h" 2
-# 30 "C:/work/fpcpp/chaos/preprocessor.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/list.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/list.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/list/core.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/list.h" 2
-# 32 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/logical.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bitnand.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bitnor.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/bitxnor.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/nand.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/nor.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/or.h" 1
-# 28 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/xnor.h" 1
-# 29 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/logical/xor.h" 1
-# 30 "C:/work/fpcpp/chaos/preprocessor/logical.h" 2
-# 33 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/punctuation.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/punctuation.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/punctuation/hash.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/punctuation.h" 2
-# 34 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/recursion.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/context.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/delay.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/delve.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/dynamic.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/recursion/dynamic.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/infuse.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/recursion/dynamic.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/equalize.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 2
-
-
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/recursion/revive.h" 1
-# 30 "C:/work/fpcpp/chaos/preprocessor/recursion.h" 2
-# 35 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/repetition.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_from_to.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_from_to.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_from_to.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_from_to.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_from_to_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_from_to_trailing.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_from_to_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_from_to_trailing.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_shifted.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_shifted.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_shifted.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_shifted.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_shifted_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_shifted_trailing.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_shifted_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_shifted_trailing.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_trailing.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/delineate_trailing.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_from_to.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_from_to.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_from_to.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_from_to.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_from_to_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_from_to_trailing.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_from_to_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_from_to_trailing.h" 2
-# 24 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_shifted.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_shifted.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_shifted.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_shifted.h" 2
-# 25 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_shifted_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_shifted_trailing.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_shifted_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_shifted_trailing.h" 2
-# 26 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_trailing.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/enum_trailing.h" 2
-# 27 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/for.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/for.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/for.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/for.h" 2
-# 28 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/for_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/for_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/for_aux.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/for_aux.h" 2
-# 29 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/repeat.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat.h" 2
-# 30 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat_from_to.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat_from_to.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/repeat_from_to.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat_from_to.h" 2
-# 31 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat_shifted.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat_shifted.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/repeat_shifted.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/auto/repeat_shifted.h" 2
-# 32 "C:/work/fpcpp/chaos/preprocessor/repetition/auto.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_params.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_shifted_params.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_shifted_trailing_params.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/delineate_trailing_params.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_params.h" 1
-# 30 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_shifted_params.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_shifted_trailing_params.h" 1
-# 34 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/enum_trailing_params.h" 1
-# 36 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/delineate.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/delineate_from_to.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/delineate_from_to_trailing.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/delineate_shifted.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/delineate_shifted_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/delineate_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/enum.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/enum_from_to.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/enum_from_to_trailing.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/enum_shifted.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/enum_shifted_trailing.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/enum_trailing.h" 1
-# 27 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/for.h" 1
-# 28 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/for_aux.h" 1
-# 29 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/repeat.h" 1
-# 30 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/repeat_from_to.h" 1
-# 31 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric/repeat_shifted.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/repetition/parametric.h" 2
-# 39 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/delineate.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/delineate_from_to.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/delineate_from_to_trailing.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/delineate_shifted.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/delineate_shifted_trailing.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/delineate_trailing.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/enum.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/enum_from_to.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/enum_from_to_trailing.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/enum_shifted.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/enum_shifted_trailing.h" 1
-# 26 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/enum_trailing.h" 1
-# 27 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/for.h" 1
-# 28 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/for_aux.h" 1
-# 29 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/repeat.h" 1
-# 30 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/repeat_from_to.h" 1
-# 31 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/repetition/x/repeat_shifted.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/repetition/x.h" 2
-# 43 "C:/work/fpcpp/chaos/preprocessor/repetition.h" 2
-# 36 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/seq.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/filter.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/filter.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto/filter.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_left.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_left.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/fold_left.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/fold_left.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/fold_right.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/fold_left.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_left.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_left_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_left_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/fold_left_aux.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/fold_left_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/fold_right_aux.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/fold_left_aux.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_left_aux.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_right.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/fold_right_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/for_each.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto/for_each.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/for_each.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto/for_each.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/for_each_i.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto/for_each_i.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/for_each_i.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto/for_each_i.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/auto/transform.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/auto/transform.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/transform.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/auto/transform.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/seq/auto.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/concat.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 31 "C:/work/fpcpp/chaos/preprocessor/seq.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/insert.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/pop_back.h" 1
-# 33 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/range.h" 1
-# 34 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/remove.h" 1
-# 35 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/replace.h" 1
-# 36 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/size.h" 1
-# 38 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/to_array.h" 1
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/to_array.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/to_tuple.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/to_array.h" 2
-# 40 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/to_list.h" 1
-# 41 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/to_string.h" 1
-# 42 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/seq/variadic.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/filter.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/filter.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/zip.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/filter.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/filter.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_left.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_left.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/fold_left.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_left.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_left_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_left_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/fold_left_aux.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_left_aux.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_right.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_right.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/fold_right.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_right.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_right_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_right_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/fold_right_aux.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/fold_right_aux.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/for_each.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/for_each.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/for_each.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/for_each.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/for_each_i.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/for_each_i.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/for_each_i.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/for_each_i.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/transform.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/transform.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/transform.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto/transform.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/auto.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/seq/variadic.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/seq/variadic/core.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/seq/variadic.h" 2
-# 45 "C:/work/fpcpp/chaos/preprocessor/seq.h" 2
-# 37 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/slot.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/slot.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/slot/counter.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/slot.h" 2
-# 38 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/string.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/string.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/charize.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/string.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/compare.h" 1
-# 17 "C:/work/fpcpp/chaos/preprocessor/string.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/compare_insensitive.h" 1
-# 24 "C:/work/fpcpp/chaos/preprocessor/string/compare_insensitive.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/to_lower.h" 1
-# 25 "C:/work/fpcpp/chaos/preprocessor/string/compare_insensitive.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/string.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/to_upper.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/string.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/ucharize.h" 1
-# 22 "C:/work/fpcpp/chaos/preprocessor/string.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/string/wcharize.h" 1
-# 23 "C:/work/fpcpp/chaos/preprocessor/string.h" 2
-# 39 "C:/work/fpcpp/chaos/preprocessor.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/tuple.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/as_args.h" 1
-# 16 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 1
-# 15 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/filter.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/filter.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/filter.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/filter.h" 2
-# 16 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_left.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_left.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/fold_left.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_left.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_left_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_left_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/fold_left_aux.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_left_aux.h" 2
-# 18 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_right.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_right.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/fold_right.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_right.h" 2
-# 19 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_right_aux.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_right_aux.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/fold_right_aux.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/fold_right_aux.h" 2
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/for_each.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/for_each.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/for_each.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/for_each.h" 2
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/for_each_i.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/for_each_i.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/for_each_i.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/for_each_i.h" 2
-# 22 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/transform.h" 1
-# 20 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/transform.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/transform.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple/auto/transform.h" 2
-# 23 "C:/work/fpcpp/chaos/preprocessor/tuple/auto.h" 2
-# 17 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/concat.h" 1
-# 19 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/drop.h" 1
-# 21 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-# 30 "C:/work/fpcpp/chaos/preprocessor/tuple.h"
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/insert.h" 1
-# 31 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/pop_back.h" 1
-# 32 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/remove.h" 1
-# 34 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/replace.h" 1
-# 35 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-
-
-# 1 "C:/work/fpcpp/chaos/preprocessor/tuple/take.h" 1
-# 38 "C:/work/fpcpp/chaos/preprocessor/tuple.h" 2
-# 41 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/ustringize.h" 1
-# 42 "C:/work/fpcpp/chaos/preprocessor.h" 2
-# 1 "C:/work/fpcpp/chaos/preprocessor/wstringize.h" 1
-# 43 "C:/work/fpcpp/chaos/preprocessor.h" 2
 # 10 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
-# 7 "C:/work/fpcpp/core/data/Record.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/if.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/if.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/config.h" 1
+# 31 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/config.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/cat.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/cat.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/config.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/cat.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/cat.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/null.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/facilities/expand.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/basic.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/basic.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/facilities/empty.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/basic.h" 2
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/rem.h" 1
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/ops.h" 2
+# 32 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/config.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/if.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/iif.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/if.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/bool.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/bool.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/compl.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/bool.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/not.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/not.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_nullary.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_nullary.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/facilities/split.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_nullary.h" 2
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/not.h" 2
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/bool.h" 2
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/if.h" 2
+# 11 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/equal.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/equal.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/not_equal.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/not_equal.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/less.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/less.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/eat.h" 1
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/less.h" 2
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/not_equal.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/equal.h" 2
+# 12 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/in_range.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/inc.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 2
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_empty.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_empty.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_variadic.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_empty.h" 2
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/limits.h" 1
+# 23 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/expr.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/expr.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/dec.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/expr.h" 2
+
+
+
+
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/auto_rec.h" 1
+# 24 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/expr.h" 2
+# 25 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/batch.h" 1
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/batch.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/punctuation/comma.h" 1
+# 22 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/batch.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/core.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/core.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/inline_when.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/core.h" 2
+# 24 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/batch.h" 2
+# 26 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/size.h" 2
+# 13 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/stringize.h" 1
+# 14 "C:/work/fpcpp/core/macros/Typeclasses.h" 2
+# 8 "C:/work/fpcpp/core/data/Record.h" 2
 # 1 "C:/work/fpcpp/core/macros/Withers.h" 1
 
-       
-# 1 "C:/work/fpcpp/core/macros/Group.h" 1
 
-       
-# 4 "C:/work/fpcpp/core/macros/Withers.h" 2
-# 8 "C:/work/fpcpp/core/data/Record.h" 2
-# 4 "C:/work/fpcpp/core/data/NewType.h" 2
+
+
+# 1 "C:/work/fpcpp/core/macros/Group.h" 1
+# 6 "C:/work/fpcpp/core/macros/Withers.h" 2
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/div.h" 1
+# 22 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/div.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/debug/failure.h" 1
+# 23 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/div.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/facilities/binary.h" 1
+# 24 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/div.h" 2
+
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/phase.h" 1
+# 29 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/div.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/core.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/core.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/detection/is_unary.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/core.h" 2
+# 30 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arithmetic/div.h" 2
+# 10 "C:/work/fpcpp/core/macros/Withers.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/facilities/optional.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/call.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/call.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/invoke.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/invoke.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/execute.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/invoke.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/parse.h" 1
+# 25 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/parse.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/punctuation/paren.h" 1
+# 26 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/parse.h" 2
+
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/elem.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/elem.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/greater.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/elem.h" 2
+
+
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/punctuation/comma_if.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/punctuation/comma_if.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/when.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/punctuation/comma_if.h" 2
+# 24 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/tuple/elem.h" 2
+# 31 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/parse.h" 2
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/invoke.h" 2
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/call.h" 2
+# 22 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h" 2
+
+
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/binary_transform.h" 1
+# 28 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/detail/close.h" 1
+# 29 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/reverse.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/reverse.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/placemarker_if.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/reverse.h" 2
+# 27 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/reverse.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/duplex.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/duplex.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/extended/reverse_cat.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/duplex.h" 2
+# 28 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/reverse.h" 2
+# 30 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/for_each_i.h" 2
+# 12 "C:/work/fpcpp/core/macros/Withers.h" 2
+# 9 "C:/work/fpcpp/core/data/Record.h" 2
+# 5 "C:/work/fpcpp/core/data/NewType.h" 2
 # 1 "C:/work/fpcpp/core/macros/Bitmask.h" 1
 
-       
+
 
 
 # 1 "C:/work/fpcpp/core/macros/ToSeq.h" 1
-
-       
 # 6 "C:/work/fpcpp/core/macros/Bitmask.h" 2
-# 5 "C:/work/fpcpp/core/data/NewType.h" 2
-# 4 "C:/work/fpcpp/test/data/TestNewType.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/bitand.h" 1
+# 7 "C:/work/fpcpp/core/macros/Bitmask.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/logical/bitor.h" 1
+# 8 "C:/work/fpcpp/core/macros/Bitmask.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/elem.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/elem.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/drop.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/drop.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/take.h" 1
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/drop.h" 2
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/elem.h" 2
+# 9 "C:/work/fpcpp/core/macros/Bitmask.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/size.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/size.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/demote.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/demote.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/fix.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/fix.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/bool.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/bool.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/fix.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/bool.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/sign.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/bool.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/fix.h" 2
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/control/inline_unless.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/fix.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/demote.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/scan.h" 1
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/demote.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/special.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/demote.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/size.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/greater.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/greater.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/less_equal.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/less_equal.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/merge.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/merge.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/is_shorter.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/merge.h" 2
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/swap.h" 1
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/merge.h" 2
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/less_equal.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/rel.h" 1
+# 15 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/rel.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/lookup.h" 1
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/detail/rel.h" 2
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/less_equal.h" 2
+
+
+
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/facilities/indirect.h" 1
+# 24 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/less_equal.h" 2
+# 16 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/greater.h" 2
+# 17 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/size.h" 2
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/arbitrary/promote.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/size.h" 2
+# 10 "C:/work/fpcpp/core/macros/Bitmask.h" 2
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_left.h" 1
+# 18 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_left.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_right.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_right.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/planar.h" 1
+# 20 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/planar.h"
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/recursion/block.h" 1
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/lambda/planar.h" 2
+# 21 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_right.h" 2
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/infuse.h" 1
+# 24 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_right.h" 2
+# 19 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/seq/fold_left.h" 2
+# 12 "C:/work/fpcpp/core/macros/Bitmask.h" 2
+
+
+# 1 "C:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src/chaos/preprocessor/comparison/greater_equal.h" 1
+# 15 "C:/work/fpcpp/core/macros/Bitmask.h" 2
+# 6 "C:/work/fpcpp/core/data/NewType.h" 2
+# 5 "C:/work/fpcpp/test/data/TestNewType.h" 2
 
 struct Name { const std::string a; Name with_a(const std::string a_) const { return { a_ }; } bool operator==(const Name& other) const { return Equal(a, other.a); } bool operator!=(const Name& other) const { return !(*this == other); } }; template<> struct Eq<Name> { static bool equal(const Name& a, const Name& b) { return Equal(a.a, b.a); } }; template<> struct ToString<Name> { static std::string toStr(const Name& a) { return std::format("Name(a={})", ToStr(a.a)); } }; template<> struct Semigroup<Name> { static Name combine(const Name& a, const Name& b) { return {.a = Combine(a.a, b.a) }; } };
 
@@ -109544,355 +108616,348 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/data/TestNewType.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
-namespace data {
+"Data_NewType"
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Equality"
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Data_NewType"
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Equality"
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/data/TestNewType.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_Equality_Test
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                            {
+  const Age x1 = {.a = 1}, x2 = {.a = 1};
   
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "NewType"
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "Equality"
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "NewType"
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ x1 == x2
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 6, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "x1 == x2"
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
  , 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "Equality"
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/data/TestNewType.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_Equality_Test
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                         {
-    const Age x1 = {.a = 1}, x2 = {.a = 1};
-    
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   x1 == x2
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 7, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "x1 == x2"
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "false"
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "true"
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 7 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                         << "Expected x1 to be equal x2, but it was not.";
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "false"
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "true"
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 6 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                       << "Expected x1 to be equal x2, but it was not.";
 
-    const Age x3 = {.a = 2};
-    
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   x1 != x3
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 10, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "x1 != x3"
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "false"
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "true"
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 10 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                         << "Expected x1 to be not equal x3, but it was.";
-  }
-
+  const Age x3 = {.a = 2};
   
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- static_assert(sizeof(
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "NewType"
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "ToString"
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- : public ::testing::Test { public: 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- () = default; ~
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- () override = default; 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- (
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- const&) = delete; 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- & operator=(
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- const&) = delete; 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- (
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- &&) noexcept = delete; 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- & operator=(
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "NewType"
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ x1 != x3
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 9, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "x1 != x3"
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
  , 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "ToString"
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/data/TestNewType.cpp", 13), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 13), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 13), new ::testing::internal::TestFactoryImpl<
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- >); void 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_ToString_Test
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ::TestBody() 
-# 13 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                         {
-    const Age x1 = {.a = 1};
-    
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "ToStr(x1)"
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "\"Age(a=Int(1))\""
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   ToStr(x1)
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "Age(a=Int(1))"
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 15, gtest_ar.failure_message()) = ::testing::Message()
-# 15 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                                        ;
-  }
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "false"
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "true"
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 9 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                       << "Expected x1 to be not equal x3, but it was.";
+}
 
+
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+static_assert(sizeof(
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Data_NewType"
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"ToString"
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+: public ::testing::Test { public: 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+() = default; ~
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+() override = default; 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+(
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+const&) = delete; 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+& operator=(
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+const&) = delete; 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+(
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+&&) noexcept = delete; 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+& operator=(
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Data_NewType"
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+, 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"ToString"
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/data/TestNewType.cpp", 12), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 12), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 12), new ::testing::internal::TestFactoryImpl<
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+>); void 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_ToString_Test
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+::TestBody() 
+# 12 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                            {
+  const Age x1 = {.a = 1};
   
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- static_assert(sizeof(
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "NewType"
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "WithConstructors"
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- : public ::testing::Test { public: 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- () = default; ~
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- () override = default; 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- (
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- const&) = delete; 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- & operator=(
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- const&) = delete; 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- (
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- &&) noexcept = delete; 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- & operator=(
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "NewType"
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "ToStr(x1)"
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
  , 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- "WithConstructors"
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/data/TestNewType.cpp", 18), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 18), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 18), new ::testing::internal::TestFactoryImpl<
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- >); void 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
- NewType_WithConstructors_Test
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
- ::TestBody() 
-# 18 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                                 {
-    const Age x = {.a = 1};
-    const auto xA = x.with_a(2);
-    
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "x.a"
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "1"
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   x.a
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   1
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 21, gtest_ar.failure_message()) = ::testing::Message() 
-# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                     << "Expected x.a to still be 1, but it was not.";
-    
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "xA.a"
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   "2"
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   xA.a
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   , 
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp"
-   2
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 22, gtest_ar.failure_message()) = ::testing::Message() 
-# 22 "C:/work/fpcpp/test/data/TestNewType.cpp"
-                      << "Expected xA.a to be 2, but it was not.";
-  }
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "\"Age(a=Int(1))\""
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ ToStr(x1)
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "Age(a=Int(1))"
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 14, gtest_ar.failure_message()) = ::testing::Message()
+# 14 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                                      ;
+}
 
+
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+static_assert(sizeof(
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Data_NewType"
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"WithConstructors"
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+: public ::testing::Test { public: 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+() = default; ~
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+() override = default; 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+(
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+const&) = delete; 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+& operator=(
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+const&) = delete; 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+(
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+&&) noexcept = delete; 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+& operator=(
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"Data_NewType"
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+, 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+"WithConstructors"
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/data/TestNewType.cpp", 17), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 17), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/data/TestNewType.cpp", 17), new ::testing::internal::TestFactoryImpl<
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+>); void 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+Data_NewType_WithConstructors_Test
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+::TestBody() 
+# 17 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                                    {
+  const Age x = {.a = 1};
+  const auto xA = x.with_a(2);
+  
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "x.a"
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "1"
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ x.a
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ 1
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 20, gtest_ar.failure_message()) = ::testing::Message() 
+# 20 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                   << "Expected x.a to still be 1, but it was not.";
+  
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "xA.a"
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ "2"
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ xA.a
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ , 
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
+ 2
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/data/TestNewType.cpp", 21, gtest_ar.failure_message()) = ::testing::Message() 
+# 21 "C:/work/fpcpp/test/data/TestNewType.cpp"
+                    << "Expected xA.a to be 2, but it was not.";
 }

@@ -3,8 +3,9 @@
 # 0 "<built-in>"
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-# 1 "C:/work/fpcpp/core/monads/Future.h" 1
-       
+# 1 "C:/work/fpcpp/core/data/Future.h" 1
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75450,7 +75451,7 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/monads/Future.h" 2
+# 5 "C:/work/fpcpp/core/data/Future.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/functional" 1 3
 # 46 "C:/msys64/mingw64/include/c++/14.2.0/functional" 3
        
@@ -88841,9 +88842,10 @@ namespace std
 
 
 }
-# 5 "C:/work/fpcpp/core/monads/Future.h" 2
-# 1 "C:/work/fpcpp/core/monads/Option.h" 1
-       
+# 6 "C:/work/fpcpp/core/data/Future.h" 2
+# 1 "C:/work/fpcpp/core/data/Option.h" 1
+
+
 
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/utility" 1 3
@@ -89011,10 +89013,10 @@ namespace std
 
 
 }
-# 5 "C:/work/fpcpp/core/monads/Option.h" 2
+# 6 "C:/work/fpcpp/core/data/Option.h" 2
 
 
-# 6 "C:/work/fpcpp/core/monads/Option.h"
+# 7 "C:/work/fpcpp/core/data/Option.h"
 template<typename L, typename R>
 class Either;
 
@@ -89115,8 +89117,9 @@ struct NoneType {
 
 inline constexpr NoneType None{};
 
-# 1 "C:/work/fpcpp/core/monads/Either.h" 1
-       
+# 1 "C:/work/fpcpp/core/data/Either.h" 1
+
+
 
 
 
@@ -89293,14 +89296,15 @@ template<typename L, typename R>
 Either<L, R> RightE(const R& right) { return Right(right); }
 
 
-
+# 1 "C:/work/fpcpp/core/data/Option.h" 1
+# 180 "C:/work/fpcpp/core/data/Either.h" 2
 
 template <typename L, typename R>
 Option<L> Either<L, R>::left() const { return _isLeft ? Some(_left) : None; }
 
 template <typename L, typename R>
 Option<R> Either<L, R>::right() const { return isRight() ? Some(_right) : None; }
-# 107 "C:/work/fpcpp/core/monads/Option.h" 2
+# 108 "C:/work/fpcpp/core/data/Option.h" 2
 
 template <typename A>
 template <typename R>
@@ -89313,7 +89317,7 @@ template <typename L>
 Either<L, A> Option<A>::toRight(const L& leftValue) {
   return _hasValue ? RightE<L>(_unsafeValue) : Left(leftValue);
 }
-# 6 "C:/work/fpcpp/core/monads/Future.h" 2
+# 7 "C:/work/fpcpp/core/data/Future.h" 2
 
 template <typename A>
 class Promise;
@@ -89429,20 +89433,26 @@ public:
   static constexpr UnsuccessfulType unsuccessful{};
 };
 # 2 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 2
+
 # 1 "C:/work/fpcpp/core/syntax/Try.h" 1
-       
 
 
 
 
 
+
+# 1 "C:/work/fpcpp/core/data/Either.h" 1
+# 8 "C:/work/fpcpp/core/syntax/Try.h" 2
 # 1 "C:/work/fpcpp/core/data/Unit.h" 1
-       
+
+
 
 struct Unit { };
-# 8 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 9 "C:/work/fpcpp/core/syntax/Try.h" 2
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 
 
@@ -89473,9 +89483,10 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 9 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 10 "C:/work/fpcpp/core/syntax/Try.h" 2
 # 1 "C:/work/fpcpp/core/data/SafePtr.h" 1
-       
+
+
 
 
 
@@ -89497,7 +89508,7 @@ private:
   explicit SafePtr(Ptr ptr) : _ptr(ptr) {}
   Ptr _ptr;
 };
-# 10 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 11 "C:/work/fpcpp/core/syntax/Try.h" 2
 
 
 
@@ -89557,10 +89568,11 @@ template<PointerType Ptr>
 Either<std::exception, SafePtr<Ptr>> TryPtr(Ptr ptr) {
   return SafePtr<Ptr>::create(ptr);
 }
-# 3 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 2
-
+# 4 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 2
 # 1 "C:/work/fpcpp/core/syntax/ForComprehension.h" 1
-       
+
+
+
 
 
 
@@ -109476,3748 +109488,3742 @@ inline int RUN_ALL_TESTS() {
 
 # 6 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 2
 
-
+static_assert(sizeof(
 # 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-namespace syntax {
+"Syntax_ForComprehension"
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Map"
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Map"
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 7), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 7), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 7), new ::testing::internal::TestFactoryImpl<
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_Map_Test
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 7 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](const int& x) { return x + 1; }
+  );
   
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "Map"
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 12, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "Map"
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 8), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 8), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 8), new ::testing::internal::TestFactoryImpl<
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_Map_Test
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 8 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                             {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](const int& x) { return x + 1; }
-    );
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 12 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
     
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 13, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "2"
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 13 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "2"
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     2
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 15, gtest_ar.failure_message()) = ::testing::Message() 
-# 15 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '2', but it was not.";
-    });
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   2
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 14, gtest_ar.failure_message()) = ::testing::Message() 
+# 14 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '2', but it was not.";
+  });
 
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](const int& x) { return x + 1; }
-    );
-    promise.tryComplete(1);
-    
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 24, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 24 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "2"
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     2
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 26, gtest_ar.failure_message()) = ::testing::Message() 
-# 26 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '2', but it was not.";
-    });
-  }
-
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](const int& x) { return x + 1; }
+  );
+  promise.tryComplete(1);
   
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap1SingleArg"
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 23, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap1SingleArg"
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 30), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 30), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 30), new ::testing::internal::TestFactoryImpl<
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1SingleArg_Test
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 30 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                           {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](const int& x) { return Some(x + 1); },
-      [](const int& x) { return x;}
-    );
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 23 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
     
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 36, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "2"
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 36 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "2"
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     2
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 38, gtest_ar.failure_message()) = ::testing::Message() 
-# 38 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '2', but it was not.";
-    });
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   2
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 25, gtest_ar.failure_message()) = ::testing::Message() 
+# 25 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '2', but it was not.";
+  });
+}
 
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](const int& x) { return FutureA::successful(x + 1); },
-      [](const int& x) { return x;}
-    );
-    promise.tryComplete(1);
-    
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 48, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 48 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "2"
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     2
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 50, gtest_ar.failure_message()) = ::testing::Message() 
-# 50 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '2', but it was not.";
-    });
-  }
 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap1SingleArg"
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap1SingleArg"
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 29), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 29), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 29), new ::testing::internal::TestFactoryImpl<
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1SingleArg_Test
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 29 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](const int& x) { return Some(x + 1); },
+    [](const int& x) { return x;}
+  );
   
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap1MultipleArg"
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 35, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap1MultipleArg"
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 54), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 54), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 54), new ::testing::internal::TestFactoryImpl<
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MultipleArg_Test
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 54 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 35 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "2"
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   2
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 37, gtest_ar.failure_message()) = ::testing::Message() 
+# 37 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '2', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](const int& x) { return FutureA::successful(x + 1); },
+    [](const int& x) { return x;}
+  );
+  promise.tryComplete(1);
+  
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 47, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 47 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "2"
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   2
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 49, gtest_ar.failure_message()) = ::testing::Message() 
+# 49 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '2', but it was not.";
+  });
+}
+
+
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap1MultipleArg"
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap1MultipleArg"
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 53), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 53), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 53), new ::testing::internal::TestFactoryImpl<
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MultipleArg_Test
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 53 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](const int& x) { return Some(x + 1); },
+    [](const int& a, const int& b) { return a + b;}
+  );
+  
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 59, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 59 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "3"
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   3
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 61, gtest_ar.failure_message()) = ::testing::Message() 
+# 61 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '3', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](const int& x) { return FutureA::successful(x + 1); },
+    [](const int& a, const int& b) { return a + b;}
+  );
+  promise.tryComplete(1);
+  
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 71, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 71 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "3"
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   3
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 73, gtest_ar.failure_message()) = ::testing::Message() 
+# 73 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '3', but it was not.";
+  });
+}
+
+
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap2MultipleArg"
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap2MultipleArg"
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 77), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 77), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 77), new ::testing::internal::TestFactoryImpl<
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MultipleArg_Test
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 77 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return x1 + x2 + x3; }
+  );
+  
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 84, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 84 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "6"
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   6
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 86, gtest_ar.failure_message()) = ::testing::Message() 
+# 86 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '6', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return x1 + x2 + x3; }
+  );
+  promise.tryComplete(1);
+  
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 97, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 97 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "6"
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   6
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 99, gtest_ar.failure_message()) = ::testing::Message() 
+# 99 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '6', but it was not.";
+  });
+}
+
+
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap3MultipleArg"
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap3MultipleArg"
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 103), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 103), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 103), new ::testing::internal::TestFactoryImpl<
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MultipleArg_Test
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 103 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
+  );
+  
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 111, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 111 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "12"
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   12
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 113, gtest_ar.failure_message()) = ::testing::Message() 
+# 113 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '12', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
+  );
+  promise.tryComplete(1);
+  
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 125, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 125 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "12"
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   12
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 127, gtest_ar.failure_message()) = ::testing::Message() 
+# 127 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '12', but it was not.";
+  });
+}
+
+
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap4MultipleArg"
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap4MultipleArg"
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 131), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 131), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 131), new ::testing::internal::TestFactoryImpl<
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MultipleArg_Test
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 131 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
+  );
+  
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 140, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 140 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "24"
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   24
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 142, gtest_ar.failure_message()) = ::testing::Message() 
+# 142 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '24', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
+  );
+  promise.tryComplete(1);
+  
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 155, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 155 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "24"
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   24
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 157, gtest_ar.failure_message()) = ::testing::Message() 
+# 157 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '24', but it was not.";
+  });
+}
+
+
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap5MultipleArg"
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap5MultipleArg"
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 161), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 161), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 161), new ::testing::internal::TestFactoryImpl<
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MultipleArg_Test
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 161 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
+  );
+  
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 171, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 171 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "48"
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   48
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 173, gtest_ar.failure_message()) = ::testing::Message() 
+# 173 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '48', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
+  );
+  promise.tryComplete(1);
+  
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 187, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 187 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "48"
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   48
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 189, gtest_ar.failure_message()) = ::testing::Message() 
+# 189 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '48', but it was not.";
+  });
+}
+
+
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap6MultipleArg"
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap6MultipleArg"
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 193), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 193), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 193), new ::testing::internal::TestFactoryImpl<
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MultipleArg_Test
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 193 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
+  );
+  
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 204, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 204 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "96"
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   96
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 206, gtest_ar.failure_message()) = ::testing::Message() 
+# 206 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '96', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
+  );
+  promise.tryComplete(1);
+  
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 221, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 221 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "96"
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   96
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 223, gtest_ar.failure_message()) = ::testing::Message() 
+# 223 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '96', but it was not.";
+  });
+}
+
+
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap7MultipleArg"
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap7MultipleArg"
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 227), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 227), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 227), new ::testing::internal::TestFactoryImpl<
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MultipleArg_Test
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 227 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
+  );
+  
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 239, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 239 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "192"
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   192
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 241, gtest_ar.failure_message()) = ::testing::Message() 
+# 241 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                     << "Expected to be '192', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
+  );
+  promise.tryComplete(1);
+  
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 257, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 257 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "192"
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   192
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 259, gtest_ar.failure_message()) = ::testing::Message() 
+# 259 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                     << "Expected to be '192', but it was not.";
+  });
+}
+
+
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap8MultipleArg"
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap8MultipleArg"
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 263), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 263), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 263), new ::testing::internal::TestFactoryImpl<
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MultipleArg_Test
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 263 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
+  );
+  
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 276, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 276 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "384"
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   384
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 278, gtest_ar.failure_message()) = ::testing::Message() 
+# 278 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                     << "Expected to be '384', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
+  );
+  promise.tryComplete(1);
+  
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 295, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 295 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "384"
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   384
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 297, gtest_ar.failure_message()) = ::testing::Message() 
+# 297 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                     << "Expected to be '384', but it was not.";
+  });
+}
+
+
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap9MultipleArg"
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap9MultipleArg"
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 301), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 301), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 301), new ::testing::internal::TestFactoryImpl<
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MultipleArg_Test
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 301 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                  {
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    [](int x1) { return Some(x1 + 1); },
+    [](int x1, int x2) { return Some(x1 + x2); },
+    [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
+  );
+  
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 315, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 315 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "768"
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   768
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 317, gtest_ar.failure_message()) = ::testing::Message() 
+# 317 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                     << "Expected to be '768', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    [](int x1) { return FutureA::successful(x1 + 1); },
+    [](int x1, int x2) { return FutureA::successful(x1 + x2); },
+    [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
+    [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
+  );
+  promise.tryComplete(1);
+  
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 335, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 335 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "768"
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   768
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 337, gtest_ar.failure_message()) = ::testing::Message() 
+# 337 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                     << "Expected to be '768', but it was not.";
+  });
+}
+
+
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap1MapArg"
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap1MapArg"
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 341), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 341), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 341), new ::testing::internal::TestFactoryImpl<
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap1MapArg_Test
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 341 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](const int& x) { return Some(x + 1); },
-      [](const int& a, const int& b) { return a + b;}
-    );
-    
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 60, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 60 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "3"
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     3
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 62, gtest_ar.failure_message()) = ::testing::Message() 
-# 62 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '3', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](const int& x) { return FutureA::successful(x + 1); },
-      [](const int& a, const int& b) { return a + b;}
-    );
-    promise.tryComplete(1);
-    
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 72, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 72 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "3"
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     3
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 74, gtest_ar.failure_message()) = ::testing::Message() 
-# 74 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '3', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    [](const int& a, const int& b) { return a + b;}
+  );
   
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap2MultipleArg"
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 347, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap2MultipleArg"
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 78), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 78), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 78), new ::testing::internal::TestFactoryImpl<
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MultipleArg_Test
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 78 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 347 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "2"
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   2
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 349, gtest_ar.failure_message()) = ::testing::Message() 
+# 349 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '2', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    [](const int& a, const int& b) { return a + b;}
+  );
+  promise.tryComplete(1);
+  
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 359, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 359 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "2"
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   2
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 361, gtest_ar.failure_message()) = ::testing::Message() 
+# 361 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '2', but it was not.";
+  });
+}
+
+
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap2MapArg"
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap2MapArg"
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 365), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 365), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 365), new ::testing::internal::TestFactoryImpl<
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap2MapArg_Test
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 365 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return x1 + x2 + x3; }
-    );
-    
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 85, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 85 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "6"
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     6
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 87, gtest_ar.failure_message()) = ::testing::Message() 
-# 87 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '6', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return x1 + x2 + x3; }
-    );
-    promise.tryComplete(1);
-    
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 98, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 98 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "6"
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     6
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 100, gtest_ar.failure_message()) = ::testing::Message() 
-# 100 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '6', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    [](int x1, int x2, int x3) { return x1 + x2 + x3; }
+  );
   
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap3MultipleArg"
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 372, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap3MultipleArg"
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 104), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 104), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 104), new ::testing::internal::TestFactoryImpl<
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MultipleArg_Test
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 104 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 372 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "4"
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   4
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 374, gtest_ar.failure_message()) = ::testing::Message() 
+# 374 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '4', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    [](int x1, int x2, int x3) { return x1 + x2 + x3; }
+  );
+  promise.tryComplete(1);
+  
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 385, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 385 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "4"
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   4
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 387, gtest_ar.failure_message()) = ::testing::Message() 
+# 387 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '4', but it was not.";
+  });
+}
+
+
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap3MapArg"
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap3MapArg"
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 391), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 391), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 391), new ::testing::internal::TestFactoryImpl<
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap3MapArg_Test
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 391 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
-    );
-    
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 112, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 112 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "12"
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     12
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 114, gtest_ar.failure_message()) = ::testing::Message() 
-# 114 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '12', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
-    );
-    promise.tryComplete(1);
-    
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 126, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 126 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "12"
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     12
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 128, gtest_ar.failure_message()) = ::testing::Message() 
-# 128 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '12', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
+  );
   
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap4MultipleArg"
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 399, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap4MultipleArg"
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 132), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 132), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 132), new ::testing::internal::TestFactoryImpl<
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MultipleArg_Test
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 132 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 399 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "7"
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   7
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 401, gtest_ar.failure_message()) = ::testing::Message() 
+# 401 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '7', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
+  );
+  promise.tryComplete(1);
+  
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 413, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 413 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "7"
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   7
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 415, gtest_ar.failure_message()) = ::testing::Message() 
+# 415 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                   << "Expected to be '7', but it was not.";
+  });
+}
+
+
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap4MapArg"
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap4MapArg"
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 419), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 419), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 419), new ::testing::internal::TestFactoryImpl<
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap4MapArg_Test
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 419 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
-    );
-    
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 141, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 141 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "24"
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     24
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 143, gtest_ar.failure_message()) = ::testing::Message() 
-# 143 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '24', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
-    );
-    promise.tryComplete(1);
-    
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 156, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 156 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "24"
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     24
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 158, gtest_ar.failure_message()) = ::testing::Message() 
-# 158 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '24', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    []{ return Some(4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
+  );
   
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap5MultipleArg"
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 428, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap5MultipleArg"
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 162), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 162), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 162), new ::testing::internal::TestFactoryImpl<
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MultipleArg_Test
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 162 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 428 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "11"
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   11
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 430, gtest_ar.failure_message()) = ::testing::Message() 
+# 430 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '11', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    []{ return FutureA::successful(4); },
+    [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
+  );
+  promise.tryComplete(1);
+  
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 443, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 443 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "11"
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   11
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 445, gtest_ar.failure_message()) = ::testing::Message() 
+# 445 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '11', but it was not.";
+  });
+}
+
+
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap5MapArg"
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap5MapArg"
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 449), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 449), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 449), new ::testing::internal::TestFactoryImpl<
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap5MapArg_Test
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 449 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
-    );
-    
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 172, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 172 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "48"
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     48
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 174, gtest_ar.failure_message()) = ::testing::Message() 
-# 174 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '48', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
-    );
-    promise.tryComplete(1);
-    
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 188, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 188 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "48"
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     48
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 190, gtest_ar.failure_message()) = ::testing::Message() 
-# 190 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '48', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    []{ return Some(4); },
+    []{ return Some(5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
+  );
   
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap6MultipleArg"
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 459, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap6MultipleArg"
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 194), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 194), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 194), new ::testing::internal::TestFactoryImpl<
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MultipleArg_Test
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 194 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 459 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "16"
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   16
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 461, gtest_ar.failure_message()) = ::testing::Message() 
+# 461 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '16', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    []{ return FutureA::successful(4); },
+    []{ return FutureA::successful(5); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
+  );
+  promise.tryComplete(1);
+  
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 475, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 475 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "16"
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   16
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 477, gtest_ar.failure_message()) = ::testing::Message() 
+# 477 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '16', but it was not.";
+  });
+}
+
+
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap6MapArg"
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap6MapArg"
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 481), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 481), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 481), new ::testing::internal::TestFactoryImpl<
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap6MapArg_Test
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 481 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
-    );
-    
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 205, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 205 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "96"
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     96
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 207, gtest_ar.failure_message()) = ::testing::Message() 
-# 207 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '96', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
-    );
-    promise.tryComplete(1);
-    
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 222, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 222 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "96"
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     96
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 224, gtest_ar.failure_message()) = ::testing::Message() 
-# 224 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '96', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    []{ return Some(4); },
+    []{ return Some(5); },
+    []{ return Some(6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
+  );
   
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap7MultipleArg"
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 492, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap7MultipleArg"
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 228), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 228), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 228), new ::testing::internal::TestFactoryImpl<
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MultipleArg_Test
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 228 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 492 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "22"
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   22
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 494, gtest_ar.failure_message()) = ::testing::Message() 
+# 494 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '22', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    []{ return FutureA::successful(4); },
+    []{ return FutureA::successful(5); },
+    []{ return FutureA::successful(6); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
+  );
+  promise.tryComplete(1);
+  
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 509, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 509 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "22"
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   22
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 511, gtest_ar.failure_message()) = ::testing::Message() 
+# 511 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '22', but it was not.";
+  });
+}
+
+
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap7MapArg"
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap7MapArg"
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 515), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 515), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 515), new ::testing::internal::TestFactoryImpl<
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap7MapArg_Test
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 515 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
-    );
-    
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 240, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 240 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "192"
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     192
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 242, gtest_ar.failure_message()) = ::testing::Message() 
-# 242 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                       << "Expected to be '192', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
-    );
-    promise.tryComplete(1);
-    
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 258, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 258 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "192"
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     192
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 260, gtest_ar.failure_message()) = ::testing::Message() 
-# 260 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                       << "Expected to be '192', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    []{ return Some(4); },
+    []{ return Some(5); },
+    []{ return Some(6); },
+    []{ return Some(7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
+  );
   
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap8MultipleArg"
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 527, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap8MultipleArg"
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 264), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 264), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 264), new ::testing::internal::TestFactoryImpl<
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MultipleArg_Test
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 264 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 527 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "29"
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   29
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 529, gtest_ar.failure_message()) = ::testing::Message() 
+# 529 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '29', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    []{ return FutureA::successful(4); },
+    []{ return FutureA::successful(5); },
+    []{ return FutureA::successful(6); },
+    []{ return FutureA::successful(7); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
+  );
+  promise.tryComplete(1);
+  
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 545, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 545 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "29"
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   29
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 547, gtest_ar.failure_message()) = ::testing::Message() 
+# 547 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '29', but it was not.";
+  });
+}
+
+
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap8MapArg"
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap8MapArg"
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 551), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 551), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 551), new ::testing::internal::TestFactoryImpl<
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap8MapArg_Test
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 551 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
-    );
-    
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 277, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 277 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "384"
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     384
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 279, gtest_ar.failure_message()) = ::testing::Message() 
-# 279 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                       << "Expected to be '384', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
-    );
-    promise.tryComplete(1);
-    
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 296, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 296 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "384"
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     384
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 298, gtest_ar.failure_message()) = ::testing::Message() 
-# 298 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                       << "Expected to be '384', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    []{ return Some(4); },
+    []{ return Some(5); },
+    []{ return Some(6); },
+    []{ return Some(7); },
+    []{ return Some(8); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
+  );
   
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap9MultipleArg"
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 564, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap9MultipleArg"
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 302), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 302), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 302), new ::testing::internal::TestFactoryImpl<
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MultipleArg_Test
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 302 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 564 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
+    
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "37"
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   37
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 566, gtest_ar.failure_message()) = ::testing::Message() 
+# 566 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '37', but it was not.";
+  });
+
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    []{ return FutureA::successful(4); },
+    []{ return FutureA::successful(5); },
+    []{ return FutureA::successful(6); },
+    []{ return FutureA::successful(7); },
+    []{ return FutureA::successful(8); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
+  );
+  promise.tryComplete(1);
+  
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 583, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 583 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
+    
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "37"
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   37
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 585, gtest_ar.failure_message()) = ::testing::Message() 
+# 585 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '37', but it was not.";
+  });
+}
+
+
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+static_assert(sizeof(
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap9MapArg"
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+: public ::testing::Test { public: 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() = default; ~
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+() override = default; 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+const&) = delete; 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+(
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+& operator=(
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"Syntax_ForComprehension"
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+"FlatMap9MapArg"
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 589), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 589), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 589), new ::testing::internal::TestFactoryImpl<
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+>); void 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+Syntax_ForComprehension_FlatMap9MapArg_Test
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+::TestBody() 
+# 589 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
                                              {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      [](int x1) { return Some(x1 + 1); },
-      [](int x1, int x2) { return Some(x1 + x2); },
-      [](int x1, int x2, int x3) { return Some(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return Some(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return Some(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return Some(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return Some(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
-    );
-    
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 316, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 316 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "768"
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     768
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 318, gtest_ar.failure_message()) = ::testing::Message() 
-# 318 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                       << "Expected to be '768', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      [](int x1) { return FutureA::successful(x1 + 1); },
-      [](int x1, int x2) { return FutureA::successful(x1 + x2); },
-      [](int x1, int x2, int x3) { return FutureA::successful(x1 + x2 + x3); },
-      [](int x1, int x2, int x3, int x4) { return FutureA::successful(x1 + x2 + x3 + x4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return FutureA::successful(x1 + x2 + x3 + x4 + x5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return FutureA::successful(x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
-    );
-    promise.tryComplete(1);
-    
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 336, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 336 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "768"
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     768
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 338, gtest_ar.failure_message()) = ::testing::Message() 
-# 338 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                       << "Expected to be '768', but it was not.";
-    });
-  }
-
+  const auto some = Some(1);
+  const auto comprehended = ForComprehension(some,
+    []{ return Some(1); },
+    []{ return Some(2); },
+    []{ return Some(3); },
+    []{ return Some(4); },
+    []{ return Some(5); },
+    []{ return Some(6); },
+    []{ return Some(7); },
+    []{ return Some(8); },
+    []{ return Some(9); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
+  );
   
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap1MapArg"
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehended.isSome()
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 603, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehended.isSome()"
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap1MapArg"
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 342), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 342), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 342), new ::testing::internal::TestFactoryImpl<
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap1MapArg_Test
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 342 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      [](const int& a, const int& b) { return a + b;}
-    );
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ , 
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 603 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                    << "Expected comprehended to be 'Some', but it was not.";
+  comprehended.ifSome([](int x) {
     
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 348, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "46"
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 348 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "2"
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     2
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 350, gtest_ar.failure_message()) = ::testing::Message() 
-# 350 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '2', but it was not.";
-    });
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   , 
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   46
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 605, gtest_ar.failure_message()) = ::testing::Message() 
+# 605 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '46', but it was not.";
+  });
 
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      [](const int& a, const int& b) { return a + b;}
-    );
-    promise.tryComplete(1);
-    
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 360, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 360 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "2"
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     2
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 362, gtest_ar.failure_message()) = ::testing::Message() 
-# 362 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '2', but it was not.";
-    });
-  }
-
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
+  const auto comprehendedFuture = ForComprehension(future,
+    []{ return FutureA::successful(1); },
+    []{ return FutureA::successful(2); },
+    []{ return FutureA::successful(3); },
+    []{ return FutureA::successful(4); },
+    []{ return FutureA::successful(5); },
+    []{ return FutureA::successful(6); },
+    []{ return FutureA::successful(7); },
+    []{ return FutureA::successful(8); },
+    []{ return FutureA::successful(9); },
+    [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
+  );
+  promise.tryComplete(1);
   
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap2MapArg"
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ comprehendedFuture->isCompleted()
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 623, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "comprehendedFuture->isCompleted()"
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap2MapArg"
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 366), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 366), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 366), new ::testing::internal::TestFactoryImpl<
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap2MapArg_Test
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 366 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      [](int x1, int x2, int x3) { return x1 + x2 + x3; }
-    );
-    
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 373, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 373 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "4"
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     4
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 375, gtest_ar.failure_message()) = ::testing::Message() 
-# 375 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '4', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      [](int x1, int x2, int x3) { return x1 + x2 + x3; }
-    );
-    promise.tryComplete(1);
-    
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 386, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 386 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "4"
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     4
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 388, gtest_ar.failure_message()) = ::testing::Message() 
-# 388 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '4', but it was not.";
-    });
-  }
-
-  
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap3MapArg"
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "false"
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
  , 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap3MapArg"
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 392), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 392), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 392), new ::testing::internal::TestFactoryImpl<
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap3MapArg_Test
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 392 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
-    );
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+ "true"
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 623 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                                                << "Expected comprehendedFuture to be completed, but it was not.";
+  comprehendedFuture->onComplete([](int x) {
     
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 400, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "x"
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   "46"
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 400 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "7"
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     7
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 402, gtest_ar.failure_message()) = ::testing::Message() 
-# 402 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '7', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      [](int x1, int x2, int x3, int x4) { return x1 + x2 + x3 + x4; }
-    );
-    promise.tryComplete(1);
-    
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 414, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   x
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
    , 
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 414 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "7"
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     7
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 416, gtest_ar.failure_message()) = ::testing::Message() 
-# 416 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                     << "Expected to be '7', but it was not.";
-    });
-  }
-
-  
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap4MapArg"
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap4MapArg"
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 420), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 420), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 420), new ::testing::internal::TestFactoryImpl<
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap4MapArg_Test
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 420 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      []{ return Some(4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
-    );
-    
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 429, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 429 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "11"
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     11
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 431, gtest_ar.failure_message()) = ::testing::Message() 
-# 431 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '11', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      []{ return FutureA::successful(4); },
-      [](int x1, int x2, int x3, int x4, int x5) { return x1 + x2 + x3 + x4 + x5; }
-    );
-    promise.tryComplete(1);
-    
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 444, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 444 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "11"
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     11
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 446, gtest_ar.failure_message()) = ::testing::Message() 
-# 446 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '11', but it was not.";
-    });
-  }
-
-  
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap5MapArg"
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap5MapArg"
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 450), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 450), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 450), new ::testing::internal::TestFactoryImpl<
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap5MapArg_Test
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 450 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      []{ return Some(4); },
-      []{ return Some(5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
-    );
-    
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 460, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 460 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "16"
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     16
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 462, gtest_ar.failure_message()) = ::testing::Message() 
-# 462 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '16', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      []{ return FutureA::successful(4); },
-      []{ return FutureA::successful(5); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6) { return x1 + x2 + x3 + x4 + x5 + x6; }
-    );
-    promise.tryComplete(1);
-    
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 476, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 476 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "16"
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     16
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 478, gtest_ar.failure_message()) = ::testing::Message() 
-# 478 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '16', but it was not.";
-    });
-  }
-
-  
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap6MapArg"
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap6MapArg"
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 482), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 482), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 482), new ::testing::internal::TestFactoryImpl<
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap6MapArg_Test
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 482 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      []{ return Some(4); },
-      []{ return Some(5); },
-      []{ return Some(6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
-    );
-    
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 493, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 493 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "22"
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     22
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 495, gtest_ar.failure_message()) = ::testing::Message() 
-# 495 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '22', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      []{ return FutureA::successful(4); },
-      []{ return FutureA::successful(5); },
-      []{ return FutureA::successful(6); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7) { return x1 + x2 + x3 + x4 + x5 + x6 + x7; }
-    );
-    promise.tryComplete(1);
-    
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 510, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 510 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "22"
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     22
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 512, gtest_ar.failure_message()) = ::testing::Message() 
-# 512 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '22', but it was not.";
-    });
-  }
-
-  
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap7MapArg"
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap7MapArg"
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 516), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 516), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 516), new ::testing::internal::TestFactoryImpl<
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap7MapArg_Test
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 516 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      []{ return Some(4); },
-      []{ return Some(5); },
-      []{ return Some(6); },
-      []{ return Some(7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
-    );
-    
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 528, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 528 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "29"
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     29
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 530, gtest_ar.failure_message()) = ::testing::Message() 
-# 530 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '29', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      []{ return FutureA::successful(4); },
-      []{ return FutureA::successful(5); },
-      []{ return FutureA::successful(6); },
-      []{ return FutureA::successful(7); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8; }
-    );
-    promise.tryComplete(1);
-    
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 546, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 546 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "29"
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     29
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 548, gtest_ar.failure_message()) = ::testing::Message() 
-# 548 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '29', but it was not.";
-    });
-  }
-
-  
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap8MapArg"
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap8MapArg"
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 552), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 552), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 552), new ::testing::internal::TestFactoryImpl<
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap8MapArg_Test
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 552 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      []{ return Some(4); },
-      []{ return Some(5); },
-      []{ return Some(6); },
-      []{ return Some(7); },
-      []{ return Some(8); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
-    );
-    
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 565, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 565 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "37"
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     37
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 567, gtest_ar.failure_message()) = ::testing::Message() 
-# 567 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '37', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      []{ return FutureA::successful(4); },
-      []{ return FutureA::successful(5); },
-      []{ return FutureA::successful(6); },
-      []{ return FutureA::successful(7); },
-      []{ return FutureA::successful(8); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9; }
-    );
-    promise.tryComplete(1);
-    
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 584, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 584 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "37"
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     37
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 586, gtest_ar.failure_message()) = ::testing::Message() 
-# 586 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '37', but it was not.";
-    });
-  }
-
-  
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- static_assert(sizeof(
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap9MapArg"
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- : public ::testing::Test { public: 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () = default; ~
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- () override = default; 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- const&) = delete; 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- (
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- & operator=(
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "ForComprehension"
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- "FlatMap9MapArg"
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 590), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 590), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 590), new ::testing::internal::TestFactoryImpl<
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- >); void 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
- ForComprehension_FlatMap9MapArg_Test
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
- ::TestBody() 
-# 590 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                        {
-    const auto some = Some(1);
-    const auto comprehended = ForComprehension(some,
-      []{ return Some(1); },
-      []{ return Some(2); },
-      []{ return Some(3); },
-      []{ return Some(4); },
-      []{ return Some(5); },
-      []{ return Some(6); },
-      []{ return Some(7); },
-      []{ return Some(8); },
-      []{ return Some(9); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
-    );
-    
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehended.isSome()
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 604, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehended.isSome()"
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 604 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                      << "Expected comprehended to be 'Some', but it was not.";
-    comprehended.ifSome([](int x) {
-      
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "46"
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     46
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 606, gtest_ar.failure_message()) = ::testing::Message() 
-# 606 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '46', but it was not.";
-    });
-
-    const auto promise = Promise<int>();
-    const auto future = promise.getFuture();
-    const auto comprehendedFuture = ForComprehension(future,
-      []{ return FutureA::successful(1); },
-      []{ return FutureA::successful(2); },
-      []{ return FutureA::successful(3); },
-      []{ return FutureA::successful(4); },
-      []{ return FutureA::successful(5); },
-      []{ return FutureA::successful(6); },
-      []{ return FutureA::successful(7); },
-      []{ return FutureA::successful(8); },
-      []{ return FutureA::successful(9); },
-      [](int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) { return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10; }
-    );
-    promise.tryComplete(1);
-    
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   comprehendedFuture->isCompleted()
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 624, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "comprehendedFuture->isCompleted()"
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "false"
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   , 
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-   "true"
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 624 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                                                  << "Expected comprehendedFuture to be completed, but it was not.";
-    comprehendedFuture->onComplete([](int x) {
-      
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "x"
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     "46"
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     x
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     , 
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-     46
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
-     ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 626, gtest_ar.failure_message()) = ::testing::Message() 
-# 626 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
-                      << "Expected to be '46', but it was not.";
-    });
-  }
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+   46
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp" 3 4
+   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestForComprehension.cpp", 625, gtest_ar.failure_message()) = ::testing::Message() 
+# 625 "C:/work/fpcpp/test/syntax/TestForComprehension.cpp"
+                    << "Expected to be '46', but it was not.";
+  });
 }

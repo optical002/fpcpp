@@ -211,12 +211,13 @@ test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj.ddi: \
  C:/msys64/mingw64/include/c++/14.2.0/bits/chrono.h \
  C:/msys64/mingw64/include/c++/14.2.0/ratio \
  C:/msys64/mingw64/include/c++/14.2.0/bits/unique_lock.h \
+ C:/work/fpcpp/core/reactive/Subscription.h \
  C:/work/fpcpp/core/reactive/Subject.h C:/work/fpcpp/core/data/Changes.h \
- C:/work/fpcpp/core/data/Ref.h C:/work/fpcpp/core/monads/Future.h \
- C:/work/fpcpp/core/monads/Option.h \
+ C:/work/fpcpp/core/data/Ref.h C:/work/fpcpp/core/data/Future.h \
+ C:/work/fpcpp/core/data/Option.h \
  C:/msys64/mingw64/include/c++/14.2.0/utility \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_relops.h \
- C:/work/fpcpp/core/monads/Either.h \
+ C:/work/fpcpp/core/data/Either.h C:/work/fpcpp/core/data/Option.h \
  C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include/gtest/gtest.h \
  C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h \
  C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h \

@@ -1,6 +1,7 @@
-﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-// ReSharper disable CppClangTidyModernizeMacroToEnum
-#pragma once
+﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros, CppClangTidyModernizeMacroToEnum
+#ifndef FPCPP_CORE_MACROS_GENERAL_H
+#define FPCPP_CORE_MACROS_GENERAL_H
+
 #include <core/macros/ForEach.h>
 
 #define CONST_SINGLE_FIELD(type, name) const type name;
@@ -18,3 +19,5 @@
 #define DEFER(id) id EMPTY()
 
 #define STRINGIFY(x) #x
+
+#endif // FPCPP_CORE_MACROS_GENERAL_H

@@ -110,52 +110,6 @@ build install/strip: phony CMakeFiles/install/strip.util
 # C:/work/fpcpp/CMakeLists.txt
 # =============================================================================
 
-# =============================================================================
-# Object build statements for EXECUTABLE target core
-
-
-#############################################
-# Order-only phony target for core
-
-build cmake_object_order_depends_target_core: phony || .
-
-build core/CMakeFiles/core.dir/core.cpp.obj.ddi: CXX_SCAN__core_Debug C$:/work/fpcpp/core/core.cpp || cmake_object_order_depends_target_core
-  DEP_FILE = core\CMakeFiles\core.dir\core.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = core\CMakeFiles\core.dir\core.cpp.obj.ddi
-  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp
-  OBJ_FILE = core\CMakeFiles\core.dir\core.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = core\CMakeFiles\core.dir\core.cpp.obj.ddi.i
-
-build core/CMakeFiles/core.dir/core.cpp.obj: CXX_COMPILER__core_scanned_Debug C$:/work/fpcpp/core/core.cpp | core/CMakeFiles/core.dir/core.cpp.obj.modmap || cmake_object_order_depends_target_core core/CMakeFiles/core.dir/CXX.dd
-  DEP_FILE = core\CMakeFiles\core.dir\core.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = core\CMakeFiles\core.dir\core.cpp.obj.modmap
-  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp
-  OBJECT_DIR = core\CMakeFiles\core.dir
-  OBJECT_FILE_DIR = core\CMakeFiles\core.dir
-  dyndep = core/CMakeFiles/core.dir/CXX.dd
-
-build core/CMakeFiles/core.dir/CXX.dd | C$:/work/fpcpp/cmake-build-debug/core/CMakeFiles/core.dir/CXXModules.json core/CMakeFiles/core.dir/core.cpp.obj.modmap: CXX_DYNDEP__core_Debug core/CMakeFiles/core.dir/core.cpp.obj.ddi | C$:/work/fpcpp/cmake-build-debug/core/CMakeFiles/core.dir/CXXDependInfo.json
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target core
-
-
-#############################################
-# Link the executable core\core.exe
-
-build core/core.exe: CXX_EXECUTABLE_LINKER__core_Debug core/CMakeFiles/core.dir/core.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = core\CMakeFiles\core.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = core\core.exe
-  TARGET_IMPLIB = core\libcore.dll.a
-  TARGET_PDB = core.exe.dbg
-
 
 #############################################
 # Utility command for edit_cache
@@ -239,7 +193,7 @@ build test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi: CXX_SCAN__test_Debu
   DEP_FILE = test\CMakeFiles\test.dir\data\TestNewType.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\data\TestNewType.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\data\TestNewType.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\data\TestNewType.cpp.obj.ddi.i
 
@@ -247,7 +201,7 @@ build test/CMakeFiles/test.dir/data/TestNewType.cpp.obj: CXX_COMPILER__test_scan
   DEP_FILE = test\CMakeFiles\test.dir\data\TestNewType.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\data\TestNewType.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\data
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -256,7 +210,7 @@ build test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi: CXX_SCAN__test_Debug
   DEP_FILE = test\CMakeFiles\test.dir\data\TestRecord.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\data\TestRecord.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\data\TestRecord.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\data\TestRecord.cpp.obj.ddi.i
 
@@ -264,67 +218,67 @@ build test/CMakeFiles/test.dir/data/TestRecord.cpp.obj: CXX_COMPILER__test_scann
   DEP_FILE = test\CMakeFiles\test.dir\data\TestRecord.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\data\TestRecord.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\data
   dyndep = test/CMakeFiles/test.dir/CXX.dd
 
-build test/CMakeFiles/test.dir/monads/TestEither.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/monads/TestEither.cpp || cmake_object_order_depends_target_test
-  DEP_FILE = test\CMakeFiles\test.dir\monads\TestEither.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\monads\TestEither.cpp.obj.ddi
+build test/CMakeFiles/test.dir/data/TestEither.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/data/TestEither.cpp || cmake_object_order_depends_target_test
+  DEP_FILE = test\CMakeFiles\test.dir\data\TestEither.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\data\TestEither.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
-  OBJ_FILE = test\CMakeFiles\test.dir\monads\TestEither.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\monads\TestEither.cpp.obj.ddi.i
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  OBJ_FILE = test\CMakeFiles\test.dir\data\TestEither.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\data\TestEither.cpp.obj.ddi.i
 
-build test/CMakeFiles/test.dir/monads/TestEither.cpp.obj: CXX_COMPILER__test_scanned_Debug C$:/work/fpcpp/test/monads/TestEither.cpp | test/CMakeFiles/test.dir/monads/TestEither.cpp.obj.modmap || cmake_object_order_depends_target_test test/CMakeFiles/test.dir/CXX.dd
-  DEP_FILE = test\CMakeFiles\test.dir\monads\TestEither.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\monads\TestEither.cpp.obj.modmap
+build test/CMakeFiles/test.dir/data/TestEither.cpp.obj: CXX_COMPILER__test_scanned_Debug C$:/work/fpcpp/test/data/TestEither.cpp | test/CMakeFiles/test.dir/data/TestEither.cpp.obj.modmap || cmake_object_order_depends_target_test test/CMakeFiles/test.dir/CXX.dd
+  DEP_FILE = test\CMakeFiles\test.dir\data\TestEither.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\data\TestEither.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
-  OBJECT_FILE_DIR = test\CMakeFiles\test.dir\monads
+  OBJECT_FILE_DIR = test\CMakeFiles\test.dir\data
   dyndep = test/CMakeFiles/test.dir/CXX.dd
 
-build test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/monads/TestFuture.cpp || cmake_object_order_depends_target_test
-  DEP_FILE = test\CMakeFiles\test.dir\monads\TestFuture.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\monads\TestFuture.cpp.obj.ddi
+build test/CMakeFiles/test.dir/data/TestFuture.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/data/TestFuture.cpp || cmake_object_order_depends_target_test
+  DEP_FILE = test\CMakeFiles\test.dir\data\TestFuture.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\data\TestFuture.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
-  OBJ_FILE = test\CMakeFiles\test.dir\monads\TestFuture.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\monads\TestFuture.cpp.obj.ddi.i
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  OBJ_FILE = test\CMakeFiles\test.dir\data\TestFuture.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\data\TestFuture.cpp.obj.ddi.i
 
-build test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj: CXX_COMPILER__test_scanned_Debug C$:/work/fpcpp/test/monads/TestFuture.cpp | test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj.modmap || cmake_object_order_depends_target_test test/CMakeFiles/test.dir/CXX.dd
-  DEP_FILE = test\CMakeFiles\test.dir\monads\TestFuture.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\monads\TestFuture.cpp.obj.modmap
+build test/CMakeFiles/test.dir/data/TestFuture.cpp.obj: CXX_COMPILER__test_scanned_Debug C$:/work/fpcpp/test/data/TestFuture.cpp | test/CMakeFiles/test.dir/data/TestFuture.cpp.obj.modmap || cmake_object_order_depends_target_test test/CMakeFiles/test.dir/CXX.dd
+  DEP_FILE = test\CMakeFiles\test.dir\data\TestFuture.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\data\TestFuture.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
-  OBJECT_FILE_DIR = test\CMakeFiles\test.dir\monads
+  OBJECT_FILE_DIR = test\CMakeFiles\test.dir\data
   dyndep = test/CMakeFiles/test.dir/CXX.dd
 
-build test/CMakeFiles/test.dir/monads/TestOption.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/monads/TestOption.cpp || cmake_object_order_depends_target_test
-  DEP_FILE = test\CMakeFiles\test.dir\monads\TestOption.cpp.obj.ddi.d
-  DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\monads\TestOption.cpp.obj.ddi
+build test/CMakeFiles/test.dir/data/TestOption.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/data/TestOption.cpp || cmake_object_order_depends_target_test
+  DEP_FILE = test\CMakeFiles\test.dir\data\TestOption.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\data\TestOption.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
-  OBJ_FILE = test\CMakeFiles\test.dir\monads\TestOption.cpp.obj
-  PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\monads\TestOption.cpp.obj.ddi.i
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  OBJ_FILE = test\CMakeFiles\test.dir\data\TestOption.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\data\TestOption.cpp.obj.ddi.i
 
-build test/CMakeFiles/test.dir/monads/TestOption.cpp.obj: CXX_COMPILER__test_scanned_Debug C$:/work/fpcpp/test/monads/TestOption.cpp | test/CMakeFiles/test.dir/monads/TestOption.cpp.obj.modmap || cmake_object_order_depends_target_test test/CMakeFiles/test.dir/CXX.dd
-  DEP_FILE = test\CMakeFiles\test.dir\monads\TestOption.cpp.obj.d
-  DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\monads\TestOption.cpp.obj.modmap
+build test/CMakeFiles/test.dir/data/TestOption.cpp.obj: CXX_COMPILER__test_scanned_Debug C$:/work/fpcpp/test/data/TestOption.cpp | test/CMakeFiles/test.dir/data/TestOption.cpp.obj.modmap || cmake_object_order_depends_target_test test/CMakeFiles/test.dir/CXX.dd
+  DEP_FILE = test\CMakeFiles\test.dir\data\TestOption.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\data\TestOption.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
-  OBJECT_FILE_DIR = test\CMakeFiles\test.dir\monads
+  OBJECT_FILE_DIR = test\CMakeFiles\test.dir\data
   dyndep = test/CMakeFiles/test.dir/CXX.dd
 
 build test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi: CXX_SCAN__test_Debug C$:/work/fpcpp/test/reactive/TestObservable.cpp || cmake_object_order_depends_target_test
   DEP_FILE = test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj.ddi.i
 
@@ -332,7 +286,7 @@ build test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj: CXX_COMPILER__te
   DEP_FILE = test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\reactive\TestObservable.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\reactive
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -341,7 +295,7 @@ build test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.ddi: CXX_SCAN__
   DEP_FILE = test\CMakeFiles\test.dir\reactive\TestSubscription.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\reactive\TestSubscription.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\reactive\TestSubscription.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\reactive\TestSubscription.cpp.obj.ddi.i
 
@@ -349,7 +303,7 @@ build test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj: CXX_COMPILER__
   DEP_FILE = test\CMakeFiles\test.dir\reactive\TestSubscription.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\reactive\TestSubscription.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\reactive
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -358,7 +312,7 @@ build test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.ddi: CXX_SCAN__test_
   DEP_FILE = test\CMakeFiles\test.dir\reactive\TestTracker.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\reactive\TestTracker.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\reactive\TestTracker.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\reactive\TestTracker.cpp.obj.ddi.i
 
@@ -366,7 +320,7 @@ build test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj: CXX_COMPILER__test_
   DEP_FILE = test\CMakeFiles\test.dir\reactive\TestTracker.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\reactive\TestTracker.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\reactive
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -375,7 +329,7 @@ build test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi: CXX_SCAN
   DEP_FILE = test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.ddi.i
 
@@ -383,7 +337,7 @@ build test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj: CXX_COMPILER
   DEP_FILE = test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\syntax\TestForComprehension.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\syntax
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -392,7 +346,7 @@ build test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi: CXX_SCAN__test_Debug 
   DEP_FILE = test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj.ddi.i
 
@@ -400,7 +354,7 @@ build test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj: CXX_COMPILER__test_scanne
   DEP_FILE = test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\syntax\TestTry.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\syntax
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -409,7 +363,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.ddi: CXX_SCAN__test_De
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestEq.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\typeclasses\TestEq.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\typeclasses\TestEq.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\typeclasses\TestEq.cpp.obj.ddi.i
 
@@ -417,7 +371,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj: CXX_COMPILER__test_sc
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestEq.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\typeclasses\TestEq.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\typeclasses
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -426,7 +380,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.ddi: CXX_SCAN__test_D
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestNum.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\typeclasses\TestNum.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\typeclasses\TestNum.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\typeclasses\TestNum.cpp.obj.ddi.i
 
@@ -434,7 +388,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj: CXX_COMPILER__test_s
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestNum.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\typeclasses\TestNum.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\typeclasses
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -443,7 +397,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.ddi: CXX_SCAN__test_D
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestOrd.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\typeclasses\TestOrd.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\typeclasses\TestOrd.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\typeclasses\TestOrd.cpp.obj.ddi.i
 
@@ -451,7 +405,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj: CXX_COMPILER__test_s
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestOrd.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\typeclasses\TestOrd.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\typeclasses
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -460,7 +414,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.ddi: CXX_SCAN__
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestSemigroup.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\typeclasses\TestSemigroup.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\typeclasses\TestSemigroup.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\typeclasses\TestSemigroup.cpp.obj.ddi.i
 
@@ -468,7 +422,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj: CXX_COMPILER__
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestSemigroup.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\typeclasses\TestSemigroup.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\typeclasses
   dyndep = test/CMakeFiles/test.dir/CXX.dd
@@ -477,7 +431,7 @@ build test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.ddi: CXX_SCAN__t
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestToString.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = test\CMakeFiles\test.dir\typeclasses\TestToString.cpp.obj.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJ_FILE = test\CMakeFiles\test.dir\typeclasses\TestToString.cpp.obj
   PREPROCESSED_OUTPUT_FILE = test\CMakeFiles\test.dir\typeclasses\TestToString.cpp.obj.ddi.i
 
@@ -485,12 +439,12 @@ build test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj: CXX_COMPILER__t
   DEP_FILE = test\CMakeFiles\test.dir\typeclasses\TestToString.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = test\CMakeFiles\test.dir\typeclasses\TestToString.cpp.obj.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/work/fpcpp -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/work/fpcpp -IC:/work/fpcpp/cmake-build-debug/_deps/chaos-pp-src -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/work/fpcpp/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = test\CMakeFiles\test.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test.dir\typeclasses
   dyndep = test/CMakeFiles/test.dir/CXX.dd
 
-build test/CMakeFiles/test.dir/CXX.dd | C$:/work/fpcpp/cmake-build-debug/test/CMakeFiles/test.dir/CXXModules.json test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.modmap test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.modmap test/CMakeFiles/test.dir/monads/TestEither.cpp.obj.modmap test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj.modmap test/CMakeFiles/test.dir/monads/TestOption.cpp.obj.modmap test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.modmap test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.modmap test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.modmap test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.modmap test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.modmap: CXX_DYNDEP__test_Debug test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi test/CMakeFiles/test.dir/monads/TestEither.cpp.obj.ddi test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj.ddi test/CMakeFiles/test.dir/monads/TestOption.cpp.obj.ddi test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.ddi test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.ddi test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.ddi | C$:/work/fpcpp/cmake-build-debug/test/CMakeFiles/test.dir/CXXDependInfo.json
+build test/CMakeFiles/test.dir/CXX.dd | C$:/work/fpcpp/cmake-build-debug/test/CMakeFiles/test.dir/CXXModules.json test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.modmap test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.modmap test/CMakeFiles/test.dir/data/TestEither.cpp.obj.modmap test/CMakeFiles/test.dir/data/TestFuture.cpp.obj.modmap test/CMakeFiles/test.dir/data/TestOption.cpp.obj.modmap test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.modmap test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.modmap test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.modmap test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.modmap test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.modmap test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.modmap: CXX_DYNDEP__test_Debug test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi test/CMakeFiles/test.dir/data/TestEither.cpp.obj.ddi test/CMakeFiles/test.dir/data/TestFuture.cpp.obj.ddi test/CMakeFiles/test.dir/data/TestOption.cpp.obj.ddi test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.ddi test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.ddi test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.ddi test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.ddi | C$:/work/fpcpp/cmake-build-debug/test/CMakeFiles/test.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -500,7 +454,7 @@ build test/CMakeFiles/test.dir/CXX.dd | C$:/work/fpcpp/cmake-build-debug/test/CM
 #############################################
 # Link the executable test\test.exe
 
-build test/test.exe: CXX_EXECUTABLE_LINKER__test_Debug test/CMakeFiles/test.dir/data/TestNewType.cpp.obj test/CMakeFiles/test.dir/data/TestRecord.cpp.obj test/CMakeFiles/test.dir/monads/TestEither.cpp.obj test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj test/CMakeFiles/test.dir/monads/TestOption.cpp.obj test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj | lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
+build test/test.exe: CXX_EXECUTABLE_LINKER__test_Debug test/CMakeFiles/test.dir/data/TestNewType.cpp.obj test/CMakeFiles/test.dir/data/TestRecord.cpp.obj test/CMakeFiles/test.dir/data/TestEither.cpp.obj test/CMakeFiles/test.dir/data/TestFuture.cpp.obj test/CMakeFiles/test.dir/data/TestOption.cpp.obj test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj | lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtest_maind.a  lib/libgtestd.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = test\CMakeFiles\test.dir
@@ -916,10 +870,6 @@ build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-bu
 # =============================================================================
 # Target aliases.
 
-build core: phony core/core.exe
-
-build core.exe: phony core/core.exe
-
 build gmock: phony lib/libgmockd.a
 
 build gmock_main: phony lib/libgmock_maind.a
@@ -976,7 +926,7 @@ build _deps/googletest-build/googletest/all: phony lib/libgtestd.a lib/libgtest_
 #############################################
 # Folder: C:/work/fpcpp/cmake-build-debug/core
 
-build core/all: phony core/core.exe
+build core/all: phony
 
 # =============================================================================
 

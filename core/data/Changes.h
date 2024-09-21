@@ -1,5 +1,5 @@
-#ifndef CHANGES_H
-#define CHANGES_H
+#ifndef FPCPP_CORE_DATA_CHANGES_H
+#define FPCPP_CORE_DATA_CHANGES_H
 
 template<typename A>
 struct Changes {
@@ -11,4 +11,4 @@ private:
   A _previous, _next;
 };
 
-#endif // CHANGES_H
+#endif // FPCPP_CORE_DATA_CHANGES_H

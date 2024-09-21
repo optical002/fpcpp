@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_TYPECLASSES_NUM_H
+#define FPCPP_CORE_TYPECLASSES_NUM_H
 
 #include <concepts>
 #include <core/data/Concepts.h>
@@ -23,3 +24,5 @@ struct Num<A> {
   static A divide(const A& a, const A& b) { return a / b; }
   static A mod(const A& a, const A& b) { return a % b; }
 };
+
+#endif // FPCPP_CORE_TYPECLASSES_NUM_H

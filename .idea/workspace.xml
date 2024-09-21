@@ -29,21 +29,744 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="095a51c7-1927-487b-b440-8acf4b60c263" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/core.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data/TestEither.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data/TestFuture.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data/TestOption.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/chaos.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/chaos.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/lib.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/append.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/bubblesort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/combinatorial_repeat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/for_each_product.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/insertion_sort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/merge_sort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/auto/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/bubblesort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/cast.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/combinatorial_repeat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/concat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/drop.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/elem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/enumerate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/for_each_product.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/insert.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/insertion_sort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/merge_sort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/parametric.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/parametric/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/parametric/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/parametric/for_each_product.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/pop_back.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/prepend.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/push_back.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/range.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/remove.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/replace.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/reverse.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/size.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/take.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/for_each_product.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/algorithm/x/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/add.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/bool.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/dec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/demote.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/divide.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/fix.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/is_shorter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/lookup.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/merge.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/minus.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/plus.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/rel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/scan.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/special.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/swap.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/detail/times.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/div.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/greater.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/greater_equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/inc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/less.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/less_equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/literal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/mod.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/mul.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/neg.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/not_equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/promote.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/sign.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arbitrary/sub.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/add.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/dec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/div.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/in_range.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/inc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/machine.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/machine/add.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/machine/div.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/machine/mod.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/machine/mul.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/machine/sub.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/mod.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/mul.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/arithmetic/sub.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/elem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/reverse.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/size.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/to_list.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/to_seq.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/to_string.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/array/to_tuple.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/cat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/greater.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/greater_equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/less.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/less_equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/max.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/min.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/comparison/not_equal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/auto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/auto/while.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/auto/while_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/branch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/detail/null.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/expr_if.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/if.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/iif.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/include_if.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/inline_unless.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/inline_when.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/null.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/placemarker_if.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/unless.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/variadic_if.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/variadic_iif.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/when.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/while.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/while_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/x.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/x/while.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/control/x/while_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/debug.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/debug/assert.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/debug/failure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/debug/line.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/compare.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_binary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_empty.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_flag.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_nullary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_numeric.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_one.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_ternary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_unary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/detection/is_variadic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/extended.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/extended/auto_cat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/extended/partial_cat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/extended/reverse_cat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/extended/variadic_cat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/abbr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/as_args.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/binary.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/bind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/default.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/empty.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/encode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/expand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/expander.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/identity.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/indirect.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/intercept.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/optional.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/overload.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/push.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/split.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/type.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/unbox.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/facilities/whitespace.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/generics.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/generics/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/generics/is_elemental.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/generics/is_type.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/generics/strip.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/generics/typeof.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/i1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/i2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/i3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/i4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/i5.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/i6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/detail/local.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/file.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/iteration/local.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/call.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/closure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/curry.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/detail/placeholders_0.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/detail/placeholders_1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/detail/with_placeholders.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/execute.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/invoke.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/ops.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/parse.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/planar.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/route.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/lambda/trampoline.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/limits.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/list.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/list/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/and.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bitand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bitnand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bitnor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bitor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bitxnor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bitxor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/bool.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/compl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/nand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/nor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/not.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/or.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/xnor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/logical/xor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/punctuation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/punctuation/comma.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/punctuation/comma_if.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/punctuation/hash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/punctuation/paren.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/auto_rec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/basic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/block.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/buffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/context.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/delay.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/delve.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/dynamic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/equalize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/expr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/higher_order.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/machine.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/phase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/rail.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/recursion/revive.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/delineate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/delineate_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/delineate_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/delineate_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/delineate_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/delineate_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/enum.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/enum_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/enum_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/enum_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/enum_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/enum_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/for.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/for_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/repeat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/repeat_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/auto/repeat_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_shifted_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_shifted_trailing_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/delineate_trailing_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_shifted_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_shifted_trailing_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/enum_trailing_params.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/for.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/for_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/delineate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/delineate_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/delineate_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/delineate_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/delineate_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/delineate_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/enum.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/enum_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/enum_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/enum_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/enum_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/enum_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/for.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/for_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/repeat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/repeat_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/parametric/repeat_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/repeat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/repeat_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/repeat_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/delineate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/delineate_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/delineate_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/delineate_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/delineate_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/delineate_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/enum.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/enum_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/enum_from_to_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/enum_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/enum_shifted_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/enum_trailing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/for.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/for_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/repeat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/repeat_from_to.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/repetition/x/repeat_shifted.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/sandbox/apply_scan.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/sandbox/detain.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/sandbox/equalization_assert.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/sandbox/inhibit.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/sandbox/stream.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/auto/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/binary_transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/concat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/detail/close.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/drop.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/duplex.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/elem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/enumerate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/infuse.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/insert.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/pop_back.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/range.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/remove.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/replace.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/reverse.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/size.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/take.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/to_array.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/to_list.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/to_string.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/to_tuple.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/auto/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/variadic/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/seq/zip.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/counter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/counter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/s1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/s2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/s3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/s4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/s5.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/detail/shared.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/slot/slot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/charize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/compare.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/compare_insensitive.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/to_lower.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/to_upper.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/ucharize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/string/wcharize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/stringize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/as_args.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/auto/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/batch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/concat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/core.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/drop.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/eat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/elem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/filter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/fold_left.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/fold_left_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/fold_right.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/fold_right_aux.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/for_each.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/for_each_i.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/insert.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/pop_back.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/range.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/rem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/remove.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/replace.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/reverse.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/size.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/take.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/to_list.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/to_seq.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/to_string.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/tuple/transform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/ustringize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/preprocessor/wstringize.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.lib.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/Cl.items.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/Lib-link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/Lib-link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/Lib.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/chaos.tlog/chaos.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos/x64/Debug/lib.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-5778ff39c3e9d355f962.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-259e8a8c931591089cdc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-_deps.googletest-build.googlemock-Debug-75f7d3f2405ef8f8b1dc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-_deps.googletest-build.googletest-Debug-c5767995081d887ad243.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-09-17T00-41-53-0119.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-core-Debug-6243c2b233bdd10a35b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-gmock-Debug-192b71d1cb9235f3b544.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-gmock_main-Debug-b28ba8db353d1ac98e24.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-gtest-Debug-7f1cc2a47e304b12d985.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-gtest_main-Debug-f409afc8cbf80ede55d0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-test-Debug-1cd3fc80d5021052b27b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/chaos-pp-subbuild/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/chaos-pp-subbuild/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googlemock/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googlemock/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gmock.pc" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gmock.pc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gmock_main.pc" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gmock_main.pc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gtest.pc" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gtest.pc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gtest_main.pc" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/_deps/googletest-build/googletest/generated/gtest_main.pc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/core/CMakeFiles/core.dir/CXXDependInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/core/CMakeFiles/core.dir/CXXDependInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/core/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/core/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/CXX.dd" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/CXX.dd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/CXXDependInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/CXXDependInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestNewType.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestNewType.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestNewType.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestRecord.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestRecord.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/data/TestRecord.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestSubscription.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/reactive/TestTracker.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestForComprehension.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/syntax/TestTry.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestEq.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestNum.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestOrd.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestSemigroup.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.ddi.i" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test.dir/typeclasses/TestToString.cpp.obj.ddi.i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/test.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/test.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core.vcxproj.filters" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data/Changes.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/Changes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data/Concepts.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/Concepts.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data/NewType.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/NewType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data/Record.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/Record.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data/Ref.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/Ref.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/data/SafePtr.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/SafePtr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/monads/Either.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/monads/Either.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/data/Unit.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/data/Unit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/Bitmask.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/Bitmask.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/ForEach.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/ForEach.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/General.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/General.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/Group.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/Group.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/ToSeq.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/ToSeq.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/Typeclasses.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/Typeclasses.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/macros/Withers.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/macros/Withers.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/monads/Either.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/monads/Future.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/monads/Option.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/reactive/Observable.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/reactive/Observable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/reactive/Subject.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/reactive/Subject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/reactive/Subscription.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/reactive/Subscription.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/reactive/Tracker.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/reactive/Tracker.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/syntax/ForComprehension.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/syntax/ForComprehension.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/syntax/Try.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/syntax/Try.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/typeclasses/Eq.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/typeclasses/Eq.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/typeclasses/Num.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/typeclasses/Num.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/typeclasses/Ord.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/typeclasses/Ord.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/typeclasses/Semigroup.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/typeclasses/Semigroup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/typeclasses/ToString.h" beforeDir="false" afterPath="$PROJECT_DIR$/core/typeclasses/ToString.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/Option.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/Tracker.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.lib.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/Cl.items.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/Lib-link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/Lib-link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/Lib.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/x64/Debug/core.tlog/core.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fpcpp.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fpcpp.sln.DotSettings.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/.signature.p7s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6.nupkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/ThirdPartyNotices.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1028/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1029/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1031/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1033/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1034/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1036/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1040/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1041/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1042/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1045/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1046/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1049/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/1055/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/2052/googletest.propertiesui.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-death-test.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-message.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-param-test.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-param-test.h.pump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-printers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-spi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-test-part.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest-typed-test.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest_pred_impl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/gtest_prod.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/custom/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/custom/gtest-port.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/custom/gtest-printers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/custom/gtest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-death-test-internal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-filepath.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-internal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-linked_ptr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-param-util-generated.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-param-util-generated.h.pump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-param-util.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-port-arch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-port.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-string.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-tuple.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-tuple.h.pump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-type-util.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/build/native/include/gtest/internal/gtest-type-util.h.pump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Debug/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Debug/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Debug/gtest_maind.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Debug/gtestd.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Release/gtest.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Release/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Release/gtest_main.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/arm64/Release/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Debug/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Debug/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Debug/gtest_maind.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Debug/gtestd.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Release/gtest.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Release/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Release/gtest_main.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/Release/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Debug/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Debug/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Debug/gtest_maind.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Debug/gtestd.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Release/gtest.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Release/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Release/gtest_main.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/lib/native/v140/windesktop/msvcstl/static/rt-dyn/x86/Release/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.6/license (MIT).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/data/TestNewType.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/TestNewType.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data/TestNewType.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/TestNewType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data/TestRecord.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/TestRecord.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data/TestRecord.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/TestRecord.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data/TestRecord.i" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/monads/TestEither.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/monads/TestFuture.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/monads/TestOption.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/packages.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/reactive/TestObservable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/reactive/TestObservable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/reactive/TestSubscription.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/reactive/TestSubscription.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/reactive/TestTracker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/reactive/TestTracker.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/syntax/TestForComprehension.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/syntax/TestForComprehension.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/syntax/TestTry.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/syntax/TestTry.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestEq.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestEq.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestEq.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestEq.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestNum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestNum.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestNum.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestNum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestOrd.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestOrd.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestOrd.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestOrd.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestSemigroup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestSemigroup.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestSemigroup.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestSemigroup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestToString.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestToString.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/typeclasses/TestToString.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/typeclasses/TestToString.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestEither.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestEq.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestForComprehension.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestFuture.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestNewType.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestNum.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestObservable.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestOption.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestOrd.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestRecord.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestSemigroup.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestSubscription.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestToString.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestTracker.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/TestTry.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.exe.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/Cl.items.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/CopyLocal.read.1u.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/CopyLocal.write.1u.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/link.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/link.secondary.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.tlog/test.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.vcxproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/test.vcxproj.Up2Date" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/x64/Debug/vc143.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/StaticLibrsssss.idb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/StaticLibrsssss.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/StaticLibrsssss.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/chaos.idb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/chaos.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/chaos.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/core.idb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/core.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/core.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/gtest.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/gtest_main.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/test.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/test.ilk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/x64/Debug/test.pdb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,31 +800,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "CMake Debug.Project.executor": "Debug",
-    "Google Test.NewType.Equality.executor": "Run",
-    "Google Test.NewType.WithConstructors.executor": "Run",
-    "Google Test.test.executor": "Run",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.advertisement.text.has.clang-format": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/work/fpcpp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.customizations",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake Debug.Project.executor&quot;: &quot;Debug&quot;,
+    &quot;Google Test.NewType.Equality.executor&quot;: &quot;Run&quot;,
+    &quot;Google Test.NewType.WithConstructors.executor&quot;: &quot;Run&quot;,
+    &quot;Google Test.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.advertisement.text.has.clang-format&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/work/fpcpp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.customizations&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Google Test.test">
     <configuration name="NewType.Equality" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fpcpp" TARGET_NAME="test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="fpcpp" RUN_TARGET_NAME="test" TEST_CLASS="NewType" TEST_METHOD="Equality" TEST_MODE="SUITE_TEST">
       <method v="2">
@@ -123,11 +846,6 @@
     </configuration>
     <configuration name="Project" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="core" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fpcpp" TARGET_NAME="core" CONFIG_NAME="Debug">
       <method v="2">

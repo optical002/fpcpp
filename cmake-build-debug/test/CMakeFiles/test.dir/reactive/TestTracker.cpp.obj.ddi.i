@@ -4,7 +4,8 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
 # 1 "C:/work/fpcpp/core/reactive/Tracker.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75450,7 +75451,7 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/reactive/Tracker.h" 2
+# 5 "C:/work/fpcpp/core/reactive/Tracker.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/mutex" 1 3
 # 32 "C:/msys64/mingw64/include/c++/14.2.0/mutex" 3
        
@@ -77938,10 +77939,11 @@ namespace std
 # 1021 "C:/msys64/mingw64/include/c++/14.2.0/mutex" 3
 
 }
-# 5 "C:/work/fpcpp/core/reactive/Tracker.h" 2
+# 6 "C:/work/fpcpp/core/reactive/Tracker.h" 2
 
 # 1 "C:/work/fpcpp/core/reactive/Subscription.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/functional" 1 3
 # 46 "C:/msys64/mingw64/include/c++/14.2.0/functional" 3
@@ -91333,11 +91335,11 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/reactive/Subscription.h" 2
+# 5 "C:/work/fpcpp/core/reactive/Subscription.h" 2
 
 
 
-# 6 "C:/work/fpcpp/core/reactive/Subscription.h"
+# 7 "C:/work/fpcpp/core/reactive/Subscription.h"
 class Subscription {
 public:
   static std::shared_ptr<Subscription> create(
@@ -91364,7 +91366,7 @@ private:
   std::function<void()> _unsubscribe;
   bool _isSubscribed;
 };
-# 7 "C:/work/fpcpp/core/reactive/Tracker.h" 2
+# 8 "C:/work/fpcpp/core/reactive/Tracker.h" 2
 
 class Tracker {
 public:
@@ -110618,283 +110620,278 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-namespace reactive {
+"Reactive_Tracker"
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"DisposableTracker"
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"Reactive_Tracker"
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"DisposableTracker"
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestTracker.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_DisposableTracker_Test
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                                         {
+  auto disposableTracker = DisposableTracker();
+  Tracker* tracker = &disposableTracker;
+
+  int value = 0;
+  tracker->track([&value] { value = 1;});
   
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "Tracker"
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "DisposableTracker"
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "Tracker"
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "value"
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
  , 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "DisposableTracker"
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestTracker.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_DisposableTracker_Test
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                                  {
-    auto disposableTracker = DisposableTracker();
-    Tracker* tracker = &disposableTracker;
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "0"
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ value
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ 0
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 10, gtest_ar.failure_message()) = ::testing::Message() 
+# 10 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                     << "After tracking an action, it should not be invoked.";
 
-    int value = 0;
-    tracker->track([&value] { value = 1;});
-    
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "value"
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "0"
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   value
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   0
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 11, gtest_ar.failure_message()) = ::testing::Message() 
-# 11 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                       << "After tracking an action, it should not be invoked.";
-
-    disposableTracker.dispose();
-    
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "value"
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "1"
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   value
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   1
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 14, gtest_ar.failure_message()) = ::testing::Message() 
-# 14 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                       << "After disposing the disposable tracker, the trackers tracked action should be invoked.";
-
-    auto disposableTracker2 = DisposableTracker();
-    auto subscription = Subscription::create([&value] { value = 2; });
-    disposableTracker2.track(subscription);
-    
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "value"
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "1"
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   value
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   1
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 19, gtest_ar.failure_message()) = ::testing::Message() 
-# 19 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                       << "After tracking a subscription, it should not be unsubscribed.";
-
-    disposableTracker2.dispose();
-    
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "value"
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "2"
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   value
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   2
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 22, gtest_ar.failure_message()) = ::testing::Message() 
-# 22 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                       << "After disposing the disposable tracker, the trackers tracked subscription should be unsubscribed.";
-  }
-
+  disposableTracker.dispose();
   
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- static_assert(sizeof(
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "Tracker"
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "NoOpTracker"
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- : public ::testing::Test { public: 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- () = default; ~
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- () override = default; 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- (
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- const&) = delete; 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- & operator=(
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- const&) = delete; 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- (
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- &&) noexcept = delete; 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- & operator=(
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "Tracker"
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "value"
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
  , 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- "NoOpTracker"
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestTracker.cpp", 25), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 25), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 25), new ::testing::internal::TestFactoryImpl<
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- >); void 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
- Tracker_NoOpTracker_Test
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
- ::TestBody() 
-# 25 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                            {
-    int value = 0;
-    NoOpTracker{}.track([&value] { value = 1; });
-    
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "value"
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   "0"
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   value
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   , 
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-   0
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 28, gtest_ar.failure_message()) = ::testing::Message() 
-# 28 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
-                       << "After tracking an action, it should not be invoked.";}
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "1"
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ value
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ 1
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 13, gtest_ar.failure_message()) = ::testing::Message() 
+# 13 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                     << "After disposing the disposable tracker, the trackers tracked action should be invoked.";
+
+  auto disposableTracker2 = DisposableTracker();
+  auto subscription = Subscription::create([&value] { value = 2; });
+  disposableTracker2.track(subscription);
+  
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "value"
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "1"
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ value
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ 1
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 18, gtest_ar.failure_message()) = ::testing::Message() 
+# 18 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                     << "After tracking a subscription, it should not be unsubscribed.";
+
+  disposableTracker2.dispose();
+  
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "value"
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "2"
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ value
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ 2
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 21, gtest_ar.failure_message()) = ::testing::Message() 
+# 21 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                     << "After disposing the disposable tracker, the trackers tracked subscription should be unsubscribed.";
+}
+
+
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+static_assert(sizeof(
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"Reactive_Tracker"
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"NoOpTracker"
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+: public ::testing::Test { public: 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+() = default; ~
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+() override = default; 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+(
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+const&) = delete; 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+& operator=(
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+const&) = delete; 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+(
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+&&) noexcept = delete; 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+& operator=(
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"Reactive_Tracker"
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+, 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+"NoOpTracker"
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/reactive/TestTracker.cpp", 24), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 24), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/reactive/TestTracker.cpp", 24), new ::testing::internal::TestFactoryImpl<
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+>); void 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+Reactive_Tracker_NoOpTracker_Test
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+::TestBody() 
+# 24 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                                   {
+  int value = 0;
+  NoOpTracker{}.track([&value] { value = 1; });
+  
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "value"
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ "0"
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ value
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ , 
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+ 0
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/reactive/TestTracker.cpp", 27, gtest_ar.failure_message()) = ::testing::Message() 
+# 27 "C:/work/fpcpp/test/reactive/TestTracker.cpp"
+                     << "After tracking an action, it should not be invoked.";
 }

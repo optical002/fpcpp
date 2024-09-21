@@ -4,9 +4,12 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
 # 1 "C:/work/fpcpp/test/typeclasses/TestToString.h" 1
-       
+
+
+
 # 1 "C:/work/fpcpp/core/typeclasses/ToString.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/format" 1 3
 # 32 "C:/msys64/mingw64/include/c++/14.2.0/format" 3
@@ -64047,10 +64050,12 @@ namespace __format
 # 4580 "C:/msys64/mingw64/include/c++/14.2.0/format" 3
 
 }
-# 4 "C:/work/fpcpp/core/typeclasses/ToString.h" 2
+# 5 "C:/work/fpcpp/core/typeclasses/ToString.h" 2
 
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75476,10 +75481,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75507,7 +75512,7 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 6 "C:/work/fpcpp/core/typeclasses/ToString.h" 2
+# 7 "C:/work/fpcpp/core/typeclasses/ToString.h" 2
 
 template<typename A>
 struct ToString;
@@ -75553,7 +75558,7 @@ struct ToString<std::string> {
     return std::format("String({})", value);
   }
 };
-# 3 "C:/work/fpcpp/test/typeclasses/TestToString.h" 2
+# 5 "C:/work/fpcpp/test/typeclasses/TestToString.h" 2
 
 struct TestWithToString {};
 
@@ -108174,487 +108179,481 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-namespace typeclasses {
+"Typeclasses_ToString"
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"Typeclasses_ToString"
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                                 {
+  TestWithToString a;
+  ToStr(a);
+}
+
+
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"Typeclasses_ToString"
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+: public ::testing::Test { public: 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+() = default; ~
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+() override = default; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+&&) noexcept = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"Typeclasses_ToString"
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+, 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 9), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 9), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 9), new ::testing::internal::TestFactoryImpl<
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+>); void 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+Typeclasses_ToString_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+::TestBody() 
+# 9 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                         {
+  int x1 = 1;
   
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "ToString"
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "ToString"
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x1)"
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
  , 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                       {
-    TestWithToString a;
-    ToStr(a);
-  }
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Int(1)\""
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x1)
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Int(1)"
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 11, gtest_ar.failure_message()) = ::testing::Message() 
+# 11 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                << "Expected a to be equal to 1, but it was not.";
 
+  unsigned int x2 = 2;
   
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "ToString"
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- : public ::testing::Test { public: 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- () = default; ~
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- () override = default; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- &&) noexcept = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "ToString"
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x2)"
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
  , 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 10), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 10), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestToString.cpp", 10), new ::testing::internal::TestFactoryImpl<
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- >); void 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
- ToString_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
- ::TestBody() 
-# 10 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                               {
-    int x1 = 1;
-    
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x1)"
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Int(1)\""
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x1)
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Int(1)"
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 12, gtest_ar.failure_message()) = ::testing::Message() 
-# 12 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                  << "Expected a to be equal to 1, but it was not.";
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"UnsignedInt(2)\""
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x2)
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "UnsignedInt(2)"
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 14, gtest_ar.failure_message()) = ::testing::Message() 
+# 14 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                        << "Expected a to be equal to 2, but it was not.";
 
-    unsigned int x2 = 2;
-    
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x2)"
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"UnsignedInt(2)\""
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x2)
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "UnsignedInt(2)"
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 15, gtest_ar.failure_message()) = ::testing::Message() 
-# 15 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                          << "Expected a to be equal to 2, but it was not.";
+  long x3 = 3;
+  
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x3)"
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Long(3)\""
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x3)
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Long(3)"
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 17, gtest_ar.failure_message()) = ::testing::Message() 
+# 17 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                 << "Expected a to be equal to 3, but it was not.";
 
-    long x3 = 3;
-    
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x3)"
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Long(3)\""
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x3)
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Long(3)"
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 18, gtest_ar.failure_message()) = ::testing::Message() 
-# 18 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                   << "Expected a to be equal to 3, but it was not.";
+  unsigned long x4 = 4;
+  
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x4)"
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"UnsignedLong(4)\""
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x4)
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "UnsignedLong(4)"
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 20, gtest_ar.failure_message()) = ::testing::Message() 
+# 20 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                         << "Expected x4 to be equal to UnsignedLong(4), but it was not.";
 
-    unsigned long x4 = 4;
-    
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x4)"
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"UnsignedLong(4)\""
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x4)
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "UnsignedLong(4)"
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 21, gtest_ar.failure_message()) = ::testing::Message() 
-# 21 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                           << "Expected x4 to be equal to UnsignedLong(4), but it was not.";
+  long long x5 = 5;
+  
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x5)"
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"LongLong(5)\""
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x5)
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "LongLong(5)"
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 23, gtest_ar.failure_message()) = ::testing::Message() 
+# 23 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                     << "Expected x5 to be equal to LongLong(5), but it was not.";
 
-    long long x5 = 5;
-    
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x5)"
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"LongLong(5)\""
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x5)
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "LongLong(5)"
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 24, gtest_ar.failure_message()) = ::testing::Message() 
-# 24 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                       << "Expected x5 to be equal to LongLong(5), but it was not.";
+  unsigned long long x6 = 6;
+  
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x6)"
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"UnsignedLongLong(6)\""
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x6)
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "UnsignedLongLong(6)"
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 26, gtest_ar.failure_message()) = ::testing::Message() 
+# 26 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                             << "Expected x6 to be equal to UnsignedLongLong(6), but it was not.";
 
-    unsigned long long x6 = 6;
-    
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x6)"
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"UnsignedLongLong(6)\""
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x6)
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "UnsignedLongLong(6)"
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 27, gtest_ar.failure_message()) = ::testing::Message() 
-# 27 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                               << "Expected x6 to be equal to UnsignedLongLong(6), but it was not.";
+  short x7 = 7;
+  
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x7)"
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Short(7)\""
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x7)
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Short(7)"
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 29, gtest_ar.failure_message()) = ::testing::Message() 
+# 29 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                  << "Expected x7 to be equal to Short(7), but it was not.";
 
-    short x7 = 7;
-    
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x7)"
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Short(7)\""
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x7)
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Short(7)"
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 30, gtest_ar.failure_message()) = ::testing::Message() 
-# 30 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                    << "Expected x7 to be equal to Short(7), but it was not.";
+  unsigned short x8 = 8;
+  
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x8)"
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"UnsignedShort(8)\""
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x8)
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "UnsignedShort(8)"
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 32, gtest_ar.failure_message()) = ::testing::Message() 
+# 32 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                          << "Expected x8 to be equal to UnsignedShort(8), but it was not.";
 
-    unsigned short x8 = 8;
-    
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x8)"
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"UnsignedShort(8)\""
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x8)
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "UnsignedShort(8)"
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 33, gtest_ar.failure_message()) = ::testing::Message() 
-# 33 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                            << "Expected x8 to be equal to UnsignedShort(8), but it was not.";
+  char x9 = 'a';
+  
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x9)"
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Char(a)\""
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x9)
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Char(a)"
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 35, gtest_ar.failure_message()) = ::testing::Message() 
+# 35 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                 << "Expected x9 to be equal to Char(a), but it was not.";
 
-    char x9 = 'a';
-    
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x9)"
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Char(a)\""
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x9)
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Char(a)"
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 36, gtest_ar.failure_message()) = ::testing::Message() 
-# 36 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                   << "Expected x9 to be equal to Char(a), but it was not.";
+  bool x10 = true;
+  
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x10)"
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Bool(true)\""
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x10)
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Bool(true)"
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 38, gtest_ar.failure_message()) = ::testing::Message() 
+# 38 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                     << "Expected x11 to be equal to Bool(true), but it was not.";
 
-    bool x10 = true;
-    
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x10)"
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Bool(true)\""
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x10)
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Bool(true)"
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 39, gtest_ar.failure_message()) = ::testing::Message() 
-# 39 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                       << "Expected x11 to be equal to Bool(true), but it was not.";
+  float x11 = 12.34f;
+  
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x11)"
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Float(12.34)\""
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x11)
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Float(12.34)"
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 41, gtest_ar.failure_message()) = ::testing::Message() 
+# 41 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                       << "Expected x12 to be equal to Float(12.34), but it was not.";
 
-    float x11 = 12.34f;
-    
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x11)"
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Float(12.34)\""
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x11)
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Float(12.34)"
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 42, gtest_ar.failure_message()) = ::testing::Message() 
-# 42 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                         << "Expected x12 to be equal to Float(12.34), but it was not.";
+  double x12 = 13.56;
+  
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x12)"
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"Double(13.56)\""
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x12)
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "Double(13.56)"
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 44, gtest_ar.failure_message()) = ::testing::Message() 
+# 44 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                        << "Expected x13 to be equal to Double(13.56), but it was not.";
 
-    double x12 = 13.56;
-    
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x12)"
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"Double(13.56)\""
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x12)
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "Double(13.56)"
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 45, gtest_ar.failure_message()) = ::testing::Message() 
-# 45 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                          << "Expected x13 to be equal to Double(13.56), but it was not.";
+  long double x13 = 14.78L;
+  
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x13)"
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"LongDouble(14.78)\""
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x13)
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "LongDouble(14.78)"
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 47, gtest_ar.failure_message()) = ::testing::Message() 
+# 47 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                            << "Expected x14 to be equal to LongDouble(14.78), but it was not.";
 
-    long double x13 = 14.78L;
-    
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x13)"
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"LongDouble(14.78)\""
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x13)
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "LongDouble(14.78)"
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 48, gtest_ar.failure_message()) = ::testing::Message() 
-# 48 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                              << "Expected x14 to be equal to LongDouble(14.78), but it was not.";
-
-    std::string x14 = "Hello";
-    
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "ToStr(x14)"
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "\"String(Hello)\""
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   ToStr(x14)
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   , 
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-   "String(Hello)"
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 51, gtest_ar.failure_message()) = ::testing::Message() 
-# 51 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
-                                          << "Expected b to be equal to Hello, but it was not.";
-  }
+  std::string x14 = "Hello";
+  
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "ToStr(x14)"
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "\"String(Hello)\""
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ ToStr(x14)
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ , 
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+ "String(Hello)"
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestToString.cpp", 50, gtest_ar.failure_message()) = ::testing::Message() 
+# 50 "C:/work/fpcpp/test/typeclasses/TestToString.cpp"
+                                        << "Expected b to be equal to Hello, but it was not.";
 }

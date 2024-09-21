@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_TYPECLASSES_EQ_H
+#define FPCPP_CORE_TYPECLASSES_EQ_H
 
 #include <concepts>
 #include <string>
@@ -38,3 +39,5 @@ struct Eq<std::string> {
     return a == b;
   }
 };
+
+#endif // FPCPP_CORE_TYPECLASSES_EQ_H

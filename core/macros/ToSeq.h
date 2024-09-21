@@ -1,8 +1,9 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#pragma once
+#ifndef FPCPP_CORE_MACROS_TOSEQ_H
+#define FPCPP_CORE_MACROS_TOSEQ_H
 
 #include <core/macros/General.h>
-#include <chaos/preprocessor.h>
+#include <chaos/preprocessor/tuple/size.h>
 
 #define TO_SEQ_1(x1) (x1)
 #define TO_SEQ_2(x1, x2) (x1)(x2)
@@ -36,3 +37,5 @@
  * Supports up to 25 arguments.
  */
 #define TO_SEQ_VARIADIC(...) EXPAND(DEFER(TO_SEQ_X) (CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__)))(__VA_ARGS__)
+
+#endif // FPCPP_CORE_MACROS_TOSEQ_H

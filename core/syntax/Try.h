@@ -1,12 +1,13 @@
-#pragma once
+#ifndef FPCPP_CORE_SYNTAX_TRY_H
+#define FPCPP_CORE_SYNTAX_TRY_H
 
 #include <format>
 #include <string>
 #include <stdexcept>
-#include "core/monads/Either.h"
-#include "core/data/Unit.h"
-#include "core/data/Concepts.h"
-#include "core/data/SafePtr.h"
+#include <core/data/Either.h>
+#include <core/data/Unit.h>
+#include <core/data/Concepts.h>
+#include <core/data/SafePtr.h>
 
 /**
  * Tries to evaluate 'Func' expression and returns the result as an 'Either' type.
@@ -66,3 +67,5 @@ template<PointerType Ptr>
 Either<std::exception, SafePtr<Ptr>> TryPtr(Ptr ptr) {
   return SafePtr<Ptr>::create(ptr);
 }
+
+#endif // FPCPP_CORE_SYNTAX_TRY_H

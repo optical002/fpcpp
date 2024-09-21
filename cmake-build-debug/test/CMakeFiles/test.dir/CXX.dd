@@ -3,11 +3,11 @@ build test/CMakeFiles/test.dir/data/TestNewType.cpp.obj: dyndep
 
 build test/CMakeFiles/test.dir/data/TestRecord.cpp.obj: dyndep
 
-build test/CMakeFiles/test.dir/monads/TestEither.cpp.obj: dyndep
+build test/CMakeFiles/test.dir/data/TestEither.cpp.obj: dyndep
 
-build test/CMakeFiles/test.dir/monads/TestFuture.cpp.obj: dyndep
+build test/CMakeFiles/test.dir/data/TestFuture.cpp.obj: dyndep
 
-build test/CMakeFiles/test.dir/monads/TestOption.cpp.obj: dyndep
+build test/CMakeFiles/test.dir/data/TestOption.cpp.obj: dyndep
 
 build test/CMakeFiles/test.dir/reactive/TestObservable.cpp.obj: dyndep
 

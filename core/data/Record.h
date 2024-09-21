@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_DATA_RECORD_H
+#define FPCPP_CORE_DATA_RECORD_H
 
 #include <string>
 #include <format>
@@ -50,3 +51,5 @@
   }; \
   EQ_TYPECLASS(record_name, __VA_ARGS__) \
   TO_STRING_TYPECLASS(record_name, __VA_ARGS__)
+
+#endif // FPCPP_CORE_DATA_RECORD_H

@@ -4,9 +4,12 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
 # 1 "C:/work/fpcpp/test/typeclasses/TestSemigroup.h" 1
-       
+
+
+
 # 1 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 1 3
 # 33 "C:/msys64/mingw64/include/c++/14.2.0/concepts" 3
@@ -3792,7 +3795,7 @@ namespace std
 
 
 }
-# 4 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 2
+# 5 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 2
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/string" 1 3
 # 36 "C:/msys64/mingw64/include/c++/14.2.0/string" 3
        
@@ -32759,9 +32762,11 @@ namespace std
     }
 
 }
-# 5 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 2
+# 6 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 2
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75472,10 +75477,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75503,7 +75508,7 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 6 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 2
+# 7 "C:/work/fpcpp/core/typeclasses/Semigroup.h" 2
 
 template<typename A>
 struct Semigroup;
@@ -75531,7 +75536,7 @@ struct Semigroup<A> {
     return a + b;
   }
 };
-# 3 "C:/work/fpcpp/test/typeclasses/TestSemigroup.h" 2
+# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.h" 2
 
 class TestWithSemigroup { };
 
@@ -108152,188 +108157,182 @@ inline int RUN_ALL_TESTS() {
 
 # 3 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 2
 
-
+static_assert(sizeof(
 # 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-namespace typeclasses {
-  
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "Semigroup"
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- : public ::testing::Test { public: 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- () = default; ~
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- () override = default; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- const&) = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- (
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- &&) noexcept = delete; 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- & operator=(
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "Semigroup"
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- , 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "PartialSpecialization"
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 5), new ::testing::internal::TestFactoryImpl<
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- >); void 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_PartialSpecialization_Test
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ::TestBody() 
-# 5 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-                                        {
-    TestWithSemigroup a, b;
-    Combine(a, b);
-  }
+"Typeclasses_Semigroup"
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+: public ::testing::Test { public: 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+() = default; ~
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+() override = default; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+const&) = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+(
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+&&) noexcept = delete; 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+& operator=(
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"Typeclasses_Semigroup"
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+, 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"PartialSpecialization"
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 4), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 4), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 4), new ::testing::internal::TestFactoryImpl<
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+>); void 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_PartialSpecialization_Test
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+::TestBody() 
+# 4 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+                                                  {
+  TestWithSemigroup a, b;
+  Combine(a, b);
+}
 
+
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"Typeclasses_Semigroup"
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+: public ::testing::Test { public: 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+() = default; ~
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+() override = default; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+const&) = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+(
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+&&) noexcept = delete; 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+& operator=(
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"Typeclasses_Semigroup"
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+, 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+"Functionality"
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 9), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 9), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 9), new ::testing::internal::TestFactoryImpl<
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+>); void 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+Typeclasses_Semigroup_Functionality_Test
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+::TestBody() 
+# 9 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+                                          {
+  std::string a = "hello", b = " world";
   
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "Semigroup"
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- : public ::testing::Test { public: 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- () = default; ~
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- () override = default; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- const&) = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- (
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- &&) noexcept = delete; 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- & operator=(
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "Semigroup"
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+ "\"hello world\""
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
  , 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- "Functionality"
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 10), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 10), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 10), new ::testing::internal::TestFactoryImpl<
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- >); void 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
- Semigroup_Functionality_Test
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
- ::TestBody() 
-# 10 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-                                {
-    std::string a = "hello", b = " world";
-    
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-   "\"hello world\""
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-   "a + b"
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-   "hello world"
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
-   , 
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-   a + b
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 12, gtest_ar.failure_message()) = ::testing::Message()
-# 12 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
-                                  ;
-  }
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+ "a + b"
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+ "hello world"
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+ , 
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+ a + b
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp", 11, gtest_ar.failure_message()) = ::testing::Message()
+# 11 "C:/work/fpcpp/test/typeclasses/TestSemigroup.cpp"
+                                ;
 }

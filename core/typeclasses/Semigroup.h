@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef FPCPP_CORE_TYPECLASSES_SEMIGROUP_H
+#define FPCPP_CORE_TYPECLASSES_SEMIGROUP_H
 
 #include <concepts>
 #include <string>
@@ -30,3 +31,5 @@ struct Semigroup<A> {
     return a + b; 
   }
 };
+
+#endif // FPCPP_CORE_TYPECLASSES_SEMIGROUP_H

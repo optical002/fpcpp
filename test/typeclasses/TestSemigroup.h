@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿#ifndef FPCPP_TEST_TYPECLASSES_TEST_SEMIGROUP_H
+#define FPCPP_TEST_TYPECLASSES_TEST_SEMIGROUP_H
+
 #include "core/typeclasses/Semigroup.h"
 
 class TestWithSemigroup { };
@@ -9,3 +11,5 @@ struct Semigroup<TestWithSemigroup> {
     return a;
   }
 };
+
+#endif // FPCPP_TEST_TYPECLASSES_TEST_SEMIGROUP_H

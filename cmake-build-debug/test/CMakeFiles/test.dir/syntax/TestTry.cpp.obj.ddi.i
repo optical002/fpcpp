@@ -4,7 +4,8 @@
 # 0 "<command-line>"
 # 1 "C:/work/fpcpp/test/syntax/TestTry.cpp"
 # 1 "C:/work/fpcpp/core/syntax/Try.h" 1
-       
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/format" 1 3
 # 32 "C:/msys64/mingw64/include/c++/14.2.0/format" 3
@@ -64045,11 +64046,12 @@ namespace __format
 # 4580 "C:/msys64/mingw64/include/c++/14.2.0/format" 3
 
 }
-# 4 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 5 "C:/work/fpcpp/core/syntax/Try.h" 2
 
 
-# 1 "C:/work/fpcpp/core/monads/Either.h" 1
-       
+# 1 "C:/work/fpcpp/core/data/Either.h" 1
+
+
 
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/utility" 1 3
@@ -64217,10 +64219,10 @@ namespace std
 
 
 }
-# 5 "C:/work/fpcpp/core/monads/Either.h" 2
+# 6 "C:/work/fpcpp/core/data/Either.h" 2
 
 
-# 6 "C:/work/fpcpp/core/monads/Either.h"
+# 7 "C:/work/fpcpp/core/data/Either.h"
 template<typename A>
 class Option;
 
@@ -64393,8 +64395,9 @@ template<typename L, typename R>
 Either<L, R> RightE(const R& right) { return Right(right); }
 
 
-# 1 "C:/work/fpcpp/core/monads/Option.h" 1
-       
+# 1 "C:/work/fpcpp/core/data/Option.h" 1
+
+
 
 
 
@@ -64499,7 +64502,8 @@ struct NoneType {
 
 inline constexpr NoneType None{};
 
-
+# 1 "C:/work/fpcpp/core/data/Either.h" 1
+# 108 "C:/work/fpcpp/core/data/Option.h" 2
 
 template <typename A>
 template <typename R>
@@ -64512,21 +64516,24 @@ template <typename L>
 Either<L, A> Option<A>::toRight(const L& leftValue) {
   return _hasValue ? RightE<L>(_unsafeValue) : Left(leftValue);
 }
-# 179 "C:/work/fpcpp/core/monads/Either.h" 2
+# 180 "C:/work/fpcpp/core/data/Either.h" 2
 
 template <typename L, typename R>
 Option<L> Either<L, R>::left() const { return _isLeft ? Some(_left) : None; }
 
 template <typename L, typename R>
 Option<R> Either<L, R>::right() const { return isRight() ? Some(_right) : None; }
-# 7 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 8 "C:/work/fpcpp/core/syntax/Try.h" 2
 # 1 "C:/work/fpcpp/core/data/Unit.h" 1
-       
+
+
 
 struct Unit { };
-# 8 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 9 "C:/work/fpcpp/core/syntax/Try.h" 2
 # 1 "C:/work/fpcpp/core/data/Concepts.h" 1
-       
+
+
+
 
 # 1 "C:/msys64/mingw64/include/c++/14.2.0/memory" 1 3
 # 47 "C:/msys64/mingw64/include/c++/14.2.0/memory" 3
@@ -75954,10 +75961,10 @@ uninitialized_value_construct_n(_ExecutionPolicy&& __exec, _ForwardIterator __fi
 
 }
 # 172 "C:/msys64/mingw64/include/c++/14.2.0/memory" 2 3
-# 4 "C:/work/fpcpp/core/data/Concepts.h" 2
+# 6 "C:/work/fpcpp/core/data/Concepts.h" 2
 
 
-# 5 "C:/work/fpcpp/core/data/Concepts.h"
+# 7 "C:/work/fpcpp/core/data/Concepts.h"
 template<typename T>
 concept PointerType = std::is_pointer_v<T>;
 
@@ -75985,9 +75992,10 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
-# 9 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 10 "C:/work/fpcpp/core/syntax/Try.h" 2
 # 1 "C:/work/fpcpp/core/data/SafePtr.h" 1
-       
+
+
 
 
 
@@ -76009,7 +76017,7 @@ private:
   explicit SafePtr(Ptr ptr) : _ptr(ptr) {}
   Ptr _ptr;
 };
-# 10 "C:/work/fpcpp/core/syntax/Try.h" 2
+# 11 "C:/work/fpcpp/core/syntax/Try.h" 2
 
 
 
@@ -76071,7 +76079,9 @@ Either<std::exception, SafePtr<Ptr>> TryPtr(Ptr ptr) {
 }
 # 2 "C:/work/fpcpp/test/syntax/TestTry.cpp" 2
 # 1 "C:/work/fpcpp/core/syntax/ForComprehension.h" 1
-       
+
+
+
 
 
 
@@ -109383,502 +109393,496 @@ inline int RUN_ALL_TESTS() {
 
 # 4 "C:/work/fpcpp/test/syntax/TestTry.cpp" 2
 
-
+static_assert(sizeof(
 # 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-namespace syntax {
+"Syntax_Try"
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Try"
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+: public ::testing::Test { public: 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+() = default; ~
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+() override = default; 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+(
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+const&) = delete; 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+& operator=(
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+const&) = delete; 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+(
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+&&) noexcept = delete; 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+& operator=(
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Syntax_Try"
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+, 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Try"
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestTry.cpp", 5), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 5), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 5), new ::testing::internal::TestFactoryImpl<
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+>); void 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_Try_Test
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+::TestBody() 
+# 5 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                     {
+  const auto trySuccessful = Try([]{
+    return 1;
+  });
   
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- static_assert(sizeof(
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- : public ::testing::Test { public: 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- () = default; ~
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- () override = default; 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- (
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- const&) = delete; 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- & operator=(
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- const&) = delete; 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- (
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- &&) noexcept = delete; 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- & operator=(
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ trySuccessful.isRight()
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 9, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "trySuccessful.isRight()"
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
  , 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestTry.cpp", 6), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 6), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 6), new ::testing::internal::TestFactoryImpl<
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- >); void 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_Try_Test
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ::TestBody() 
-# 6 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                {
-    const auto trySuccessful = Try([]{
-      return 1;
-    });
-    
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   trySuccessful.isRight()
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 10, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "trySuccessful.isRight()"
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "false"
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "true"
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 10 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                                        << "Expected trySuccessful to be 'Success', but it was not.";
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "false"
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "true"
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 9 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                                      << "Expected trySuccessful to be 'Success', but it was not.";
 
-    const auto tryError = Try([] {
-      throw std::runtime_error("Error");
-    });
-    
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   tryError.isLeft()
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 15, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "tryError.isLeft()"
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "false"
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "true"
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 15 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                                  << "Expected tryError to be 'Failure', but it was not.";
-  }
-
+  const auto tryError = Try([] {
+    throw std::runtime_error("Error");
+  });
   
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- static_assert(sizeof(
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "TryLogSet"
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- : public ::testing::Test { public: 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- () = default; ~
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- () override = default; 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- (
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- const&) = delete; 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- & operator=(
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- const&) = delete; 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- (
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- &&) noexcept = delete; 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- & operator=(
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ tryError.isLeft()
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 14, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "tryError.isLeft()"
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
  , 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "TryLogSet"
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestTry.cpp", 18), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 18), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 18), new ::testing::internal::TestFactoryImpl<
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- >); void 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryLogSet_Test
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ::TestBody() 
-# 18 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                      {
-    int value = 0;
-    int errorLog = 0;
-    TryLogSet(
-      [] { return 1; }, value, [&errorLog](std::string _) {
-        errorLog = 1;
-      }
-    );
-    
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "value"
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "1"
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   value
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   1
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 26, gtest_ar.failure_message()) = ::testing::Message() 
-# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                       << "Expected value to be 1, but it was not.";
-    
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "errorLog"
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "0"
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   errorLog
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   0
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 27, gtest_ar.failure_message()) = ::testing::Message() 
-# 27 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                          << "Expected errorLog to be 0, but it was not.";
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "false"
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "true"
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 14 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                                << "Expected tryError to be 'Failure', but it was not.";
+}
 
-    TryLogSet(
-      [] { throw std::runtime_error("Error"); }, value, [&errorLog](std::string _) {
-        errorLog = 1;
-      }
-    );
-    
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "value"
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "1"
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   value
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   1
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 34, gtest_ar.failure_message()) = ::testing::Message() 
-# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                       << "Expected value to be 1, but it was not.";
-    
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "errorLog"
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "1"
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   errorLog
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   1
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 35, gtest_ar.failure_message()) = ::testing::Message() 
-# 35 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                          << "Expected errorLog to be 1, but it was not.";
-  }
 
-  struct A { };
-  struct B { A* a; };
-  struct C { B* b; };
-
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+static_assert(sizeof(
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Syntax_Try"
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"TryLogSet"
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+: public ::testing::Test { public: 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+() = default; ~
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+() override = default; 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+(
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+const&) = delete; 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+& operator=(
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+const&) = delete; 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+(
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+&&) noexcept = delete; 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+& operator=(
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Syntax_Try"
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+, 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"TryLogSet"
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestTry.cpp", 17), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 17), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 17), new ::testing::internal::TestFactoryImpl<
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+>); void 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryLogSet_Test
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+::TestBody() 
+# 17 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                           {
+  int value = 0;
+  int errorLog = 0;
+  TryLogSet(
+    [] { return 1; }, value, [&errorLog](std::string _) {
+      errorLog = 1;
+    }
+  );
   
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- static_assert(sizeof(
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "TryPtr"
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ) > 1, "test_name must not be empty"); class 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- : public ::testing::Test { public: 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- () = default; ~
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- () override = default; 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- (
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- const&) = delete; 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- & operator=(
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- const&) = delete; 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- (
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- &&) noexcept = delete; 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- & operator=(
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- &&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "Try"
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "value"
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
  , 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- "TryPtr"
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- , nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestTry.cpp", 42), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 42), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 42), new ::testing::internal::TestFactoryImpl<
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- >); void 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
- Try_TryPtr_Test
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
- ::TestBody() 
-# 42 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                   {
-    A* nullPtr = nullptr;
-    const auto tryNull = TryPtr(nullPtr);
-    
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   tryNull.isLeft()
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 45, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "tryNull.isLeft()"
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "false"
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "true"
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 45 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                                 << "Expected tryNull to be 'Failure', but it was not.";
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "1"
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ value
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ 1
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 25, gtest_ar.failure_message()) = ::testing::Message() 
+# 25 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                     << "Expected value to be 1, but it was not.";
+  
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "errorLog"
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "0"
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ errorLog
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ 0
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 26, gtest_ar.failure_message()) = ::testing::Message() 
+# 26 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                        << "Expected errorLog to be 0, but it was not.";
 
-    A notNull;
-    A* notNullPtr = &notNull;
-    const auto tryNotNull = TryPtr(notNullPtr);
-    
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   tryNotNull.isRight()
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 50, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "tryNotNull.isRight()"
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "false"
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "true"
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 50 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                                     << "Expected tryNotNull to be 'Success', but it was not.";
+  TryLogSet(
+    [] { throw std::runtime_error("Error"); }, value, [&errorLog](std::string _) {
+      errorLog = 1;
+    }
+  );
+  
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "value"
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "1"
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ value
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ 1
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 33, gtest_ar.failure_message()) = ::testing::Message() 
+# 33 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                     << "Expected value to be 1, but it was not.";
+  
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar = (::testing::internal::EqHelper::Compare(
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "errorLog"
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "1"
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ errorLog
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ 1
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ))) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 34, gtest_ar.failure_message()) = ::testing::Message() 
+# 34 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                        << "Expected errorLog to be 1, but it was not.";
+}
 
-    A a;
-    B b = { &a };
-    C c = { &b };
-    C* cPtr = &c;
-    const auto tryNotNullPtrChain = ForComprehension(TryPtr(cPtr),
-      [](C* c) { return TryPtr(c->b); },
-      [](B* b) { return TryPtr(b->a); },
-      [](SafePtr<A*> a) { return a; }
-    );
-    
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   tryNotNullPtrChain.isRight()
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 61, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "tryNotNullPtrChain.isRight()"
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "false"
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "true"
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 61 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                                             << "Expected tryNotNullPtrChain to be 'Success', but it was not.";
+struct A { };
+struct B { A* a; };
+struct C { B* b; };
 
-    B* nullBPtr = nullptr;
-    C cNull = { nullBPtr };
-    C* cNullPtr = &cNull;
-    const auto tryNullPtrChain = ForComprehension(TryPtr(cNullPtr),
-      [](C* c) { return TryPtr(c->b); },
-      [](B* b) { return TryPtr(b->a); },
-      [](SafePtr<A*> a) { return a; }
-    );
-    
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   tryNullPtrChain.isLeft()
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 71, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "tryNullPtrChain.isLeft()"
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "false"
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   , 
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-   "true"
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
-   ).c_str()) = ::testing::Message() 
-# 71 "C:/work/fpcpp/test/syntax/TestTry.cpp"
-                                         << "Expected tryNullPtrChain to be 'Failure', but it was not.";
-  }
+
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+static_assert(sizeof(
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Syntax_Try"
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+) > 1, "test_suite_name must not be empty"); static_assert(sizeof(
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"TryPtr"
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+) > 1, "test_name must not be empty"); class 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+: public ::testing::Test { public: 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+() = default; ~
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+() override = default; 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+(
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+const&) = delete; 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+& operator=(
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+const&) = delete; 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+(
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+&&) noexcept = delete; 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+& operator=(
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+&&) noexcept = delete; private: void TestBody() override; static ::testing::TestInfo* const test_info_ __attribute__ ((unused)); }; ::testing::TestInfo* const 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+::test_info_ = ::testing::internal::MakeAndRegisterTestInfo( 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"Syntax_Try"
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+, 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+"TryPtr"
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+, nullptr, nullptr, ::testing::internal::CodeLocation("C:/work/fpcpp/test/syntax/TestTry.cpp", 41), (::testing::internal::GetTestTypeId()), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetSetUpCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 41), ::testing::internal::SuiteApiResolver< ::testing::Test>::GetTearDownCaseOrSuite("C:/work/fpcpp/test/syntax/TestTry.cpp", 41), new ::testing::internal::TestFactoryImpl<
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+>); void 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+Syntax_Try_TryPtr_Test
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+::TestBody() 
+# 41 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                        {
+  A* nullPtr = nullptr;
+  const auto tryNull = TryPtr(nullPtr);
+  
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ tryNull.isLeft()
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 44, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "tryNull.isLeft()"
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "false"
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "true"
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 44 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                               << "Expected tryNull to be 'Failure', but it was not.";
+
+  A notNull;
+  A* notNullPtr = &notNull;
+  const auto tryNotNull = TryPtr(notNullPtr);
+  
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ tryNotNull.isRight()
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 49, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "tryNotNull.isRight()"
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "false"
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "true"
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 49 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                                   << "Expected tryNotNull to be 'Success', but it was not.";
+
+  A a;
+  B b = { &a };
+  C c = { &b };
+  C* cPtr = &c;
+  const auto tryNotNullPtrChain = ForComprehension(TryPtr(cPtr),
+    [](C* c) { return TryPtr(c->b); },
+    [](B* b) { return TryPtr(b->a); },
+    [](SafePtr<A*> a) { return a; }
+  );
+  
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ tryNotNullPtrChain.isRight()
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 60, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "tryNotNullPtrChain.isRight()"
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "false"
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "true"
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 60 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                                           << "Expected tryNotNullPtrChain to be 'Success', but it was not.";
+
+  B* nullBPtr = nullptr;
+  C cNull = { nullBPtr };
+  C* cNullPtr = &cNull;
+  const auto tryNullPtrChain = ForComprehension(TryPtr(cNullPtr),
+    [](C* c) { return TryPtr(c->b); },
+    [](B* b) { return TryPtr(b->a); },
+    [](SafePtr<A*> a) { return a; }
+  );
+  
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ switch (0) case 0: default: if (const ::testing::AssertionResult gtest_ar_ = ::testing::AssertionResult(
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ tryNullPtrChain.isLeft()
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ )) ; else ::testing::internal::AssertHelper(::testing::TestPartResult::kNonFatalFailure, "C:/work/fpcpp/test/syntax/TestTry.cpp", 70, ::testing::internal::GetBoolAssertionFailureMessage( gtest_ar_, 
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "tryNullPtrChain.isLeft()"
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "false"
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ , 
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+ "true"
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp" 3 4
+ ).c_str()) = ::testing::Message() 
+# 70 "C:/work/fpcpp/test/syntax/TestTry.cpp"
+                                       << "Expected tryNullPtrChain to be 'Failure', but it was not.";
 }
