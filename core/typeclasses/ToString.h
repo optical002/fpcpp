@@ -5,6 +5,7 @@
 #include <string>
 #include <core/data/Concepts.h>
 
+// TODO add to Either, Future.
 template<typename A>
 struct ToString;
 

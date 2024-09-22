@@ -6,6 +6,7 @@
 #include <core/typeclasses/Ord.h>
 #include <core/data/Concepts.h>
 
+// TODO add to Either
 template<typename A>
 struct Eq;
 

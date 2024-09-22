@@ -4,11 +4,11 @@
 #include <string>
 #include <utility>
 #include <core/typeclasses/Default.h>
-#include "core/typeclasses/ToString.h"
-#include "core/typeclasses/Eq.h"
+#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Eq.h>
 #include <core/data/Option.h>
 
-
+// TODO finish union generation.
 #define GEN_UNION(union_name, ...) \
 
 

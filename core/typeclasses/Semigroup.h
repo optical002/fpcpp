@@ -5,6 +5,7 @@
 #include <string>
 #include <core/data/Concepts.h>
 
+// TODO add to Option Either
 template<typename A>
 struct Semigroup;
 
