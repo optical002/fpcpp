@@ -1,5 +1,7 @@
 #include <core/data/Option.h>
 #include <core/syntax/ForComprehension.h>
+#include <core/typeclasses/Eq.h>
+#include <core/typeclasses/ToString.h>
 #include <gtest/gtest.h>
 
 TEST(Data_Option, ForComprehension) {
@@ -106,5 +108,24 @@ TEST(Data_Option, ToRight) {
   auto someOpt = Some(1);
   const auto rightEither = someOpt.toRight(std::string("x"));
   EXPECT_TRUE(rightEither.isRight()) << "Expected rightEither to be 'Right', but it was not.";
+}
+
+TEST(Data_Option, Eq) {
+  Option<int> none1 = None, none2 = None;
+
+  EXPECT_TRUE(Equal(none1, none2)) << "Expected 'none1' and 'none2' to be equal";
+
+  Option<int> some1 = Some(1), some2 = Some(2), some3 = Some(1);
+
+  EXPECT_TRUE(Equal(some1, some3)) << "Expected 'some1' and 'some3' to be equal";
+  EXPECT_FALSE(Equal(some1, some2)) << "Expected 'some1' and 'some2' to be not equal";
+  EXPECT_FALSE(Equal(some1, none1)) << "Expected 'some1' and 'none1' to be not equal";
+}
+
+TEST(Data_Option, ToString) {
+  Option<int> none = None, some = Some(1);
+
+  EXPECT_EQ(ToStr(none), "None");
+  EXPECT_EQ(ToStr(some), "Some(Int(1))");
 }
 

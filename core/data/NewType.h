@@ -22,6 +22,9 @@
     CHAOS_PP_IF(BITMASK_CHECK_FLAG(mask, NEW_TYPE_FLAG_GEN_NUM)) ( \
       NUM_OPERATORS(new_type_name, inline_type, a), \
     ) \
+    CHAOS_PP_IF(CHAOS_PP_EQUAL(BITMASK_CHECK_FLAG(mask, NEW_TYPE_FLAG_GEN_NUM), 0)) ( \
+      SEMIGROUP_OPERATORS(new_type_name, inline_type, a), \
+    ) \
   }; \
   EQ_TYPECLASS(new_type_name, inline_type, a) \
   TO_STRING_TYPECLASS(new_type_name, inline_type, a) \

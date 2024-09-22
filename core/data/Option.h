@@ -3,6 +3,8 @@
 
 #include <concepts>
 #include <utility>
+#include <core/typeclasses/Eq.h>
+#include <core/typeclasses/ToString.h>
 
 template<typename L, typename R>
 class Either;
@@ -65,7 +67,7 @@ public:
     return _hasValue;
   }
 
-  A valueOr(const A& value){
+  A getOr(const A& value){
     return _hasValue ? _unsafeValue : value;
   }
   
@@ -117,5 +119,38 @@ template <typename L>
 Either<L, A> Option<A>::toRight(const L& leftValue) {
   return _hasValue ? RightE<L>(_unsafeValue) : Left(leftValue);
 }
+
+template<HasEq A>
+struct Eq<Option<A>> {
+  static bool equal(const Option<A>& a, const Option<A>& b) {
+    return (
+        a.isNone() && b.isNone()
+      ) || (
+        a.fold(
+          false,
+          [&b](const A& aValue) {
+            return b.fold(
+              false,
+              [&aValue](const A& bValue) {
+                return Equal(aValue, bValue);
+              }
+            );
+          }
+        )
+      );
+  }
+};
+
+template<HasToString A>
+struct ToString<Option<A>> {
+  static std::string toStr(const Option<A>& value) {
+    return value.fold(
+      std::string("None"),
+      [](const A& v) {
+        return std::format("Some({})", ToStr(v));
+      }
+    );
+  }
+};
 
 #endif // FPCPP_CORE_DATA_OPTION_H

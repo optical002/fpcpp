@@ -19,6 +19,8 @@ add_executable(test
   data/TestEither.cpp
   data/TestFuture.cpp
   data/TestOption.cpp
+  data/TestUnion.cpp
+  data/TestUnion.h
   reactive/TestObservable.cpp
   reactive/TestSubscription.cpp
   reactive/TestTracker.cpp

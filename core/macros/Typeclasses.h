@@ -81,6 +81,11 @@
     } \
   };
 
+#define SEMIGROUP_OPERATORS(record_type, field_type, field_name) \
+  record_type operator+(const record_type& other) const { \
+    return {.field_name = Combine(field_name, other.field_name) }; \
+  }
+
 #define SEMIGROUP_TYPECLASS(record_type, field_Type, field_name) \
   template<> \
   struct Semigroup<record_type> { \
