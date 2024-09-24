@@ -184,4 +184,18 @@ Option<L> Either<L, R>::left() const { return _isLeft ? Some(_left) : None; }
 template <typename L, typename R>
 Option<R> Either<L, R>::right() const { return isRight() ? Some(_right) : None; }
 
+template<HasToString L, HasToString R>
+struct ToString<Either<L, R>> {
+  static std::string toStr(const Either<L, R>& value) {
+    return value.fold(
+      [](const L& l) {
+        return std::format("Left({})", ToStr(l));
+      },
+      [](const R& r) {
+        return std::format("Right({})", ToStr(r));
+      }
+    );
+  }
+};
+
 #endif // FPCPP_CORE_DATA_EITHER_H

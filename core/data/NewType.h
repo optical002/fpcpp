@@ -4,14 +4,13 @@
 #include <core/data/Record.h>
 #include <core/macros/Bitmask.h>
 
-// Constructor flags.
-#define NEW_TYPE_FLAG_EMPTY      (0)(0)
 #define NEW_TYPE_FLAG_GEN_ORD    (0)(1)
 #define NEW_TYPE_FLAG_GEN_NUM    (1)(0)
 
+#define NEW_TYPE_MASK_EMPTY      (0)(0)
 #define NEW_TYPE_MASK_ARITHMETIC (1)(1)
 
-#define GEN_NEW_TYPE_CONSTRUCTOR_FLAGS(new_type_name, inline_type, mask) \
+#define GEN_NEW_TYPE_FULL(new_type_name, inline_type, mask) \
   struct new_type_name { \
     CONST_FIELDS(inline_type, a) \
     WITH_FUNCTIONS(new_type_name, inline_type, a) \
@@ -37,9 +36,9 @@
   ) 
 
 #define GEN_NEW_TYPE(new_type_name, inline_type) \
-  GEN_NEW_TYPE_CONSTRUCTOR_FLAGS(new_type_name, inline_type, NEW_TYPE_FLAG_EMPTY) \
+  GEN_NEW_TYPE_FULL(new_type_name, inline_type, NEW_TYPE_MASK_EMPTY) \
 
 #define GEN_NEW_TYPE_ARITHMETIC(new_type_name, inline_type) \
-  GEN_NEW_TYPE_CONSTRUCTOR_FLAGS(new_type_name, inline_type, NEW_TYPE_MASK_ARITHMETIC)
+  GEN_NEW_TYPE_FULL(new_type_name, inline_type, NEW_TYPE_MASK_ARITHMETIC)
 
 #endif // FPCPP_CORE_DATA_NEW_TYPE_H

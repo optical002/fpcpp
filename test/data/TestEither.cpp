@@ -175,3 +175,10 @@ TEST(Data_Either, FlatMapBoth) {
     EXPECT_EQ(x, 1) << "Expected right flat mapped value to be 1, but it was not.";
   });
 }
+
+TEST(Data_Either, ToString) {
+  Either<std::string, int> left = Left(std::string("Hello")), right = Right(1);
+
+  EXPECT_EQ(ToStr(left), "Left(String(Hello))");
+  EXPECT_EQ(ToStr(right), "Right(Int(1))");
+}

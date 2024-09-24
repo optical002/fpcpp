@@ -1,6 +1,6 @@
 ﻿// ReSharper disable CppClangTidyClangDiagnosticUnusedMacros
-#ifndef FPCPP_CORE_MACROS_TOSEQ_H
-#define FPCPP_CORE_MACROS_TOSEQ_H
+#ifndef FPCPP_CORE_MACROS_TO_SEQ_H
+#define FPCPP_CORE_MACROS_TO_SEQ_H
 
 #include <core/macros/General.h>
 #include <chaos/preprocessor/tuple/size.h>
@@ -38,4 +38,4 @@
  */
 #define TO_SEQ_VARIADIC(...) EXPAND(DEFER(TO_SEQ_X) (CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__)))(__VA_ARGS__)
 
-#endif // FPCPP_CORE_MACROS_TOSEQ_H
+#endif // FPCPP_CORE_MACROS_TO_SEQ_H

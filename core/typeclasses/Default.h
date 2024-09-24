@@ -5,7 +5,6 @@
 #include <concepts>
 #include <core/data/Concepts.h>
 
-// TODO add default to record and new type
 template<typename A>
 struct DefaultValue;
 
