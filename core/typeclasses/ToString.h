@@ -51,4 +51,11 @@ struct ToString<std::string> {
   }
 };
 
+template<HasToString A>
+struct ToString<std::shared_ptr<A>> {
+  static std::string toStr(const std::shared_ptr<A>& value) {
+    return std::format("SharedPtr(address={:p}, value={}))", static_cast<const void*>(value.get()), ToStr(*value));
+  }
+};
+
 #endif // FPCPP_CORE_TYPECLASSES_TO_STRING_H

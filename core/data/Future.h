@@ -4,9 +4,24 @@
 #include <memory>
 #include <functional>
 #include <core/data/Option.h>
+#include <core/data/Union.h>
+#include <core/data/Unit.h>
+#include <core/typeclasses/ToString.h>
 
 template <typename A>
 class Promise;
+
+template<typename A>
+struct AsyncFutureData {
+  Option<A> maybeValue = None;
+  std::vector<std::function<void(const A&)>> listeners;
+};
+
+GEN_UNION_TEMPLATE(FutureImpl, A,
+  A, successful,
+  std::shared_ptr<AsyncFutureData<A>>, async,
+  Unit, unsuccessful
+)
 
 /**
  * Represents a value that will be available in the future.
@@ -15,23 +30,35 @@ template<typename A>
 class Future {
 public:
   using ValueType = A;
-  
-  static std::shared_ptr<Future> successful(const A& value) {
-    return std::make_shared<Future>(value);
-  }
-  static std::shared_ptr<Future> unsuccessful() {
-    return std::make_shared<Future>();
-  }
-  
-  explicit Future(const A& a) : _maybeValue(Some(a)) {}
-  Future() : _maybeValue(None) {}  // NOLINT(modernize-use-equals-default)
 
-  bool isCompleted() const { return _maybeValue.isSome(); }
+private:
+  explicit Future(FutureImpl<A> futureImpl) : _futureImpl(std::move(futureImpl)) {}
+public:
+  static Future successful(const A& value) {
+    return Future(FutureImpl<A>::create_successful(value));
+  }
+  static Future unsuccessful() {
+    return Future(FutureImpl<A>::create_unsuccessful({}));
+  }
+  
+  [[nodiscard]] bool isCompleted() const { return _futureImpl.fold(
+    [](auto successful) { return true; },
+    [](auto async) { return async->maybeValue.isSome(); },
+    [](auto unsuccessful) { return false; }
+  );}
 
-  void onComplete(const std::function<void(const A&)> onComplete) {
-    _maybeValue.voidFold(
-      [this, onComplete] { _callbacks.push_back(onComplete); },
-      [onComplete](const A& value) { onComplete(value);}
+  [[nodiscard]] FutureImplKind getFutureImplKind() const { return _futureImpl.kind(); }
+
+  void onComplete(const std::function<void(const A&)>& onComplete) {
+    _futureImpl.voidFold(
+      [onComplete](auto successful) { onComplete(successful); },
+      [onComplete](auto async) {
+        async->maybeValue.voidFold(
+          [onComplete, async] { async->listeners.push_back(onComplete); },
+          [onComplete](const A& value) { onComplete(value); }
+        );
+      },
+      [](auto unsuccessful) { }
     );
   }
 
@@ -39,10 +66,12 @@ public:
     typename Func,
     typename B = std::invoke_result_t<Func, A>
   > requires std::invocable<Func, A>
-  std::shared_ptr<Future<B>> map(Func&& f) {
-    const auto promise = Promise<B>();
+  Future<B> map(Func&& f) {
+    auto promise = Promise<B>();
 
-    onComplete([promise, f = std::forward<Func>(f)](const A& value) {
+    onComplete([
+      promise = std::move(promise), f = std::forward<Func>(f)
+    ](const A& value) mutable {
       promise.tryComplete(f(value));
     });
 
@@ -51,15 +80,16 @@ public:
 
   template<
     typename Func,
-    typename PtrFutureB = std::invoke_result_t<Func, A>,
-    typename FutureB = typename PtrFutureB::element_type,
+    typename FutureB = std::invoke_result_t<Func, A>,
     typename B = typename FutureB::ValueType
   > requires std::invocable<Func, A>
-  PtrFutureB flatMap(Func&& f) {
-    const auto promise = Promise<B>();
+  FutureB flatMap(Func&& f) {
+    auto promise = Promise<B>();
 
-    onComplete([promise, f = std::forward<Func>(f)](const A& aValue) {
-      f(aValue)->onComplete([promise](const B& bValue) {
+    onComplete([
+      promise = std::move(promise), f = std::forward<Func>(f)
+    ](const A& aValue) mutable {
+      f(aValue).onComplete([promise = std::move(promise)](const B& bValue) mutable {
         promise.tryComplete(bValue);
       });
     });
@@ -68,55 +98,80 @@ public:
   }
 
 private:
-  void tryComplete(const A& value) {
-    if (_maybeValue.isSome()) return;
-
-    _maybeValue = Some(value);
-
-    for (const auto& callback : _callbacks) {
-      callback(value);
-    }
-
-    _callbacks.clear();
-  }
-  
-  Option<A> _maybeValue;
-  std::vector<std::function<void(const A&)>> _callbacks;
+  FutureImpl<A> _futureImpl;
   
   friend class Promise<A>;
+  friend class ToString<Future>;
 };
 
 template<typename A>
 class Promise {
 public:
-  Promise() : _future(std::make_shared<Future<A>>()) {}  // NOLINT(modernize-use-equals-default)
+  Promise() : _asyncFuture(
+    Future(FutureImpl<A>::create_async(std::make_shared<AsyncFutureData<A>>()))
+  ) {}
 
-  std::shared_ptr<Future<A>> getFuture() const { return _future; }
+  Future<A> getFuture() const { return _asyncFuture; }
 
-  void tryComplete(const A& value) const {
-    _future->tryComplete(value);
+  void tryComplete(const A& value) {
+    _asyncFuture._futureImpl.voidFold(
+      [](auto successful) { },
+      [value](auto async) {
+        if (async->maybeValue.isSome()) return;
+        async->maybeValue = Some(value);
+
+        for (const auto& listener : async->listeners) {
+          listener(value);
+        }
+        async->listeners.clear();
+      },
+      [](auto unsuccessful) { }
+    );
   }
   
 private:
-  std::shared_ptr<Future<A>> _future;
+  Future<A> _asyncFuture;
+
+  friend class ToString<Promise>;
 };
 
 struct UnsuccessfulType {
   template<typename A>
   // ReSharper disable once CppNonExplicitConversionOperator
-  operator std::shared_ptr<Future<A>>() const {
+  operator Future<A>() const { // NOLINT(*-explicit-constructor)
     return Future<A>::unsuccessful();
   }
 };
 
-class FutureA {
-public:
-  template<typename A>
-  static std::shared_ptr<Future<A>> successful(const A& value) {
-    return Future<A>::successful(value);
-  }
+template<typename A>
+static Future<A> Successful(const A& value) {
+  return Future<A>::successful(value);
+}
 
-  static constexpr UnsuccessfulType unsuccessful{};
+static constexpr UnsuccessfulType Unsuccessful{};
+
+template<typename A>
+struct ToString<Future<A>> {
+  static std::string toStr(const Future<A>& future) {
+    return std::format("Future({})", ToStr(future._futureImpl));
+  }
+};
+
+template<typename A>
+struct ToString<AsyncFutureData<A>> {
+  static std::string toStr(const AsyncFutureData<A>& asyncFutureData) {
+    return std::format(
+      "AsyncFutureData(maybeValue={}, listenerCount={})",
+      ToStr(asyncFutureData.maybeValue), ToStr(asyncFutureData.listeners.size())
+    );
+  }
+};
+
+template<typename A>
+struct ToString<Promise<A>> {
+  static std::string toStr(const Promise<A>& promise) {
+    return std::format("Promise(asyncFuture={})", ToStr(promise._asyncFuture));
+  }
 };
 
 #endif // FPCPP_CORE_DATA_FUTURE_H

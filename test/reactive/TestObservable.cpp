@@ -127,7 +127,7 @@ TEST(Reactive_Observable, ToFuture) {
   auto future = subject.toFuture();
 
   int value = 0;
-  future->onComplete([&value](const int& newValue) {
+  future.onComplete([&value](const int& newValue) {
     value = newValue;
   });
   EXPECT_EQ(value, 0) << "After creating a future from a subject, the value should not be changed.";

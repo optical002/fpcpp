@@ -77,7 +77,7 @@ public:
     return subject;
   }
 
-  std::shared_ptr<Future<A>> toFuture() {
+  Future<A> toFuture() {
     auto promise = std::make_shared<Promise<A>>();
     auto tracker = NoOpTracker{};
     auto subscription = subscribe(&tracker,
@@ -85,8 +85,8 @@ public:
         promise->tryComplete(value);
       }
     );
-    const auto future = promise->getFuture();
-    future->onComplete([subscription] (A _) {
+    auto future = promise->getFuture();
+    future.onComplete([subscription] (A _) {
       if (auto shared = subscription.lock()) {
         shared->unsubscribe();
       }

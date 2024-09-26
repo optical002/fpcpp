@@ -247,4 +247,38 @@
     } \
   };
 
+#define UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE(s, i, type, name, union_name, template_typename_name) \
+  static union_name<template_typename_name> create_##name(const type& name) { \
+    return {UNION_ENUM_NAME(union_name)::name, name}; \
+  }
+
+#define UNION_STATIC_CONSTRUCTORS_TEMPLATE(union_name, template_typename_name, ...) \
+  CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
+    UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE, GROUP_VARIADIC(__VA_ARGS__), union_name, template_typename_name \
+  ))
+
+#define UNION_EQ_TEMPLATE(union_name, template_typename_name, ...) \
+  template<typename template_typename_name> \
+  struct Eq<union_name<template_typename_name>> { \
+    static bool equal(const union_name<template_typename_name>& a, const union_name<template_typename_name>& b) { \
+      return Equal(a.kind, b.kind) && equalData(a, b); \
+    } \
+  private: \
+    static bool equalData(const union_name<template_typename_name>& a, const union_name<template_typename_name>& b) { \
+      return UNION_EQ_EQUAL_DATA(__VA_ARGS__); \
+    } \
+  };
+
+#define UNION_TO_STRING_TEMPLATE(union_name, template_typename_name, ...) \
+  template<typename template_typename_name> \
+  struct ToString<union_name<template_typename_name>> { \
+    static std::string toStr(const union_name<template_typename_name>& a) { \
+      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind), toDataString(a));\
+    } \
+  private: \
+    static std::string toDataString(const union_name<template_typename_name>& a) { \
+      return a.fold(UNION_TO_STRING_FOLD(__VA_ARGS__)); \
+    } \
+  };
+
 #endif // FPCPP_CORE_MACROS_UNION_H
