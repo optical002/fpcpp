@@ -9,8 +9,8 @@ class Observable;
 template<typename A>
 class Subject : public Observable<A> {
 public:
-  void push(const A& value) {
-    for (const auto& kv : this->_observers) {
+  void push(const A& value) const {
+    for (const auto& kv : this->_data->listeners) {
       kv.second(value);
     }
   }

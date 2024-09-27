@@ -2,51 +2,54 @@
 #define FPCPP_CORE_REACTIVE_TRACKER_H
 
 #include <memory>
-#include <mutex>
-
-#include "Subscription.h"
+#include <core/reactive/Subscription.h>
 
 class Tracker {
 public:
-  void track(const std::shared_ptr<Subscription>& subscription) {
+  void track(const Subscription& subscription) const {
     trackBase(subscription);
   }
   
-  void track(const std::function<void()>& action) {
-    track(Subscription::create(action));
+  void track(const std::function<void()>& action) const {
+    track(Subscription(action));
   }
 
 protected:
-  virtual void trackBase(const std::shared_ptr<Subscription>& subscription) = 0;
+  virtual void trackBase(const Subscription& subscription) const = 0;
   
   Tracker() = default;
   virtual ~Tracker() = default;
 };
 
 class NoOpTracker final : public Tracker {
-  void trackBase(const std::shared_ptr<Subscription>& subscription) override { }
+  void trackBase(const Subscription& subscription) const override { }
+};
+
+struct DisposableTrackerData {
+  std::vector<Subscription> subscriptions;
 };
 
 class DisposableTracker final : public Tracker {
 public:
-  DisposableTracker() = default;
+  DisposableTracker() : _data(std::make_shared<DisposableTrackerData>()) {}
 
   // Do not leave active subscriptions when the tracker is destroyed.
-  ~DisposableTracker() override { dispose();	}
+  ~DisposableTracker() override { dispose(); }
 
-  void dispose() {
-    for (const auto& sub : _subscriptions) {
-      sub->unsubscribe();
+  void dispose() const {
+    for (const auto& sub : _data->subscriptions) {
+      // ReSharper disable once CppExpressionWithoutSideEffects
+      sub.unsubscribe();
     }
-    _subscriptions.clear();
+    _data->subscriptions.clear();
   }
 
 private:
-  void trackBase(const std::shared_ptr<Subscription>& subscription) override {
-    _subscriptions.push_back(subscription);
+  void trackBase(const Subscription& subscription) const override {
+    _data->subscriptions.push_back(subscription);
   }
 
-  std::vector<std::shared_ptr<Subscription>> _subscriptions;
+  std::shared_ptr<DisposableTrackerData> _data;
 };
 
-#endif // FPCPP_CORE_REACTIVE_SUBSCRIPTION_H
+#endif // FPCPP_CORE_REACTIVE_TRACKER_H

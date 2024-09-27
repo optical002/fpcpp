@@ -4,15 +4,15 @@
 #include <gtest/gtest.h>
 
 TEST(Data_Future, ForComprehension) {
-  auto promise1 = Promise<int>();
-  auto promise2 = Promise<std::string>();
-  auto promise3 = Promise<int>();
+  const auto promise1 = Promise<int>();
+  const auto promise2 = Promise<std::string>();
+  const auto promise3 = Promise<int>();
 
   auto future1 = promise1.getFuture();
   auto future2 = promise2.getFuture();
   auto future3 = promise3.getFuture();
 
-  auto comprehendedFuture = ForComprehension(future1,
+  const auto comprehendedFuture = ForComprehension(future1,
     [future2]{ return future2; },
     [future3]{ return future3; },
     [](const int& x, const std::string& y, const int& z) { return x + std::stoi(y) + z; }
@@ -30,8 +30,8 @@ TEST(Data_Future, ForComprehension) {
 }
 
 TEST(Data_Future, Functionality) {
-  auto promise = Promise<int>();
-  auto future = promise.getFuture();
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture();
   EXPECT_TRUE(!future.isCompleted()) << "Future with promise should not be completed instantly.";
 
   int value = 0;
@@ -51,8 +51,8 @@ TEST(Data_Future, Functionality) {
 }
 
 TEST(Data_Future, Map) {
-  auto promise = Promise<int>();
-  auto future = promise.getFuture().map([](const int& value) {
+  const auto promise = Promise<int>();
+  const auto future = promise.getFuture().map([](const int& value) {
     return std::to_string(value);
   });
   int value = 0;
@@ -63,10 +63,10 @@ TEST(Data_Future, Map) {
 }
 
 TEST(Data_Future, FlatMap) {
-  auto promise1 = Promise<int>();
+  const auto promise1 = Promise<int>();
   auto future1 = promise1.getFuture();
 
-  auto promise2 = Promise<int>();
+  const auto promise2 = Promise<int>();
   auto future2 = promise2.getFuture();
 
   auto flatMappedFuture = future1.flatMap([&future2](const int& value1) {

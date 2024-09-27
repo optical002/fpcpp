@@ -12,20 +12,26 @@
 #include <core/data/Future.h>
 
 template<typename A>
+struct ObservableData {
+  std::unordered_map<int, std::function<void(const A&)>> listeners;
+  int lastListenerIdx = 0;
+};
+
+template<typename A>
 class Observable {
 public:
   using ValueType = A;
   
-  std::weak_ptr<Subscription> subscribe(
-    Tracker* tracker, std::function<void(const A&)> observer
-  ) {
-    auto currentlyAtCopy = _currentlyAt;
-    _currentlyAt++;
-    _observers.insert({currentlyAtCopy, observer});
-    auto subscription = Subscription::create([this, currentlyAtCopy] {
-      _observers.erase(currentlyAtCopy);
+  Subscription subscribe(
+    const Tracker& tracker, std::function<void(const A&)> listener
+  ) const {
+    auto lastListenerIdx = _data->lastListenerIdx;
+    ++_data->lastListenerIdx;
+    _data->listeners.insert({lastListenerIdx, listener});
+    const auto subscription = Subscription([this, lastListenerIdx] {
+      _data->listeners.erase(lastListenerIdx);
     });
-    tracker->track(subscription);
+    tracker.track(subscription);
 
     return subscription;
   }
@@ -34,14 +40,13 @@ public:
     typename Func,
     typename B = std::invoke_result_t<Func, A>
   > requires std::invocable<Func, A>
-  std::shared_ptr<Observable<B>> map(Func&& f) {
-    auto subject = std::make_shared<Subject<B>>();
-    auto tracker = NoOpTracker{};
-    subscribe(&tracker,
-      [subject, f = std::forward<Func>(f)](const A& value) {
-        subject->push(f(value));
-      }
-    );
+  Observable<B> map(Func&& f) const {
+    auto subject = Subject<B>();
+    subscribe(NoOpTracker{}, [
+      subject, f = std::forward<Func>(f)
+    ](const A& value) {
+      subject.push(f(value));
+    });
 
     return subject;
   }
@@ -50,60 +55,52 @@ public:
     typename Predicate,
     typename FuncResult = std::invoke_result_t<Predicate, A>
   > requires std::invocable<Predicate, A> && std::is_same_v<FuncResult, bool>
-  std::shared_ptr<Observable> filter(Predicate&& f) {
-    auto subject = std::make_shared<Subject<A>>();
-    auto tracker = NoOpTracker{};
-    subscribe(&tracker,
-      [subject, f = std::forward<Predicate>(f)](const A& value) {
-        if (f(value)) {
-          subject->push(value);
-        }
+  Observable filter(Predicate&& f) const {
+    auto subject = Subject<A>();
+    subscribe(NoOpTracker{}, [
+      subject, f = std::forward<Predicate>(f)
+    ](const A& value) {
+      if (f(value)) {
+        subject.push(value);
       }
-    );
+    });
     return subject;
   }
 
   template<typename... Observables>
   requires (std::is_base_of_v<Observable, Observables> && ...)
-  std::shared_ptr<Observable> join(Observables*... params) {
-    std::vector<Observable*> observables = {this, params...};
-    auto subject = std::make_shared<Subject<A>>();
+  Observable join(Observables... params) const {
+    std::vector<Observable> observables = {*this, params...};
+    auto subject = Subject<A>();
     for (auto observable : observables) {
-      auto tracker = NoOpTracker{};
-      observable->subscribe(&tracker, [subject](const A& value) {
-        subject->push(value);
+      observable.subscribe(NoOpTracker{}, [subject](const A& value) {
+        subject.push(value);
       });
     }
     return subject;
   }
 
-  Future<A> toFuture() {
-    auto promise = std::make_shared<Promise<A>>();
-    auto tracker = NoOpTracker{};
-    auto subscription = subscribe(&tracker,
-      [promise](const A& value) {
-        promise->tryComplete(value);
-      }
-    );
-    auto future = promise->getFuture();
-    future.onComplete([subscription] (A _) {
-      if (auto shared = subscription.lock()) {
-        shared->unsubscribe();
-      }
+  Future<A> toFuture() const {
+    auto promise = Promise<A>();
+    auto subscription = subscribe(NoOpTracker{}, [promise](const A& value) {
+      promise.tryComplete(value);
+    });
+    auto future = promise.getFuture();
+    future.onComplete([subscription = std::move(subscription)] (A _) {
+      subscription.unsubscribe();
     });
     return future;
   }
 
-  std::shared_ptr<Observable<Changes<A>>> changes() {
-    auto subject = std::make_shared<Subject<Changes<A>>>();
-    auto maybePrevious = Ref<Option<A>>::create(None);
-    auto tracker = NoOpTracker{};
-    subscribe(&tracker,
+  Observable<Changes<A>> changes() const {
+    auto subject = Subject<Changes<A>>();
+    auto maybePrevious = Ref<Option<A>>(None);
+    subscribe(NoOpTracker{},
       [subject, maybePrevious](const A& next) {
-        maybePrevious->value.ifSome([subject, next](const A& previous) {
-          subject->push(Changes<A>{previous, next});
+        maybePrevious.getValue().ifSome([subject, next](const A& previous) {
+          subject.push(Changes<A>{previous, next});
         });
-        maybePrevious->value = Some(next);
+        maybePrevious.setValue(Some(next));
       }
     );
 
@@ -111,8 +108,7 @@ public:
   }
   
 protected:
-  std::unordered_map<int, std::function<void(const A&)>> _observers;
-  int _currentlyAt = 0;
+  std::shared_ptr<ObservableData<A>> _data = std::make_shared<ObservableData<A>>();
 
   // Disallow creating instances of Observable. It should be done via creating
   // 'Subject' or other type of observable instance.

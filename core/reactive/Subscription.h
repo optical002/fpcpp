@@ -4,22 +4,25 @@
 #include <functional>
 #include <memory>
 
+struct SubscriptionData {
+  std::function<void()> unsubscribe;
+  bool isSubscribed;
+
+  SubscriptionData(
+    std::function<void()> unsubscribe_, const bool isSubscribed_
+  ) : unsubscribe(std::move(unsubscribe_)), isSubscribed(isSubscribed_) { }
+};
+
 class Subscription {
 public:
-  static std::shared_ptr<Subscription> create(
-    const std::function<void()>& unsubscribe
-  ) {
-    return std::make_shared<Subscription>(unsubscribe);
-  }
-
   explicit Subscription(
-    const std::function<void()>& unsubscribe
-  ) : _unsubscribe(unsubscribe), _isSubscribed(true) { }
+    std::function<void()> unsubscribe
+  ) : _data(std::make_shared<SubscriptionData>(std::move(unsubscribe), true)) { }
 
-  bool unsubscribe() {
-    if (_isSubscribed) {
-      _unsubscribe();
-      _isSubscribed = false;
+  bool unsubscribe() const {
+    if (_data->isSubscribed) {
+      _data->unsubscribe();
+      _data->isSubscribed = false;
       return true;
     } else {
       return false;
@@ -27,8 +30,7 @@ public:
   }
 
 private:
-  std::function<void()> _unsubscribe;
-  bool _isSubscribed;
+  std::shared_ptr<SubscriptionData> _data;
 };
 
 #endif // FPCPP_CORE_REACTIVE_SUBSCRIPTION_H

@@ -5,10 +5,9 @@
 TEST(Reactive_Observable, Functionality) {
   auto subject = Subject<int>();
   auto disposableTracker = DisposableTracker();
-  Tracker* tracker = &disposableTracker;
 
   int value = 0;
-  subject.subscribe(tracker, [&value](const int& newValue) {
+  subject.subscribe(disposableTracker, [&value](const int& newValue) {
     value = newValue;
   });
   EXPECT_EQ(value, 0) << "After subscribing to a subject, the value should not be changed.";
@@ -24,20 +23,19 @@ TEST(Reactive_Observable, Functionality) {
   EXPECT_EQ(value, 2) << "After disposing the disposable tracker, the subscription should be unsubscribed.";
 
   auto disposableTracker2 = DisposableTracker();
-  Tracker* tracker2 = &disposableTracker2;
 
   int value2 = 0;
-  subject.subscribe(tracker, [&value2](const int& newValue) {
+  subject.subscribe(disposableTracker, [&value2](const int& newValue) {
     value2 = newValue;
   });
 
   int value3 = 0;
-  subject.subscribe(tracker2, [&value3](const int& newValue) {
+  subject.subscribe(disposableTracker2, [&value3](const int& newValue) {
     value3 = newValue;
   });
 
   int value4 = 0;
-  subject.subscribe(tracker, [&value4](const int& newValue) {
+  subject.subscribe(disposableTracker, [&value4](const int& newValue) {
     value4 = newValue;
   });
 
@@ -57,14 +55,13 @@ TEST(Reactive_Observable, Functionality) {
 TEST(Reactive_Observable, Map) {
   auto subject = Subject<int>();
   auto disposableTracker = DisposableTracker();
-  Tracker* tracker = &disposableTracker;
 
   const auto mappedObservable = subject.map([](const int& value) {
     return std::to_string(value);
   });
 
   std::string value;
-  mappedObservable->subscribe(tracker, [&value](const std::string& newValue) {
+  mappedObservable.subscribe(disposableTracker, [&value](const std::string& newValue) {
     value = newValue;
   });
 
@@ -73,15 +70,14 @@ TEST(Reactive_Observable, Map) {
 }
 
 TEST(Reactive_Observable, Filter) {
-  auto subject = Subject<int>();
-  auto disposableTracker = DisposableTracker();
-  Tracker* tracker = &disposableTracker;
+  const auto subject = Subject<int>();
+  const auto disposableTracker = DisposableTracker();
 
   int value = 0;
   const auto filteredObservable = subject.filter([](const int& value) {
     return value % 2 == 0;
   });
-  filteredObservable->subscribe(tracker, [&value](const int& newValue) {
+  filteredObservable.subscribe(disposableTracker, [&value](const int& newValue) {
     value = newValue;
   });
   EXPECT_EQ(value, 0) << "After subscribing to a filtered subject, the value should not be changed.";
@@ -100,15 +96,14 @@ TEST(Reactive_Observable, Filter) {
 }
 
 TEST(Reactive_Observable, Join) {
-  auto subject1 = Subject<int>();
-  auto subject2 = Subject<int>();
-  auto subject3 = Subject<int>();
-  auto disposableTracker = DisposableTracker();
-  Tracker* tracker = &disposableTracker;
+  const auto subject1 = Subject<int>();
+  const auto subject2 = Subject<int>();
+  const auto subject3 = Subject<int>();
+  const auto disposableTracker = DisposableTracker();
 
-  const auto joinedObservable = subject1.join(&subject2, &subject3);
+  const auto joinedObservable = subject1.join(subject2, subject3);
   int value = 0;
-  joinedObservable->subscribe(tracker, [&value](const int& newValue) {
+  joinedObservable.subscribe(disposableTracker, [&value](const int& newValue) {
     value = newValue;
   });
 
@@ -123,8 +118,8 @@ TEST(Reactive_Observable, Join) {
 }
 
 TEST(Reactive_Observable, ToFuture) {
-  auto subject = Subject<int>();
-  auto future = subject.toFuture();
+  const auto subject = Subject<int>();
+  const auto future = subject.toFuture();
 
   int value = 0;
   future.onComplete([&value](const int& newValue) {
@@ -144,14 +139,13 @@ struct A {
 };
 
 TEST(Reactive_Observable, Changes) {
-  auto subject = Subject<int>();
-  auto disposableTracker = DisposableTracker();
-  Tracker* tracker = &disposableTracker;
+  const auto subject = Subject<int>();
+  const auto disposableTracker = DisposableTracker();
 
   int valuePrevious = 0;
   int valueNext = 0;
   const auto changesObservable = subject.changes();
-  changesObservable->subscribe(tracker,
+  changesObservable.subscribe(disposableTracker,
     [&valuePrevious, &valueNext](const Changes<int>& changes) {
       valuePrevious = changes.previous();
       valueNext = changes.next();

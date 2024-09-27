@@ -8,7 +8,7 @@ struct Unit { };
 
 template<>
 struct ToString<Unit> {
-  static std::string toStr(const Unit&) { return "Unit()"; }
+  static std::string toStr(const Unit&) { return "Unit"; }
 };
 
 template<>

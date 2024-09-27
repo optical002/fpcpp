@@ -49,7 +49,7 @@ public:
 
   [[nodiscard]] FutureImplKind getFutureImplKind() const { return _futureImpl.kind(); }
 
-  void onComplete(const std::function<void(const A&)>& onComplete) {
+  void onComplete(const std::function<void(const A&)>& onComplete) const {
     _futureImpl.voidFold(
       [onComplete](auto successful) { onComplete(successful); },
       [onComplete](auto async) {
@@ -66,7 +66,7 @@ public:
     typename Func,
     typename B = std::invoke_result_t<Func, A>
   > requires std::invocable<Func, A>
-  Future<B> map(Func&& f) {
+  Future<B> map(Func&& f) const {
     auto promise = Promise<B>();
 
     onComplete([
@@ -83,7 +83,7 @@ public:
     typename FutureB = std::invoke_result_t<Func, A>,
     typename B = typename FutureB::ValueType
   > requires std::invocable<Func, A>
-  FutureB flatMap(Func&& f) {
+  FutureB flatMap(Func&& f) const {
     auto promise = Promise<B>();
 
     onComplete([
@@ -113,7 +113,7 @@ public:
 
   Future<A> getFuture() const { return _asyncFuture; }
 
-  void tryComplete(const A& value) {
+  void tryComplete(const A& value) const {
     _asyncFuture._futureImpl.voidFold(
       [](auto successful) { },
       [value](auto async) {
