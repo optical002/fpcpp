@@ -36,6 +36,7 @@ add_executable(test
   typeclasses/TestSemigroup.h
   typeclasses/TestToString.cpp
   typeclasses/TestToString.h
+        data/TestImmutableArray.cpp
 )
 
 target_link_libraries(test gtest_main)

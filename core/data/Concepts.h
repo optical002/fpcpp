@@ -32,4 +32,22 @@ struct InnerTypeHelper<FA, std::enable_if_t<SmartPointer<FA>>> {
 template<typename FA>
 using InnerType = typename InnerTypeHelper<FA>::Type;
 
+template<typename... Values>
+concept AllSame = (std::is_same_v<std::decay_t<Values>, std::decay_t<std::tuple_element_t<0, std::tuple<Values...>>>> && ...);
+
+template<typename A>
+concept HasValueType = requires { typename A::ValueType; };
+
+template<typename A, typename B>
+concept IsConvertibleTo = std::is_convertible_v<A, B>;
+
+template<typename A, typename B>
+concept IsConvertibleFrom = std::is_convertible_v<B, A>;
+
+template<typename Func, typename A>
+concept Predicate = std::invocable<Func, A> && std::same_as<bool, std::invoke_result_t<Func, A>>;
+
+template<typename F, typename A, typename Result>
+concept Func = std::invocable<F, A> && std::same_as<Result, std::invoke_result_t<F, A>>;
+
 #endif // FPCPP_CORE_DATA_CONCEPTS_H

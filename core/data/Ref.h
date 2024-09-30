@@ -2,6 +2,7 @@
 #define FPCPP_CORE_DATA_REF_H
 
 #include <memory>
+#include <core/typeclasses/ToString.h>
 
 template<typename A>
 struct RefData {
@@ -16,6 +17,13 @@ struct Ref {
   void setValue(const A& a) const { _data->value = a; }
 private:
   std::shared_ptr<RefData<A>> _data;
+};
+
+template<HasToString A>
+struct ToString<Ref<A>> {
+  std::string toStr(const Ref<A>& a) {
+    return std::format("Ref({})", ToStr(a));
+  }
 };
 
 #endif // FPCPP_CORE_DATA_REF_H

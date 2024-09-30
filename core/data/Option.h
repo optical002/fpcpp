@@ -26,28 +26,24 @@ public:
   bool isSome() const { return _hasValue; }
   bool isNone() const { return !_hasValue; }
 
-  template<typename Func>
-  requires std::invocable<Func, A>
+  template<std::invocable<A> Func>
   auto map(Func&& f) const {
     return Option<decltype(f(std::declval<A>()))>::opt(_hasValue, f(_unsafeValue));
   }
 
-  template<typename Func>
-  requires std::invocable<Func, A>
+  template<std::invocable<A> Func>
   auto flatMap(Func&& f) const -> decltype(f(std::declval<A>())) {
     return _hasValue ? f(_unsafeValue) : decltype(f(std::declval<A>()))::none();
   }
 
-  template<typename Func>
-  requires std::invocable<Func, A>
+  template<std::invocable<A> Func>
   void ifSome(Func&& onSome) const {
     if (_hasValue) {
       onSome(_unsafeValue);
     }
   }
 
-  template<typename OnEmptyFunc, typename OnSomeFunc>
-  requires std::invocable<OnSomeFunc, A> && std::invocable<OnEmptyFunc>
+  template<std::invocable OnEmptyFunc, std::invocable<A> OnSomeFunc>
   void voidFold(OnEmptyFunc&& onEmpty, OnSomeFunc&& onSome) const {
     if (_hasValue) {
       onSome(_unsafeValue);
@@ -56,8 +52,7 @@ public:
     }
   }
 
-  template<typename B, typename OnSomeFunc>
-  requires std::invocable<OnSomeFunc, A>
+  template<typename B, std::invocable<A> OnSomeFunc>
   B fold(B onEmpty, OnSomeFunc&& onSome) const {
     return _hasValue ? onSome(_unsafeValue) : onEmpty;
   }
@@ -72,10 +67,25 @@ public:
   }
   
   template<typename R>
-  Either<A, R> toLeft(const R& rightValue);
+  Either<A, R> toLeft(const R& rightValue) const;
 
   template<typename L>
-  Either<L, A> toRight(const L& leftValue);
+  Either<L, A> toRight(const L& leftValue) const;
+
+  auto flatten() const requires HasValueType<A> {
+    using InnerA = typename A::ValueType;
+    return fold(
+      Option<InnerA>::none(),
+      [](const A& innerOption) {
+        return innerOption.fold(
+          Option<InnerA>::none(),
+          [](const InnerA& innerValue) {
+            return Option<InnerA>::some(innerValue);
+          }
+        );
+      }
+    );
+  }
 
 private:
   Option() : _hasValue(false) {}
@@ -110,13 +120,13 @@ inline constexpr NoneType None{};
 
 template <typename A>
 template <typename R>
-Either<A, R> Option<A>::toLeft(const R& rightValue) {
+Either<A, R> Option<A>::toLeft(const R& rightValue) const {
   return _hasValue ? LeftE<R>(_unsafeValue) : Right(rightValue);
 }
 
 template <typename A>
 template <typename L>
-Either<L, A> Option<A>::toRight(const L& leftValue) {
+Either<L, A> Option<A>::toRight(const L& leftValue) const {
   return _hasValue ? RightE<L>(_unsafeValue) : Left(leftValue);
 }
 

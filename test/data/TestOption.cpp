@@ -129,3 +129,14 @@ TEST(Data_Option, ToString) {
   EXPECT_EQ(ToStr(some), "Some(Int(1))");
 }
 
+TEST(Data_Option, Flatten) {
+  const auto someSome = Some(Some(1));
+  const auto someNone = Some(Option<int>::none());
+
+  const auto someSomeFlattened = someSome.flatten();
+  const auto someNoneFlattened = someNone.flatten();
+
+  EXPECT_TRUE(someSomeFlattened.isSome());
+  EXPECT_FALSE(someNoneFlattened.isSome());
+}
+
