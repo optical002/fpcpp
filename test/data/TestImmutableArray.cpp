@@ -33,13 +33,6 @@ TEST(Data_ImmutableArray, IndexOperator) {
   EXPECT_EQ(array.at<2>(), 3);
 }
 
-TEST(Data_ImmutableArray, Eq) {
-  const auto array1 = ImmArray(1, 2, 3), array2 = ImmArray(1, 2, 3), array3 = ImmArray(1, 2, 4);
-
-  EXPECT_TRUE(Equal(array1, array2));
-  EXPECT_FALSE(Equal(array1, array3));
-}
-
 TEST(Data_ImmutableArray, Map) {
   const auto array = ImmArray(1, 2, 3);
   const auto mapped = array.map([](auto x) {return std::to_string(x);});
@@ -137,7 +130,6 @@ TEST(Data_ImmutableArray, Find) {
   EXPECT_TRUE(notFound.isNone());
 }
 
-
 TEST(Data_ImmutableArray, Exists) {
   const auto array = ImmArray(1, 2, 3);
   EXPECT_TRUE(array.exists([](int x) { return x == 2; }));
@@ -148,4 +140,126 @@ TEST(Data_ImmutableArray, ForAll) {
   const auto array = ImmArray(1, 2, 3);
   EXPECT_TRUE(array.forall([](int x) { return x == 1 || x == 2 || x == 3; }));
   EXPECT_FALSE(array.forall([](int x) { return x == 2; }));
+}
+
+TEST(Data_ImmutableArray, Take) {
+  const auto array = ImmArray(1, 2, 3, 4, 5);
+  const auto i = 3;
+  const auto taken = array.take<i>();
+  EXPECT_TRUE(Equal(array, ImmArray(1, 2, 3, 4, 5)));
+  EXPECT_TRUE(Equal(taken, ImmArray(1, 2, 3)));
+}
+
+TEST(Data_ImmutableArray, Drop) {
+  const auto array = ImmArray(1, 2, 3, 4, 5);
+  const auto i = 3;
+  const auto dropped = array.drop<i>();
+  EXPECT_TRUE(Equal(array, ImmArray(1, 2, 3, 4, 5)));
+  EXPECT_TRUE(Equal(dropped, ImmArray(4, 5)));
+}
+
+TEST(Data_ImmutableArray, Contains) {
+  const auto array = ImmArray(1, 2, 3, 4, 5);
+  const auto containsTrue = array.contains([](int x) { return x == 3; });
+  const auto containsFalse = array.contains([](int x) { return x == 9; });
+  EXPECT_TRUE(containsTrue);
+  EXPECT_FALSE(containsFalse);
+}
+
+TEST(Data_ImmutableArray, Reverse) {
+  const auto array = ImmArray(1, 2, 3);
+  const auto reversed = array.reverse();
+  EXPECT_TRUE(Equal(array, ImmArray(1, 2, 3)));
+  EXPECT_TRUE(Equal(reversed, ImmArray(3, 2, 1)));
+}
+
+TEST(Data_ImmutableArray, MkStringToStr) {
+  const auto array = ImmArray(1, 2, 3);
+  const auto str = array.mkStringToStr();
+  EXPECT_EQ(str, "Int(1), Int(2), Int(3)");
+}
+
+struct Data2 {
+  int value;
+};
+
+TEST(Data_ImmutableArray, MkString) {
+  const auto array = ImmArray(Data2(1), Data2(2), Data2(3));
+  const auto str = array.mkString([](Data2 x) { return std::to_string(x.value); });
+  EXPECT_EQ(str, "1, 2, 3");
+}
+
+TEST(Data_ImmutableArray, Sum) {
+  const auto array = ImmArray(1, 2, 3);
+  EXPECT_EQ(array.sum(), 6);
+}
+
+TEST(Data_ImmutableArray, Combine) {
+  const auto array = ImmArray("1", "2");
+  EXPECT_EQ(array.combine(), "12");
+
+  const auto array2 = ImmArray(1, 2);
+  EXPECT_EQ(array2.combine(), 3);
+}
+
+TEST(Data_ImmutableArray, ZipWith) {
+  const auto array = ImmArray(1, 2, 3);
+  const auto array2 = ImmArray(4, 5, 6, 7);
+  const auto zipped = array.zipWith(array2, [](int x, int y) { return x + y; });
+  EXPECT_TRUE(Equal(zipped, ImmArray(5, 7, 9)));
+
+  const auto zipped2 = array.zipWith(array2);
+  EXPECT_TRUE(Equal(zipped2, ImmArray(Tpl(1, 4), Tpl(2, 5), Tpl(3, 6))));
+}
+
+TEST(Data_ImmutableArray, ZipWithAll) {
+  const auto array = ImmArray(1, 2, 3);
+  const auto array2 = ImmArray(4, 5, 6, 7);
+  const auto zipped = array.zipWithAll(
+    array2, [](int x, int y) { return x + y; }, 1
+  );
+  EXPECT_TRUE(Equal(zipped, ImmArray(5, 7, 9, 8)));
+
+  const auto zipped2 = array.zipWithAll(array2, 1);
+  EXPECT_TRUE(Equal(zipped2, ImmArray(Tpl(1, 4), Tpl(2, 5), Tpl(3, 6), Tpl(1, 7))));
+}
+
+TEST(Data_ImmutableArray, ZipWithIndex) {
+  const auto array = ImmArray("a", "b", "c");
+  const auto arrayWithIdx = array.zipWithIndex();
+  int i = 0;
+  for (const auto& x : arrayWithIdx) {
+    EXPECT_EQ(x, Tpl(array[i], i));
+    i++;
+  }
+}
+
+TEST(Data_ImmutableArray, Slice) {
+  const auto array = ImmArray(4, 5, 6, 7);
+  EXPECT_TRUE(Equal(array.slice<0, 2>(), ImmArray(4, 5, 6)));
+  EXPECT_TRUE(Equal(array.slice<0, 0>(), ImmArray(4)));
+  EXPECT_TRUE(Equal(array.slice<0, 3>(), ImmArray(4, 5, 6, 7)));
+  EXPECT_TRUE(Equal(array.slice<2, 3>(), ImmArray(6, 7)));
+}
+
+TEST(Data_ImmutableArray, Eq) {
+  const auto array1 = ImmArray(1, 2, 3), array2 = ImmArray(1, 2, 3), array3 = ImmArray(1, 2, 4);
+
+  EXPECT_TRUE(Equal(array1, array2));
+  EXPECT_FALSE(Equal(array1, array3));
+}
+
+TEST(Data_ImmutableArray, Default) {
+  EXPECT_TRUE(Equal(EmptyImmArray<int>(), Default<ImmutableArray<int, 0>>()));
+}
+
+TEST(Data_ImmutableArray, Semigroup) {
+  const auto array1 = ImmArray(1, 2, 3, 4);
+  const auto array2 = ImmArray(5, 6, 7, 8);
+  EXPECT_TRUE(Equal(Combine(array1, array2), ImmArray(6, 8, 10, 12)));
+}
+
+TEST(Data_ImmutableArray, ToString) {
+  const auto array = ImmArray(1, 2, 3);
+  EXPECT_EQ(ToStr(array), "ImmutableArray[3]([0]=Int(1), [1]=Int(2), [2]=Int(3))");
 }

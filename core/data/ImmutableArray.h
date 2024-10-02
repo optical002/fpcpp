@@ -2,14 +2,17 @@
 #define FPCPP_CORE_DATA_IMMUTABLE_ARRAY_H
 
 #include <array>
+#include <sstream>
 #include <core/data/Concepts.h>
 #include <core/data/Option.h>
+#include <core/data/Enums.h>
+#include <core/data/Functions.h>
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/Ord.h>
 #include <core/typeclasses/ToString.h>
 #include <core/typeclasses/Default.h>
-
-#include "Enums.h"
+#include <core/typeclasses/Num.h>
+#include <core/typeclasses/Semigroup.h>
 
 template<typename A, std::size_t N>
 class ImmutableArray {
@@ -18,9 +21,6 @@ public:
   static constexpr std::size_t N_ = N;
 
   explicit ImmutableArray(const std::array<A, N>& arr) : _data(arr) {}
-
-  A& operator[](std::size_t) = delete;
-  A& at(std::size_t) = delete;
 
   const A& operator[](std::size_t index) const {
     return _data[index];
@@ -173,46 +173,178 @@ public:
 
   // TODO implement 'groupBy' after ImmutableMap is implemented.
 
+  template<
+    std::size_t ToTake,
+    std::size_t NewN = std::min(ToTake, N)
+  >
+  ImmutableArray<A, NewN> take() const {
+    std::array<A, NewN> newArray;
+    std::copy(_data.begin(), _data.begin() + NewN, newArray.begin());
+    return ImmutableArray<A, NewN>(newArray);
+  }
 
-  // TODO
-  // v- map
-  // x- flatMap
-  // v- flatten
-  // v- reduce // no initial state
-  // v- fold // has initial state
-  // v- orderBy A -> Ord, (Ascending/Descending)
-  // x- filter A -> bool
-  // v- headOpt
-  // v- tailOpt
-  // v- find A -> bool
-  // v- exists A -> bool
-  // v- forall A -> bool
-  // v- groupBy Groups elements by a key function. def groupBy[K](f: A => K): Map[K, List[A]]
-  //  def groupBy[K](f: A => K): Map[K, List[A]] = {
-  //   val map = scala.collection.mutable.Map[K, List[A]]()
-  //
-  //   for (element <- this) {
-  //     val key = f(element) // Apply the key function
-  //     // Append the element to the corresponding list in the map
-  //     map(key) = map.getOrElse(key, List()) :+ element
-  //   }
-  //
-  //   map.toMap // Convert mutable map to immutable map
-  // }
-  // x- collect A -> Option<B>
-  // x- distinct
-  // TODO Continue from here
-  // v- take/drop n
-  // v- take/drop while A -> predicate
-  // v- contains
-  // v- isEmpty
-  // v- reverse
-  // v- mkString
-  // v- sum
-  // v- zip (zips from left and right, until either one finished)
-  // v- zipAll (left, right, default)
-  // v- zipWithIndex
-  // v- slice (idxFrom, idxTo)
+  template<
+    std::size_t ToDrop,
+    std::size_t NewN = std::max(static_cast<std::size_t>(0), N - ToDrop)
+  >
+  ImmutableArray<A, NewN> drop() const {
+    std::array<A, NewN> newArray;
+    std::copy(_data.begin() + ToDrop, _data.end(), newArray.begin());
+    return ImmutableArray<A, NewN>(newArray);
+  }
+
+  template<Predicate<A> Func>
+  bool contains(Func&& f) const {
+    for (const auto& element : _data) {
+      if (f(element)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  ImmutableArray reverse() const {
+    std::array<A, N> newArray;
+    std::reverse_copy(_data.begin(), _data.end(), newArray.begin());
+    return ImmutableArray(newArray);
+  }
+
+  std::string mkStringToStr(std::string separator = ", ") const requires HasToString<A> {
+    std::ostringstream oss;
+
+    for (std::size_t i = 0; i < N; ++i) {
+      oss << ToStr(_data[i]);
+      if (i < N - 1) {
+        oss << separator;
+      }
+    }
+
+    return oss.str();
+  }
+
+  template<Func<A, std::string> Func>
+  std::string mkString(Func&& f, std::string separator = ", ") const {
+    std::ostringstream oss;
+
+    for (std::size_t i = 0; i < N; ++i) {
+      oss << f(_data[i]);
+      if (i < N - 1) {
+        oss << separator;
+      }
+    }
+
+    return oss.str();
+  }
+
+  A sum() const requires HasNum<A> {
+    A result = _data[0];
+    for (std::size_t i = 1; i < N; ++i) {
+      result = Num<A>::add(result, _data[i]);
+    }
+    return result;
+  }
+
+  A combine() const requires HasSemigroup<A> {
+    A result = _data[0];
+    for (std::size_t i = 1; i < N; ++i) {
+      result = Combine(result, _data[i]);
+    }
+    return result;
+  }
+
+  std::string combine() const requires std::same_as<A, const char*>{
+    auto result = std::string(_data[0]);
+    for (std::size_t i = 1; i < N; ++i) {
+      result = Combine(result, std::string(_data[i]));
+    }
+    return result;
+  }
+
+  template<
+    typename B,
+    std::invocable<A, B> Zipper,
+    typename Result = std::invoke_result_t<Zipper, A, B>,
+    std::size_t BN,
+    std::size_t NewN = std::min(N, BN)
+  >
+  ImmutableArray<Result, NewN> zipWith(ImmutableArray<B, BN> other, Zipper&& zipper) const {
+    std::array<Result, NewN> result;
+    for (std::size_t i = 0; i < NewN; ++i) {
+      result[i] = zipper(_data[i], other[i]);
+    }
+    return ImmutableArray<Result, NewN>(result);
+  }
+
+  template<
+    typename B,
+    typename Result = std::tuple<A, B>,
+    std::size_t BN,
+    std::size_t NewN = std::min(N, BN)
+  >
+  ImmutableArray<Result, NewN> zipWith(ImmutableArray<B, BN> other) const {
+    std::array<Result, NewN> result;
+    for (std::size_t i = 0; i < NewN; ++i) {
+      result[i] = Tpl(_data[i], other[i]);
+    }
+    return ImmutableArray<Result, NewN>(result);
+  }
+
+  template<
+    typename B,
+    std::invocable<A, B> Zipper,
+    typename Result = std::invoke_result_t<Zipper, A, B>,
+    std::size_t BN,
+    std::size_t NewN = std::max(N, BN)
+  >
+  ImmutableArray<Result, NewN> zipWithAll(
+    ImmutableArray<B, BN> other, Zipper&& zipper, const B& default_
+  ) const {
+    std::array<Result, NewN> result;
+    for (std::size_t i = 0; i < NewN; ++i) {
+      A first = i < N ? _data[i] : default_;
+      B second = i < BN ? other[i] : default_;
+      result[i] = zipper(first, second);
+    }
+    return ImmutableArray<Result, NewN>(result);
+  }
+
+  template<
+    typename B,
+    typename Result = std::tuple<A, B>,
+    std::size_t BN,
+    std::size_t NewN = std::max(N, BN)
+  >
+  ImmutableArray<Result, NewN> zipWithAll(
+    ImmutableArray<B, BN> other, const B& default_
+  ) const {
+    std::array<Result, NewN> result;
+    for (std::size_t i = 0; i < NewN; ++i) {
+      A first = i < N ? _data[i] : default_;
+      B second = i < BN ? other[i] : default_;
+      result[i] = Tpl(first, second);
+    }
+    return ImmutableArray<Result, NewN>(result);
+  }
+
+  ImmutableArray<std::tuple<A, unsigned int>, N> zipWithIndex() const {
+    std::array<std::tuple<A, unsigned int>, N> result;
+    for (std::size_t i = 0; i < N; ++i) {
+      result[i] = Tpl(_data[i], i);
+    }
+    return ImmutableArray<std::tuple<A, unsigned int>, N>(result);
+  }
+
+  template<
+    std::size_t idxFrom, std::size_t idxTo,
+    std::size_t NewN = idxTo - idxFrom + 1
+  > requires (idxFrom <= idxTo && idxTo <= N)
+  ImmutableArray<A, NewN> slice() const {
+    std::array<A, NewN> result;
+    for (std::size_t i = 0; i < NewN; ++i) {
+      result[i] = _data[idxFrom + i];
+    }
+    return ImmutableArray<A, NewN>(result);
+  }
 
 private:
   std::array<A, N> _data;
@@ -226,7 +358,6 @@ template<
 ImmutableArray<A, N> ImmArray(Values... values) {
   return ImmutableArray<A, N>({values...});
 }
-
 template<typename A>
 ImmutableArray<A, 0> EmptyImmArray() { return ImmutableArray<A, 0>({}); }
 
@@ -245,10 +376,34 @@ struct Eq<ImmutableArray<A, N>> {
   }
 };
 
-// TODO typeclasses
-// - Default
-// - Eq
-// - Semigroup
-// - ToString
+template<typename A>
+struct DefaultValue<ImmutableArray<A, 0>> {
+  static ImmutableArray<A, 0> a() { return EmptyImmArray<A>(); }
+};
+
+template<HasSemigroup A, std::size_t N>
+struct Semigroup<ImmutableArray<A, N>> {
+  static ImmutableArray<A, N> combine(const ImmutableArray<A, N>& a, const ImmutableArray<A, N>& b) {
+    std::array<A, N> result;
+    for (std::size_t i = 0; i < N; i++) {
+      result[i] = Combine(a[i], b[i]);
+    }
+    return ImmutableArray<A, N>(result);
+  }
+};
+
+template<HasToString A, std::size_t N>
+struct ToString<ImmutableArray<A, N>> {
+  static std::string toStr(const ImmutableArray<A, N>& value) {
+    std::stringstream ss;
+    ss << std::format("ImmutableArray[{}](", N);
+    for (std::size_t i = 0; i < N; i++) {
+      if (i != 0) ss << ", ";
+      ss << std::format("[{}]={}", i, ToStr(value[i]));
+    }
+    ss << ")";
+    return ss.str();
+  }
+};
 
 #endif //FPCPP_CORE_DATA_IMMUTABLE_ARRAY_H

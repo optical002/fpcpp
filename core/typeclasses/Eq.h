@@ -40,4 +40,13 @@ struct Eq<std::string> {
   }
 };
 
+template<HasEq... Args>
+struct Eq<std::tuple<Args...>> {
+  static bool equal(const std::tuple<Args...>& a, const std::tuple<Args...>& b) {
+    return std::apply([]<typename... T0>(const T0&... lhs) {
+      return (... && Eq<std::decay_t<T0>>::equal(lhs, lhs));
+    }, a);
+  }
+};
+
 #endif // FPCPP_CORE_TYPECLASSES_EQ_H
