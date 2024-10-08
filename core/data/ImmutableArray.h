@@ -15,7 +15,7 @@
 #include <core/typeclasses/Semigroup.h>
 
 template<typename A, std::size_t N>
-class ImmutableArray {
+struct ImmutableArray {
 public:
   using ValueType = A;
   static constexpr std::size_t N_ = N;
@@ -358,6 +358,7 @@ template<
 ImmutableArray<A, N> ImmArray(Values... values) {
   return ImmutableArray<A, N>({values...});
 }
+
 template<typename A>
 ImmutableArray<A, 0> EmptyImmArray() { return ImmutableArray<A, 0>({}); }
 

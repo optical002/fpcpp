@@ -2,6 +2,7 @@
 #define FPCPP_CORE_MACROS_UNION_H
 
 #include <core/macros/Group.h>
+#include <core/data/Variant.h>
 #include <chaos/preprocessor/control/if.h>
 #include <chaos/preprocessor/comparison/equal.h>
 #include <chaos/preprocessor/arithmetic/dec.h>
@@ -71,7 +72,19 @@
   ))
 
 #define UNION_VARIANT_TYPE(...) \
-  std::variant<UNION_VARIANT_FIELD_TYPES(__VA_ARGS__)>
+  Variant<UNION_VARIANT_FIELD_TYPES(__VA_ARGS__)>
+
+
+#define UNION_VARIANT_TYPE_SEQ_ITERATION_SINGLE(s, i, type, name, size) \
+  UNION_VARIANT_FIELD_SINGLE_TYPE_IMPL(s, i, type, name, size)
+
+#define UNION_VARIANT_TYPE_SEQ_ITERATION(seq, size) \
+  CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
+    UNION_VARIANT_TYPE_SEQ_ITERATION_SINGLE, seq, size \
+  ))
+
+#define UNION_VARIANT_TYPE_SEQ(seq, size) \
+  Variant<UNION_VARIANT_TYPE_SEQ_ITERATION(seq, size)>
 
 #define UNION_VARIANT_FIELD(...) \
   const UNION_VARIANT_TYPE(__VA_ARGS__) _variant;
@@ -81,22 +94,20 @@
     const UNION_ENUM_NAME(union_name)& _kind, UNION_VARIANT_TYPE(__VA_ARGS__) v \
   ) : kind(_kind), _variant(std::move(v)) {}
 
-#define UNION_SINGLE_STATIC_CONSTRUCTOR(s, i, type, name, union_name) \
+#define UNION_SINGLE_STATIC_CONSTRUCTOR(s, i, type, name, union_name, args_seq, size) \
   static union_name create_##name(const type& name) { \
-    return {UNION_ENUM_NAME(union_name)::name, name}; \
+    return {UNION_ENUM_NAME(union_name)::name, UNION_VARIANT_TYPE_SEQ(args_seq, size)::create<i>(name)}; \
   }
 
 #define UNION_STATIC_CONSTRUCTORS(union_name, ...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
-    UNION_SINGLE_STATIC_CONSTRUCTOR, GROUP_VARIADIC(__VA_ARGS__), union_name \
+    UNION_SINGLE_STATIC_CONSTRUCTOR, GROUP_VARIADIC(__VA_ARGS__), union_name, GROUP_VARIADIC(__VA_ARGS__), CHAOS_PP_DIV(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 2) \
   ))
 
 #define UNION_GETTER_NAME(name) as_##name
 
 #define UNION_SINGLE_GETTER(s, i, type, name, union_name) \
-  [[nodiscard]] Option<type> UNION_GETTER_NAME(name)() const { \
-    return kind == UNION_ENUM_NAME(union_name)::name ? Some(std::get<i>(_variant)) : None; \
-  }
+  [[nodiscard]] Option<type> UNION_GETTER_NAME(name)() const { return _variant.template get<i>(); }
 
 #define UNION_GETTERS(union_name, ...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
@@ -156,7 +167,7 @@
   ))
 
 #define UNION_FOLD_SINGLE_SWITCH_CASE(s, i, type, name, union_name) \
-  case UNION_ENUM_NAME(union_name)::name: return UNION_FOLDING_FUNC_FIELD_NAME(name)(std::get<i>(_variant));
+  case UNION_ENUM_NAME(union_name)::name: return UNION_FOLDING_FUNC_FIELD_NAME(name)(_variant.template _unsafe_get<i>());
 
 #define UNION_FOLD_SWITCH_CASES(union_name, ...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
@@ -176,7 +187,7 @@
   }
 
 #define UNION_VOID_FOLD_SINGLE_SWITCH_CASE(s, i, type, name, union_name) \
-  case UNION_ENUM_NAME(union_name)::name: UNION_FOLDING_FUNC_FIELD_NAME(name)(std::get<i>(_variant)); break;
+  case UNION_ENUM_NAME(union_name)::name: UNION_FOLDING_FUNC_FIELD_NAME(name)(_variant.template _unsafe_get<i>()); break;
 
 #define UNION_VOID_FOLD_SWITCH_CASES(union_name, ...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
@@ -247,14 +258,14 @@
     } \
   };
 
-#define UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE(s, i, type, name, union_name, template_typename_name) \
+#define UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE(s, i, type, name, union_name, template_typename_name, args_seq, size) \
   static union_name<template_typename_name> create_##name(const type& name) { \
-    return {UNION_ENUM_NAME(union_name)::name, name}; \
+    return {UNION_ENUM_NAME(union_name)::name, UNION_VARIANT_TYPE_SEQ(args_seq, size)::template create<i>(name)}; \
   }
 
 #define UNION_STATIC_CONSTRUCTORS_TEMPLATE(union_name, template_typename_name, ...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
-    UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE, GROUP_VARIADIC(__VA_ARGS__), union_name, template_typename_name \
+    UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE, GROUP_VARIADIC(__VA_ARGS__), union_name, template_typename_name, GROUP_VARIADIC(__VA_ARGS__), CHAOS_PP_DIV(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 2) \
   ))
 
 #define UNION_EQ_TEMPLATE(union_name, template_typename_name, ...) \

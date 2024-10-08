@@ -34,6 +34,7 @@ TEST(Data_Union, Fold) {
   auto value = stateAge.fold(
     [](auto _) { return 0; },
     [](int age) { return age; },
+    [](auto _) { return 2; },
     [](auto _) { return 2; }
   );
   EXPECT_EQ(value, 1);
@@ -45,6 +46,7 @@ TEST(Data_Union, VoidFold) {
   stateAge.voidFold(
     [&value](auto _) { value = 0; },
     [&value](int age) { value = age; },
+    [&value](auto _) { value = 2; },
     [&value](auto _) { value = 2; }
   );
   EXPECT_EQ(value, 1);

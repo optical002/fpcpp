@@ -37,6 +37,8 @@ add_executable(test
   typeclasses/TestToString.cpp
   typeclasses/TestToString.h
         data/TestImmutableArray.cpp
+        data/TestImmutableMap.cpp
+        data/TestVariant.cpp
 )
 
 target_link_libraries(test gtest_main)

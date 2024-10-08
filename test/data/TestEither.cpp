@@ -182,3 +182,22 @@ TEST(Data_Either, ToString) {
   EXPECT_EQ(ToStr(left), "Left(String(Hello))");
   EXPECT_EQ(ToStr(right), "Right(Int(1))");
 }
+
+TEST(Data_Either, Eq) {
+  Either<std::string, int>
+    left = Left(std::string("Hello")),
+    left2 = Left(std::string("Hello")),
+    left3 = Left(std::string("Hello2")),
+    right = Right(1),
+    right2 = Right(1),
+    right3 = Right(2);
+
+  EXPECT_FALSE(Equal(left, right));
+  EXPECT_FALSE(Equal(left, left3));
+  EXPECT_FALSE(Equal(right, right3));
+  EXPECT_TRUE(Equal(right, right2));
+  EXPECT_TRUE(Equal(left, left2));
+
+  const Either<int, int> l = Left(1), r = Right(1);
+  EXPECT_FALSE(Equal(l, r));
+}

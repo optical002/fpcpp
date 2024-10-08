@@ -3,6 +3,9 @@
 
 #include <concepts>
 #include <utility>
+#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Eq.h>
+#include <core/data/Unit.h>
 
 template<typename A>
 class Option;
@@ -32,9 +35,9 @@ public:
     return e;
   }
 
-  bool isRight() const { return !_isLeft; }
   bool isLeft() const { return _isLeft; }
-  
+  bool isRight() const { return !isLeft(); }
+
   Option<L> left() const;
   Option<R> right() const;
 
@@ -179,10 +182,24 @@ Either<L, R> RightE(const R& right) { return Right(right); }
 #include "Option.h"  // NOLINT(misc-header-include-cycle)
 
 template <typename L, typename R>
-Option<L> Either<L, R>::left() const { return _isLeft ? Some(_left) : None; }
+Option<L> Either<L, R>::left() const { return isLeft() ? Some(_left) : None; }
 
 template <typename L, typename R>
 Option<R> Either<L, R>::right() const { return isRight() ? Some(_right) : None; }
+
+template<HasEq L, HasEq R>
+struct Eq<Either<L, R>> {
+  static bool equal(const Either<L, R>& a, const Either<L, R>& b) {
+    return a.fold(
+      [&b](const L& alValue) {
+        return Equal(b.left(), Some(alValue));
+      },
+      [&b](const R& arValue) {
+        return Equal(b.right(), Some(arValue));
+      }
+    );
+  }
+};
 
 template<HasToString L, HasToString R>
 struct ToString<Either<L, R>> {

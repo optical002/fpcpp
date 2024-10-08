@@ -3,6 +3,8 @@
 
 #include <concepts>
 #include <utility>
+#include <variant>
+#include <core/data/Unit.h>
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/ToString.h>
 
@@ -23,30 +25,36 @@ public:
     return condition ? some(value) : none();
   }
 
-  bool isSome() const { return _hasValue; }
-  bool isNone() const { return !_hasValue; }
+  bool isSome() const { return std::holds_alternative<A>(_impl); }
+  bool isNone() const { return !isSome(); }
 
-  template<std::invocable<A> Func>
-  auto map(Func&& f) const {
-    return Option<decltype(f(std::declval<A>()))>::opt(_hasValue, f(_unsafeValue));
+  template<
+    std::invocable<A> Func,
+    typename B = std::invoke_result_t<Func, A>
+  >
+  Option<B> map(Func&& f) const {
+    return isSome() ? Option<B>::some(f(_unsafeValue())) : Option<B>::none();
   }
 
-  template<std::invocable<A> Func>
-  auto flatMap(Func&& f) const -> decltype(f(std::declval<A>())) {
-    return _hasValue ? f(_unsafeValue) : decltype(f(std::declval<A>()))::none();
+  template<
+    std::invocable<A> Func,
+    typename B = typename std::invoke_result_t<Func, A>::ValueType
+  >
+  Option<B> flatMap(Func&& f) const {
+    return isSome() ? f(_unsafeValue()) : Option<B>::none();
   }
 
   template<std::invocable<A> Func>
   void ifSome(Func&& onSome) const {
-    if (_hasValue) {
-      onSome(_unsafeValue);
+    if (isSome()) {
+      onSome(_unsafeValue());
     }
   }
 
   template<std::invocable OnEmptyFunc, std::invocable<A> OnSomeFunc>
   void voidFold(OnEmptyFunc&& onEmpty, OnSomeFunc&& onSome) const {
-    if (_hasValue) {
-      onSome(_unsafeValue);
+    if (isSome()) {
+      onSome(_unsafeValue());
     } else {
       onEmpty();
     }
@@ -54,16 +62,16 @@ public:
 
   template<typename B, std::invocable<A> OnSomeFunc>
   B fold(B onEmpty, OnSomeFunc&& onSome) const {
-    return _hasValue ? onSome(_unsafeValue) : onEmpty;
+    return isSome() ? onSome(_unsafeValue()) : onEmpty;
   }
 
   bool valueOut(A& value) {
-    value = _unsafeValue;
-    return _hasValue;
+    value = _unsafeValue();
+    return isSome();
   }
 
   A getOr(const A& value){
-    return _hasValue ? _unsafeValue : value;
+    return isSome() ? _unsafeValue() : value;
   }
   
   template<typename R>
@@ -88,11 +96,12 @@ public:
   }
 
 private:
-  Option() : _hasValue(false) {}
-  explicit Option(A value) : _unsafeValue(std::move(value)), _hasValue(true) {}
-	 
-  A _unsafeValue;
-  bool _hasValue;
+  Option() : _impl(Unit()) {}
+  explicit Option(const A& value) : _impl(value) {}
+
+  const A& _unsafeValue() const { return std::get<A>(_impl); }
+
+  std::variant<A, Unit> _impl;
 };
 
 template<typename A>
@@ -116,18 +125,23 @@ struct NoneType {
 // ReSharper disable once CppInconsistentNaming
 inline constexpr NoneType None{};
 
+template<typename A>
+Option<A> NoneOf() {
+  return Option<A>::none();
+}
+
 #include "Either.h"
 
 template <typename A>
 template <typename R>
 Either<A, R> Option<A>::toLeft(const R& rightValue) const {
-  return _hasValue ? LeftE<R>(_unsafeValue) : Right(rightValue);
+  return isSome() ? LeftE<R>(_unsafeValue()) : Right(rightValue);
 }
 
 template <typename A>
 template <typename L>
 Either<L, A> Option<A>::toRight(const L& leftValue) const {
-  return _hasValue ? RightE<L>(_unsafeValue) : Left(leftValue);
+  return isSome() ? RightE<L>(_unsafeValue()) : Left(leftValue);
 }
 
 template<HasEq A>

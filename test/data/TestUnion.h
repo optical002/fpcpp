@@ -3,8 +3,18 @@
 
 #include <core/data/Union.h>
 
-GEN_UNION(State, std::string, name, int, age, float, cost)
+GEN_UNION(State,
+  std::string, name,
+  int, age,
+  float, cost,
+  float, height
+)
 
-// TODO test GEN_UNION_TEMPLATE
+GEN_UNION_TEMPLATE(StateA, A,
+  A, raw,
+  Option<A>, maybeRaw,
+  Unit, something,
+  Unit, something2
+)
 
 #endif //FPCPP_TEST_DATA_TEST_UNION_H
