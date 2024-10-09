@@ -13,7 +13,7 @@ struct ToString<Unit> {
 
 template<>
 struct Eq<Unit> {
-  static bool eq(const Unit&, const Unit&) { return true; }
+  static bool equal(const Unit&, const Unit&) { return true; }
 };
 
 #endif // FPCPP_CORE_DATA_UNIT_H

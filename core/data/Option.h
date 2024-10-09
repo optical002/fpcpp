@@ -3,8 +3,8 @@
 
 #include <concepts>
 #include <utility>
-#include <variant>
 #include <core/data/Unit.h>
+#include <core/data/Variant.h>
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/ToString.h>
 
@@ -25,7 +25,7 @@ public:
     return condition ? some(value) : none();
   }
 
-  bool isSome() const { return std::holds_alternative<A>(_impl); }
+  bool isSome() const { return _impl.isValueAtIdx(0); }
   bool isNone() const { return !isSome(); }
 
   template<
@@ -96,12 +96,12 @@ public:
   }
 
 private:
-  Option() : _impl(Unit()) {}
-  explicit Option(const A& value) : _impl(value) {}
+  Option() : _impl(Variant<A, Unit>::template create<1>(Unit())) {}
+  explicit Option(const A& value) : _impl(Variant<A, Unit>::template create<0>(value)) {}
 
-  const A& _unsafeValue() const { return std::get<A>(_impl); }
+  const A& _unsafeValue() const { return _impl.template _unsafe_get_ref<0>(); }
 
-  std::variant<A, Unit> _impl;
+  Variant<A, Unit> _impl;
 };
 
 template<typename A>
@@ -130,7 +130,7 @@ Option<A> NoneOf() {
   return Option<A>::none();
 }
 
-#include "Either.h"
+#include <core/data/Either.h>
 
 template <typename A>
 template <typename R>
@@ -143,6 +143,9 @@ template <typename L>
 Either<L, A> Option<A>::toRight(const L& leftValue) const {
   return isSome() ? RightE<L>(_unsafeValue()) : Left(leftValue);
 }
+
+#include <core/data/Variant.h>
+
 
 template<HasEq A>
 struct Eq<Option<A>> {

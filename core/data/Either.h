@@ -6,6 +6,7 @@
 #include <core/typeclasses/ToString.h>
 #include <core/typeclasses/Eq.h>
 #include <core/data/Unit.h>
+#include <core/data/Variant.h>
 
 template<typename A>
 class Option;
@@ -22,20 +23,10 @@ public:
   using RightType = R;
   using LeftType = L;
   
-  static Either left(const L& value) {
-    auto e = Either();
-    e._left = value;
-    e._isLeft = true;
-    return e;
-  }
-  static Either right(const R& value) {
-    auto e = Either();
-    e._right = value;
-    e._isLeft = false;
-    return e;
-  }
+  static Either left(const L& value) { return Either(value); }
+  static Either right(const R& value) { return Either(value, {}); }
 
-  bool isLeft() const { return _isLeft; }
+  bool isLeft() const { return _impl.isValueAtIdx(0);; }
   bool isRight() const { return !isLeft(); }
 
   Option<L> left() const;
@@ -44,10 +35,10 @@ public:
   template<typename OnLeftFunc, typename OnRightFunc>
   requires std::invocable<OnLeftFunc, L> && std::invocable<OnRightFunc, R>
   void voidFold(OnLeftFunc&& onLeft, OnRightFunc&& onRight) const {
-    if (_isLeft) {
-      onLeft(_left);
+    if (isLeft()) {
+      onLeft(_unsafeLeft());
     } else {
-      onRight(_right);
+      onRight(_unsafeRight());
     }
   }
 
@@ -55,7 +46,7 @@ public:
   requires std::invocable<OnLeftFunc, L> && std::invocable<OnRightFunc, R>
   auto fold(
     OnLeftFunc&& onLeft, OnRightFunc&& onRight
-  ) const {	return _isLeft ? onLeft(_left) : onRight(_right); }
+  ) const {	return isLeft() ? onLeft(_unsafeLeft()) : onRight(_unsafeRight()); }
 
   template<
     typename Func,
@@ -63,7 +54,7 @@ public:
     typename NewEither = Either<L, NewRight>
   > requires std::invocable<Func, R>
   NewEither map(Func&& f) const {
-    return _isLeft ? NewEither::left(_left) : NewEither::right(f(_right));
+    return isLeft() ? NewEither::left(_unsafeLeft()) : NewEither::right(f(_unsafeRight()));
   }
 
   template<
@@ -72,7 +63,7 @@ public:
     typename NewEither = Either<NewLeft, R> 
   > requires std::invocable<Func, L>
   NewEither mapLeft(Func&& f) const {
-    return _isLeft ? NewEither::left(f(_left)) : NewEither::right(_right);
+    return isLeft() ? NewEither::left(f(_unsafeLeft())) : NewEither::right(_unsafeRight());
   }
 
   template<
@@ -82,7 +73,7 @@ public:
     typename NewEither = Either<NewLeft, NewRight>
   > requires std::invocable<OnLeftFunc, L> && std::invocable<OnRightFunc, R>
   NewEither mapBoth(OnLeftFunc&& onLeft, OnRightFunc&& onRight) const {
-    return _isLeft ? NewEither::left(onLeft(_left)) : NewEither::right(onRight(_right));
+    return isLeft() ? NewEither::left(onLeft(_unsafeLeft())) : NewEither::right(onRight(_unsafeRight()));
   }
 
   template<
@@ -92,7 +83,7 @@ public:
     std::invocable<Func, R>
     && std::is_convertible_v<NewEither, Either<L, typename NewEither::RightType>>
   auto flatMap(Func&& f) const -> NewEither {
-    return _isLeft ? NewEither::left(_left) : f(_right);
+    return isLeft() ? NewEither::left(_unsafeLeft()) : f(_unsafeRight());
   }
 
   template<
@@ -102,7 +93,7 @@ public:
     std::invocable<Func, L>
     && std::is_convertible_v<NewEither, Either<typename NewEither::LeftType, R>>
   auto flatMapLeft(Func&& f) const -> NewEither {
-    return _isLeft ? f(_left) : NewEither::right(_right);
+    return isLeft() ? f(_unsafeLeft()) : NewEither::right(_unsafeRight());
   }
 
   template<
@@ -116,14 +107,16 @@ public:
     && std::is_same_v<LeftEither, RightEither>
   auto flatMapBoth(
     OnLeftFunc&& onLeft, OnRightFunc&& onRight
-  ) const { return _isLeft ? onLeft(_left) : onRight(_right); }
+  ) const { return isLeft() ? onLeft(_unsafeLeft()) : onRight(_unsafeRight()); }
   
 private:
-  Either() : _isLeft(false) {}
-	 
-  L _left;
-  R _right;
-  bool _isLeft;
+  explicit Either(const L& left) : _impl(Variant<L, R>::template create<0>(left)) {}
+  Either(const R& right, Unit _) : _impl(Variant<L, R>::template create<1>(right)) {}
+
+  const L& _unsafeLeft() const { return _impl.template _unsafe_get_ref<0>(); }
+  const R& _unsafeRight() const { return _impl.template _unsafe_get_ref<1>(); }
+
+  Variant<L, R> _impl;
 };
 
 template<typename L>
@@ -182,10 +175,10 @@ Either<L, R> RightE(const R& right) { return Right(right); }
 #include "Option.h"  // NOLINT(misc-header-include-cycle)
 
 template <typename L, typename R>
-Option<L> Either<L, R>::left() const { return isLeft() ? Some(_left) : None; }
+Option<L> Either<L, R>::left() const { return isLeft() ? Some(_unsafeLeft()) : None; }
 
 template <typename L, typename R>
-Option<R> Either<L, R>::right() const { return isRight() ? Some(_right) : None; }
+Option<R> Either<L, R>::right() const { return isRight() ? Some(_unsafeRight()) : None; }
 
 template<HasEq L, HasEq R>
 struct Eq<Either<L, R>> {

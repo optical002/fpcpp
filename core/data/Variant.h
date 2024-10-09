@@ -6,11 +6,9 @@
 #include <algorithm>
 #include <utility>
 #include <array>
-#include <cstring>
 #include <tuple>
 #include <sstream>
 #include <string>
-#include <core/data/Option.h>
 #include <core/typeclasses/ToString.h>
 #include <core/typeclasses/Eq.h>
 
@@ -44,11 +42,7 @@ public:
   requires
     (Index < sizeof...(Types))
     && std::same_as<Data, std::tuple_element_t<Index, std::tuple<Types...>>>
-  Option<Data> get() const {
-    return _index == Index
-      ? Option<Data>::some(*reinterpret_cast<const Data*>(_storage.data()))
-      : Option<Data>::none();;
-  }
+  Option<Data> get() const;
 
   template<std::size_t Index, typename Data = std::tuple_element_t<Index, std::tuple<Types...>>>
   requires
@@ -59,6 +53,17 @@ public:
       throw std::bad_variant_access();
     }
     return *reinterpret_cast<Data*>(const_cast<std::byte*>(_storage.data()));
+  }
+
+  template<std::size_t Index, typename Data = std::tuple_element_t<Index, std::tuple<Types...>>>
+  requires
+    (Index < sizeof...(Types))
+    && std::same_as<Data, std::tuple_element_t<Index, std::tuple<Types...>>>
+  const Data& _unsafe_get_ref() const {
+    if (_index != Index) {
+      throw std::bad_variant_access();
+    }
+    return *reinterpret_cast<const Data*>(_storage.data());
   }
 
   bool isValueAtIdx(const std::size_t idx) const { return _index == idx; }
@@ -74,6 +79,19 @@ private:
   friend class Eq<Variant>;
   friend class ToString<Variant>;
 };
+
+#include <core/data/Option.h>
+
+template<typename ... Types>
+template<std::size_t Index, typename Data>
+requires
+  (Index < sizeof...(Types))
+  && std::same_as<Data, std::tuple_element_t<Index, std::tuple<Types...>>>
+Option<Data> Variant<Types...>::get() const {
+  return _index == Index
+    ? Option<Data>::some(*reinterpret_cast<const Data*>(_storage.data()))
+    : Option<Data>::none();
+}
 
 template<HasEq... Types>
 struct Eq<Variant<Types...>> {
