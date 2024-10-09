@@ -19,6 +19,9 @@ class Option;
 template<typename L, typename R>
 class Either {
 public:
+  template<typename NewRight>
+  using NewType = Either<L, NewRight>;
+  // TODO add tag and untag
   using ValueType = R;
   using RightType = R;
   using LeftType = L;

@@ -5,6 +5,7 @@
 #include <utility>
 #include <core/data/Unit.h>
 #include <core/data/Variant.h>
+#include <core/data/Tag.h>
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/ToString.h>
 
@@ -17,6 +18,9 @@ class Either;
 template<typename A>
 class Option {
 public:
+  template<typename NewA>
+  using NewType = Option<NewA>;
+
   using ValueType = A;
   
   static Option some(const A& value){ return Option(value); }
@@ -91,6 +95,27 @@ public:
             return Option<InnerA>::some(innerValue);
           }
         );
+      }
+    );
+  }
+
+  template<HasTag TagType>
+  Option<Tagged<A, TagType>> tag() const {
+    return fold(
+      Option<Tagged<A, TagType>>::none(),
+      [](const A& value) {
+        return Option<Tagged<A, TagType>>::some(Tag<TagType>(value));
+      }
+    );
+  }
+
+  auto unTag() const requires IsATagged<A> {
+    using InnerA = typename A::WrappedType;
+
+    return fold(
+      Option<InnerA>::none(),
+      [](const auto& value) {
+        return Option<InnerA>::some(value);
       }
     );
   }

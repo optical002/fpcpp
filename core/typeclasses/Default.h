@@ -1,9 +1,10 @@
-#ifndef DEFAULT_H
-#define DEFAULT_H
+#ifndef FPCPP_CORE_TYPECLASSES_DEFAULT_H
+#define FPCPP_CORE_TYPECLASSES_DEFAULT_H
 
 #include <string>
 #include <concepts>
 #include <core/data/Concepts.h>
+#include <core/data/Tag.h>
 
 template<typename A>
 struct DefaultValue;

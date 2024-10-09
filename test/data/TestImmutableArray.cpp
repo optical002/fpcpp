@@ -257,9 +257,22 @@ TEST(Data_ImmutableArray, Semigroup) {
   const auto array1 = ImmArray(1, 2, 3, 4);
   const auto array2 = ImmArray(5, 6, 7, 8);
   EXPECT_TRUE(Equal(Combine(array1, array2), ImmArray(6, 8, 10, 12)));
+
+  const auto array3 = ImmArray(true, false, true, false);
+  const auto array4 = ImmArray(true, true, false, false);
+  EXPECT_TRUE(Equal(CombineTag<AndTag>(array3, array4), ImmArray(true, false, false, false)));
+  EXPECT_TRUE(Equal(CombineTag<OrTag>(array3, array4), ImmArray(true, true, true, false)));
 }
 
 TEST(Data_ImmutableArray, ToString) {
   const auto array = ImmArray(1, 2, 3);
   EXPECT_EQ(ToStr(array), "ImmutableArray[3]([0]=Int(1), [1]=Int(2), [2]=Int(3))");
+}
+
+TEST(Data_ImmutableArray, Tagging) {
+  const auto taggedArray = ImmArray(1, 2, 3).tag<AndTag>();
+  EXPECT_TRUE(Equal(taggedArray, ImmArray(Tag<AndTag>(1), Tag<AndTag>(2), Tag<AndTag>(3))));
+
+  const auto untaggedArray = taggedArray.unTag();
+  EXPECT_TRUE(Equal(untaggedArray, ImmArray(1, 2, 3)));
 }

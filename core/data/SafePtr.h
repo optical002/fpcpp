@@ -8,6 +8,10 @@
 
 template<PointerType Ptr>
 struct SafePtr {
+  template<PointerType NewA>
+  using NewType = SafePtr<NewA>;
+  using ValueType = SafePtr;
+
   static Either<std::exception, SafePtr> create(Ptr ptr) {
     return ptr
       ? RightE<std::exception>(SafePtr(ptr))

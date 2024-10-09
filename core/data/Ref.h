@@ -11,6 +11,10 @@ struct RefData {
 
 template<typename A>
 struct Ref {
+  template<typename NewA>
+  using NewType = Ref<NewA>;
+  using ValueType = A;
+
   explicit Ref(const A& a) : _data(std::make_shared<RefData<A>>(a)) { }
   
   A getValue() const { return _data->value; }

@@ -17,7 +17,7 @@ concept SmartPointer = requires {
 );
 
 template<typename A>
-concept IsArithmetic = std::is_arithmetic_v<A>;
+concept IsArithmetic = std::is_arithmetic_v<A> && !std::is_same_v<A, bool>;
 
 template<typename FA, typename = void>
 struct InnerTypeHelper {

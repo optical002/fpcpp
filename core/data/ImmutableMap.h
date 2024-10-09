@@ -7,6 +7,9 @@
 template<typename Key, typename Value>
 struct ImmutableMap {
 public:
+  template<typename NewValue>
+  using NewType = ImmutableMap<Key, NewValue>;
+  // TODO add tag and untag
   using ValueType = Value;
   using KeyType = Key;
 

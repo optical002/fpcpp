@@ -29,6 +29,9 @@ GEN_UNION_TEMPLATE(FutureImpl, A,
 template<typename A>
 class Future {
 public:
+  template<typename NewA>
+  using NewType = Future<NewA>;
+  // TODO add tag and untag;
   using ValueType = A;
 
 private:

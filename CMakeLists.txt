@@ -15,3 +15,7 @@ add_subdirectory(test)
 
 target_include_directories(core INTERFACE ${chaos-pp_SOURCE_DIR})
 target_include_directories(test PRIVATE ${chaos-pp_SOURCE_DIR})
+
+# Precompile headers for the core and test targets
+target_precompile_headers(core INTERFACE ${chaos-pp_SOURCE_DIR}/chaos/preprocessor.h)
+target_precompile_headers(test PRIVATE ${chaos-pp_SOURCE_DIR}/chaos/preprocessor.h)

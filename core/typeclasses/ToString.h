@@ -4,8 +4,10 @@
 #include <format>
 #include <string>
 #include <core/data/Concepts.h>
+#include <core/data/Tag.h>
 
 // TODO add to Either, Future.
+// TODO split to Str and DebugStr
 template<typename A>
 struct ToString;
 
@@ -51,10 +53,24 @@ struct ToString<std::string> {
   }
 };
 
+template<>
+struct ToString<bool> {
+  static std::string toStr(const bool& value) {
+    return std::format("Bool({})", value);
+  }
+};
+
 template<HasToString A>
 struct ToString<std::shared_ptr<A>> {
   static std::string toStr(const std::shared_ptr<A>& value) {
     return std::format("SharedPtr(address={:p}, value={}))", static_cast<const void*>(value.get()), ToStr(*value));
+  }
+};
+
+template<HasToString A, HasTag TagType>
+struct ToString<Tagged<A, TagType>> {
+  static std::string toStr(const Tagged<A, TagType>& value) {
+    return ToStr(value.a());
   }
 };
 

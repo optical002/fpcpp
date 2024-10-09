@@ -7,6 +7,7 @@
 #include <core/data/Option.h>
 #include <core/data/Enums.h>
 #include <core/data/Functions.h>
+#include <core/data/Tag.h>
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/Ord.h>
 #include <core/typeclasses/ToString.h>
@@ -17,6 +18,9 @@
 template<typename A, std::size_t N>
 struct ImmutableArray {
 public:
+  template<typename NewA>
+  using NewType = ImmutableArray<NewA, N>;
+
   using ValueType = A;
   static constexpr std::size_t N_ = N;
 
@@ -344,6 +348,25 @@ public:
       result[i] = _data[idxFrom + i];
     }
     return ImmutableArray<A, NewN>(result);
+  }
+
+  template<HasTag TagType>
+  ImmutableArray<Tagged<A, TagType>, N> tag() const {
+    std::array<Tagged<A, TagType>, N> result;
+    for (std::size_t i = 0; i < N; ++i) {
+      result[i] = Tag<TagType>(_data[i]);
+    }
+    return ImmutableArray<Tagged<A, TagType>, N>(result);
+  }
+
+  auto unTag() const requires IsATagged<A> {
+    using InnerA = typename A::WrappedType;
+
+    std::array<InnerA, N> result;
+    for (std::size_t i = 0; i < N; ++i) {
+      result[i] = _data[i];
+    }
+    return ImmutableArray<InnerA, N>(result);
   }
 
 private:

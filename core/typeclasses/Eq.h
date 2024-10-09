@@ -5,6 +5,7 @@
 #include <string>
 #include <core/typeclasses/Ord.h>
 #include <core/data/Concepts.h>
+#include <core/data/Tag.h>
 
 template<typename A>
 struct Eq;
@@ -21,9 +22,12 @@ bool Equal(const A& a, const A& b) {
 
 template<IsArithmetic A>
 struct Eq<A> {
-  static bool equal(const A& a, const A& b) {
-    return a == b;
-  }
+  static bool equal(const A& a, const A& b) { return a == b; }
+};
+
+template<>
+struct Eq<bool> {
+  static bool equal(const bool& a, const bool& b) { return a == b;}
 };
 
 template<HasOrd A> requires (!IsArithmetic<A>)
@@ -46,6 +50,13 @@ struct Eq<std::tuple<Args...>> {
     return std::apply([]<typename... T0>(const T0&... lhs) {
       return (... && Eq<std::decay_t<T0>>::equal(lhs, lhs));
     }, a);
+  }
+};
+
+template<HasEq A, HasTag TagType>
+struct Eq<Tagged<A, TagType>> {
+  static bool equal(const Tagged<A, TagType>& a, const Tagged<A, TagType>& b) {
+    return Equal(a.a(), b.a());
   }
 };
 

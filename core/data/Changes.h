@@ -6,6 +6,10 @@
 
 template<typename A>
 struct Changes {
+  template<typename NewA>
+  using NewType = Changes<NewA>;
+  using ValueType = A;
+
   Changes(const A& previous, const A& next) : _previous(previous), _next(next) {}
 
   A previous() const { return _previous; }
