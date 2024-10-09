@@ -91,12 +91,12 @@
 
 #define UNION_PRIVATE_CONSTRUCTOR(union_name, ...) \
   union_name( \
-    const UNION_ENUM_NAME(union_name)& _kind, UNION_VARIANT_TYPE(__VA_ARGS__) v \
-  ) : kind(_kind), _variant(std::move(v)) {}
+    UNION_VARIANT_TYPE(__VA_ARGS__) v \
+  ) : _variant(std::move(v)) {}
 
 #define UNION_SINGLE_STATIC_CONSTRUCTOR(s, i, type, name, union_name, args_seq, size) \
   static union_name create_##name(const type& name) { \
-    return {UNION_ENUM_NAME(union_name)::name, UNION_VARIANT_TYPE_SEQ(args_seq, size)::create<i>(name)}; \
+    return {UNION_VARIANT_TYPE_SEQ(args_seq, size)::create<i>(name)}; \
   }
 
 #define UNION_STATIC_CONSTRUCTORS(union_name, ...) \
@@ -180,7 +180,7 @@
     UNION_FOLDING_B_RESULT(__VA_ARGS__) \
   > requires UNION_FOLDING_REQUIRES(__VA_ARGS__) \
   B fold(UNION_FOLDING_ARGS(__VA_ARGS__)) const { \
-    switch (kind) { \
+    switch (kind()) { \
       UNION_FOLD_SWITCH_CASES(union_name, __VA_ARGS__) \
     } \
     throw std::runtime_error("Impossible"); \
@@ -199,7 +199,7 @@
     UNION_FOLDING_TYPENAMES(__VA_ARGS__) \
   > requires UNION_FOLDING_REQUIRES(__VA_ARGS__) \
   void voidFold(UNION_FOLDING_ARGS(__VA_ARGS__)) const { \
-    switch (kind) { \
+    switch (kind()) { \
       UNION_VOID_FOLD_SWITCH_CASES(union_name, __VA_ARGS__) \
     } \
   }
@@ -223,7 +223,7 @@
   template<> \
   struct Eq<union_name> { \
     static bool equal(const union_name& a, const union_name& b) { \
-      return Equal(a.kind, b.kind) && equalData(a, b); \
+      return Equal(a.kind(), b.kind()) && equalData(a, b); \
     } \
   private: \
     static bool equalData(const union_name& a, const union_name& b) { \
@@ -250,7 +250,7 @@
   template<> \
   struct ToString<union_name> { \
     static std::string toStr(const union_name& a) { \
-      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind), toDataString(a));\
+      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind()), toDataString(a));\
     } \
   private: \
     static std::string toDataString(const union_name& a) { \
@@ -260,7 +260,7 @@
 
 #define UNION_SINGLE_STATIC_CONSTRUCTOR_TEMPLATE(s, i, type, name, union_name, template_typename_name, args_seq, size) \
   static union_name<template_typename_name> create_##name(const type& name) { \
-    return {UNION_ENUM_NAME(union_name)::name, UNION_VARIANT_TYPE_SEQ(args_seq, size)::template create<i>(name)}; \
+    return {UNION_VARIANT_TYPE_SEQ(args_seq, size)::template create<i>(name)}; \
   }
 
 #define UNION_STATIC_CONSTRUCTORS_TEMPLATE(union_name, template_typename_name, ...) \
@@ -272,7 +272,7 @@
   template<typename template_typename_name> \
   struct Eq<union_name<template_typename_name>> { \
     static bool equal(const union_name<template_typename_name>& a, const union_name<template_typename_name>& b) { \
-      return Equal(a.kind, b.kind) && equalData(a, b); \
+      return Equal(a.kind(), b.kind()) && equalData(a, b); \
     } \
   private: \
     static bool equalData(const union_name<template_typename_name>& a, const union_name<template_typename_name>& b) { \
@@ -284,12 +284,15 @@
   template<typename template_typename_name> \
   struct ToString<union_name<template_typename_name>> { \
     static std::string toStr(const union_name<template_typename_name>& a) { \
-      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind), toDataString(a));\
+      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind()), toDataString(a));\
     } \
   private: \
     static std::string toDataString(const union_name<template_typename_name>& a) { \
       return a.fold(UNION_TO_STRING_FOLD(__VA_ARGS__)); \
     } \
   };
+
+#define UNION_ENUM_KIND_FIELD(union_name) \
+  [[nodiscard]] UNION_ENUM_NAME(union_name) kind() const { return static_cast<UNION_ENUM_NAME(union_name)>(_variant.index()); }
 
 #endif // FPCPP_CORE_MACROS_UNION_H

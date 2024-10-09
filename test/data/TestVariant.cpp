@@ -13,6 +13,11 @@ TEST(Data_Variant, Functionality) {
   const auto variant2 = Variant<const char*>::create<0>("Hello");
   const auto getUnsafe2 = variant2._unsafe_get<0>();
   EXPECT_EQ(getUnsafe2, "Hello");
+
+
+  const auto variant3 = Variant<std::shared_ptr<int>>::create<0>(std::make_shared<int>(79));
+  const auto getUnsafe3 = variant3._unsafe_get<0>();
+  EXPECT_EQ(*getUnsafe3, 79);
 }
 
 TEST(Data_Variant, Eq) {

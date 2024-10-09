@@ -25,6 +25,7 @@ class Option;
  * Does not allocate on heap.
  *
  * @note Eq compares byte array instead of using specific type Eq comparators.
+ * @note Supports up to 256 types.
  */
 template<typename... Types>
 struct Variant {
@@ -35,7 +36,7 @@ public:
     && std::same_as<Data, std::tuple_element_t<Index, std::tuple<Types...>>>
   static Variant create(Data data) {
     Variant variant(Index);
-    std::memcpy(variant._storage.data(), reinterpret_cast<std::byte*>(&data), sizeof(Data));
+    new (variant._storage.data()) Data(std::move(data));;
     return variant;
   }
 
@@ -45,7 +46,7 @@ public:
     && std::same_as<Data, std::tuple_element_t<Index, std::tuple<Types...>>>
   Option<Data> get() const {
     return _index == Index
-      ? Option<Data>::some(*reinterpret_cast<Data*>(const_cast<std::byte*>(_storage.data())))
+      ? Option<Data>::some(*reinterpret_cast<const Data*>(_storage.data()))
       : Option<Data>::none();;
   }
 
@@ -67,7 +68,7 @@ public:
 private:
   explicit Variant(const std::size_t index) : _index(index) {}
 
-  std::size_t _index;
+  std::uint8_t _index;
   std::array<std::byte, (std::max)({sizeof(Types)...})> _storage = {};
 
   friend class Eq<Variant>;

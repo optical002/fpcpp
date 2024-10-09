@@ -18,8 +18,8 @@ TEST(Data_Union, Kind_ToString) {
 TEST(Data_Union, StaticConstructors) {
   State stateAge = State::create_age(1), stateName = State::create_name("Hello");
 
-  EXPECT_EQ(stateAge.kind, StateKind::age);
-  EXPECT_EQ(stateName.kind, StateKind::name);
+  EXPECT_EQ(stateAge.kind(), StateKind::age);
+  EXPECT_EQ(stateName.kind(), StateKind::name);
 }
 
 TEST(Data_Union, Getters) {

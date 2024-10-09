@@ -47,7 +47,7 @@ public:
     [](auto unsuccessful) { return false; }
   );}
 
-  [[nodiscard]] FutureImplKind getFutureImplKind() const { return _futureImpl.kind(); }
+  [[nodiscard]] FutureImplKind getImplKind() const { return _futureImpl.kind(); }
 
   void onComplete(const std::function<void(const A&)>& onComplete) const {
     _futureImpl.voidFold(

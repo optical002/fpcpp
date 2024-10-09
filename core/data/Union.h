@@ -14,11 +14,11 @@
   UNION_ENUM_EQ(union_name) \
   UNION_ENUM_TO_STRING(union_name, __VA_ARGS__) \
   struct union_name { \
-    const UNION_ENUM_NAME(union_name) kind; \
   private: \
     UNION_VARIANT_FIELD(__VA_ARGS__) \
     UNION_PRIVATE_CONSTRUCTOR(union_name, __VA_ARGS__) \
   public: \
+    UNION_ENUM_KIND_FIELD(union_name) \
     UNION_STATIC_CONSTRUCTORS(union_name, __VA_ARGS__) \
     UNION_GETTERS(union_name, __VA_ARGS__) \
     UNION_FOLD(union_name, __VA_ARGS__) \
@@ -33,11 +33,11 @@
   UNION_ENUM_TO_STRING(union_name, __VA_ARGS__) \
   template<typename template_typename_name> \
   struct union_name { \
-    const UNION_ENUM_NAME(union_name) kind; \
   private: \
     UNION_VARIANT_FIELD(__VA_ARGS__) \
     UNION_PRIVATE_CONSTRUCTOR(union_name, __VA_ARGS__) \
   public: \
+    UNION_ENUM_KIND_FIELD(union_name) \
     UNION_STATIC_CONSTRUCTORS_TEMPLATE(union_name, template_typename_name, __VA_ARGS__) \
     UNION_GETTERS(union_name, __VA_ARGS__) \
     UNION_FOLD(union_name, __VA_ARGS__) \
