@@ -74,7 +74,6 @@
 #define UNION_VARIANT_TYPE(...) \
   Variant<UNION_VARIANT_FIELD_TYPES(__VA_ARGS__)>
 
-
 #define UNION_VARIANT_TYPE_SEQ_ITERATION_SINGLE(s, i, type, name, size) \
   UNION_VARIANT_FIELD_SINGLE_TYPE_IMPL(s, i, type, name, size)
 

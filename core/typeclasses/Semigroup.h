@@ -19,12 +19,13 @@ A Combine(const A& a, const A& b) {
   return Semigroup<A>::combine(a, b);
 }
 
-template<HasTag TagType, IsTagableContainer Container>
+template<HasTag TagType, HasContainerTagging Container>
 Container CombineTag(const Container& a, const Container& b)  {
   return PerformContainerTag<TagType>(a, b, [](auto a, auto b) {return Combine(a, b);});
 }
 
 template<HasTag TagType, typename A>
+requires HasSemigroup<Tagged<A, TagType>>
 A CombineTag(const A& a, const A& b)  {
   return PerformTag<TagType>(a, b, [](auto a, auto b) {return Combine(a, b);});
 }

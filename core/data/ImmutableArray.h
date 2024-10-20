@@ -15,6 +15,7 @@
 #include <core/typeclasses/Num.h>
 #include <core/typeclasses/Semigroup.h>
 
+/** @brief An immutable array which wraps 'std::array' and contains functional patterns. */
 template<typename A, std::size_t N>
 struct ImmutableArray {
 public:
@@ -373,6 +374,7 @@ private:
   std::array<A, N> _data;
 };
 
+/** @brief Helper function for creating an 'ImmutableArray'. */
 template<
   typename... Values,
   std::size_t N = sizeof...(Values),
@@ -382,6 +384,7 @@ ImmutableArray<A, N> ImmArray(Values... values) {
   return ImmutableArray<A, N>({values...});
 }
 
+/** @brief Helper function for creating an empty 'ImmutableArray'. */
 template<typename A>
 ImmutableArray<A, 0> EmptyImmArray() { return ImmutableArray<A, 0>({}); }
 

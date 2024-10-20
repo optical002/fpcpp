@@ -39,6 +39,7 @@ add_executable(test
         data/TestImmutableArray.cpp
         data/TestImmutableMap.cpp
         data/TestVariant.cpp
+        data/TestTag.cpp
 )
 
 target_link_libraries(test gtest_main)

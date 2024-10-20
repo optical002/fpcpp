@@ -10,7 +10,6 @@ GEN_UNION(State,
   float, height
 )
 
-// TODO write test for it.
 GEN_UNION_TEMPLATE(StateA, A,
   A, raw,
   Option<A>, maybeRaw,

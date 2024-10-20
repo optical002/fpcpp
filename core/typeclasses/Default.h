@@ -29,4 +29,9 @@ struct DefaultValue<std::string> {
   static std::string a() { return {}; }
 };
 
-#endif //DEFAULT_H
+template<HasDefault A, HasTag TagType>
+struct DefaultValue<Tagged<A, TagType>> {
+  static Tagged<A, TagType> a() { return Tag<TagType>(DefaultValue<A>::a()); }
+};
+
+#endif //FPCPP_CORE_TYPECLASSES_DEFAULT_H

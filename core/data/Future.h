@@ -23,9 +23,7 @@ GEN_UNION_TEMPLATE(FutureImpl, A,
   Unit, unsuccessful
 )
 
-/**
- * Represents a value that will be available in the future.
- */
+/** @brief  Represents a value that will be available in the future. */
 template<typename A>
 class Future {
 public:
@@ -107,6 +105,7 @@ private:
   friend class ToString<Future>;
 };
 
+/** @brief Represents a promise to complete a value in the future. */
 template<typename A>
 class Promise {
 public:
@@ -138,6 +137,7 @@ private:
   friend class ToString<Promise>;
 };
 
+/** @brief Represents a 'Future' which is never completed. */
 struct UnsuccessfulType {
   template<typename A>
   // ReSharper disable once CppNonExplicitConversionOperator
@@ -146,11 +146,13 @@ struct UnsuccessfulType {
   }
 };
 
+/** @brief Creates a 'Future' which is completed with 'value'. */
 template<typename A>
 static Future<A> Successful(const A& value) {
   return Future<A>::successful(value);
 }
 
+/** @brief Helper for creating 'UnsuccessfulType' with just typing 'Unsuccessful'. */
 static constexpr UnsuccessfulType Unsuccessful{};
 
 template<typename A>

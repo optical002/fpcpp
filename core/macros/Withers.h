@@ -15,12 +15,12 @@
 #define NAME(s, i, type, name, data) \
   CHAOS_PP_IF(CHAOS_PP_EQUAL(i, data)) ( \
     CHAOS_PP_CAT(name, _), \
-    name \
+    _##name \
   )
 #define NAME_COMMA(s, i, type, name, data) \
   CHAOS_PP_IF(CHAOS_PP_EQUAL(i, data)) ( \
     CHAOS_PP_CAT(name, _), \
-    name \
+    _##name \
   ),
 
 #define NAME_IMPL(s, i, type, name, data, size) \
@@ -36,7 +36,7 @@
 
 #define WITH_SINGLE_FUNCTION(s, i, type, name, record, ...) \
   record with_##name(const type name##_) const { \
-    return { CONSTRUCTOR_ARGS(i, __VA_ARGS__) }; \
+    return record( CONSTRUCTOR_ARGS(i, __VA_ARGS__) ); \
   }
 
 #define WITH_FUNCTIONS(record, ...) \

@@ -3,6 +3,7 @@
 
 #include <concepts>
 #include <core/data/Concepts.h>
+#include <core/data/Tag.h>
 
 template<typename A>
 struct Ord;
@@ -24,6 +25,13 @@ struct Ord<A> {
       a < b ? -1 :
       a > b ? 1 :
       0;
+  }
+};
+
+template<HasOrd A, HasTag TagType>
+struct Ord<Tagged<A, TagType>> {
+  static int compare(const Tagged<A, TagType>& a, const Tagged<A, TagType>& b) {
+    return Compare(a.a(), b.a());
   }
 };
 

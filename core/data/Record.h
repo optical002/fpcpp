@@ -45,7 +45,11 @@
  */ 
 #define GEN_RECORD(record_name, ...) \
   struct record_name { \
-    __VA_OPT__(CONST_FIELDS(__VA_ARGS__)) \
+  private: \
+    __VA_OPT__(PRIVATE_FIELDS(__VA_ARGS__)) \
+  public: \
+    __VA_OPT__(PRIVATE_CONSTRUCTOR(record_name, __VA_ARGS__)) \
+    __VA_OPT__(FIELDS_GETTERS(__VA_ARGS__)) \
     EQ_OPERATORS(record_name, __VA_ARGS__) \
     __VA_OPT__(WITH_FUNCTIONS(record_name, __VA_ARGS__)) \
   }; \

@@ -4,6 +4,7 @@
 #include <core/typeclasses/ToString.h>
 #include <core/typeclasses/Eq.h>
 
+/** @brief Contains changes of 'A' type value. */
 template<typename A>
 struct Changes {
   template<typename NewA>

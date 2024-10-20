@@ -12,7 +12,7 @@
 #include <chaos/preprocessor/tuple/size.h>
 #include <chaos/preprocessor/stringize.h>
 
-#define EQ_OPERATOR_SINGLE_FIELD(type, name) Equal(name, other.name)
+#define EQ_OPERATOR_SINGLE_FIELD(type, name) Equal(_##name, other._##name)
 #define EQ_OPERATOR_FIELDS(...) FOR_EACH2_CON(EQ_OPERATOR_SINGLE_FIELD, &&, __VA_ARGS__)
 #define EQ_OPERATORS(type, ...) \
   bool operator==(const type& other) const { \
@@ -26,7 +26,7 @@
     return !(*this == other); \
   }
 
-#define EQ_TYPECLASS_SINGLE_FIELD(type, name) Equal(a.name, b.name)
+#define EQ_TYPECLASS_SINGLE_FIELD(type, name) Equal(a.name(), b.name())
 #define EQ_TYPECLASS_FIELDS(...) FOR_EACH2_CON(EQ_TYPECLASS_SINGLE_FIELD, &&, __VA_ARGS__)
 #define EQ_TYPECLASS(type, ...) \
   template<> \
@@ -44,7 +44,7 @@
 #define TO_STRING_STR_FIELDS_IMPL(...) FOR_EACH2_COMMA(TO_STRING_STR_SINGLE_FIELD, __VA_ARGS__)
 #define TO_STRING_STR_FIELDS(type, ...) CHAOS_PP_STRINGIZE(type(TO_STRING_STR_FIELDS_IMPL(__VA_ARGS__)))
 
-#define TO_STRING_SINGLE_VALUE(type, name) ToStr(a.name)
+#define TO_STRING_SINGLE_VALUE(type, name) ToStr(a.name())
 #define TO_STRING_VALUES(...) FOR_EACH2_COMMA(TO_STRING_SINGLE_VALUE, __VA_ARGS__)
 
 #define TO_STRING_TYPECLASS(type, ...) \
@@ -61,73 +61,73 @@
 
 #define ORD_OPERATORS(record_type, field_type, field_name) \
   bool operator<(const record_type& other) const { \
-    return Compare(field_name, other.field_name) < 0; \
+    return Compare(_##field_name, other._##field_name) < 0; \
   } \
   bool operator<=(const record_type& other) const { \
-    return Compare(field_name, other.field_name) <= 0; \
+    return Compare(_##field_name, other._##field_name) <= 0; \
   } \
   bool operator>(const record_type& other) const { \
-    return Compare(field_name, other.field_name) > 0; \
+    return Compare(_##field_name, other._##field_name) > 0; \
   } \
   bool operator>=(const record_type& other) const { \
-    return Compare(field_name, other.field_name) >= 0; \
+    return Compare(_##field_name, other._##field_name) >= 0; \
   }
 
 #define ORD_TYPECLASS(record_type, field_type, field_name) \
   template<> \
   struct Ord<record_type> { \
     static int compare(const record_type& a, const record_type& b) { \
-      return Compare(a.field_name, b.field_name); \
+      return Compare(a.field_name(), b.field_name()); \
     } \
   };
 
 #define SEMIGROUP_OPERATORS(record_type, field_type, field_name) \
   record_type operator+(const record_type& other) const { \
-    return {.field_name = Combine(field_name, other.field_name) }; \
+    return record_type(Combine(_##field_name, other._##field_name)); \
   }
 
 #define SEMIGROUP_TYPECLASS(record_type, field_Type, field_name) \
   template<> \
   struct Semigroup<record_type> { \
     static record_type combine(const record_type& a, const record_type& b) { \
-      return {.field_name = Combine(a.field_name, b.field_name) }; \
+      return record_type(Combine(a.field_name(), b.field_name())); \
     } \
   };
 
 #define NUM_OPERATORS(record_type, field_type, field_name) \
   record_type operator+(const record_type& other) const { \
-    return {.field_name = Num<field_type>::add(field_name, other.field_name) }; \
+    return record_type(Num<field_type>::add(_##field_name, other._##field_name)); \
   } \
   record_type operator-(const record_type& other) const { \
-    return {.field_name = Num<field_type>::subtract(field_name, other.field_name) }; \
+    return record_type(Num<field_type>::subtract(_##field_name, other._##field_name)); \
   } \
   record_type operator*(const record_type& other) const { \
-    return {.field_name = Num<field_type>::multiply(field_name, other.field_name) }; \
+    return record_type(Num<field_type>::multiply(_##field_name, other._##field_name)); \
   } \
   record_type operator/(const record_type& other) const { \
-    return {.field_name = Num<field_type>::divide(field_name, other.field_name) }; \
+    return record_type(Num<field_type>::divide(_##field_name, other._##field_name)); \
   } \
   record_type operator%(const record_type& other) const { \
-    return {.field_name = Num<field_type>::mod(field_name, other.field_name) }; \
+    return record_type(Num<field_type>::mod(_##field_name, other._##field_name)); \
   }
 
 #define NUM_TYPECLASS(record_type, field_type, field_name) \
   template<> \
   struct Num<record_type> { \
     static record_type add(const record_type& a, const record_type& b) { \
-      return {.field_name = Num<field_type>::add(a.field_name, b.field_name) }; \
+      return record_type(Num<field_type>::add(a.field_name(), b.field_name())); \
     } \
     static record_type subtract(const record_type& a, const record_type& b) { \
-      return {.field_name = Num<field_type>::subtract(a.field_name, b.field_name) }; \
+      return record_type(Num<field_type>::subtract(a.field_name(), b.field_name())); \
     } \
     static record_type multiply(const record_type& a, const record_type& b) { \
-      return {.field_name = Num<field_type>::multiply(a.field_name, b.field_name) }; \
+      return record_type(Num<field_type>::multiply(a.field_name(), b.field_name())); \
     } \
     static record_type divide(const record_type& a, const record_type& b) { \
-      return {.field_name = Num<field_type>::divide(a.field_name, b.field_name) }; \
+      return record_type(Num<field_type>::divide(a.field_name(), b.field_name())); \
     } \
     static record_type mod(const record_type& a, const record_type& b) { \
-      return {.field_name = Num<field_type>::mod(a.field_name, b.field_name) }; \
+      return record_type(Num<field_type>::mod(a.field_name(), b.field_name())); \
     } \
   };
 

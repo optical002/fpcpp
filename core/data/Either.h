@@ -12,7 +12,9 @@ template<typename A>
 class Option;
 
 /**
- * It may be either 'Left' or 'Right' value.
+ * @brief It may be either 'Left' or 'Right' value.
+ *
+ * It is a right based 'Either'.
  *
  * @note In most cases it is used to pass error information on left side.
  */
@@ -21,7 +23,6 @@ class Either {
 public:
   template<typename NewRight>
   using NewType = Either<L, NewRight>;
-  // TODO add tag and untag
   using ValueType = R;
   using RightType = R;
   using LeftType = L;
@@ -111,6 +112,30 @@ public:
   auto flatMapBoth(
     OnLeftFunc&& onLeft, OnRightFunc&& onRight
   ) const { return isLeft() ? onLeft(_unsafeLeft()) : onRight(_unsafeRight()); }
+
+  template<HasTag TagType>
+  Either<L, Tagged<R, TagType>> tag() const {
+    return fold(
+      [](const L& l) {
+        return Either<L, Tagged<R, TagType>>::left(l);
+      },
+      [](const R& r) {
+        return Either<L, Tagged<R, TagType>>::right(Tagged<R, TagType>(r));
+      }
+    );
+  }
+
+  auto unTag() const requires IsATagged<R> {
+    using InnerR = typename R::WrappedType;
+    return fold(
+      [](const L& l) {
+        return Either<L, InnerR>::left(l);
+      },
+      [](const auto& r) {
+        return Either<L, InnerR>::right(r);
+      }
+    );
+  }
   
 private:
   explicit Either(const L& left) : _impl(Variant<L, R>::template create<0>(left)) {}
@@ -122,6 +147,7 @@ private:
   Variant<L, R> _impl;
 };
 
+/** @brief A projection of an Either<L, R> to L */
 template<typename L>
 struct LeftProjection {
 private:
@@ -140,6 +166,7 @@ public:
   }
 };
 
+/** @brief A projection of an Either<L, R> to R */
 template<typename R>
 struct RightProjection {
 private:
@@ -158,18 +185,22 @@ public:
   }
 };
 
+/** @brief Helper function for constructing 'LeftProjection' of Either<L, ???>  */
 template<typename L>
 // ReSharper disable once CppInconsistentNaming
 LeftProjection<L> Left(const L& left) { return LeftProjection<L>(left);}
 
+/** @brief Helper function for constructing left side of Either<L, R> */
 template<typename R, typename L>
 // ReSharper disable once CppInconsistentNaming
 Either<L, R> LeftE(const L& left) { return Left(left); }
 
+/** @brief Helper function for constructing 'RightProjection' of Either<???, R>  */
 template<typename R>
 // ReSharper disable once CppInconsistentNaming
 RightProjection<R> Right(const R& right) { return RightProjection<R>(right); }
 
+/** @brief Helper function for constructing right side of Either<L, R> */
 template<typename L, typename R>
 // ReSharper disable once CppInconsistentNaming
 Either<L, R> RightE(const R& right) { return Right(right); }

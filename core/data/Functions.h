@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 #include <tuple>
 
+/** @brief Helper function for creating any size 'std::tuple'. */
 template<typename... Args>
 auto Tpl(Args&&... args) {
   return std::make_tuple(std::forward<Args>(args)...);
