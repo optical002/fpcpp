@@ -3,7 +3,8 @@
 
 #include <core/data/Concepts.h>
 #include <core/data/Either.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 #include <core/typeclasses/Eq.h>
 
 template<PointerType Ptr>
@@ -27,14 +28,21 @@ private:
   explicit SafePtr(Ptr ptr) : _ptr(ptr) {}
   Ptr _ptr;
 
-  friend class ToString<SafePtr>;
+  friend class Str<SafePtr>;
   friend class Eq<SafePtr>;
 };
 
-template<HasToString A>
-struct ToString<SafePtr<A>> {
+template<HasStr A>
+struct Str<SafePtr<A>> {
   static std::string toStr(const SafePtr<A>& a) {
     return std::format("SafePtr({})", ToStr(a._ptr));
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<SafePtr<A>> {
+  static std::string toDebugStr(const SafePtr<A>& a) {
+    return std::format("SafePtr({})", ToDebugStr(a._ptr));
   }
 };
 

@@ -3,7 +3,7 @@
 #define FPCPP_CORE_MACROS_TYPECLASSES_H
 
 #include <core/typeclasses/Eq.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
 #include <core/typeclasses/Ord.h>
 #include <core/typeclasses/Semigroup.h>
 #include <core/typeclasses/Num.h>
@@ -40,21 +40,40 @@
     } \
   };
 
-#define TO_STRING_STR_SINGLE_FIELD(type, name) name={}
-#define TO_STRING_STR_FIELDS_IMPL(...) FOR_EACH2_COMMA(TO_STRING_STR_SINGLE_FIELD, __VA_ARGS__)
-#define TO_STRING_STR_FIELDS(type, ...) CHAOS_PP_STRINGIZE(type(TO_STRING_STR_FIELDS_IMPL(__VA_ARGS__)))
+#define STR_SINGLE_FIELD(type, name) {}
+#define STR_FIELDS_IMPL(...) FOR_EACH2_COMMA(STR_SINGLE_FIELD, __VA_ARGS__)
+#define STR_FIELDS(type, ...) CHAOS_PP_STRINGIZE(type(STR_FIELDS_IMPL(__VA_ARGS__)))
 
-#define TO_STRING_SINGLE_VALUE(type, name) ToStr(a.name())
-#define TO_STRING_VALUES(...) FOR_EACH2_COMMA(TO_STRING_SINGLE_VALUE, __VA_ARGS__)
+#define STR_SINGLE_VALUE(type, name) ToStr(a.name())
+#define STR_VALUES(...) FOR_EACH2_COMMA(STR_SINGLE_VALUE, __VA_ARGS__)
 
-#define TO_STRING_TYPECLASS(type, ...) \
+#define STR_TYPECLASS(type, ...) \
   template<> \
-  struct ToString<type> { \
+  struct Str<type> { \
     static std::string toStr(const type& a) { \
       return \
         CHAOS_PP_IF(CHAOS_PP_EQUAL(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 1)) ( \
           STRINGIFY(type()), \
-          std::format(TO_STRING_STR_FIELDS(type, __VA_ARGS__), TO_STRING_VALUES(__VA_ARGS__)) \
+          std::format(STR_FIELDS(type, __VA_ARGS__), STR_VALUES(__VA_ARGS__)) \
+        ); \
+    } \
+  };
+
+#define DEBUG_STR_SINGLE_FIELD(type, name) name={}
+#define DEBUG_STR_FIELDS_IMPL(...) FOR_EACH2_COMMA(DEBUG_STR_SINGLE_FIELD, __VA_ARGS__)
+#define DEBUG_STR_FIELDS(type, ...) CHAOS_PP_STRINGIZE(type(DEBUG_STR_FIELDS_IMPL(__VA_ARGS__)))
+
+#define DEBUG_STR_SINGLE_VALUE(type, name) ToDebugStr(a.name())
+#define DEBUG_STR_VALUES(...) FOR_EACH2_COMMA(DEBUG_STR_SINGLE_VALUE, __VA_ARGS__)
+
+#define DEBUG_STR_TYPECLASS(type, ...) \
+  template<> \
+  struct DebugStr<type> { \
+    static std::string toDebugStr(const type& a) { \
+      return \
+        CHAOS_PP_IF(CHAOS_PP_EQUAL(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 1)) ( \
+          STRINGIFY(type()), \
+          std::format(DEBUG_STR_FIELDS(type, __VA_ARGS__), DEBUG_STR_VALUES(__VA_ARGS__)) \
         ); \
     } \
   };

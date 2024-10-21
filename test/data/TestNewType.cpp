@@ -9,9 +9,14 @@ TEST(Data_NewType, Equality) {
   EXPECT_TRUE(x1 != x3) << "Expected x1 to be not equal x3, but it was.";
 }
 
-TEST(Data_NewType, ToString) {
+TEST(Data_NewType, Str) {
   const Age x1 = Age(1);
-  EXPECT_EQ(ToStr(x1), "Age(a=Int(1))");
+  EXPECT_EQ(ToStr(x1), "Age(1)");
+}
+
+TEST(Data_NewType, DebugStr) {
+  const Age x1 = Age(1);
+  EXPECT_EQ(ToDebugStr(x1), "Age(a=Int(1))");
 }
 
 TEST(Data_NewType, WithConstructors) {

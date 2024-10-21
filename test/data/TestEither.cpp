@@ -176,11 +176,18 @@ TEST(Data_Either, FlatMapBoth) {
   });
 }
 
-TEST(Data_Either, ToString) {
+TEST(Data_Either, Str) {
   Either<std::string, int> left = Left(std::string("Hello")), right = Right(1);
 
   EXPECT_EQ(ToStr(left), "Left(String(Hello))");
-  EXPECT_EQ(ToStr(right), "Right(Int(1))");
+  EXPECT_EQ(ToStr(right), "Right(1)");
+}
+
+TEST(Data_Either, DebugStr) {
+  Either<std::string, int> left = Left(std::string("Hello")), right = Right(1);
+
+  EXPECT_EQ(ToDebugStr(left), "Left(String(Hello))");
+  EXPECT_EQ(ToDebugStr(right), "Right(Int(1))");
 }
 
 TEST(Data_Either, Eq) {

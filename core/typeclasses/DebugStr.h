@@ -1,29 +1,27 @@
-#ifndef FPCPP_CORE_TYPECLASSES_TO_STRING_H
-#define FPCPP_CORE_TYPECLASSES_TO_STRING_H
+#ifndef FPCPP_CORE_TYPECLASSES_DEBUGSTR_H
+#define FPCPP_CORE_TYPECLASSES_DEBUGSTR_H
 
 #include <format>
 #include <string>
 #include <core/data/Concepts.h>
 #include <core/data/Tag.h>
 
-// TODO add to Either, Future.
-// TODO split to Str and DebugStr
 template<typename A>
-struct ToString;
+struct DebugStr;
 
 template<typename A>
-concept HasToString = requires(const A& a) {
-  { ToString<A>::toStr(a) } -> std::same_as<std::string>;
+concept HasDebugStr = requires(const A& a) {
+  { DebugStr<A>::toDebugStr(a) } -> std::same_as<std::string>;
 };
 
-template<HasToString A>
-std::string ToStr(const A& a) {
-  return ToString<A>::toStr(a);
+template<HasDebugStr A>
+std::string ToDebugStr(const A& a) {
+  return DebugStr<A>::toDebugStr(a);
 }
 
 template<IsArithmetic A>
-struct ToString<A> {
-  static std::string toStr(const A& value) {
+struct DebugStr<A> {
+  static std::string toDebugStr(const A& value) {
     std::string typeName;
     if constexpr (std::is_same_v<A, int>) typeName = "Int";
     else if constexpr (std::is_same_v<A, unsigned int>) typeName = "UnsignedInt";
@@ -47,31 +45,31 @@ struct ToString<A> {
 };
 
 template<>
-struct ToString<std::string> {
-  static std::string toStr(const std::string& value) {
+struct DebugStr<std::string> {
+  static std::string toDebugStr(const std::string& value) {
     return std::format("String({})", value);
   }
 };
 
 template<>
-struct ToString<bool> {
-  static std::string toStr(const bool& value) {
+struct DebugStr<bool> {
+  static std::string toDebugStr(const bool& value) {
     return std::format("Bool({})", value);
   }
 };
 
-template<HasToString A>
-struct ToString<std::shared_ptr<A>> {
-  static std::string toStr(const std::shared_ptr<A>& value) {
+template<HasDebugStr A>
+struct DebugStr<std::shared_ptr<A>> {
+  static std::string toDebugStr(const std::shared_ptr<A>& value) {
     return std::format("SharedPtr(address={:p}, value={}))", static_cast<const void*>(value.get()), ToStr(*value));
   }
 };
 
-template<HasToString A, HasTag TagType>
-struct ToString<Tagged<A, TagType>> {
-  static std::string toStr(const Tagged<A, TagType>& value) {
+template<HasDebugStr A, HasTag TagType>
+struct DebugStr<Tagged<A, TagType>> {
+  static std::string toDebugStr(const Tagged<A, TagType>& value) {
     return ToStr(value.a());
   }
 };
 
-#endif // FPCPP_CORE_TYPECLASSES_TO_STRING_H
+#endif //FPCPP_CORE_TYPECLASSES_DEBUGSTR_H

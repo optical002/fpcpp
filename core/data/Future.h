@@ -6,7 +6,8 @@
 #include <core/data/Option.h>
 #include <core/data/Union.h>
 #include <core/data/Unit.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 
 template <typename A>
 class Promise;
@@ -102,7 +103,7 @@ private:
   FutureImpl<A> _futureImpl;
   
   friend class Promise<A>;
-  friend class ToString<Future>;
+  friend class Str<Future>;
 };
 
 /** @brief Represents a promise to complete a value in the future. */
@@ -134,7 +135,7 @@ public:
 private:
   Future<A> _asyncFuture;
 
-  friend class ToString<Promise>;
+  friend class Str<Promise>;
 };
 
 /** @brief Represents a 'Future' which is never completed. */
@@ -155,27 +156,51 @@ static Future<A> Successful(const A& value) {
 /** @brief Helper for creating 'UnsuccessfulType' with just typing 'Unsuccessful'. */
 static constexpr UnsuccessfulType Unsuccessful{};
 
-template<typename A>
-struct ToString<Future<A>> {
+template<HasStr A>
+struct Str<Future<A>> {
   static std::string toStr(const Future<A>& future) {
     return std::format("Future({})", ToStr(future._futureImpl));
   }
 };
 
-template<typename A>
-struct ToString<AsyncFutureData<A>> {
+template<HasStr A>
+struct Str<AsyncFutureData<A>> {
   static std::string toStr(const AsyncFutureData<A>& asyncFutureData) {
     return std::format(
-      "AsyncFutureData(maybeValue={}, listenerCount={})",
+      "AsyncFutureData({}, listenerCount={})",
       ToStr(asyncFutureData.maybeValue), ToStr(asyncFutureData.listeners.size())
     );
   }
 };
 
-template<typename A>
-struct ToString<Promise<A>> {
+template<HasStr A>
+struct Str<Promise<A>> {
   static std::string toStr(const Promise<A>& promise) {
-    return std::format("Promise(asyncFuture={})", ToStr(promise._asyncFuture));
+    return std::format("Promise({})", ToStr(promise._asyncFuture));
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<Future<A>> {
+  static std::string toDebugStr(const Future<A>& future) {
+    return std::format("Future({})", ToDebugStr(future._futureImpl));
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<AsyncFutureData<A>> {
+  static std::string toDebugStr(const AsyncFutureData<A>& asyncFutureData) {
+    return std::format(
+      "AsyncFutureData(maybeValue={}, listenerCount={})",
+      ToDebugStr(asyncFutureData.maybeValue), ToDebugStr(asyncFutureData.listeners.size())
+    );
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<Promise<A>> {
+  static std::string toDebugStr(const Promise<A>& promise) {
+    return std::format("Promise(asyncFuture={})", ToDebugStr(promise._asyncFuture));
   }
 };
 

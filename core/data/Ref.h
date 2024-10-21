@@ -2,7 +2,8 @@
 #define FPCPP_CORE_DATA_REF_H
 
 #include <memory>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 
 template<typename A>
 struct RefData {
@@ -23,10 +24,17 @@ private:
   std::shared_ptr<RefData<A>> _data;
 };
 
-template<HasToString A>
-struct ToString<Ref<A>> {
+template<HasStr A>
+struct Str<Ref<A>> {
   std::string toStr(const Ref<A>& a) {
     return std::format("Ref({})", ToStr(a));
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<Ref<A>> {
+  std::string toDebugStr(const Ref<A>& a) {
+    return std::format("Ref({})", ToDebugStr(a));
   }
 };
 

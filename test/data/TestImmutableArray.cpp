@@ -176,7 +176,7 @@ TEST(Data_ImmutableArray, Reverse) {
 TEST(Data_ImmutableArray, MkStringToStr) {
   const auto array = ImmArray(1, 2, 3);
   const auto str = array.mkStringToStr();
-  EXPECT_EQ(str, "Int(1), Int(2), Int(3)");
+  EXPECT_EQ(str, "1, 2, 3");
 }
 
 struct Data2 {
@@ -259,7 +259,12 @@ TEST(Data_ImmutableArray, Semigroup) {
   EXPECT_TRUE(Equal(Combine(array1, array2), ImmArray(6, 8, 10, 12)));
 }
 
-TEST(Data_ImmutableArray, ToString) {
+TEST(Data_ImmutableArray, Str) {
   const auto array = ImmArray(1, 2, 3);
-  EXPECT_EQ(ToStr(array), "ImmutableArray[3]([0]=Int(1), [1]=Int(2), [2]=Int(3))");
+  EXPECT_EQ(ToStr(array), "ImmutableArray(1, 2, 3)");
+}
+
+TEST(Data_ImmutableArray, DebugStr) {
+  const auto array = ImmArray(1, 2, 3);
+  EXPECT_EQ(ToDebugStr(array), "ImmutableArray[3]([0]=Int(1), [1]=Int(2), [2]=Int(3))");
 }

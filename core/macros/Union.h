@@ -38,20 +38,39 @@
     static bool equal(const UNION_ENUM_NAME(union_name)& a, const UNION_ENUM_NAME(union_name)& b) { return a == b; } \
   };
 
-#define UNION_ENUM_TO_STRING_SINGLE_FIELD(s, i, type, name, union_enum_name) \
+#define UNION_ENUM_STR_SINGLE_FIELD(s, i, type, name, union_enum_name) \
   case union_enum_name::name: return CHAOS_PP_STRINGIZE(name);
 
-#define UNION_ENUM_TO_STRING_FIELDS(union_name, ...) \
+#define UNION_ENUM_STR_FIELDS(union_name, ...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
-    UNION_ENUM_TO_STRING_SINGLE_FIELD, GROUP_VARIADIC(__VA_ARGS__), UNION_ENUM_NAME(union_name) \
+    UNION_ENUM_STR_SINGLE_FIELD, GROUP_VARIADIC(__VA_ARGS__), UNION_ENUM_NAME(union_name) \
   ))
 
-#define UNION_ENUM_TO_STRING(union_name, ...) \
+#define UNION_ENUM_STR(union_name, ...) \
   template<> \
-  struct ToString<UNION_ENUM_NAME(union_name)> { \
+  struct Str<UNION_ENUM_NAME(union_name)> { \
     static std::string toStr(const UNION_ENUM_NAME(union_name)& a) { \
       switch (a) { \
-        UNION_ENUM_TO_STRING_FIELDS(union_name, __VA_ARGS__) \
+        UNION_ENUM_STR_FIELDS(union_name, __VA_ARGS__) \
+      } \
+      throw std::runtime_error("Impossible"); \
+    } \
+  };
+
+#define UNION_ENUM_DEBUG_STR_SINGLE_FIELD(s, i, type, name, union_enum_name) \
+  case union_enum_name::name: return CHAOS_PP_STRINGIZE(name);
+
+#define UNION_ENUM_DEBUG_STR_FIELDS(union_name, ...) \
+  CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
+    UNION_ENUM_DEBUG_STR_SINGLE_FIELD, GROUP_VARIADIC(__VA_ARGS__), UNION_ENUM_NAME(union_name) \
+  ))
+
+#define UNION_ENUM_DEBUG_STR(union_name, ...) \
+  template<> \
+  struct DebugStr<UNION_ENUM_NAME(union_name)> { \
+    static std::string toDebugStr(const UNION_ENUM_NAME(union_name)& a) { \
+      switch (a) { \
+        UNION_ENUM_DEBUG_STR_FIELDS(union_name, __VA_ARGS__) \
       } \
       throw std::runtime_error("Impossible"); \
     } \
@@ -230,30 +249,57 @@
     } \
   };
 
-#define UNION_TO_STRING_FOLD_SINGLE(type, name) [](const type& name) { return ToStr(name); }
-#define UNION_TO_STRING_FOLD_SINGLE_COMMA(type, name) [](const type& name) { return ToStr(name); },
+#define UNION_STR_FOLD_SINGLE(type, name) [](const type& name) { return ToStr(name); }
+#define UNION_STR_FOLD_SINGLE_COMMA(type, name) [](const type& name) { return ToStr(name); },
 
-#define UNION_TO_STRING_FOLD_SINGLE_IMPL(s, i, type, name, size) \
+#define UNION_STR_FOLD_SINGLE_IMPL(s, i, type, name, size) \
   CHAOS_PP_IF(CHAOS_PP_EQUAL(CHAOS_PP_DEC(size), i)) ( \
-    UNION_TO_STRING_FOLD_SINGLE(type, name), \
-    UNION_TO_STRING_FOLD_SINGLE_COMMA(type, name) \
+    UNION_STR_FOLD_SINGLE(type, name), \
+    UNION_STR_FOLD_SINGLE_COMMA(type, name) \
   )
 
-#define UNION_TO_STRING_FOLD(...) \
+#define UNION_STR_FOLD(...) \
   CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
-    UNION_TO_STRING_FOLD_SINGLE_IMPL, GROUP_VARIADIC(__VA_ARGS__), \
+    UNION_STR_FOLD_SINGLE_IMPL, GROUP_VARIADIC(__VA_ARGS__), \
     CHAOS_PP_DIV(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 2) \
   ))
 
-#define UNION_TO_STRING(union_name, ...) \
+#define UNION_STR(union_name, ...) \
   template<> \
-  struct ToString<union_name> { \
+  struct Str<union_name> { \
     static std::string toStr(const union_name& a) { \
-      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind()), toDataString(a));\
+      return std::format(CHAOS_PP_STRINGIZE(union_name({}, {})), ToStr(a.kind()), toDataString(a));\
     } \
   private: \
     static std::string toDataString(const union_name& a) { \
-      return a.fold(UNION_TO_STRING_FOLD(__VA_ARGS__)); \
+      return a.fold(UNION_STR_FOLD(__VA_ARGS__)); \
+    } \
+  };
+
+#define UNION_DEBUG_STR_FOLD_SINGLE(type, name) [](const type& name) { return ToDebugStr(name); }
+#define UNION_DEBUG_STR_FOLD_SINGLE_COMMA(type, name) [](const type& name) { return ToDebugStr(name); },
+
+#define UNION_DEBUG_STR_FOLD_SINGLE_IMPL(s, i, type, name, size) \
+  CHAOS_PP_IF(CHAOS_PP_EQUAL(CHAOS_PP_DEC(size), i)) ( \
+    UNION_DEBUG_STR_FOLD_SINGLE(type, name), \
+    UNION_DEBUG_STR_FOLD_SINGLE_COMMA(type, name) \
+  )
+
+#define UNION_DEBUG_STR_FOLD(...) \
+  CHAOS_PP_EXPR(CHAOS_PP_SEQ_FOR_EACH_I( \
+    UNION_DEBUG_STR_FOLD_SINGLE_IMPL, GROUP_VARIADIC(__VA_ARGS__), \
+    CHAOS_PP_DIV(CHAOS_PP_VARIADIC_SIZE(__VA_ARGS__), 2) \
+  ))
+
+#define UNION_DEBUG_STR(union_name, ...) \
+  template<> \
+  struct DebugStr<union_name> { \
+    static std::string toDebugStr(const union_name& a) { \
+      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToDebugStr(a.kind()), toDataString(a));\
+    } \
+  private: \
+    static std::string toDataString(const union_name& a) { \
+      return a.fold(UNION_DEBUG_STR_FOLD(__VA_ARGS__)); \
     } \
   };
 
@@ -268,7 +314,7 @@
   ))
 
 #define UNION_EQ_TEMPLATE(union_name, template_typename_name, ...) \
-  template<typename template_typename_name> \
+  template<HasEq template_typename_name> \
   struct Eq<union_name<template_typename_name>> { \
     static bool equal(const union_name<template_typename_name>& a, const union_name<template_typename_name>& b) { \
       return Equal(a.kind(), b.kind()) && equalData(a, b); \
@@ -279,15 +325,27 @@
     } \
   };
 
-#define UNION_TO_STRING_TEMPLATE(union_name, template_typename_name, ...) \
-  template<typename template_typename_name> \
-  struct ToString<union_name<template_typename_name>> { \
+#define UNION_STR_TEMPLATE(union_name, template_typename_name, ...) \
+  template<HasStr template_typename_name> \
+  struct Str<union_name<template_typename_name>> { \
     static std::string toStr(const union_name<template_typename_name>& a) { \
-      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToStr(a.kind()), toDataString(a));\
+      return std::format(CHAOS_PP_STRINGIZE(union_name({}, {})), ToStr(a.kind()), toDataString(a));\
     } \
   private: \
     static std::string toDataString(const union_name<template_typename_name>& a) { \
-      return a.fold(UNION_TO_STRING_FOLD(__VA_ARGS__)); \
+      return a.fold(UNION_STR_FOLD(__VA_ARGS__)); \
+    } \
+  };
+
+#define UNION_DEBUG_STR_TEMPLATE(union_name, template_typename_name, ...) \
+  template<HasDebugStr template_typename_name> \
+  struct DebugStr<union_name<template_typename_name>> { \
+    static std::string toDebugStr(const union_name<template_typename_name>& a) { \
+      return std::format(CHAOS_PP_STRINGIZE(union_name(kind={}, data={})), ToDebugStr(a.kind()), toDataString(a));\
+    } \
+  private: \
+    static std::string toDataString(const union_name<template_typename_name>& a) { \
+      return a.fold(UNION_DEBUG_STR_FOLD(__VA_ARGS__)); \
     } \
   };
 

@@ -25,7 +25,7 @@ TEST(Data_Variant, Eq) {
   EXPECT_TRUE(Equal(variant1, variant2));
 }
 
-TEST(Data_Variant, ToString) {
+TEST(Data_Variant, Str) {
   const auto variant = Variant<char, int, double>::create<1>(69);
   EXPECT_EQ(ToStr(variant), "Variant(index=1, bytes=0x4500000000000000)");
 }

@@ -3,7 +3,8 @@
 
 #include <concepts>
 #include <utility>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 #include <core/typeclasses/Eq.h>
 #include <core/data/Unit.h>
 #include <core/data/Variant.h>
@@ -228,8 +229,8 @@ struct Eq<Either<L, R>> {
   }
 };
 
-template<HasToString L, HasToString R>
-struct ToString<Either<L, R>> {
+template<HasStr L, HasStr R>
+struct Str<Either<L, R>> {
   static std::string toStr(const Either<L, R>& value) {
     return value.fold(
       [](const L& l) {
@@ -237,6 +238,20 @@ struct ToString<Either<L, R>> {
       },
       [](const R& r) {
         return std::format("Right({})", ToStr(r));
+      }
+    );
+  }
+};
+
+template<HasDebugStr L, HasDebugStr R>
+struct DebugStr<Either<L, R>> {
+  static std::string toDebugStr(const Either<L, R>& value) {
+    return value.fold(
+      [](const L& l) {
+        return std::format("Left({})", ToDebugStr(l));
+      },
+      [](const R& r) {
+        return std::format("Right({})", ToDebugStr(r));
       }
     );
   }

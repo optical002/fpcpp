@@ -56,7 +56,8 @@
     ) \
   }; \
   EQ_TYPECLASS(new_type_name, inline_type, a) \
-  TO_STRING_TYPECLASS(new_type_name, inline_type, a) \
+  STR_TYPECLASS(new_type_name, inline_type, a) \
+  DEBUG_STR_TYPECLASS(new_type_name, inline_type, a) \
   SEMIGROUP_TYPECLASS(new_type_name, inline_type, a) \
   CHAOS_PP_IF(BITMASK_CHECK_FLAG(mask, NEW_TYPE_FLAG_GEN_ORD)) ( \
     ORD_TYPECLASS(new_type_name, inline_type, a), \

@@ -7,8 +7,9 @@
 #include <core/macros/Typeclasses.h>
 #include <core/macros/Withers.h>
 #include <core/typeclasses/Eq.h>
-#include <core/typeclasses/ToString.h>
-  
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
+
 /**
  * @brief Generates a read-only data structure.
  * 
@@ -39,7 +40,8 @@
  *   - With Constructors
  * - Typeclasses:
  *   - Eq
- *   - ToString
+ *   - Str
+ *   - DebugStr
  * @param RECORD_NAME The name of the record.
  * @param ... The fields of the record. They come in pairs of type and name (e.g. 'int, age').
  */ 
@@ -54,6 +56,7 @@
     __VA_OPT__(WITH_FUNCTIONS(record_name, __VA_ARGS__)) \
   }; \
   EQ_TYPECLASS(record_name, __VA_ARGS__) \
-  TO_STRING_TYPECLASS(record_name, __VA_ARGS__)
+  STR_TYPECLASS(record_name, __VA_ARGS__) \
+  DEBUG_STR_TYPECLASS(record_name, __VA_ARGS__)
 
 #endif // FPCPP_CORE_DATA_RECORD_H

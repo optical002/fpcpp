@@ -9,7 +9,8 @@
 #include <tuple>
 #include <sstream>
 #include <string>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 #include <core/typeclasses/Eq.h>
 
 template<typename A>
@@ -77,7 +78,7 @@ private:
   std::array<std::byte, (std::max)({sizeof(Types)...})> _storage = {};
 
   friend class Eq<Variant>;
-  friend class ToString<Variant>;
+  friend class Str<Variant>;
 };
 
 #include <core/data/Option.h>
@@ -102,9 +103,21 @@ struct Eq<Variant<Types...>> {
   }
 };
 
-template<HasToString... Types>
-struct ToString<Variant<Types...>> {
+template<HasStr... Types>
+struct Str<Variant<Types...>> {
   static std::string toStr(const Variant<Types...>& v) {
+    std::ostringstream byteStrStream;
+    for (const auto& byte : v._storage) {
+      byteStrStream << std::hex << std::setw(2) << std::setfill('0')
+          << static_cast<int>(std::to_integer<unsigned char>(byte));
+    }
+    return std::format("Variant(index={}, bytes=0x{})", v.index(), byteStrStream.str());
+  }
+};
+
+template<HasDebugStr... Types>
+struct DebugStr<Variant<Types...>> {
+  static std::string toDebugStr(const Variant<Types...>& v) {
     std::ostringstream byteStrStream;
     for (const auto& byte : v._storage) {
       byteStrStream << std::hex << std::setw(2) << std::setfill('0')

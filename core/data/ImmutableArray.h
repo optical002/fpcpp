@@ -10,7 +10,8 @@
 #include <core/data/Tag.h>
 #include <core/typeclasses/Eq.h>
 #include <core/typeclasses/Ord.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 #include <core/typeclasses/Default.h>
 #include <core/typeclasses/Num.h>
 #include <core/typeclasses/Semigroup.h>
@@ -214,7 +215,7 @@ public:
     return ImmutableArray(newArray);
   }
 
-  std::string mkStringToStr(std::string separator = ", ") const requires HasToString<A> {
+  std::string mkStringToStr(std::string separator = ", ") const requires HasStr<A> {
     std::ostringstream oss;
 
     for (std::size_t i = 0; i < N; ++i) {
@@ -419,14 +420,28 @@ struct Semigroup<ImmutableArray<A, N>> {
   }
 };
 
-template<HasToString A, std::size_t N>
-struct ToString<ImmutableArray<A, N>> {
+template<HasStr A, std::size_t N>
+struct Str<ImmutableArray<A, N>> {
   static std::string toStr(const ImmutableArray<A, N>& value) {
+    std::stringstream ss;
+    ss << std::format("ImmutableArray(", N);
+    for (std::size_t i = 0; i < N; i++) {
+      if (i != 0) ss << ", ";
+      ss << ToStr(value[i]);
+    }
+    ss << ")";
+    return ss.str();
+  }
+};
+
+template<HasDebugStr A, std::size_t N>
+struct DebugStr<ImmutableArray<A, N>> {
+  static std::string toDebugStr(const ImmutableArray<A, N>& value) {
     std::stringstream ss;
     ss << std::format("ImmutableArray[{}](", N);
     for (std::size_t i = 0; i < N; i++) {
       if (i != 0) ss << ", ";
-      ss << std::format("[{}]={}", i, ToStr(value[i]));
+      ss << std::format("[{}]={}", i, ToDebugStr(value[i]));
     }
     ss << ")";
     return ss.str();

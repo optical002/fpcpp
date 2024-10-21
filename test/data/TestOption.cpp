@@ -1,7 +1,8 @@
 #include <core/data/Option.h>
 #include <core/syntax/ForComprehension.h>
 #include <core/typeclasses/Eq.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 #include <gtest/gtest.h>
 
 TEST(Data_Option, ForComprehension) {
@@ -122,11 +123,18 @@ TEST(Data_Option, Eq) {
   EXPECT_FALSE(Equal(some1, none1)) << "Expected 'some1' and 'none1' to be not equal";
 }
 
-TEST(Data_Option, ToString) {
+TEST(Data_Option, Str) {
   Option<int> none = None, some = Some(1);
 
   EXPECT_EQ(ToStr(none), "None");
-  EXPECT_EQ(ToStr(some), "Some(Int(1))");
+  EXPECT_EQ(ToStr(some), "Some(1)");
+}
+
+TEST(Data_Option, DebugStr) {
+  Option<int> none = None, some = Some(1);
+
+  EXPECT_EQ(ToDebugStr(none), "None");
+  EXPECT_EQ(ToDebugStr(some), "Some(Int(1))");
 }
 
 TEST(Data_Option, Flatten) {

@@ -1,6 +1,6 @@
 #include <core/data/Future.h>
 #include <core/syntax/ForComprehension.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
 #include <gtest/gtest.h>
 
 TEST(Data_Future, ForComprehension) {

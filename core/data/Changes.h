@@ -1,7 +1,8 @@
 #ifndef FPCPP_CORE_DATA_CHANGES_H
 #define FPCPP_CORE_DATA_CHANGES_H
 
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 #include <core/typeclasses/Eq.h>
 
 /** @brief Contains changes of 'A' type value. */
@@ -19,10 +20,17 @@ private:
   A _previous, _next;
 };
 
-template<HasToString A>
-struct ToString<Changes<A>> {
+template<HasStr A>
+struct Str<Changes<A>> {
   static std::string toStr(const Changes<A>& a) {
-    return std::format("Changes(previous={}, next={})", ToStr(a.previous()), ToStr(a.next()));
+    return std::format("Changes({}, {})", ToStr(a.previous()), ToStr(a.next()));
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<Changes<A>> {
+  static std::string toDebugStr(const Changes<A>& a) {
+    return std::format("Changes(previous={}, next={})", ToDebugStr(a.previous()), ToDebugStr(a.next()));
   }
 };
 

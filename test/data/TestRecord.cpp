@@ -13,12 +13,20 @@ TEST(Data_Record, Equality) {
   EXPECT_TRUE(x3 != x5) << "Expected x3 to be not equal x5, but it was.";
 }
 
-TEST(Data_Record, ToString) {
+TEST(Data_Record, Str) {
   TestNoParams x1;
   EXPECT_EQ(ToStr(x1), "TestNoParams()");
 
   TestWithParams x2 = TestWithParams(1, 1.f, "hello", TestNoParams());
-  EXPECT_EQ(ToStr(x2), "TestWithParams(age=Int(1), cost=Float(1), name=String(hello), testNoParams=TestNoParams())");
+  EXPECT_EQ(ToStr(x2), "TestWithParams(1, 1, String(hello), TestNoParams())");
+}
+
+TEST(Data_Record, DebugStr) {
+  TestNoParams x1;
+  EXPECT_EQ(ToDebugStr(x1), "TestNoParams()");
+
+  TestWithParams x2 = TestWithParams(1, 1.f, "hello", TestNoParams());
+  EXPECT_EQ(ToDebugStr(x2), "TestWithParams(age=Int(1), cost=Float(1), name=String(hello), testNoParams=TestNoParams())");
 }
 
 TEST(Data_Record, WithConstructors) {

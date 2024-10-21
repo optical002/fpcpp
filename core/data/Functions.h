@@ -1,5 +1,5 @@
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+#ifndef FPCPP_CORE_DATA_FUNCTIONS_H
+#define FPCPP_CORE_DATA_FUNCTIONS_H
 #include <tuple>
 
 /** @brief Helper function for creating any size 'std::tuple'. */
@@ -13,4 +13,4 @@ auto Tpl(Args&&... args) {
 //   return std::make_pair(std::forward<Key>(key), std::forward<Value>(value));
 // }
 
-#endif //FUNCTIONS_H
+#endif //FPCPP_CORE_DATA_FUNCTIONS_H

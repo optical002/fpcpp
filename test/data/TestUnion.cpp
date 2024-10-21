@@ -11,7 +11,7 @@ TEST(Data_Union, Kind_Eq) {
   EXPECT_FALSE(Equal(aKind1, aKind3)) << "Expected 'aKind1' and 'aKind3' to not be equal.";
 }
 
-TEST(Data_Union, Kind_ToString) {
+TEST(Data_Union, Kind_Str) {
   StateKind kind1 = StateKind::age, kind2 = StateKind::name;
   EXPECT_EQ(ToStr(kind1), "age");
   EXPECT_EQ(ToStr(kind2), "name");
@@ -19,6 +19,16 @@ TEST(Data_Union, Kind_ToString) {
   StateAKind aKind1 = StateAKind::raw, aKind2 = StateAKind::something;
   EXPECT_EQ(ToStr(aKind1), "raw");
   EXPECT_EQ(ToStr(aKind2), "something");
+}
+
+TEST(Data_Union, Kind_DebugStr) {
+  StateKind kind1 = StateKind::age, kind2 = StateKind::name;
+  EXPECT_EQ(ToDebugStr(kind1), "age");
+  EXPECT_EQ(ToDebugStr(kind2), "name");
+
+  StateAKind aKind1 = StateAKind::raw, aKind2 = StateAKind::something;
+  EXPECT_EQ(ToDebugStr(aKind1), "raw");
+  EXPECT_EQ(ToDebugStr(aKind2), "something");
 }
 
 TEST(Data_Union, StaticConstructors) {
@@ -105,10 +115,18 @@ TEST(Data_Union, Eq) {
   EXPECT_FALSE(Equal(stateRaw1, stateSomething)) << "Expected 'stateRaw1' and 'stateSomething' to not be equal.";
 }
 
-TEST(Data_Union, ToString) {
+TEST(Data_Union, Str) {
   State stateAge = State::create_age(1);
-  EXPECT_EQ(ToStr(stateAge), "State(kind=age, data=Int(1))");
+  EXPECT_EQ(ToStr(stateAge), "State(age, 1)");
 
   StateA<int> stateRaw = StateA<int>::create_raw(69);
-  EXPECT_EQ(ToStr(stateRaw), "StateA(kind=raw, data=Int(69))");
+  EXPECT_EQ(ToStr(stateRaw), "StateA(raw, 69)");
+}
+
+TEST(Data_Union, DebugStr) {
+  State stateAge = State::create_age(1);
+  EXPECT_EQ(ToDebugStr(stateAge), "State(kind=age, data=Int(1))");
+
+  StateA<int> stateRaw = StateA<int>::create_raw(69);
+  EXPECT_EQ(ToDebugStr(stateRaw), "StateA(kind=raw, data=Int(69))");
 }

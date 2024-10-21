@@ -2,12 +2,12 @@
 #define FPCPP_CORE_DATA_OPTION_H
 
 #include <concepts>
-#include <utility>
 #include <core/data/Unit.h>
 #include <core/data/Variant.h>
 #include <core/data/Tag.h>
 #include <core/typeclasses/Eq.h>
-#include <core/typeclasses/ToString.h>
+#include <core/typeclasses/Str.h>
+#include <core/typeclasses/DebugStr.h>
 
 template<typename L, typename R>
 class Either;
@@ -169,9 +169,6 @@ Either<L, A> Option<A>::toRight(const L& leftValue) const {
   return isSome() ? RightE<L>(_unsafeValue()) : Left(leftValue);
 }
 
-#include <core/data/Variant.h>
-
-
 template<HasEq A>
 struct Eq<Option<A>> {
   static bool equal(const Option<A>& a, const Option<A>& b) {
@@ -193,13 +190,25 @@ struct Eq<Option<A>> {
   }
 };
 
-template<HasToString A>
-struct ToString<Option<A>> {
+template<HasStr A>
+struct Str<Option<A>> {
   static std::string toStr(const Option<A>& value) {
     return value.fold(
       std::string("None"),
       [](const A& v) {
         return std::format("Some({})", ToStr(v));
+      }
+    );
+  }
+};
+
+template<HasDebugStr A>
+struct DebugStr<Option<A>> {
+  static std::string toDebugStr(const Option<A>& value) {
+    return value.fold(
+      std::string("None"),
+      [](const A& v) {
+        return std::format("Some({})", ToDebugStr(v));
       }
     );
   }
