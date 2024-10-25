@@ -64,4 +64,10 @@ concept Func = std::invocable<F, A> && std::same_as<Result, std::invoke_result_t
 template<typename F, typename A1, typename A2, typename Result>
 concept Func2 = std::invocable<F, A1, A2> && std::same_as<Result, std::invoke_result_t<F, A1, A2>>;
 
+template<typename A>
+concept IsStringType =
+  std::is_same_v<std::decay_t<A>, const char *>
+  || std::is_same_v<std::decay_t<A>, char *>
+  || std::is_same_v<A, std::string>;
+
 #endif // FPCPP_CORE_DATA_CONCEPTS_H

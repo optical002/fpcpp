@@ -3,6 +3,10 @@
 #include <core/typeclasses/Str.h>
 #include <gtest/gtest.h>
 
+void testCompilationFuture() {
+  const auto future = Successful("a");
+}
+
 TEST(Data_Future, ForComprehension) {
   const auto promise1 = Promise<int>();
   const auto promise2 = Promise<std::string>();

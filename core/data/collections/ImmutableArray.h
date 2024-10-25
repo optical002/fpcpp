@@ -28,12 +28,16 @@ public:
 
   explicit ImmutableArray(const std::array<A, N>& arr) : _data(arr) {}
 
-  const A& operator[](std::size_t index) const {
-    return _data[index];
-  }
-  const A& at(std::size_t index) const {
+  A _unsafe_at(std::size_t index) const {
     return _data.at(index);
   }
+  Option<A> at(std::size_t index) const {
+    return index < N ? Some(_data[index]) : None;
+  }
+  Option<A> operator[](std::size_t index) const {
+    return at(index);
+  }
+
   template<std::size_t Index>
   const A& at() const requires (Index < N) {
     return _data[Index];
@@ -54,7 +58,7 @@ public:
   ImmutableArray<B, N> map(Map&& map) const {
     auto newArray = std::array<B, N>{};
     for (std::size_t i = 0; i < N; ++i) {
-      newArray[i] = map(at(i));
+      newArray[i] = map(_unsafe_at(i));
     }
     return ImmutableArray<B, N>(newArray);
   }
@@ -90,7 +94,7 @@ public:
     for (std::size_t i = 0; i < N; ++i) {
       const auto& innerArray = _data[i];
       for (std::size_t j = 0; j < InnerN; ++j) {
-        result[index++] = innerArray[j];
+        result[index++] = innerArray._unsafe_at(j);
       }
     }
 
@@ -276,7 +280,7 @@ public:
   ImmutableArray<Result, NewN> zipWith(ImmutableArray<B, BN> other, Zipper&& zipper) const {
     std::array<Result, NewN> result;
     for (std::size_t i = 0; i < NewN; ++i) {
-      result[i] = zipper(_data[i], other[i]);
+      result[i] = zipper(_data[i], other._unsafe_at(i));
     }
     return ImmutableArray<Result, NewN>(result);
   }
@@ -290,7 +294,7 @@ public:
   ImmutableArray<Result, NewN> zipWith(ImmutableArray<B, BN> other) const {
     std::array<Result, NewN> result;
     for (std::size_t i = 0; i < NewN; ++i) {
-      result[i] = Tpl(_data[i], other[i]);
+      result[i] = Tpl(_data[i], other._unsafe_at(i));
     }
     return ImmutableArray<Result, NewN>(result);
   }
@@ -308,7 +312,7 @@ public:
     std::array<Result, NewN> result;
     for (std::size_t i = 0; i < NewN; ++i) {
       A first = i < N ? _data[i] : default_;
-      B second = i < BN ? other[i] : default_;
+      B second = i < BN ? other._unsafe_at(i) : default_;
       result[i] = zipper(first, second);
     }
     return ImmutableArray<Result, NewN>(result);
@@ -326,7 +330,7 @@ public:
     std::array<Result, NewN> result;
     for (std::size_t i = 0; i < NewN; ++i) {
       A first = i < N ? _data[i] : default_;
-      B second = i < BN ? other[i] : default_;
+      B second = i < BN ? other._unsafe_at(i) : default_;
       result[i] = Tpl(first, second);
     }
     return ImmutableArray<Result, NewN>(result);
@@ -414,7 +418,7 @@ struct Semigroup<ImmutableArray<A, N>> {
   static ImmutableArray<A, N> combine(const ImmutableArray<A, N>& a, const ImmutableArray<A, N>& b) {
     std::array<A, N> result;
     for (std::size_t i = 0; i < N; i++) {
-      result[i] = Combine(a[i], b[i]);
+      result[i] = Combine(a._unsafe_at(i), b._unsafe_at(i));
     }
     return ImmutableArray<A, N>(result);
   }
@@ -427,7 +431,7 @@ struct Str<ImmutableArray<A, N>> {
     ss << std::format("ImmutableArray(", N);
     for (std::size_t i = 0; i < N; i++) {
       if (i != 0) ss << ", ";
-      ss << ToStr(value[i]);
+      ss << ToStr(value._unsafe_at(i));
     }
     ss << ")";
     return ss.str();
@@ -441,7 +445,7 @@ struct DebugStr<ImmutableArray<A, N>> {
     ss << std::format("ImmutableArray[{}](", N);
     for (std::size_t i = 0; i < N; i++) {
       if (i != 0) ss << ", ";
-      ss << std::format("[{}]={}", i, ToDebugStr(value[i]));
+      ss << std::format("[{}]={}", i, ToDebugStr(value._unsafe_at(i)));
     }
     ss << ")";
     return ss.str();

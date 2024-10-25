@@ -30,7 +30,6 @@ class Future {
 public:
   template<typename NewA>
   using NewType = Future<NewA>;
-  // TODO add tag and untag;
   using ValueType = A;
 
 private:
@@ -149,9 +148,13 @@ struct UnsuccessfulType {
 
 /** @brief Creates a 'Future' which is completed with 'value'. */
 template<typename A>
-static Future<A> Successful(const A& value) {
-  return Future<A>::successful(value);
+static Future<std::decay_t<A>> Successful(A value) {
+  return Future<std::decay_t<A>>::successful(value);
 }
+
+/** @brief Creates a 'Future' which is never completed. */
+template<typename A>
+static Future<A> UnsuccessfulOf() { return Future<A>::unsuccessful(); }
 
 /** @brief Helper for creating 'UnsuccessfulType' with just typing 'Unsuccessful'. */
 static constexpr UnsuccessfulType Unsuccessful{};

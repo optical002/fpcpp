@@ -2,6 +2,13 @@
 #include <core/syntax/ForComprehension.h>
 #include <gtest/gtest.h>
 
+void testCompilationEither() {
+  const auto left = Left("a");
+  const auto right = Right("a");
+  const auto left2 = LeftE<int>("a");
+  const auto right2 = RightE<int>("a");
+}
+
 TEST(Data_Either, ForComprehension) {
   const auto comprehended = ForComprehension(RightE<std::string>(1),
     [](const int& x) { return RightE<std::string>(std::to_string(x)); },

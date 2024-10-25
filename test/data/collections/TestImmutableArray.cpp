@@ -1,4 +1,4 @@
-#include <core/data/ImmutableArray.h>
+#include <core/data/collections/ImmutableArray.h>
 #include <core/typeclasses/Eq.h>
 #include <core/data/Option.h>
 #include <gtest/gtest.h>
@@ -20,13 +20,19 @@ TEST(Data_ImmutableArray, ForEach) {
 TEST(Data_ImmutableArray, IndexOperator) {
   const auto array = ImmArray(1, 2, 3);
 
-  EXPECT_EQ(array[0], 1);
-  EXPECT_EQ(array[1], 2);
-  EXPECT_EQ(array[2], 3);
+  EXPECT_TRUE(Equal(array[0], Some(1)));
+  EXPECT_TRUE(Equal(array[1], Some(2)));
+  EXPECT_TRUE(Equal(array[2], Some(3)));
+  EXPECT_TRUE(Equal(array[3], NoneOf<int>()));
 
-  EXPECT_EQ(array.at(0), 1);
-  EXPECT_EQ(array.at(1), 2);
-  EXPECT_EQ(array.at(2), 3);
+  EXPECT_TRUE(Equal(array.at(0), Some(1)));
+  EXPECT_TRUE(Equal(array.at(1), Some(2)));
+  EXPECT_TRUE(Equal(array.at(2), Some(3)));
+  EXPECT_TRUE(Equal(array.at(3), NoneOf<int>()));
+
+  EXPECT_EQ(array._unsafe_at(0), 1);
+  EXPECT_EQ(array._unsafe_at(1), 2);
+  EXPECT_EQ(array._unsafe_at(2), 3);
 
   EXPECT_EQ(array.at<0>(), 1);
   EXPECT_EQ(array.at<1>(), 2);
@@ -229,7 +235,7 @@ TEST(Data_ImmutableArray, ZipWithIndex) {
   const auto arrayWithIdx = array.zipWithIndex();
   int i = 0;
   for (const auto& x : arrayWithIdx) {
-    EXPECT_EQ(x, Tpl(array[i], i));
+    EXPECT_EQ(x, Tpl(array._unsafe_at(i), i));
     i++;
   }
 }

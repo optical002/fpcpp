@@ -130,9 +130,8 @@ private:
 };
 
 template<typename A>
-// ReSharper disable once CppInconsistentNaming
-Option<A> Some(const A& value) {
-  return Option<A>::some(value);
+Option<std::decay_t<A>> Some(A value) {
+  return Option<std::decay_t<A>>::some(value);
 }
 
 struct NoneType {
@@ -142,17 +141,16 @@ struct NoneType {
   }
 
   template<typename A>
-  Option<A> as() const {
-    return Option<A>::none();
+  Option<std::decay_t<A>> as() const {
+    return Option<std::decay_t<A>>::none();
   }
 };
 
-// ReSharper disable once CppInconsistentNaming
 inline constexpr NoneType None{};
 
 template<typename A>
-Option<A> NoneOf() {
-  return Option<A>::none();
+Option<std::decay_t<A>> NoneOf() {
+  return Option<std::decay_t<A>>::none();
 }
 
 #include <core/data/Either.h>

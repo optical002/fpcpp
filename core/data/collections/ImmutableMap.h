@@ -15,6 +15,9 @@ public:
 
   explicit ImmutableMap(const std::map<Key, Value>& map) : _map(map) {}
 
+  Value _unsafe_at(const Key& key) const {
+    return _map.at(key);
+  }
   Option<Value> at(const Key& key) const {
     auto it = _map.find(key);
     return it == _map.end() ? None : Some(it->second);
@@ -23,15 +26,22 @@ public:
     return at(key);
   }
 
-  std::size_t size() const {
-    return _map.size();
+  [[nodiscard]] std::size_t size() const { return _map.size(); }
+
+  [[nodiscard]] bool isEmpty() const { return size() == 0; }
+
+  typename std::map<Key, Value>::const_iterator begin() const {
+    return _map.cbegin();
+  }
+
+  typename std::map<Key, Value>::const_iterator end() const {
+    return _map.cend();
   }
 
 private:
   std::map<Key, Value> _map;
 };
 
-// TODO Finish
 template<
   typename... Pairs,
   typename Key = typename std::decay_t<std::tuple_element_t<0, std::tuple<Pairs...>>>::first_type,

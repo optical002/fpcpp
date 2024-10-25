@@ -5,6 +5,12 @@
 #include <core/typeclasses/DebugStr.h>
 #include <gtest/gtest.h>
 
+void testCompilationOption() {
+  const auto someOpt = Some("a");
+  const auto noneOpt = NoneOf<char[2]>();
+  const auto noneOpt2 = None.as<char[2]>();
+}
+
 TEST(Data_Option, ForComprehension) {
   const auto comprehended = ForComprehension(Some(1),
     [](const int& x) { return Some(std::to_string(x)); },

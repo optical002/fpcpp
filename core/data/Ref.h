@@ -10,6 +10,7 @@ struct RefData {
   A value;
 };
 
+/** @brief A reference to a piece of data allocated on the heap. */
 template<typename A>
 struct Ref {
   template<typename NewA>

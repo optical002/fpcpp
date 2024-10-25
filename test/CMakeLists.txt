@@ -36,12 +36,13 @@ add_executable(test
   typeclasses/TestSemigroup.h
   typeclasses/TestStr.cpp
   typeclasses/TestStr.h
-  data/TestImmutableArray.cpp
-  data/TestImmutableMap.cpp
+  data/collections/TestImmutableArray.cpp
+  data/collections/TestImmutableMap.cpp
   data/TestVariant.cpp
   data/TestTag.cpp
   typeclasses/TestDebugStr.cpp
   typeclasses/TestDebugStr.h
+  typeclasses/TestFunctor.cpp
 )
 
 target_link_libraries(test gtest_main)

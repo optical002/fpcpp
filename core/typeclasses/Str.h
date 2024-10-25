@@ -6,7 +6,6 @@
 #include <core/data/Concepts.h>
 #include <core/data/Tag.h>
 
-// TODO add to Either, Future.
 template<typename A>
 struct Str;
 

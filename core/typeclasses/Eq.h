@@ -4,6 +4,7 @@
 #include <concepts>
 #include <string>
 #include <core/typeclasses/Ord.h>
+#include <core/functional/Functor.h>
 #include <core/data/Concepts.h>
 #include <core/data/Tag.h>
 
@@ -59,5 +60,26 @@ struct Eq<Tagged<A, TagType>> {
     return Equal(a.a(), b.a());
   }
 };
+
+template<IsStringType A, IsStringType B>
+bool Equal(const A& a, const B& b) {
+  const std::string aStr = a, bStr = b;
+  return Eq<std::string>::equal(aStr, bStr);
+}
+
+template<
+  typename FA, typename FB,
+  typename A = typename FA::ValueType,
+  typename B = typename FB::ValueType
+> requires IsStringType<A> && IsStringType<B>
+bool Equal(const FA& fa, const FB& fb) {
+  using MappedF = typename FA::template NewType<std::string>;
+
+  const MappedF mappedA = Functor::Map(fa, [](auto a) { return std::string(a); });
+  const MappedF mappedB = Functor::Map(fb, [](auto b) { return std::string(b); });
+
+  return Eq<MappedF>::equal(mappedA, mappedB);
+}
+
 
 #endif // FPCPP_CORE_TYPECLASSES_EQ_H

@@ -189,22 +189,22 @@ public:
 /** @brief Helper function for constructing 'LeftProjection' of Either<L, ???>  */
 template<typename L>
 // ReSharper disable once CppInconsistentNaming
-LeftProjection<L> Left(const L& left) { return LeftProjection<L>(left);}
+LeftProjection<std::decay_t<L>> Left(L left) { return LeftProjection<std::decay_t<L>>(left);}
 
 /** @brief Helper function for constructing left side of Either<L, R> */
 template<typename R, typename L>
 // ReSharper disable once CppInconsistentNaming
-Either<L, R> LeftE(const L& left) { return Left(left); }
+Either<std::decay_t<L>, R> LeftE(L left) { return Left<std::decay_t<L>>(left); }
 
 /** @brief Helper function for constructing 'RightProjection' of Either<???, R>  */
 template<typename R>
 // ReSharper disable once CppInconsistentNaming
-RightProjection<R> Right(const R& right) { return RightProjection<R>(right); }
+RightProjection<std::decay_t<R>> Right(R right) { return RightProjection<std::decay_t<R>>(right); }
 
 /** @brief Helper function for constructing right side of Either<L, R> */
 template<typename L, typename R>
 // ReSharper disable once CppInconsistentNaming
-Either<L, R> RightE(const R& right) { return Right(right); }
+Either<L, std::decay_t<R>> RightE(R right) { return Right<std::decay_t<R>>(right); }
 
 // ReSharper disable once CppUnusedIncludeDirective
 #include "Option.h"  // NOLINT(misc-header-include-cycle)
