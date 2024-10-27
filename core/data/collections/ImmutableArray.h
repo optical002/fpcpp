@@ -16,7 +16,7 @@
 #include <core/typeclasses/Num.h>
 #include <core/typeclasses/Semigroup.h>
 
-/** @brief An immutable array which wraps 'std::array' and contains functional patterns. */
+/** @brief An immutable generic collection which has fixed length. */
 template<typename A, std::size_t N>
 struct ImmutableArray {
 public:
@@ -34,7 +34,7 @@ public:
   Option<A> at(std::size_t index) const {
     return index < N ? Some(_data[index]) : None;
   }
-  Option<A> operator[](std::size_t index) const {
+  Option<A> operator[](const std::size_t index) const {
     return at(index);
   }
 
@@ -68,7 +68,7 @@ public:
     typename ImmArrayB = std::invoke_result_t<Func, A>,
     std::size_t ImmArrayBSize = ImmArrayB::N_,
     std::size_t NewN = N * ImmArrayBSize,
-    typename B = ImmArrayB::ValueType
+    typename B = typename ImmArrayB::ValueType
   >
   ImmutableArray<B, NewN> flatMap(Func&& f) const {
     auto newArray = std::array<B, NewN>{};
@@ -181,8 +181,6 @@ public:
     return true;
   }
 
-  // TODO implement 'groupBy' after ImmutableMap is implemented.
-
   template<
     std::size_t ToTake,
     std::size_t NewN = std::min(ToTake, N)
@@ -201,16 +199,6 @@ public:
     std::array<A, NewN> newArray;
     std::copy(_data.begin() + ToDrop, _data.end(), newArray.begin());
     return ImmutableArray<A, NewN>(newArray);
-  }
-
-  template<Predicate<A> Func>
-  bool contains(Func&& f) const {
-    for (const auto& element : _data) {
-      if (f(element)) {
-        return true;
-      }
-    }
-    return false;
   }
 
   ImmutableArray reverse() const {
@@ -374,6 +362,12 @@ public:
     }
     return ImmutableArray<InnerA, N>(result);
   }
+
+  // TODO implement conversions:
+  // - toMap: ImmutableArray[std::pair<A, B>] -> ImmutableMap[A, B]
+  // - toMap: (f: A -> (K, V)) -> ImmutableMap[K, V]
+  // - toSet: ImmutableSet[A]
+  // - toVector: ImmutableVector[A]
 
 private:
   std::array<A, N> _data;

@@ -42,7 +42,9 @@ add_executable(test
   data/TestTag.cpp
   typeclasses/TestDebugStr.cpp
   typeclasses/TestDebugStr.h
-  typeclasses/TestFunctor.cpp
+  functional/TestFunctor.cpp
+  data/collections/TestImmutableVector.cpp
+  data/collections/TestImmutableSet.cpp
 )
 
 target_link_libraries(test gtest_main)

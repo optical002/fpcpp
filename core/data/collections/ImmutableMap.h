@@ -9,7 +9,6 @@ struct ImmutableMap {
 public:
   template<typename NewValue>
   using NewType = ImmutableMap<Key, NewValue>;
-  // TODO add tag and untag
   using ValueType = Value;
   using KeyType = Key;
 
@@ -38,6 +37,67 @@ public:
     return _map.cend();
   }
 
+  template<
+    std::invocable<Value> Func,
+    typename NewValue = std::invoke_result_t<Func, Value>
+  >
+  ImmutableMap<Key, NewValue> map(Func&& f) const {
+    std::map<Key, NewValue> result;
+
+    for (auto& [key, value] : _map) {
+      result[key] = f(value);
+    }
+
+    return ImmutableMap<Key, NewValue>(result);
+  }
+
+  template<
+    std::invocable<Value> Func,
+    typename NewMap = std::invoke_result_t<Func, Value>,
+    typename NewValue = typename NewMap::ValueType,
+    typename NewKey = typename NewMap::KeyType
+  >
+  ImmutableMap<NewKey, NewValue> flatMap(Func&& f) const {
+    std::map<NewKey, NewValue> result;
+
+    for (auto& [_, value] : _map) {
+      for (
+        const auto innerMap = f(value);
+        auto& [innerKey, innerValue] : innerMap
+      ) {
+        result[innerKey] = innerValue;
+      }
+    }
+
+    return ImmutableMap<NewKey, NewValue>(result);
+  }
+
+  // TODO implement operations:
+  // - flatten: [K, Iterable[V]] -> Iterable[(K, V)]
+  // - reduce: (f: (K, V) -> B) : B
+  // - fold: (initial: B, f: (B, K, V) -> B) : B
+  // - find: (f: (K, V) -> bool) : Option[(K, V)]
+  // - exists: (f: (K, V) -> bool) : bool
+  // - forAll: (f: (K, V) -> bool) : bool
+  // - filter: (f: (K, V) -> bool) : Map[(K, V)]
+  // - mkString: (separator: String) : String
+  // - mkString: (f: (K, V) -> String) : String
+
+  // TODO implement conversions:
+  // - toSet: ImmutableSet[(K, V)]
+  // - toVector: ImmutableVector[(K, V)]
+  // - keys: ImmutableSet[K]
+  // - values: ImmutableVector[V]
+
+  // TODO implement typeclasses:
+  // - Eq
+  // - Default
+  // - Semigroup
+  // - Str
+  // - DebugStr
+
+  // TODO add tag and untag
+
 private:
   std::map<Key, Value> _map;
 };
@@ -50,6 +110,9 @@ template<
 ImmutableMap<Key, Value> ImmMap(Pairs... pairs) {
   return ImmutableMap<Key, Value>({pairs...});
 }
+
+template<typename Key, typename Value>
+ImmutableMap<Key, Value> EmptyImmMap() { return ImmutableMap<Key, Value>({}); }
 
 
 

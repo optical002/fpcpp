@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <core/data/Tag.h>
-#include <core/data/ImmutableArray.h>
+#include <core/data/collections/ImmutableArray.h>
 #include <core/data/Option.h>
 #include <core/typeclasses/Semigroup.h>
 

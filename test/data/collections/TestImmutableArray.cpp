@@ -8,6 +8,11 @@ TEST(Data_ImmutableArray, Construction) {
   EXPECT_EQ(array.size(), 4);
 }
 
+TEST(Data_ImmutableArray, Empty) {
+  const auto emptyArr = EmptyImmArray<int>();
+  EXPECT_TRUE(emptyArr.isEmpty());
+}
+
 TEST(Data_ImmutableArray, ForEach) {
   const auto array = ImmArray(1, 2, 3);
   int value = 1;
@@ -162,14 +167,6 @@ TEST(Data_ImmutableArray, Drop) {
   const auto dropped = array.drop<i>();
   EXPECT_TRUE(Equal(array, ImmArray(1, 2, 3, 4, 5)));
   EXPECT_TRUE(Equal(dropped, ImmArray(4, 5)));
-}
-
-TEST(Data_ImmutableArray, Contains) {
-  const auto array = ImmArray(1, 2, 3, 4, 5);
-  const auto containsTrue = array.contains([](int x) { return x == 3; });
-  const auto containsFalse = array.contains([](int x) { return x == 9; });
-  EXPECT_TRUE(containsTrue);
-  EXPECT_FALSE(containsFalse);
 }
 
 TEST(Data_ImmutableArray, Reverse) {
