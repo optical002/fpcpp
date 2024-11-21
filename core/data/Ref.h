@@ -18,9 +18,15 @@ struct Ref {
   using ValueType = A;
 
   explicit Ref(const A& a) : _data(std::make_shared<RefData<A>>(a)) { }
+  Ref() : _data(std::make_shared<RefData<A>>()) { }
   
   A getValue() const { return _data->value; }
   void setValue(const A& a) const { _data->value = a; }
+
+  std::shared_ptr<A> getSharedPtr() const {
+    return std::shared_ptr<A>(_data, &_data->value);
+  }
+
 private:
   std::shared_ptr<RefData<A>> _data;
 };
