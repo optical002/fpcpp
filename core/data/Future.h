@@ -35,7 +35,7 @@ public:
 private:
   explicit Future(FutureImpl<A> futureImpl) : _futureImpl(std::move(futureImpl)) {}
 public:
-  static Future successful(const A& value) {
+  static Future successful(const A value) {
     return Future(FutureImpl<A>::create_successful(value));
   }
   static Future unsuccessful() {

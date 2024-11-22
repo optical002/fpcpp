@@ -26,7 +26,7 @@ public:
   using ValueType = A;
   static constexpr std::size_t N_ = N;
 
-  explicit ImmutableArray(const std::array<A, N>& arr) : _data(arr) {}
+  explicit ImmutableArray(const std::array<A, N> arr) : _data(arr) {}
 
   A _unsafe_at(std::size_t index) const {
     return _data.at(index);

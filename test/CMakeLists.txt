@@ -45,6 +45,7 @@ add_executable(test
   functional/TestFunctor.cpp
   data/collections/TestImmutableVector.cpp
   data/collections/TestImmutableSet.cpp
+  reactive/TestRxRef.cpp
 )
 
 target_link_libraries(test gtest_main)

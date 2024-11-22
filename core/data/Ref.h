@@ -17,11 +17,12 @@ struct Ref {
   using NewType = Ref<NewA>;
   using ValueType = A;
 
-  explicit Ref(const A& a) : _data(std::make_shared<RefData<A>>(a)) { }
+  explicit Ref(const A a) : _data(std::make_shared<RefData<A>>(a)) { }
   Ref() : _data(std::make_shared<RefData<A>>()) { }
   
   A getValue() const { return _data->value; }
-  void setValue(const A& a) const { _data->value = a; }
+  void setValue(const A a) const { _data->value = a; }
+  void unsafe_setValueMove(const A& a) const { _data->value = std::move(a); }
 
   std::shared_ptr<A> getSharedPtr() const {
     return std::shared_ptr<A>(_data, &_data->value);

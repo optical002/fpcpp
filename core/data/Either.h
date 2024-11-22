@@ -28,8 +28,8 @@ public:
   using RightType = R;
   using LeftType = L;
   
-  static Either left(const L& value) { return Either(value); }
-  static Either right(const R& value) { return Either(value, {}); }
+  static Either left(const L value) { return Either(value); }
+  static Either right(const R value) { return Either(value, {}); }
 
   bool isLeft() const { return _impl.isValueAtIdx(0);; }
   bool isRight() const { return !isLeft(); }

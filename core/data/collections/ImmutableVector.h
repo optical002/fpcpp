@@ -12,7 +12,7 @@ public:
   using NewType = ImmutableVector<NewValue>;
   using ValueType = A;
 
-  explicit ImmutableVector(const std::vector<A>& data) : _data(data) {}
+  explicit ImmutableVector(const std::vector<A> data) : _data(data) {}
 
   [[nodiscard]] std::size_t size() const { return _data.size(); }
 

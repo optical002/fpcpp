@@ -35,7 +35,7 @@ struct Tagged {
   using TagType = TagType_;
 
   Tagged() : _a() {}
-  explicit Tagged(const A &a) : _a(a) { }
+  explicit Tagged(const A a) : _a(a) { }
 
   // ReSharper disable once CppNonExplicitConversionOperator
   operator A() const { return _a; }

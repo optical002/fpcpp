@@ -12,7 +12,7 @@ public:
   using NewType = ImmutableSet<NewValue>;
   using ValueType = A;
 
-  explicit ImmutableSet(const std::set<A>& data) : _data(data) {}
+  explicit ImmutableSet(const std::set<A> data) : _data(data) {}
 
   [[nodiscard]] std::size_t size() const { return _data.size(); }
 

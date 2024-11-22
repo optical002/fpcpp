@@ -23,9 +23,9 @@ public:
 
   using ValueType = A;
   
-  static Option some(const A& value){ return Option(value); }
+  static Option some(const A value){ return Option(value); }
   static Option none() { return Option(); }
-  static Option opt(const bool& condition, const A& value){
+  static Option opt(const bool& condition, const A value){
     return condition ? some(value) : none();
   }
 

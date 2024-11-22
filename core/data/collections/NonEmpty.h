@@ -14,7 +14,7 @@ concept IsCollection = requires {
 template<IsCollection C>
 struct NonEmpty {
 public:
-  static Option<C> create(const C& collection) {
+  static Option<C> create(const C collection) {
     return collection.isEmpty() ? None : Some(collection);
   }
 

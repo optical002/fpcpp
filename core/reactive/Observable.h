@@ -14,13 +14,19 @@ template<typename A>
 class Subject;
 
 template<typename A>
+struct RxVal;
+
+template<typename A>
+struct RxRef;
+
+template<typename A>
 class Observable {
 public:
   using ValueType = A;
   
   Subscription subscribe(
     const Tracker& tracker, std::function<void(const A&)> listener
-  ) const {return _data.getSubscribeable().subscribe(tracker, listener); }
+  ) const { return _data.getSubscribeable().subscribe(tracker, listener); }
 
   template<
     typename Func,
@@ -49,6 +55,8 @@ protected:
   Observable() = default;
 
   friend class Subject<A>;
+  friend class RxVal<A>;
+  friend class RxRef<A>;
 };
 
 #include <core/reactive/Subject.h>

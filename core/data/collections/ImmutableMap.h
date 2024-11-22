@@ -12,7 +12,7 @@ public:
   using ValueType = Value;
   using KeyType = Key;
 
-  explicit ImmutableMap(const std::map<Key, Value>& map) : _map(map) {}
+  explicit ImmutableMap(const std::map<Key, Value> map) : _map(map) {}
 
   Value _unsafe_at(const Key& key) const {
     return _map.at(key);
