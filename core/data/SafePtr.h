@@ -28,8 +28,8 @@ private:
   explicit SafePtr(Ptr ptr) : _ptr(ptr) {}
   Ptr _ptr;
 
-  friend class Str<SafePtr>;
-  friend class Eq<SafePtr>;
+  friend struct Str<SafePtr>;
+  friend struct Eq<SafePtr>;
 };
 
 template<HasStr A>

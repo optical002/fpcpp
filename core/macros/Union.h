@@ -105,7 +105,7 @@
   Variant<UNION_VARIANT_TYPE_SEQ_ITERATION(seq, size)>
 
 #define UNION_VARIANT_FIELD(...) \
-  const UNION_VARIANT_TYPE(__VA_ARGS__) _variant;
+  UNION_VARIANT_TYPE(__VA_ARGS__) _variant;
 
 #define UNION_PRIVATE_CONSTRUCTOR(union_name, ...) \
   union_name( \

@@ -102,7 +102,7 @@ private:
   FutureImpl<A> _futureImpl;
   
   friend class Promise<A>;
-  friend class Str<Future>;
+  friend struct Str<Future>;
 };
 
 /** @brief Represents a promise to complete a value in the future. */
@@ -134,7 +134,7 @@ public:
 private:
   Future<A> _asyncFuture;
 
-  friend class Str<Promise>;
+  friend struct Str<Promise>;
 };
 
 /** @brief Represents a 'Future' which is never completed. */

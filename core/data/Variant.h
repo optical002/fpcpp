@@ -77,8 +77,8 @@ private:
   std::uint8_t _index;
   std::array<std::byte, (std::max)({sizeof(Types)...})> _storage = {};
 
-  friend class Eq<Variant>;
-  friend class Str<Variant>;
+  friend struct Eq<Variant>;
+  friend struct Str<Variant>;
 };
 
 #include <core/data/Option.h>
