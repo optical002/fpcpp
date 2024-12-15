@@ -69,12 +69,12 @@ public:
     return isSome() ? onSome(_unsafeValue()) : onEmpty;
   }
 
-  bool valueOut(A& value) {
+  bool valueOut(A& value) const {
     value = _unsafeValue();
     return isSome();
   }
 
-  A getOr(const A& value){
+  A getOr(const A& value) const {
     return isSome() ? _unsafeValue() : value;
   }
   
