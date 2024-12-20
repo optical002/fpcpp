@@ -23,7 +23,15 @@ struct Num<A> {
   static A subtract(const A& a, const A& b) { return a - b; }
   static A multiply(const A& a, const A& b) { return a * b; }
   static A divide(const A& a, const A& b) { return a / b; }
-  static A mod(const A& a, const A& b) { return a % b; }
+  static A mod(const A& a, const A& b) {
+    if constexpr (std::is_integral_v<A>) {
+      // For integer types
+      return a % b;
+    } else {
+      // For non-integer types, like float or double, use fmod
+      return static_cast<A>(std::fmod(a, b));
+    }
+  }
 };
 
 template<HasNum A, HasTag TagType>
