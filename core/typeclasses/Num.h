@@ -2,6 +2,7 @@
 #define FPCPP_CORE_TYPECLASSES_NUM_H
 
 #include <concepts>
+#include <cmath>
 #include <core/data/Concepts.h>
 #include <core/data/Tag.h>
 

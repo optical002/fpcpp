@@ -1,5 +1,5 @@
-#ifndef FPCPP_CORE_TYPECLASSES_FUNCTOR_H
-#define FPCPP_CORE_TYPECLASSES_FUNCTOR_H
+#ifndef FPCPP_CORE_FUNCTIONAL_FUNCTOR_H
+#define FPCPP_CORE_FUNCTIONAL_FUNCTOR_H
 
 #include <concepts>
 #include <functional>
@@ -18,4 +18,4 @@ namespace Functor {
   }
 }
 
-#endif //FPCPP_CORE_TYPECLASSES_FUNCTOR_H
+#endif //FPCPP_CORE_FUNCTIONAL_FUNCTOR_H

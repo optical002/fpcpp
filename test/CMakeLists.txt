@@ -43,6 +43,7 @@ add_executable(test
   typeclasses/TestDebugStr.cpp
   typeclasses/TestDebugStr.h
   functional/TestFunctor.cpp
+  functional/TestRefCmp.cpp
   data/collections/TestImmutableVector.cpp
   data/collections/TestImmutableSet.cpp
   reactive/TestRxRef.cpp

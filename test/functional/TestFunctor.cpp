@@ -2,7 +2,7 @@
 #include <core/functional/Functor.h>
 #include <gtest/gtest.h>
 
-TEST(Typeclasses_Functor, Functionality) {
+TEST(Functional_Functor, Functionality) {
   const auto opt = Some(1);
   const auto mapped = Functor::Map(opt, [](auto a) { return std::to_string(a); });
 
