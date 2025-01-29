@@ -220,7 +220,7 @@ public:
     return oss.str();
   }
 
-  template<Func<A, std::string> Func>
+  template<Func1<A, std::string> Func>
   std::string mkString(Func&& f, std::string separator = ", ") const {
     std::ostringstream oss;
 

@@ -58,7 +58,7 @@ concept Predicate = std::invocable<Func, A> && std::same_as<bool, std::invoke_re
 
 /** @brief Annotates a type to be a function. */
 template<typename F, typename A, typename Result>
-concept Func = std::invocable<F, A> && std::same_as<Result, std::invoke_result_t<F, A>>;
+concept Func1 = std::invocable<F, A> && std::same_as<Result, std::invoke_result_t<F, A>>;
 
 /** @brief Annotates a type to be a function with 2 arguments. */
 template<typename F, typename A1, typename A2, typename Result>
