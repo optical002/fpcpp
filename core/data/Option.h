@@ -9,6 +9,32 @@
 #include <core/typeclasses/Str.h>
 #include <core/typeclasses/DebugStr.h>
 
+#define GET_OR_RETURN(VAR_NAME, OPT) \
+  auto __optValue = OPT; \
+  if (__optValue.isNone()) { \
+    return; \
+  } \
+  auto VAR_NAME = __optValue._unsafeValue();
+
+#define GET_OR_RETURN_VALUE(VAR_NAME, VALUE, OPT) \
+  auto __optValue = OPT; \
+  if (__optValue.isNone()) { \
+    return VALUE; \
+  } \
+  auto VAR_NAME = __optValue._unsafeValue();
+
+#define GET_OR_RETURN_VALUE_LOG(VAR_NAME, VALUE, OPT, LOG) \
+  auto __optValue = OPT; \
+  if (__optValue.isNone()) { \
+    LOG; \
+    return VALUE; \
+  } \
+  auto VAR_NAME = __optValue._unsafeValue();
+
+#define OPT_PTR(PTR) \
+  auto __ptrValue = PTR; \
+
+
 template<typename L, typename R>
 class Either;
 
@@ -28,6 +54,8 @@ public:
   static Option opt(const bool& condition, const A value){
     return condition ? some(value) : none();
   }
+
+  const A& _unsafeValue() const { return _impl.template _unsafe_get_ref<0>(); }
 
   bool isSome() const { return _impl.isValueAtIdx(0); }
   bool isNone() const { return !isSome(); }
@@ -123,8 +151,6 @@ public:
 private:
   Option() : _impl(Variant<A, Unit>::template create<1>(Unit())) {}
   explicit Option(const A& value) : _impl(Variant<A, Unit>::template create<0>(value)) {}
-
-  const A& _unsafeValue() const { return _impl.template _unsafe_get_ref<0>(); }
 
   Variant<A, Unit> _impl;
 };
