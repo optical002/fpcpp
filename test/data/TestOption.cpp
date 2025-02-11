@@ -23,6 +23,16 @@ TEST(Data_Option, ForComprehension) {
   });
 }
 
+TEST(Data_Option, GetOrReturn) {
+  const auto someOpt = Some(1);
+  GET_OR_RETURN(value, someOpt)
+
+  EXPECT_EQ(value, 1) << "Expected value to be 1, but it was not.";
+
+  const auto noneOpt = NoneOf<int>();
+  GET_OR_RETURN(value2, noneOpt)
+}
+
 TEST(Data_Option, Map) {
   const auto someOpt = Some(1);
   const Option<int> noneOpt = None;

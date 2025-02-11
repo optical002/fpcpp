@@ -26,6 +26,8 @@ add_executable(test
   reactive/TestTracker.cpp
   syntax/TestForComprehension.cpp
   syntax/TestTry.cpp
+  syntax/TestNullCheckChain.cpp
+  syntax/TestNullCheckGroup.cpp
   typeclasses/TestEq.cpp
   typeclasses/TestEq.h
   typeclasses/TestNum.cpp

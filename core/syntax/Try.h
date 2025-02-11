@@ -4,6 +4,7 @@
 #include <format>
 #include <string>
 #include <stdexcept>
+#include <exception>
 #include <core/data/Either.h>
 #include <core/data/Unit.h>
 #include <core/data/Concepts.h>
@@ -17,6 +18,7 @@ template<
   typename Func,
   typename FuncReturn = decltype(std::declval<Func>()()),
   typename IsReturnVoid = std::is_void<FuncReturn>,
+  typename IsPointer = std::is_pointer<FuncReturn>,
   typename Right = std::conditional_t<IsReturnVoid::value, Unit, FuncReturn>,
   typename TryType = Either<std::exception, Right>
 > requires std::invocable<Func>
@@ -26,7 +28,15 @@ TryType Try(Func&& f) {
       f();
       return TryType::right(Unit());
     } else {
-      return TryType::right(f());
+      auto result = f();
+
+      if constexpr (IsPointer::value) {
+        return result == nullptr
+          ? TryType::left(std::runtime_error("Pointer is nullptr"))
+          : TryType::right(result);
+      } else {
+        return TryType::right(result);
+      }
     }
   } catch (const std::exception& e) {
     return TryType::left(e);
