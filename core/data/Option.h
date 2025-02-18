@@ -26,6 +26,13 @@
   } \
   auto VAR_NAME = OPTION_FIELD_NAME(VAR_NAME)._unsafeValue();
 
+#define SET_OR_LOG(VAR_NAME, OPT, LOG) \
+  auto OPTION_FIELD_NAME(VAR_NAME) = OPT; \
+  if (OPTION_FIELD_NAME(VAR_NAME).isNone()) { \
+    LOG; \
+  } \
+  VAR_NAME = OPTION_FIELD_NAME(VAR_NAME)._unsafeValue();
+
 #define GET_OR_RETURN_VALUE(VAR_NAME, VALUE, OPT) \
   auto OPTION_FIELD_NAME(VAR_NAME) = OPT; \
   if (OPTION_FIELD_NAME(VAR_NAME).isNone()) { \

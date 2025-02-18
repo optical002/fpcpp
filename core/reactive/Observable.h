@@ -14,10 +14,10 @@ template<typename A>
 class Subject;
 
 template<typename A>
-struct RxVal;
+class RxVal;
 
 template<typename A>
-struct RxRef;
+class RxRef;
 
 template<typename A>
 class Observable {
@@ -40,9 +40,10 @@ public:
   > requires std::invocable<Predicate, A> && std::is_same_v<FuncResult, bool>
   Observable filter(Predicate&& f) const;
 
-  template<typename... Observables>
-  requires (std::is_base_of_v<Observable, Observables> && ...)
-  Observable join(Observables... params) const;
+  // TODO PS does not work in unreal engine for now
+  // template<typename... Observables>
+  // requires (std::is_base_of_v<Observable, Observables> && ...)
+  // Observable join(Observables... params) const;
 
   Future<A> toFuture() const;
 
@@ -90,18 +91,18 @@ Observable<A> Observable<A>::filter(Predicate &&f) const {
   return subject;
 }
 
-template<typename A>
-template<typename ... Observables> requires (std::is_base_of_v<Observable<A>, Observables> && ...)
-Observable<A> Observable<A>::join(Observables... params) const {
-  std::vector<Observable> observables = {*this, params...};
-  auto subject = Subject<A>();
-  for (auto observable : observables) {
-    observable.subscribe(NoOpTracker{}, [subject](const A& value) {
-      subject.push(value);
-    });
-  }
-  return subject;
-}
+//template<typename A>
+//template<typename ... Observables> requires (std::is_base_of_v<Observable<A>, Observables> && ...)
+//Observable<A> Observable<A>::join(Observables... params) const {
+//  std::vector<Observable> observables = {*this, params...};
+//  auto subject = Subject<A>();
+//  for (auto observable : observables) {
+//    observable.subscribe(NoOpTracker{}, [subject](const A& value) {
+//      subject.push(value);
+//    });
+//  }
+//  return subject;
+//}
 
 template<typename A>
 Future<A> Observable<A>::toFuture() const {

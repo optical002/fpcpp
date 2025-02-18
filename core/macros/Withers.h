@@ -35,7 +35,7 @@
   ))
 
 #define WITH_SINGLE_FUNCTION(s, i, type, name, record, ...) \
-  record with_##name(const type name##_) const { \
+  record with_##name(type name##_) const { \
     return record( CONSTRUCTOR_ARGS(i, __VA_ARGS__) ); \
   }
 
