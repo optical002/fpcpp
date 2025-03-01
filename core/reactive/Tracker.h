@@ -31,11 +31,17 @@ struct DisposableTrackerData {
 
 class DisposableTracker final : public Tracker {
 public:
-  DisposableTracker() : _data(std::make_shared<DisposableTrackerData>()) {}
-
-  // Do not leave active subscriptions when the tracker is destroyed.
-  ~DisposableTracker() override { dispose(); }
-
+  DisposableTracker() : _data(std::shared_ptr<DisposableTrackerData>(
+    new DisposableTrackerData(),
+    [](const DisposableTrackerData* data) {
+      for (const auto& sub : data->subscriptions) {
+        // ReSharper disable once CppExpressionWithoutSideEffects
+        sub.unsubscribe();
+      }
+      delete data;
+    }
+  )) {}
+  
   void dispose() const {
     for (const auto& sub : _data->subscriptions) {
       // ReSharper disable once CppExpressionWithoutSideEffects

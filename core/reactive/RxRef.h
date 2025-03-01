@@ -24,7 +24,7 @@ public:
   ) const {
     auto sub = _notifiable.getSubscribeable().subscribe(tracker, listener);
     if (behaviour == SubscribeBehaviour::InvokeOnSubscribe) {
-      _notifiable.getPushable().push(_ref.getValue());
+      listener(_ref.getValue());
     }
     return sub;
   }
@@ -51,7 +51,7 @@ private:
 
   RxVal(
     const Notifiable<A> notifiable, const Ref<A> ref
-  ) : _notifiable(notifiable), _ref(ref)  { }
+  ) : _ref(ref), _notifiable(notifiable)  { }
 
   friend class RxRef<A>;
 };
@@ -111,33 +111,30 @@ private:
 template<typename A>
 template<typename Func, typename B> requires std::invocable<Func, A>
 RxVal<B> RxVal<A>::map(Func&& f) const {
-  auto rxRef = RxRef<B>::a(f(_ref.getValue()));
-  subscribe(NoOpTracker{}, [
-    rxRef, f = std::forward<Func>(f)
-  ](const A& value) {
-    rxRef.setValue(f(value));
+  RxRef<B> newRxRef = RxRef<B>::a(f(_ref.getValue()));
+
+  subscribe(NoOpTracker{}, [newRxRef, f = std::forward<Func>(f)](const A& value) {
+    newRxRef.setValue(f(value));
   }, SubscribeBehaviour::InvokeOnNextVal);
 
-  return rxRef;
+  return newRxRef;
 }
 
 template<typename A>
 template<typename Func, typename RxValB, typename B> requires std::invocable<Func, A>
 RxVal<B> RxVal<A>::flatMap(Func&& f) const {
-  auto rxRefResult = RxRef<B>::a(f(_ref.getValue()).getValue());
+  auto newRxRef = RxRef<B>::a(f(_ref.getValue()).getValue());
   auto disposableTracker = DisposableTracker();
 
-  subscribe(NoOpTracker{}, [
-    rxRefResult, disposableTracker, f = std::forward<Func>(f)
-  ](const A& value) {
+  subscribe(NoOpTracker{}, [newRxRef, disposableTracker, f = std::forward<Func>(f)](const A& value) {
     disposableTracker.dispose();
     auto innerRx = f(value);
-    innerRx.subscribe(disposableTracker, [rxRefResult](const B& value) {
-      rxRefResult.setValue(value);
+    innerRx.subscribe(disposableTracker, [newRxRef, innerRx](const B& value) {
+      newRxRef.setValue(value);
     });
   }, SubscribeBehaviour::InvokeOnNextVal);
 
-  return rxRefResult;
+  return newRxRef;
 }
 
 #endif //FPCPP_CORE_REACTIVE_RX_REF_H
